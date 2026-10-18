@@ -532,6 +532,16 @@
       "monitor": true,
       "nota": "Base normativa histórica; las ayudas de combustible deben clasificarse por sector y edición.",
       "oficial": true
+    },
+    {
+      "id": "melilla-ayudas",
+      "nombre": "Ciudad Autónoma de Melilla · Subvenciones públicas y ayudas",
+      "ambito": "Melilla",
+      "categoria": "Ayudas generales",
+      "url": "https://melilla.es/melillaPortal/contenedor.jsp?codMenu=514&codMenuPN=602&codResi=1&codbusqueda=693&language=es&layout=contenedor.jsp&numeroPagina=1&seccion=s_ldoc_d1_v1.jsp",
+      "monitor": true,
+      "nota": "Buscador oficial de ayudas y subvenciones, con páginas de convocatorias y documentos relacionados.",
+      "oficial": true
     }
   ],
   "coberturaTerritorial": [
@@ -647,7 +657,7 @@
       "nombre": "Melilla",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
+      "estado": "portal oficial de ayudas registrado"
     }
   ]
 }
