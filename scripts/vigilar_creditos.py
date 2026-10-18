@@ -84,7 +84,7 @@ def main():
                                 "antes": antes[:1200], "despues": t[:1200]})
         if estado == "igual" and ant.get("estado") == "cambio" and ant.get("desde"):
             estado = "cambio"          # el aviso se mantiene hasta que lo revises y lo quites
-        if not nuevos or all(v["nota"] for v in nuevos.values()):
+        if (not nuevos or all(v["nota"] for v in nuevos.values())) and estado != "cambio":
             estado = "no_verificable"
         res[fid] = {"estado": estado, "desde": desde, "comprobado": hoy, "snapshots": nuevos, "cambios": cambios[-20:]}
         print(f"  ficha {fid} «{f.get('titulo','')[:40]}»: {estado}")
