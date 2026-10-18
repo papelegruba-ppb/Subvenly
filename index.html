@@ -132,6 +132,7 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
   <div class="filters" id="estf" role="group" aria-label="Filtrar por estado"></div>
   <div id="list" aria-live="polite"></div>
   <section id="source-changes" hidden><h2 class="gh">Cambios detectados en fuentes oficiales</h2><div id="source-changes-list" class="grid"></div></section>
+  <details id="sources-panel" class="card" style="margin-top:18px"><summary style="cursor:pointer;font-weight:600">Fuentes oficiales y cobertura territorial</summary><p class="meta">Abre una fuente para consultar las convocatorias originales. Las fuentes generales no equivalen a convocatorias abiertas.</p><div id="sources-coverage" class="facts"></div><div id="sources-list" class="grid"></div></details>
   <div id="nov"><div id="nov-top"></div><div id="nov-list" aria-live="polite"></div></div>
   <div id="lic"><div id="lic-top"></div><div id="lic-list" aria-live="polite"></div></div>
 </div>
@@ -480,13 +481,13 @@ Promise.all([cargar("data/fichas.json",null),cargar("data/novedades.json",{items
   AIDS=r[0];NOV=r[1]||{items:[]};LIC=r[2]||{items:[]};VIG=(r[3]&&r[3].fichas)||{};
   window.SUBVENLY_GEOGRAFIA=r[4]||{provinces:[]};
   if(!r[4])console.warn("No se ha podido cargar el catálogo geográfico; los desplegables de provincia y municipio estarán vacíos.");
-  VF=(r[5]&&r[5].fuentes)||{};FUENTES=(r[6]&&r[6].fuentes)||[];
+  VF=(r[5]&&r[5].fuentes)||{};FUENTESDOC=r[6]||{fuentes:[]};FUENTES=FUENTESDOC.fuentes||[];
   init()});
 </script>
 
 <script>
 /* Rutas de perfil y ayudas personales/familiares. Se carga antes de que termine init(). */
-var VF={},FUENTES=[];
+var VF={},FUENTES=[],FUENTESDOC={};
 Object.assign(QUESTIONS,{
  perfil:"¿Para quién buscas ayudas?",
  forma:"¿Qué forma jurídica tiene o tendrá el negocio?",
@@ -633,7 +634,20 @@ function renderSourceChanges(){
   var b=el("button","btn","Marcar revisado en este dispositivo");b.type="button";b.onclick=function(){vistos[id]=last?(last.fecha||""):(v.comprobado||"");LS.set("subvenly_fuentes_revisadas",JSON.stringify(vistos));renderSourceChanges()};row.appendChild(b);card.appendChild(row);list.appendChild(card);
  });
 }
-function init(){renderProfile();renderFilters();renderList();buildNovTop();renderNovedades();buildLicTop();renderLic();renderSourceChanges()}
+
+function renderSources(){
+ var cov=document.getElementById("sources-coverage"),list=document.getElementById("sources-list");if(!cov||!list)return;cov.innerHTML="";list.innerHTML="";
+ var territories=FUENTESDOC.coberturaTerritorial||[];
+ territories.forEach(function(t){var d=el("div","fact");d.appendChild(txt("strong",t.nombre));d.appendChild(txt("span",t.estado));cov.appendChild(d)});
+ FUENTES.forEach(function(src){var card=el("article","card"),h=txt("h3",src.nombre||src.id);card.appendChild(h);
+  card.appendChild(txt("p","Ámbito: "+(src.ambito||"No especificado")+" · Categoría: "+(src.categoria||"General")));
+  var state=VF[src.id],status=src.monitor?(state?"Seguimiento: "+state.estado+" · comprobado "+(state.comprobado||"sin fecha"):"Seguimiento automático pendiente de primera ejecución"):"Fuente de referencia sin vigilancia automática";
+  if(src.oficial===false)status+=" · Fuente secundaria; confirmar con el organismo convocante";
+  card.appendChild(txt("p",status));if(src.nota)card.appendChild(txt("p",src.nota));
+  var row=el("div","row"),link=el("a","btn alt","Abrir fuente");link.href=src.url;link.target="_blank";link.rel="noopener";row.appendChild(link);card.appendChild(row);list.appendChild(card);
+ });
+}
+function init(){renderProfile();renderFilters();renderList();buildNovTop();renderNovedades();buildLicTop();renderLic();renderSourceChanges();renderSources()}
 </script>
 
 </body>
