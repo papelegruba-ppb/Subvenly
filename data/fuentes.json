@@ -1,0 +1,287 @@
+{
+  "version": 1,
+  "actualizado": "2026-10-18",
+  "nota": "Registro de fuentes oficiales o portales de referencia. Una fuente no equivale a una convocatoria. La cobertura autonómica/municipal debe ampliarse y verificarse de forma progresiva.",
+  "fuentes": [
+    {
+      "id": "bdns",
+      "nombre": "Base de Datos Nacional de Subvenciones",
+      "ambito": "Estado / todas las CCAA y entidades locales",
+      "categoria": "Subvenciones",
+      "url": "https://www.infosubvenciones.es/bdnstrans/",
+      "monitor": true,
+      "nota": "Fuente transversal; contrastar cada convocatoria y sus bases.",
+      "oficial": true
+    },
+    {
+      "id": "sepe-bonificaciones",
+      "nombre": "SEPE · Bonificaciones y ayudas",
+      "ambito": "Estatal",
+      "categoria": "Empleo y contratación",
+      "url": "https://www.sepe.es/HomeSepe/es/empresas/informacion-para-empresas/bonificaciones-ayudas.html",
+      "monitor": true,
+      "nota": "Bonificaciones e incentivos laborales.",
+      "oficial": true
+    },
+    {
+      "id": "seguridad-social-nacimiento",
+      "nombre": "Seguridad Social · Nacimiento y cuidado de menor",
+      "ambito": "Estatal",
+      "categoria": "Familia y prestaciones",
+      "url": "https://prestaciones.seg-social.es/servicio/prestacion-nacimiento-adopcion-cuidado-menor.html",
+      "monitor": true,
+      "nota": "Prestación personal, separada de las subvenciones empresariales.",
+      "oficial": true
+    },
+    {
+      "id": "imv",
+      "nombre": "Ingreso Mínimo Vital",
+      "ambito": "Estatal",
+      "categoria": "Prestaciones sociales",
+      "url": "https://imv.seg-social.es/",
+      "monitor": true,
+      "nota": "Verificar requisitos, unidad de convivencia, ingresos y procedimiento.",
+      "oficial": true
+    },
+    {
+      "id": "aeat-beneficios",
+      "nombre": "AEAT · Beneficios fiscales",
+      "ambito": "Estatal",
+      "categoria": "Fiscalidad personal",
+      "url": "https://sede.agenciatributaria.gob.es/Sede/beneficios-fiscales-autorizaciones.html",
+      "monitor": true,
+      "nota": "Distinguir beneficios fiscales de subvenciones.",
+      "oficial": true
+    },
+    {
+      "id": "eu-funding",
+      "nombre": "Comisión Europea · Funding & Tenders",
+      "ambito": "Unión Europea",
+      "categoria": "Financiación y programas UE",
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/",
+      "monitor": true,
+      "nota": "Conservar programa, convocatoria, elegibilidad y fechas oficiales.",
+      "oficial": true
+    },
+    {
+      "id": "euipo",
+      "nombre": "EUIPO",
+      "ambito": "Unión Europea",
+      "categoria": "Pymes, marcas y diseños",
+      "url": "https://www.euipo.europa.eu/es",
+      "monitor": true,
+      "nota": "Comprobar cada edición y disponibilidad de fondos.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-economia",
+      "nombre": "Generalitat · Economia i Hisenda: ajuts i subvencions",
+      "ambito": "Cataluña",
+      "categoria": "Ayudas generales",
+      "url": "https://economia.gencat.cat/ca/ambits-actuacio/ajuts-subvencions/",
+      "monitor": true,
+      "nota": "Portal de descubrimiento, no una convocatoria individual.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-naixement",
+      "nombre": "Generalitat · Prestació per a famílies amb infants",
+      "ambito": "Cataluña",
+      "categoria": "Nacimiento y familia",
+      "url": "https://tramits.gencat.cat/ca/tramits/tramits-temes/Prestacio-per-a-families-amb-infants",
+      "monitor": true,
+      "nota": "Vigilar plazos vinculados a la fecha del nacimiento y cambios de bases.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-imv",
+      "nombre": "Generalitat · Trámite IMV",
+      "ambito": "Cataluña / estatal",
+      "categoria": "Prestaciones sociales",
+      "url": "https://tramits.gencat.cat/ca/tramits/tramits-temes/ingres-minim-vital",
+      "monitor": true,
+      "nota": "Complementa la fuente estatal; deduplicar la misma prestación.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-habitatge",
+      "nombre": "Generalitat · Ayudas de vivienda",
+      "ambito": "Cataluña",
+      "categoria": "Alquiler y vivienda",
+      "url": "https://habitatge.gencat.cat/ca/ajuts/",
+      "monitor": true,
+      "nota": "Separar cada línea y convocatoria concreta.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-lloguer",
+      "nombre": "Generalitat · Subvencions pagament lloguer",
+      "ambito": "Cataluña",
+      "categoria": "Alquiler",
+      "url": "https://habitatge.gencat.cat/ca/ajuts/ajuts-pagament-habitatge/subvencions-pagament-lloguer/",
+      "monitor": true,
+      "nota": "Controlar aperturas, edades y plazos de cada línea.",
+      "oficial": true
+    },
+    {
+      "id": "paeria",
+      "nombre": "Paeria de Lleida · Buscador de ayudas",
+      "ambito": "Lleida",
+      "categoria": "Ayudas municipales",
+      "url": "https://seu.paeria.cat/ajutsPublic/cercadorCategoria/180",
+      "monitor": true,
+      "nota": "Revisar convocatoria, bases, anexos y agotamiento de crédito.",
+      "oficial": true
+    },
+    {
+      "id": "barcelona-ajuts",
+      "nombre": "Ajuntament de Barcelona · Subvencions",
+      "ambito": "Barcelona",
+      "categoria": "Ayudas municipales",
+      "url": "https://ajuntament.barcelona.cat/ca/informacio-administrativa/subvencions",
+      "monitor": true,
+      "nota": "Separar beneficiarios particulares y empresariales.",
+      "oficial": true
+    },
+    {
+      "id": "barcelona-habitatge",
+      "nombre": "Consorci de l'Habitatge de Barcelona",
+      "ambito": "Barcelona",
+      "categoria": "Alquiler y vivienda",
+      "url": "https://www.consorcihabitatge.barcelona/ca/subvencions-al-pagament-del-lloguer-o-cessio-dus",
+      "monitor": true,
+      "nota": "Vigilar convocatorias por separado.",
+      "oficial": true
+    },
+    {
+      "id": "madrid-alquiler-joven",
+      "nombre": "Comunidad de Madrid · Ayudas alquiler jóvenes",
+      "ambito": "Comunidad de Madrid",
+      "categoria": "Alquiler y vivienda",
+      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-alquiler-jovenes-0",
+      "monitor": true,
+      "nota": "No presentar como abierta sin fechas oficiales vigentes.",
+      "oficial": true
+    },
+    {
+      "id": "madrid-cuota-cero",
+      "nombre": "Comunidad de Madrid · Tarifa Cero",
+      "ambito": "Comunidad de Madrid",
+      "categoria": "Autónomos",
+      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-tarifa-cero",
+      "monitor": true,
+      "nota": "Vigilar periodos de solicitud y requisitos.",
+      "oficial": true
+    },
+    {
+      "id": "madrid-nacimiento",
+      "nombre": "Ayuntamiento de Madrid · Ayuda por nacimiento/adopción",
+      "ambito": "Madrid ciudad",
+      "categoria": "Nacimiento y familia",
+      "url": "https://sede.madrid.es/portal/site/tramites/menuitem.62876cb64654a55e2dbd7003a8a409a0/?vgnextoid=6306ae0a39f2a910VgnVCM100000891ecb1aRCRD&vgnextchannel=2cb9a38813180210VgnVCM100000c90da8c0RCRD&vgnextfmt=default",
+      "monitor": true,
+      "nota": "Si se anuncia próxima convocatoria sin fechas, conservar ese estado literal.",
+      "oficial": true
+    },
+    {
+      "id": "andalucia-alquiler",
+      "nombre": "Junta de Andalucía · Fomento del alquiler",
+      "ambito": "Andalucía",
+      "categoria": "Alquiler y vivienda",
+      "url": "https://www.juntadeandalucia.es/organismos/viviendajuventudyordenaciondelterritorio/areas/vivienda-rehabilitacion/fomento-alquiler.html",
+      "monitor": true,
+      "nota": "Separar las líneas y comprobar vigencia.",
+      "oficial": true
+    },
+    {
+      "id": "aragon-cuota-cero",
+      "nombre": "Gobierno de Aragón · Cuota Cero",
+      "ambito": "Aragón",
+      "categoria": "Autónomos",
+      "url": "https://www.aragon.es/tramitador/-/tramite/programa-emprendedores-autonomos/cuota-cero",
+      "monitor": true,
+      "nota": "Requisitos y periodos de la edición vigente.",
+      "oficial": true
+    },
+    {
+      "id": "andalucia-cuota-cero",
+      "nombre": "Junta de Andalucía · Cuota Cero",
+      "ambito": "Andalucía",
+      "categoria": "Autónomos",
+      "url": "https://www.juntadeandalucia.es/organismos/empleoempresaytrabajoautonomo/areas/trabajo-autonomo/fomento-trabajo-autonomo/paginas/subv-fomento-cuota-cero.html",
+      "monitor": true,
+      "nota": "Requisitos y periodos de la edición vigente.",
+      "oficial": true
+    },
+    {
+      "id": "balears-cuota-cero",
+      "nombre": "Autònoms IB · Cuota Cero",
+      "ambito": "Illes Balears",
+      "categoria": "Autónomos",
+      "url": "https://autonomsib.es/es/ayudas-para-autonomos/cuota-cero/",
+      "monitor": true,
+      "nota": "Verificar y priorizar bases del organismo convocante.",
+      "oficial": true
+    },
+    {
+      "id": "canarias-cuota-cero",
+      "nombre": "Gobierno de Canarias · Cuota Cero",
+      "ambito": "Canarias",
+      "categoria": "Autónomos",
+      "url": "https://www.gobiernodecanarias.org/economia/autonomos/subvenciones/cuota_cero/",
+      "monitor": true,
+      "nota": "Requisitos y periodos de la edición vigente.",
+      "oficial": true
+    },
+    {
+      "id": "accio",
+      "nombre": "ACCIÓ · Servicios",
+      "ambito": "Cataluña",
+      "categoria": "Innovación y empresa",
+      "url": "https://www.accio.gencat.cat/es/serveis/index.html",
+      "monitor": true,
+      "nota": "Extraer cada programa de innovación, internacionalización y competitividad.",
+      "oficial": true
+    },
+    {
+      "id": "soc",
+      "nombre": "SOC · Ayudas y subvenciones",
+      "ambito": "Cataluña",
+      "categoria": "Empleo y formación",
+      "url": "https://serveiocupacio.gencat.cat/es/soc/transparencia-bon-govern/ajuts-subvencions/index.html",
+      "monitor": true,
+      "nota": "Ayudas de contratación, formación y empleo.",
+      "oficial": true
+    },
+    {
+      "id": "cido-subvencions",
+      "nombre": "CIDO · Subvenciones (datos abiertos)",
+      "ambito": "Cataluña / local",
+      "categoria": "Ayudas locales",
+      "url": "https://dadesobertes.diba.cat/datasets/cido-subvencions",
+      "monitor": true,
+      "nota": "Fuente estructurada; deduplicar contra BDNS y organismos convocantes.",
+      "oficial": true
+    },
+    {
+      "id": "ted",
+      "nombre": "TED · Licitaciones europeas",
+      "ambito": "Unión Europea",
+      "categoria": "Licitaciones (sección separada)",
+      "url": "https://docs.ted.europa.eu/api/latest/search.html",
+      "monitor": true,
+      "nota": "Mantener licitaciones separadas del catálogo de ayudas.",
+      "oficial": true
+    },
+    {
+      "id": "moves",
+      "nombre": "IDAE · MOVES y movilidad sostenible",
+      "ambito": "Estatal",
+      "categoria": "Movilidad y energía",
+      "url": "https://www.idae.es/ayudas-y-financiacion",
+      "monitor": true,
+      "nota": "Portal de descubrimiento; comprobar convocatoria autonómica y fechas.",
+      "oficial": true
+    }
+  ]
+}
