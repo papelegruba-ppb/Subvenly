@@ -131,6 +131,7 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
   <div class="filters" id="filters" role="group" aria-label="Filtrar por tipo"></div>
   <div class="filters" id="estf" role="group" aria-label="Filtrar por estado"></div>
   <div id="list" aria-live="polite"></div>
+  <section id="source-changes" hidden><h2 class="gh">Cambios detectados en fuentes oficiales</h2><div id="source-changes-list" class="grid"></div></section>
   <div id="nov"><div id="nov-top"></div><div id="nov-list" aria-live="polite"></div></div>
   <div id="lic"><div id="lic-top"></div><div id="lic-list" aria-live="polite"></div></div>
 </div>
@@ -321,7 +322,7 @@ var cur=null,tab="resumen";
 function openDlg(a,t){cur=a;tab=t||"resumen";document.getElementById("dtitle").textContent=a.titulo;drawDlg();
   var d=document.getElementById("dlg");if(!d.open)d.showModal()}
 function drawDlg(){var a=cur,tabs=document.getElementById("tabs"),pane=document.getElementById("pane"),s=estado(a);tabs.innerHTML="";pane.innerHTML="";
-  [["resumen","Resumen"],["docs","Documentación"],["eval","Evaluación"]].concat([["test","¿Me encaja?"]]).forEach(function(o){
+  [["resumen","Resumen"],["docs","Documentación"],["eval","Evaluación"],["test","¿Me encaja?"],["cambios","Cambios detectados"]].forEach(function(o){
     var b=el("button","",o[1]);b.type="button";b.setAttribute("role","tab");b.setAttribute("aria-selected",tab===o[0]);
     b.onclick=function(){tab=o[0];drawDlg()};tabs.appendChild(b)});
   function list(arr){var u=el("ul");arr.forEach(function(x){u.appendChild(txt("li",x))});return u}
@@ -336,6 +337,12 @@ function drawDlg(){var a=cur,tabs=document.getElementById("tabs"),pane=document.
     var r=el("div","row");
     var LK=a.links||(a.link&&a.link!=="#"?[["Trámite oficial",a.link]]:[]);LK.forEach(function(x){var l=el("a","btn alt",x[0]);l.href=x[1];l.target="_blank";l.rel="noopener";r.appendChild(l)});
     if(s.k==="closed")r.appendChild(alertLink(a,""));pane.appendChild(r)
+  }else if(tab==="cambios"){
+    pane.appendChild(txt("h4","Cambios detectados en la página oficial"));
+    var vgCambios=VIG[String(a.id)];
+    if(!vgCambios||!vgCambios.cambios||!vgCambios.cambios.length)pane.appendChild(txt("p","No hay cambios guardados para esta ficha. Esto no garantiza que las bases no hayan cambiado; comprueba el enlace oficial."));
+    else vgCambios.cambios.slice().reverse().forEach(function(ch){var box=el("div","miss m");box.appendChild(txt("strong",(ch.fecha||"Fecha no indicada")+" · "+(ch.tipo==="cambio_cifras_fechas_importes"?"Posibles fechas o importes":"Posible cambio de contenido o bases")));box.appendChild(txt("p","Antes: "+(ch.antes||"Sin captura anterior").slice(0,700)));box.appendChild(txt("p","Ahora: "+(ch.despues||"Sin captura nueva").slice(0,700)));pane.appendChild(box)});
+    pane.appendChild(txt("p","La detección automática solo señala diferencias. Verifica las bases, fechas y requisitos en la fuente oficial antes de cambiar el estado de la ayuda."));
   }else if(tab==="docs"){pane.appendChild(txt("h4","Qué tendrás que presentar"));pane.appendChild(list(a.docs));
   }else if(tab==="eval"){pane.appendChild(txt("h4","Cómo se evalúa"));pane.appendChild(txt("p",a.eval));
   }else{
@@ -468,16 +475,18 @@ function renderLic(){var c=document.getElementById("lic-list");c.innerHTML="";if
   if(all.length>LIC_MAX){var mm=el("div","row"),b=el("button","btn alt","Ver más licitaciones ("+(all.length-LIC_MAX)+")");b.type="button";b.onclick=function(){LIC_MAX+=15;renderLic()};mm.appendChild(b);c.appendChild(mm)}}
 function init(){renderProfile();renderFilters();renderList();buildNovTop();renderNovedades();buildLicTop();renderLic()}
 function cargar(u,def){return fetch(u,{cache:"no-cache"}).then(function(r){if(!r.ok)throw new Error(u);return r.json()}).catch(function(){return def})}
-Promise.all([cargar("data/fichas.json",null),cargar("data/novedades.json",{items:[]}),cargar("data/licitaciones.json",{items:[]}),cargar("data/vigilancia.json",{fichas:{}}),cargar("data/geografia.json",null)]).then(function(r){
+Promise.all([cargar("data/fichas.json",null),cargar("data/novedades.json",{items:[]}),cargar("data/licitaciones.json",{items:[]}),cargar("data/vigilancia.json",{fichas:{}}),cargar("data/geografia.json",null),cargar("data/vigilancia_fuentes.json",{fuentes:{}}),cargar("data/fuentes.json",{fuentes:[]})]).then(function(r){
   if(!r[0]){document.getElementById("list").appendChild(el("div","empty","No se han podido cargar las ayudas. Recarga la página o ábrela desde su dirección web."));return}
   AIDS=r[0];NOV=r[1]||{items:[]};LIC=r[2]||{items:[]};VIG=(r[3]&&r[3].fichas)||{};
   window.SUBVENLY_GEOGRAFIA=r[4]||{provinces:[]};
   if(!r[4])console.warn("No se ha podido cargar el catálogo geográfico; los desplegables de provincia y municipio estarán vacíos.");
+  VF=(r[5]&&r[5].fuentes)||{};FUENTES=(r[6]&&r[6].fuentes)||[];
   init()});
 </script>
 
 <script>
 /* Rutas de perfil y ayudas personales/familiares. Se carga antes de que termine init(). */
+var VF={},FUENTES=[];
 Object.assign(QUESTIONS,{
  perfil:"¿Para quién buscas ayudas?",
  forma:"¿Qué forma jurídica tiene o tendrá el negocio?",
@@ -610,6 +619,21 @@ function encajeNov(n,pf){
  else {var coincide=(pf.aut&&c.aut)||(pf.soc&&c.soc)||(pf.particular&&c.persona);if(!coincide){if(pf.perfil==="particular"&&!c.persona)unk=true;else if(pf.aut||pf.soc)bad=true;else unk=true;why.push("comprueba los beneficiarios exactos")}}
  return{s:bad?"no":unk?"mid":"si",why:why};
 }
+
+function renderSourceChanges(){
+ var section=document.getElementById("source-changes"),list=document.getElementById("source-changes-list");if(!section||!list)return;list.innerHTML="";
+ var vistos={};try{vistos=JSON.parse(LS.get("subvenly_fuentes_revisadas")||"{}")||{}}catch(e){}
+ var ids=Object.keys(VF||{}).filter(function(id){var v=VF[id];if(!v||v.estado!=="cambio")return false;var c=(v.cambios||[]);var last=c.length?c[c.length-1].fecha:(v.comprobado||"");return vistos[id]!==last});
+ section.hidden=!ids.length;if(!ids.length)return;
+ ids.forEach(function(id){var v=VF[id],src=FUENTES.find(function(x){return x.id===id})||{},ch=(v.cambios||[]),last=ch.length?ch[ch.length-1]:null;
+  var card=el("article","card"),h=txt("h3",src.nombre||id);card.appendChild(h);
+  card.appendChild(txt("p","Posible cambio detectado · última comprobación: "+(v.comprobado||"fecha no indicada")+". Revisa las fechas, requisitos y bases antes de actualizar la ficha."));
+  if(last){card.appendChild(txt("p","Cambio detectado el "+(last.fecha||"fecha no indicada")));if(last.antes)card.appendChild(txt("p","Texto anterior: "+last.antes.slice(0,350)));if(last.despues)card.appendChild(txt("p","Texto actual: "+last.despues.slice(0,350)))}
+  var row=el("div","row"),link=el("a","btn alt","Abrir fuente oficial");link.href=v.url||src.url||"#";link.target="_blank";link.rel="noopener";row.appendChild(link);
+  var b=el("button","btn","Marcar revisado en este dispositivo");b.type="button";b.onclick=function(){vistos[id]=last?(last.fecha||""):(v.comprobado||"");LS.set("subvenly_fuentes_revisadas",JSON.stringify(vistos));renderSourceChanges()};row.appendChild(b);card.appendChild(row);list.appendChild(card);
+ });
+}
+function init(){renderProfile();renderFilters();renderList();buildNovTop();renderNovedades();buildLicTop();renderLic();renderSourceChanges()}
 </script>
 
 </body>
