@@ -624,14 +624,14 @@ function encajeNov(n,pf){
 function renderSourceChanges(){
  var section=document.getElementById("source-changes"),list=document.getElementById("source-changes-list");if(!section||!list)return;list.innerHTML="";
  var vistos={};try{vistos=JSON.parse(LS.get("subvenly_fuentes_revisadas")||"{}")||{}}catch(e){}
- var ids=Object.keys(VF||{}).filter(function(id){var v=VF[id];if(!v||v.estado!=="cambio")return false;var c=(v.cambios||[]);var last=c.length?c[c.length-1].fecha:(v.comprobado||"");return vistos[id]!==last});
+ var ids=Object.keys(VF||{}).filter(function(id){var v=VF[id];if(!v||v.estado!=="cambio")return false;var c=(v.cambios||[]);var last=c.length?(c[c.length-1].despues_hash||c[c.length-1].fecha):(v.hash||v.comprobado||"");return vistos[id]!==last});
  section.hidden=!ids.length;if(!ids.length)return;
  ids.forEach(function(id){var v=VF[id],src=FUENTES.find(function(x){return x.id===id})||{},ch=(v.cambios||[]),last=ch.length?ch[ch.length-1]:null;
   var card=el("article","card"),h=txt("h3",src.nombre||id);card.appendChild(h);
   card.appendChild(txt("p","Posible cambio detectado · última comprobación: "+(v.comprobado||"fecha no indicada")+". Revisa las fechas, requisitos y bases antes de actualizar la ficha."));
   if(last){card.appendChild(txt("p","Cambio detectado el "+(last.fecha||"fecha no indicada")));if(last.antes)card.appendChild(txt("p","Texto anterior: "+last.antes.slice(0,350)));if(last.despues)card.appendChild(txt("p","Texto actual: "+last.despues.slice(0,350)))}
   var row=el("div","row"),link=el("a","btn alt","Abrir fuente oficial");link.href=v.url||src.url||"#";link.target="_blank";link.rel="noopener";row.appendChild(link);
-  var b=el("button","btn","Marcar revisado en este dispositivo");b.type="button";b.onclick=function(){vistos[id]=last?(last.fecha||""):(v.comprobado||"");LS.set("subvenly_fuentes_revisadas",JSON.stringify(vistos));renderSourceChanges()};row.appendChild(b);card.appendChild(row);list.appendChild(card);
+  var b=el("button","btn","Marcar revisado en este dispositivo");b.type="button";b.onclick=function(){vistos[id]=last?(last.despues_hash||last.fecha||""):(v.hash||v.comprobado||"");LS.set("subvenly_fuentes_revisadas",JSON.stringify(vistos));renderSourceChanges()};row.appendChild(b);card.appendChild(row);list.appendChild(card);
  });
 }
 
