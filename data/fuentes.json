@@ -472,6 +472,66 @@
       "monitor": false,
       "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia.",
       "oficial": true
+    },
+    {
+      "id": "aeat-200-2022",
+      "nombre": "AEAT · Primera ayuda de 200 euros (2022)",
+      "ambito": "Estatal",
+      "categoria": "Ayudas personales históricas",
+      "url": "https://sede.agenciatributaria.gob.es/Sede/procedimientos/GC51.shtml",
+      "monitor": true,
+      "nota": "Convocatoria histórica cerrada; conservar para reconocer medidas similares en nuevas ediciones.",
+      "oficial": true
+    },
+    {
+      "id": "aeat-200-2023",
+      "nombre": "AEAT · Segunda ayuda de 200 euros (2023)",
+      "ambito": "Estatal",
+      "categoria": "Ayudas personales históricas",
+      "url": "https://sede.agenciatributaria.gob.es/Sede/procedimientos/GC61.shtml",
+      "monitor": true,
+      "nota": "Convocatoria histórica cerrada; distinguir de futuras ayudas con importe parecido.",
+      "oficial": true
+    },
+    {
+      "id": "dana-2024-general",
+      "nombre": "La Moncloa · Información oficial de ayudas DANA 2024",
+      "ambito": "Estatal / municipios afectados",
+      "categoria": "Emergencias y catástrofes",
+      "url": "https://www.lamoncloa.gob.es/info-dana/Paginas/2024/051124-informacion-ayudas.aspx",
+      "monitor": true,
+      "nota": "Portal histórico de medidas; verificar cada línea, municipio y plazo antes de reutilizar datos.",
+      "oficial": true
+    },
+    {
+      "id": "dana-2024-empresas",
+      "nombre": "La Moncloa · Ayudas DANA al sector privado",
+      "ambito": "Estatal / municipios afectados",
+      "categoria": "Emergencias y catástrofes empresariales",
+      "url": "https://www.lamoncloa.gob.es/info-dana/paginas/2024/071124-ayudas-empresas-pymes.aspx",
+      "monitor": true,
+      "nota": "Referencia histórica para empresas, pymes, vehículos, establecimientos y beneficios fiscales.",
+      "oficial": true
+    },
+    {
+      "id": "dana-2024-autonomos",
+      "nombre": "La Moncloa · Ayudas DANA a trabajadores y autónomos",
+      "ambito": "Estatal / municipios afectados",
+      "categoria": "Emergencias y catástrofes",
+      "url": "https://www.lamoncloa.gob.es/info-dana/Paginas/2024/071124-ayudas-trabajadores-autonomos.aspx?mode=Dark",
+      "monitor": true,
+      "nota": "Referencia histórica; no presentar como abierta sin una nueva convocatoria oficial.",
+      "oficial": true
+    },
+    {
+      "id": "boe-gasoleo-2022",
+      "nombre": "BOE · Medidas de apoyo por subida de carburantes (2022)",
+      "ambito": "Estatal",
+      "categoria": "Combustible y transporte",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2022-12925",
+      "monitor": true,
+      "nota": "Base normativa histórica; las ayudas de combustible deben clasificarse por sector y edición.",
+      "oficial": true
     }
   ],
   "coberturaTerritorial": [
