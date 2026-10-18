@@ -172,8 +172,8 @@
   "titulo": "Incentivos a la contratación indefinida de personas desempleadas",
   "organo": "Comunidad de Madrid · Servicio Público de Empleo",
   "ambito": "Comunidad de Madrid",
-  "plazo": "Abierta · la solicitud se presenta tras la contratación",
-  "permTxt": "Abierta",
+  "plazo": "Cerrada · convocatoria anterior sin crédito desde el 17/06/2022",
+  "permTxt": "Cerrada",
   "importe": "5.500 o 7.500 € por contrato, más importes adicionales",
   "resumen": "Subvención por cada contrato indefinido a tiempo completo de personas desempleadas con especial dificultad: mayores de 45, desempleadas de larga duración o que trabajan en municipios rurales. Los autónomos que contratan a su primer empleado reciben 2.000 € adicionales.",
   "reqs": {
@@ -193,7 +193,8 @@
    "Documentación exacta: consúltala en el trámite (normalmente contrato, alta en la Seguridad Social y acreditación de desempleo)"
   ],
   "eval": "La Comunidad notifica de forma individual si se concede o no. Importes adicionales: 500 € si la persona contratada es mujer, 500 € por hijos menores de 16 o dependientes a cargo, y 1.000 € si eres una startup.",
-  "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-contratos-indefinidos"
+  "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-contratos-indefinidos",
+  "cierre": "2022-06-17"
  },
  {
   "id": 8,
@@ -223,7 +224,7 @@
    "Documentación exacta: consúltala en el trámite (normalmente contrato, alta e inscripción en Garantía Juvenil)"
   ],
   "eval": "La Comunidad notifica de forma individual la concesión o denegación. Importes adicionales por mujer, cargas familiares, primer empleado de un autónomo (2.000 €) o startup.",
-  "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/contratacion-jovenes"
+  "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-contratacion-jovenes"
  },
  {
   "id": 9,
@@ -596,7 +597,7 @@
    "Documentación según Enisa: consulta los requisitos de la línea vigente"
   ],
   "eval": "La decide Enisa tras analizar el proyecto. Confirma las condiciones actuales en la web oficial de Enisa.",
-  "link": "https://www.enisa.es/es/financia-tu-empresa/lineas-de-financiacion/d/emprendedores"
+  "link": "https://www.enisa.es/es/financia-tu-empresa/lineas-de-financiacion"
  },
  {
   "id": 22,
