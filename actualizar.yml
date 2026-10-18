@@ -1,0 +1,74 @@
+name: Actualizar y publicar
+
+on:
+  schedule:
+    - cron: "17 3 * * *"      # cada noche, a las 03:17 UTC (05:17 en España en verano, 04:17 en invierno)
+  workflow_dispatch:           # botón "Run workflow" para lanzarlo a mano
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Buscar convocatorias nuevas
+        id: buscar
+        continue-on-error: true
+        run: python scripts/actualizar.py
+
+      - name: Buscar convocatorias de la Unión Europea
+        id: buscar_ue
+        continue-on-error: true
+        run: python scripts/actualizar_ue.py
+
+      - name: Buscar licitaciones abiertas
+        id: buscar_lic
+        continue-on-error: true
+        run: python scripts/actualizar_licitaciones.py
+
+      - name: Vigilar las páginas oficiales de los créditos
+        id: vigilar
+        continue-on-error: true
+        run: python scripts/vigilar_creditos.py
+
+      - name: Guardar los datos en el repositorio
+        run: |
+          git config user.name "Subvenly bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet || (git commit -m "Actualización automática de novedades" && git push)
+
+      - name: Preparar la web
+        run: |
+          mkdir _site
+          cp -r index.html favicon.svg assets fonts data _site/
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4
+
+      - name: Avisar si la búsqueda falló
+        if: steps.buscar.outcome == 'failure' || steps.buscar_ue.outcome == 'failure' || steps.buscar_lic.outcome == 'failure' || steps.vigilar.outcome == 'failure'
+        run: |
+          echo "La web se ha publicado con los datos anteriores, pero alguna búsqueda de hoy falló. Revisa los pasos 'Buscar convocatorias'."
+          exit 1
