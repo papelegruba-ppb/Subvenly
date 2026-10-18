@@ -644,7 +644,8 @@
   "importe": "Según el supuesto y la normativa vigente",
   "resumen": "Prestación para familias con niños. Deben comprobarse los requisitos, la fecha del nacimiento o adopción y el plazo aplicable.",
   "reqs": {
-   "familia": "si"
+   "familia": "si",
+   "ccaa": "Cataluña"
   },
   "requisitos": [
    "La fecha del nacimiento, adopción, tutela o acogida puede afectar al plazo aplicable",
@@ -703,7 +704,8 @@
   "importe": "Según la línea de ayuda vigente",
   "resumen": "Punto de acceso a las líneas de ayudas al pago del alquiler y otras ayudas de vivienda. Las convocatorias pueden variar por edad, ingresos y situación familiar.",
   "reqs": {
-   "alquiler": "si"
+   "alquiler": "si",
+   "ccaa": "Cataluña"
   },
   "requisitos": [
    "Identificar la convocatoria concreta según edad, ingresos, municipio y situación residencial",
@@ -737,7 +739,8 @@
   "importe": "Según la convocatoria aplicable",
   "resumen": "Fuente de las convocatorias de Barcelona para ayudas al pago del alquiler o cesión de uso. La compatibilidad depende del municipio, ingresos y demás requisitos de cada línea.",
   "reqs": {
-   "alquiler": "si"
+   "alquiler": "si",
+   "municipioBarcelona": "si"
   },
   "requisitos": [
    "Residir en el ámbito territorial de la convocatoria",
@@ -767,7 +770,8 @@
   "resumen": "Ayudas de alquiler dirigidas a jóvenes, sujetas a edad, residencia, ingresos, contrato y condiciones de la convocatoria.",
   "reqs": {
    "alquiler": "si",
-   "madrid": "si"
+   "madrid": "si",
+   "ccaa": "Comunidad de Madrid"
   },
   "requisitos": [
    "Cumplir el tramo de edad y los requisitos de residencia e ingresos de la convocatoria",
@@ -825,7 +829,8 @@
   "importe": "Según la línea vigente",
   "resumen": "Portal oficial de ayudas relacionadas con el alquiler y la vivienda en Andalucía. Solo corresponde si se cumplen los requisitos territoriales de la convocatoria.",
   "reqs": {
-   "alquiler": "si"
+   "alquiler": "si",
+   "ccaa": "Andalucía"
   },
   "requisitos": [
    "El domicilio y el contrato deben cumplir el ámbito territorial de la convocatoria",
@@ -855,7 +860,8 @@
   "importe": "Según las bases de la próxima convocatoria",
   "resumen": "Ayuda municipal por nacimiento o adopción. La ficha queda en seguimiento hasta que se publiquen las fechas y las bases de la próxima convocatoria.",
   "reqs": {
-   "familia": "si"
+   "familia": "si",
+   "municipioMadrid": "si"
   },
   "requisitos": [
    "La próxima convocatoria debe confirmar beneficiarios, fechas, importes y documentación",
