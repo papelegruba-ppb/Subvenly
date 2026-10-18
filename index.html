@@ -511,6 +511,8 @@ Object.assign(FALTA,{
  ccaa:"residir o desarrollar la actividad en la comunidad autónoma indicada",municipioBarcelona:"residir en Barcelona ciudad si la convocatoria lo exige",municipioMadrid:"residir en Madrid ciudad si la convocatoria lo exige",
  familia:"tener una situación familiar contemplada en las bases",nacimientoFecha:"cumplir el plazo correspondiente a la fecha del nacimiento/adopción",menores:"tener menores a cargo según las condiciones",alquiler:"tener gastos de alquiler subvencionables",edad:"cumplir el tramo de edad de la convocatoria",unidad:"cumplir los requisitos de la unidad de convivencia",ingresos:"cumplir los límites de ingresos",contratoAlquiler:"disponer del contrato exigido",empadronamiento:"cumplir el requisito de empadronamiento si lo exige la convocatoria",residenciaLegal:"cumplir los requisitos de residencia",familiaMonoparental:"tener reconocida la condición si se solicita ese supuesto",familiaNumerosa:"tener reconocida la condición si se solicita ese supuesto",social:"cumplir los requisitos de la prestación concreta",fiscal:"cumplir los requisitos fiscales del beneficio concreto"
 });
+FALTA.bases="comprobar las bases oficiales completas, los requisitos que faltan y el estado vigente de la convocatoria";
+function evalAid(a){var bad=[],unk=[];Object.keys(a.reqs||{}).forEach(function(k){var v=eff(k);if(!v||v==="nose")unk.push(k);else if(v!==a.reqs[k])bad.push(k)});if(a.pend||a.estadoManual||a.verificacionPendiente)unk.push("bases");return{s:bad.length?"no":unk.length?"mid":"si",bad:bad,unk:unk}}
 function camino(){
  if(!A.perfil)return "";
  if(A.perfil==="particular")return "particular";
