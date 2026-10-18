@@ -877,5 +877,188 @@
     "https://sede.madrid.es/portal/site/tramites/menuitem.62876cb64654a55e2dbd7003a8a409a0/?vgnextoid=6306ae0a39f2a910VgnVCM100000891ecb1aRCRD&vgnextchannel=2cb9a38813180210VgnVCM100000c90da8c0RCRD&vgnextfmt=default"
    ]
   ]
+ },
+ {
+  "id": 31,
+  "perfil": "personal",
+  "tipo": "Ayuda histórica",
+  "titulo": "Ayuda de 200 € para personas con bajos ingresos (2022)",
+  "organo": "Agencia Estatal de Administración Tributaria",
+  "ambito": "Estatal",
+  "plazo": "Cerrada · plazo de solicitud hasta el 30/09/2022",
+  "cerrada": true,
+  "importe": "200 € en pago único",
+  "resumen": "Convocatoria extraordinaria histórica dirigida a personas físicas que cumplieran los requisitos de actividad o desempleo, renta y patrimonio del ejercicio 2021.",
+  "reqs": {
+   "social": "si"
+  },
+  "requisitos": [
+   "Convocatoria cerrada; no se puede solicitar actualmente",
+   "La convocatoria original exigía ingresos de 2021 inferiores a 14.000 € y patrimonio inferior a 43.196,40 €, con otras condiciones de residencia y situación personal"
+  ],
+  "docs": [
+   "Consultar la ficha oficial histórica para conocer el expediente o resolver dudas sobre solicitudes presentadas"
+  ],
+  "verificacionPendiente": true,
+  "eval": "Registro histórico para identificar medidas similares; no equivale a una ayuda disponible.",
+  "links": [
+   [
+    "AEAT · Primera ayuda de 200 €",
+    "https://sede.agenciatributaria.gob.es/Sede/procedimientos/GC51.shtml"
+   ]
+  ]
+ },
+ {
+  "id": 32,
+  "perfil": "personal",
+  "tipo": "Ayuda histórica",
+  "titulo": "Segunda ayuda de 200 € para personas con bajos ingresos (2023)",
+  "organo": "Agencia Estatal de Administración Tributaria",
+  "ambito": "Estatal",
+  "plazo": "Cerrada · plazo de solicitud del 15/02/2023 al 31/03/2023",
+  "cierre": "2023-03-31",
+  "cerrada": true,
+  "importe": "200 € en pago único",
+  "resumen": "Segunda convocatoria extraordinaria histórica, referida a la actividad, rentas y patrimonio de 2022.",
+  "reqs": {
+   "social": "si"
+  },
+  "requisitos": [
+   "Convocatoria cerrada; no se puede solicitar actualmente",
+   "La convocatoria original contemplaba, entre otros requisitos, rentas de 2022 no superiores a 27.000 € y patrimonio inferior a 75.000 € a 31/12/2022"
+  ],
+  "docs": [
+   "Consultar la ficha oficial histórica para conocer el expediente o resolver dudas sobre solicitudes presentadas"
+  ],
+  "verificacionPendiente": true,
+  "eval": "Registro histórico para identificar medidas similares; no equivale a una ayuda disponible.",
+  "links": [
+   [
+    "AEAT · Segunda ayuda de 200 €",
+    "https://sede.agenciatributaria.gob.es/Sede/procedimientos/GC61.shtml"
+   ]
+  ]
+ },
+ {
+  "id": 33,
+  "perfil": "negocio",
+  "tipo": "Ayuda histórica",
+  "titulo": "Ayudas extraordinarias por subida de carburantes (2022)",
+  "organo": "Administración General del Estado",
+  "ambito": "Estatal",
+  "plazo": "Medida extraordinaria de 2022 · cerrada",
+  "cerrada": true,
+  "importe": "Según sector, actividad y vehículos elegibles",
+  "resumen": "Medidas temporales de apoyo a empresas y autónomos de sectores concretos afectados por el incremento del precio de los carburantes. No todas las actividades o vehículos eran elegibles.",
+  "reqs": {
+   "transporte": "si"
+  },
+  "requisitos": [
+   "Convocatoria histórica cerrada",
+   "Los beneficiarios dependían de la actividad económica, autorización de transporte y demás condiciones de la normativa"
+  ],
+  "docs": [
+   "Consultar la norma oficial y el procedimiento que correspondía a la actividad"
+  ],
+  "verificacionPendiente": true,
+  "eval": "Registro histórico; las nuevas ayudas de combustible deben verificarse por sector y edición.",
+  "links": [
+   [
+    "BOE · Real Decreto-ley 14/2022",
+    "https://www.boe.es/buscar/act.php?id=BOE-A-2022-12925"
+   ]
+  ]
+ },
+ {
+  "id": 34,
+  "perfil": "personal",
+  "tipo": "Ayuda histórica",
+  "titulo": "Ayudas por daños en vivienda y enseres causados por la DANA (2024)",
+  "organo": "Administración General del Estado",
+  "ambito": "Municipios afectados por la DANA de octubre-noviembre de 2024",
+  "plazo": "Medida extraordinaria de 2024 · consultar el histórico oficial",
+  "cerrada": true,
+  "importe": "Según el tipo y alcance del daño y las bases aplicables",
+  "resumen": "Referencia histórica de las ayudas extraordinarias para personas y hogares afectados por la DANA, incluidos daños en vivienda habitual y enseres. El municipio y el tipo de daño eran determinantes.",
+  "reqs": {
+   "emergencias": "si"
+  },
+  "requisitos": [
+   "Convocatoria histórica; no se presenta como abierta",
+   "La elegibilidad dependía de los municipios incluidos, el daño acreditado y la normativa aplicable"
+  ],
+  "docs": [
+   "Consultar la información oficial y la norma específica de la línea correspondiente"
+  ],
+  "verificacionPendiente": true,
+  "eval": "Registro histórico de emergencia; una nueva catástrofe requerirá una ficha y unas bases nuevas.",
+  "links": [
+   [
+    "La Moncloa · Información oficial de ayudas DANA",
+    "https://www.lamoncloa.gob.es/info-dana/Paginas/2024/051124-informacion-ayudas.aspx"
+   ]
+  ]
+ },
+ {
+  "id": 35,
+  "perfil": "negocio",
+  "tipo": "Ayuda histórica",
+  "titulo": "Ayuda directa a autónomos afectados por la DANA (2024)",
+  "organo": "Agencia Estatal de Administración Tributaria",
+  "ambito": "Municipios afectados por la DANA de octubre-noviembre de 2024",
+  "plazo": "Cerrada · plazo indicado hasta el 31/12/2024",
+  "cierre": "2024-12-31",
+  "cerrada": true,
+  "importe": "5.000 € por autónomo, según la medida histórica",
+  "resumen": "Ayuda directa extraordinaria para trabajadores autónomos afectados por la DANA de 2024. La ubicación fiscal y el ámbito territorial de la medida eran esenciales.",
+  "reqs": {
+   "emergencias": "si"
+  },
+  "requisitos": [
+   "Convocatoria histórica cerrada",
+   "La ayuda se limitaba a personas autónomas que cumplieran las condiciones territoriales y de actividad establecidas"
+  ],
+  "docs": [
+   "Consultar la información oficial histórica y la documentación de la línea"
+  ],
+  "verificacionPendiente": true,
+  "eval": "Registro histórico; no debe confundirse con futuras ayudas por catástrofes.",
+  "links": [
+   [
+    "La Moncloa · Ayudas DANA a trabajadores y autónomos",
+    "https://www.lamoncloa.gob.es/info-dana/Paginas/2024/071124-ayudas-trabajadores-autonomos.aspx?mode=Dark"
+   ]
+  ]
+ },
+ {
+  "id": 36,
+  "perfil": "negocio",
+  "tipo": "Ayuda histórica",
+  "titulo": "Ayudas directas a pymes afectadas por la DANA (2024)",
+  "organo": "Agencia Estatal de Administración Tributaria",
+  "ambito": "Municipios afectados por la DANA de octubre-noviembre de 2024",
+  "plazo": "Cerrada · plazo indicado hasta el 31/12/2024",
+  "cierre": "2024-12-31",
+  "cerrada": true,
+  "importe": "Entre 10.000 € y 150.000 € según la facturación, conforme a la medida histórica",
+  "resumen": "Ayudas directas extraordinarias a empresas y pymes afectadas por la DANA. La cuantía dependía del volumen de operaciones y de las condiciones de la convocatoria.",
+  "reqs": {
+   "emergencias": "si"
+  },
+  "requisitos": [
+   "Convocatoria histórica cerrada",
+   "La empresa debía cumplir los requisitos territoriales, de actividad y facturación de la medida"
+  ],
+  "docs": [
+   "Consultar la información oficial histórica y la documentación de la línea"
+  ],
+  "verificacionPendiente": true,
+  "eval": "Registro histórico; una nueva catástrofe o edición debe evaluarse con sus propias bases.",
+  "links": [
+   [
+    "La Moncloa · Ayudas DANA al sector privado",
+    "https://www.lamoncloa.gob.es/info-dana/paginas/2024/071124-ayudas-empresas-pymes.aspx"
+   ]
+  ]
  }
 ]
