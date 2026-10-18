@@ -1,0 +1,601 @@
+[
+ {
+  "id": 1,
+  "tipo": "Ayuda",
+  "titulo": "Tarifa plana para nuevos autónomos",
+  "organo": "Seguridad Social",
+  "ambito": "Estatal",
+  "plazo": "Siempre abierta",
+  "importe": "80 €/mes durante 12 meses",
+  "resumen": "Cuota mensual reducida durante el primer año de actividad. Se puede prorrogar otros 12 meses si tus ingresos se mantienen por debajo del salario mínimo.",
+  "reqs": {
+   "nuevo": "si",
+   "hacienda": "si"
+  },
+  "requisitos": [
+   "Alta inicial como autónomo, o 2 años sin estar de alta",
+   "No tener deudas con Hacienda ni con la Seguridad Social",
+   "Solicitud al darte de alta en el RETA"
+  ],
+  "docs": [
+   "DNI/NIE",
+   "Modelo 036 o 037 (alta censal en Hacienda)",
+   "Solicitud de alta en el RETA",
+   "Datos de la actividad y epígrafe IAE"
+  ],
+  "eval": "No hay puntuación ni concurrencia: si cumples los requisitos, se aplica. Se pierde si dejas de cumplirlos.",
+  "link": "https://www.seg-social.es"
+ },
+ {
+  "id": 2,
+  "tipo": "Ayuda",
+  "titulo": "Pago único de la prestación por desempleo (capitalización)",
+  "organo": "SEPE",
+  "ambito": "Estatal",
+  "plazo": "Siempre abierta · antes de iniciar la actividad",
+  "importe": "Hasta el importe de la prestación pendiente",
+  "resumen": "Cobras de golpe la prestación que te queda para invertir en tu negocio o pagar cuotas de autónomo, en lugar de cobrarla mes a mes.",
+  "reqs": {
+   "paro": "si",
+   "desempleado": "si",
+   "hacienda": "si"
+  },
+  "requisitos": [
+   "Tener prestación contributiva con periodo pendiente de cobro",
+   "Iniciar actividad como autónomo o aportar a una sociedad",
+   "No haber usado esta vía en los últimos 4 años"
+  ],
+  "docs": [
+   "Solicitud al SEPE",
+   "Memoria o plan de negocio",
+   "Presupuesto o facturas proforma de la inversión",
+   "Alta censal y en RETA, según el caso"
+  ],
+  "eval": "El SEPE revisa que cumples los requisitos y que la inversión es coherente con la actividad. No hay baremo de puntos.",
+  "link": "https://www.sepe.gob.es"
+ },
+ {
+  "id": 3,
+  "tipo": "Ayuda",
+  "titulo": "Compatibilizar el paro con el inicio de actividad",
+  "organo": "SEPE",
+  "ambito": "Estatal",
+  "plazo": "Siempre abierta",
+  "importe": "Hasta 270 días cobrando prestación",
+  "resumen": "Puedes seguir cobrando el paro durante un tiempo mientras arrancas tu actividad por cuenta propia.",
+  "reqs": {
+   "paro": "si",
+   "nuevo": "si"
+  },
+  "requisitos": [
+   "Tener prestación contributiva en vigor",
+   "Solicitarlo antes de iniciar la actividad",
+   "Primera actividad por cuenta propia o 5 años desde la última"
+  ],
+  "docs": [
+   "Solicitud de compatibilidad al SEPE",
+   "Alta en RETA y censal",
+   "DNI/NIE"
+  ],
+  "eval": "No hay concurrencia. Debes comunicar los ingresos de la actividad al SEPE durante el periodo.",
+  "link": "https://www.sepe.gob.es"
+ },
+ {
+  "id": 4,
+  "tipo": "Subvención",
+  "titulo": "Tarifa Cero para autónomos",
+  "organo": "Comunidad de Madrid · Economía, Hacienda y Empleo",
+  "ambito": "Comunidad de Madrid",
+  "plazo": "Permanente · en los 3 meses siguientes a cada periodo de 12 meses de cuota reducida",
+  "importe": "Devolución de las cuotas reducidas pagadas",
+  "resumen": "Madrid te devuelve las cuotas reducidas de la Seguridad Social que has pagado con la tarifa plana u otras bonificaciones de autónomos. Hay una línea específica para mayores de 52 años que dejaron el subsidio por desempleo al darse de alta.",
+  "reqs": {
+   "madrid": "si",
+   "tarifa": "si",
+   "hacienda": "si"
+  },
+  "requisitos": [
+   "Estar acogido a las cuotas reducidas o bonificaciones del Estatuto del Trabajo Autónomo (tarifa plana y similares)",
+   "Domicilio de la actividad en la Comunidad de Madrid",
+   "Estar al corriente con Hacienda, Comunidad de Madrid y Seguridad Social",
+   "Solicitar dentro de los 3 meses siguientes a cada periodo de 12 meses de cuota reducida"
+  ],
+  "docs": [
+   "Informes de bases y cuotas de la Seguridad Social de todos los meses solicitados (12 o 13 mensualidades)",
+   "Alta en el IAE (modelo 036/037) con domicilio de la actividad en Madrid",
+   "Plan de Prevención de Riesgos Laborales, o declaración de estar exento",
+   "Poder de representación, si presenta la solicitud un tercero",
+   "Línea senior (52+): informe IDC/CP-100 si te opones a la consulta de tu vida laboral"
+  ],
+  "eval": "Concesión directa: se resuelve a favor de quien cumple los requisitos mientras quede crédito. Plazo máximo de resolución: 6 meses; si no hay respuesta, se entiende denegada.",
+  "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-tarifa-cero"
+ },
+ {
+  "id": 5,
+  "tipo": "Subvención",
+  "titulo": "Contratación de personas en situación de mayor vulnerabilidad",
+  "organo": "Generalitat de Catalunya · Empresa i Treball",
+  "ambito": "Cataluña",
+  "plazo": "Contratos firmados hasta el 01/10/2026",
+  "cierre": "2026-10-01",
+  "importe": "2.034,07 €/mes (grupos 3-7) o 1.600,17 €/mes (grupos 8-11), durante 12 meses",
+  "resumen": "Ayuda a empresas y entidades que contratan de forma indefinida a personas desempleadas con más dificultades para encontrar trabajo. Paga un módulo mensual durante 12 meses y exige mantener el puesto otros 12.",
+  "reqs": {
+   "catalunya": "si",
+   "contratar": "si",
+   "indefinido": "si"
+  },
+  "requisitos": [
+   "Contrato indefinido, a jornada completa, con centro de trabajo en Cataluña (categorías 3 a 11)",
+   "Persona desempleada de 45 o más años, desempleada de larga duración o migrante extracomunitaria de 30 o más, o mujer desempleada de 30 o más en situación de vulnerabilidad",
+   "La persona debe estar inscrita como demandante de empleo y no haber trabajado con tu empresa en los 12 meses anteriores",
+   "Máximo 10 contratos por entidad; no valen las sustituciones"
+  ],
+  "docs": [
+   "Oferta de empleo presentada en una oficina de Trabajo de la Generalitat",
+   "Contrato indefinido a jornada completa",
+   "Acreditación de que la persona cumple el colectivo el día hábil anterior al inicio del contrato",
+   "Resto de documentos: según el trámite oficial (solicitud y aportación posterior)"
+  ],
+  "eval": "La entidad no elige libremente: la oficina de Trabajo gestiona la oferta y envía candidatos que cumplan los requisitos. Las condiciones del contrato no pueden cambiar durante el periodo subvencionable.",
+  "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/Subvencions-per-a-la-contractacio-laboral-de-persones-en-situacio-de-major-vulnerabilitat?category="
+ },
+ {
+  "id": 6,
+  "tipo": "Subvención",
+  "titulo": "Formación a medida para empresas",
+  "organo": "Consorci per a la Formació Contínua de Catalunya",
+  "ambito": "Cataluña",
+  "plazo": "Hasta el 16/10/2026, 14 h",
+  "cierre": "2026-10-16",
+  "importe": "Consulta las bases en el trámite",
+  "resumen": "Programa que ayuda a las empresas a impulsar formación adaptada a sus equipos, para retener talento y preparar a la plantilla ante cambios tecnológicos y del mercado.",
+  "reqs": {
+   "catalunya": "si",
+   "plantilla": "si"
+  },
+  "requisitos": [
+   "Empresa con personas trabajadoras que quiera impulsar formación a medida",
+   "Solicitud por el trámite de la Generalitat",
+   "Plazo: hasta el 16/10/2026 a las 14 h",
+   "Cuantías y requisitos exactos: consulta las bases (esta ficha parte de un aviso informativo, no de las bases)"
+  ],
+  "docs": [
+   "La documentación se indica en el trámite oficial de la Generalitat"
+  ],
+  "eval": "Consulta en las bases cómo se valoran y reparten las ayudas.",
+  "link": "https://tramits.gencat.cat/ca/tramits/tramits-temes/24691-subvencions-programes-formacio-mida-empreses?category="
+ },
+ {
+  "id": 7,
+  "tipo": "Ayuda",
+  "titulo": "Incentivos a la contratación indefinida de personas desempleadas",
+  "organo": "Comunidad de Madrid · Servicio Público de Empleo",
+  "ambito": "Comunidad de Madrid",
+  "plazo": "Abierta · la solicitud se presenta tras la contratación",
+  "permTxt": "Abierta",
+  "importe": "5.500 o 7.500 € por contrato, más importes adicionales",
+  "resumen": "Subvención por cada contrato indefinido a tiempo completo de personas desempleadas con especial dificultad: mayores de 45, desempleadas de larga duración o que trabajan en municipios rurales. Los autónomos que contratan a su primer empleado reciben 2.000 € adicionales.",
+  "reqs": {
+   "madrid": "si",
+   "contratar": "si",
+   "indefinido": "si"
+  },
+  "requisitos": [
+   "Contratación indefinida inicial a tiempo completo (a tiempo parcial desde el 75 %, con importe proporcional)",
+   "Persona desempleada de 45 a 54 años, mayor de 30 en desempleo de larga duración, mayor de 55, o con centro de trabajo en un municipio rural de menos de 5.000 habitantes",
+   "Máximo 10 contrataciones por año natural",
+   "Mantener el empleo indefinido durante 3 años",
+   "Ayuda sujeta al régimen de minimis"
+  ],
+  "docs": [
+   "Solicitud por la sede electrónica de la Comunidad de Madrid",
+   "Documentación exacta: consúltala en el trámite (normalmente contrato, alta en la Seguridad Social y acreditación de desempleo)"
+  ],
+  "eval": "La Comunidad notifica de forma individual si se concede o no. Importes adicionales: 500 € si la persona contratada es mujer, 500 € por hijos menores de 16 o dependientes a cargo, y 1.000 € si eres una startup.",
+  "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-contratos-indefinidos"
+ },
+ {
+  "id": 8,
+  "tipo": "Ayuda",
+  "titulo": "Contratación estable de personas jóvenes",
+  "organo": "Comunidad de Madrid · Servicio Público de Empleo",
+  "ambito": "Comunidad de Madrid",
+  "plazo": "Abierta · un mes desde el alta de la persona contratada",
+  "permTxt": "Abierta",
+  "importe": "5.500 € por contrato, más importes adicionales",
+  "resumen": "Subvención por contratar de forma indefinida a una persona joven desempleada inscrita en Garantía Juvenil. Cofinanciada con fondos europeos (FSE+).",
+  "reqs": {
+   "madrid": "si",
+   "contratar": "si",
+   "indefinido": "si",
+   "joven": "si"
+  },
+  "requisitos": [
+   "Persona menor de 30 años, desempleada al menos 30 días seguidos antes de la contratación",
+   "Inscrita en el Sistema Nacional de Garantía Juvenil el día anterior al contrato",
+   "Contrato indefinido inicial a tiempo completo",
+   "Solicitud en el plazo de un mes desde el alta de la persona contratada",
+   "Mantener el empleo indefinido durante 3 años"
+  ],
+  "docs": [
+   "Solicitud por la sede electrónica de la Comunidad de Madrid",
+   "Documentación exacta: consúltala en el trámite (normalmente contrato, alta e inscripción en Garantía Juvenil)"
+  ],
+  "eval": "La Comunidad notifica de forma individual la concesión o denegación. Importes adicionales por mujer, cargas familiares, primer empleado de un autónomo (2.000 €) o startup.",
+  "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/contratacion-jovenes"
+ },
+ {
+  "id": 9,
+  "tipo": "Subvención",
+  "titulo": "Orientación, formación e inserción laboral con compromiso de contratación",
+  "organo": "Comunidad de Madrid · Servicio Público de Empleo",
+  "ambito": "Comunidad de Madrid",
+  "plazo": "Del 01/10/2026 al 29/10/2026",
+  "cierre": "2026-10-29",
+  "importe": "Hasta 1.087,16 €/mes por persona, más formación y orientación",
+  "resumen": "Ayuda a entidades privadas que contratan a personas desempleadas con un contrato de formación en alternancia de 6 a 12 meses y se comprometen a contratar de forma indefinida a una parte al terminar.",
+  "reqs": {
+   "madrid": "si",
+   "contratar": "si"
+  },
+  "requisitos": [
+   "Contratar a personas desempleadas con contrato de formación en alternancia (6 a 12 meses)",
+   "Incluir formación de certificado profesional y formación complementaria",
+   "Compromiso de contratación indefinida de al menos el 60 % de las personas participantes",
+   "Ayuda sujeta al régimen de minimis"
+  ],
+  "docs": [
+   "Solicitud por la sede electrónica de la Comunidad de Madrid",
+   "Proyecto formativo y demás documentación: según la convocatoria"
+  ],
+  "eval": "La orden de concesión o denegación se publica en el calendario de actuaciones de la sede electrónica.",
+  "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-orientacion-formacion-e-insercion"
+ },
+ {
+  "id": 11,
+  "tipo": "Subvención",
+  "titulo": "Crea Feina Barcelona 2026",
+  "organo": "Barcelona Activa · Ajuntament de Barcelona",
+  "ambito": "Barcelona ciudad",
+  "plazo": "Del 29/05/2026 al 30/09/2026",
+  "cierre": "2026-09-30",
+  "importe": "Hasta 15.000 € por contrato",
+  "resumen": "Subvenciona parte del coste salarial de nuevas contrataciones indefinidas en Barcelona, con prioridad para personas con más dificultades de inserción y para perfiles cualificados. Presupuesto de 2 millones para unas 230 contrataciones.",
+  "reqs": {
+   "contratar": "si",
+   "indefinido": "si",
+   "bcn": "si",
+   "amb": "si"
+  },
+  "requisitos": [
+   "Contrato indefinido y a jornada completa (mínimo 60 % en líneas específicas como FP)",
+   "Contratos formalizados desde el 1 de enero de 2026",
+   "Persona contratada empadronada en Barcelona (antes del 28/05/2026, salvo colectivos vulnerables)",
+   "Colectivos prioritarios: paro de larga duración, mayores de 45, personas vulnerables y primera ocupación",
+   "Al menos un centro de trabajo en el Área Metropolitana de Barcelona y estar al corriente de pagos con el Ayuntamiento, Hacienda y la Seguridad Social",
+   "Máximo 5 ayudas por empresa; contratos desde el 1/1/2026 y vigentes al solicitar"
+  ],
+  "docs": [
+   "Contrato indefinido registrado",
+   "Acreditación de la inscripción en el SOC según el perfil (ver pestaña Evaluación)",
+   "Acreditación del empadronamiento en Barcelona",
+   "Se solicita en la aplicación de subvenciones de Barcelona Activa: generas la instancia, la registras y tienes 15 días hábiles para aportar el resto de documentación",
+   "Más adelante, justificación con recibos salariales y cotizaciones"
+  ],
+  "eval": "Importe según el perfil: 6.000 a 8.000 € (primera ocupación, paro de larga duración, mayores de 45 o personas vulnerables); 12.000 a 15.000 € (perfiles de mayor cualificación: doctorado, investigación o entidades de impacto social); unos 5.000 € en la línea de FP dual. Inscripción en el SOC: en paro de larga duración, mínimo 12 meses dentro de los últimos 18 antes del contrato; mayores de 45 y personas vulnerables, inscritas de forma activa justo antes de la contratación; jóvenes en su primer empleo, inscritos en desempleo justo antes de formalizar el contrato. Los importes de 12.000 a 15.000 € incluyen también al personal cualificado que impulsa la modernización del sector de los cuidados. La resolución se publica en el BOPB.",
+  "link": "https://empreses.barcelonactiva.cat/es/creafeina2026"
+ },
+ {
+  "id": 12,
+  "tipo": "Subvención",
+  "titulo": "Abre, reforma y digitaliza tu comercio (Línea 9.2)",
+  "organo": "Paeria de Lleida · Promoció de la ciutat",
+  "ambito": "Lleida ciudad (barrios concretos)",
+  "plazo": "Hasta agotar crédito, como máximo el 30/09/2026",
+  "cierre": "2026-09-30",
+  "importe": "50 % de la inversión, hasta 5.000 € por beneficiario",
+  "resumen": "Ayuda a autónomos, microempresas y pequeñas empresas con local a pie de calle en determinados barrios de Lleida para abrir, reformar o digitalizar su comercio. Se paga por adelantado el 100 %, sin garantía.",
+  "reqs": {
+   "lleida": "si"
+  },
+  "requisitos": [
+   "Autónomo, microempresa o pequeña empresa con establecimiento a pie de calle",
+   "Comercio, servicios asimilados, restauración, artesanía o arte y cultura",
+   "Local en uno de los barrios incluidos: Centre Històric, Instituts–Templers, Mangraners, Mariola, Príncep de Viana–Clot, Rambla Ferran–Estació–Noguerola, Secà de Sant Pere o Universitat",
+   "Inversión mínima de 2.000 € sin IVA, con gastos hechos y pagados entre el 1 de enero y el 31 de diciembre de 2026"
+  ],
+  "docs": [
+   "Solicitud en el trámite de la Paeria",
+   "Facturas y justificantes de pago de las inversiones",
+   "Resto de documentación: según las bases de la convocatoria"
+  ],
+  "eval": "Subvenciona hasta el 50 % de la inversión, con un máximo de 5.000 € por beneficiario y hasta 2 solicitudes si tienes más de un local. Dotación total de 180.000 €, hasta agotar el crédito. Sí entra: obras y reformas (accesibilidad, eficiencia energética, interiores y mobiliario, escaparates y fachada, rotulación e imagen, proyectos técnicos) y digitalización (tienda online, fidelización y analítica, pantallas, apps propias, herramientas tecnológicas). No entra: IVA, existencias, alquiler, fianzas y traspasos, gastos financieros y jurídicos, TPV, móviles y cuotas de internet, maquinaria de producción; tampoco juegos de azar, manicura o pedicura exclusiva, bares musicales y discotecas, tatuajes y piercings, ni accesorios de móvil.",
+  "links": [
+   [
+    "Ayudas de comercio (sede de la Paeria)",
+    "https://seu.paeria.cat/ajutsPublic/cercadorCategoria/180"
+   ]
+  ]
+ },
+ {
+  "id": 13,
+  "tipo": "Subvención",
+  "titulo": "Hazte autónomo: ayuda para jóvenes de 18 a 29 años",
+  "organo": "Generalitat de Catalunya · FSE+",
+  "ambito": "Cataluña",
+  "plazo": "Del 28/07/2026 al 22/09/2026, 14 h",
+  "cierre": "2026-09-22",
+  "importe": "Hasta 17.094 €",
+  "resumen": "Ayuda a jóvenes que se dan de alta como autónomos en Cataluña. Hay dos líneas según tu domicilio fiscal: micropueblo de menos de 500 habitantes u otro municipio. Programa FSE+ Catalunya 2021-2027.",
+  "reqs": {
+   "catalunya": "si",
+   "nuevo": "si",
+   "jovenyo": "si"
+  },
+  "requisitos": [
+   "Tener entre 18 y 29 años en el momento de la solicitud",
+   "Estar inscrito en Garantía Juvenil como mínimo el día antes del alta de autónomo",
+   "Haber iniciado la actividad entre el 23/09/2025 y el 22/09/2026",
+   "No cambiar el domicilio fiscal de Cataluña durante 18 meses"
+  ],
+  "docs": [
+   "Certificado de Garantía Juvenil",
+   "Plan de empresa",
+   "Solo si no autorizas la consulta de datos: vida laboral y modelo TA.0521, DNI/NIE y modelo 036, y certificado de discapacidad si aplica"
+  ],
+  "eval": "Cobro en dos pagos: 80 % tras la concesión y 20 % tras revisar la justificación. Obligaciones: formación obligatoria, publicidad del programa FSE+ y justificación a los 18 meses. Línea 1: domicilio fiscal en un micropueblo de Cataluña (menos de 500 habitantes). Línea 2: resto de Cataluña.",
+  "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/Subvencions-per-afavorir-lautoocupacio-de-joves-en-el-marc-del-Programa-FSE?category=&moda=1"
+ },
+ {
+  "id": 14,
+  "tipo": "Subvención",
+  "titulo": "LEADER Ponent 2026: ayuda a fondo perdido para pymes",
+  "organo": "LEADER Ponent",
+  "ambito": "Provincia de Lleida, excepto el Segrià",
+  "plazo": "Del 30/06/2026 al 30/09/2026",
+  "cierre": "2026-09-30",
+  "importe": "Hasta el 40 % a fondo perdido, máx. 100.000 € por empresa",
+  "resumen": "Ayuda a fondo perdido para pymes que invierten en maquinaria o reformas: bienes de equipo, instalaciones, obra civil, software y páginas web.",
+  "reqs": {
+   "ponent": "si"
+  },
+  "requisitos": [
+   "Pyme con la inversión en la provincia de Lleida, excepto el Segrià",
+   "Inversión mínima de 12.000 €",
+   "No haber empezado la inversión antes del 30/06/2026",
+   "No se subvenciona la maquinaria financiada con leasing o renting; hay que cumplir los plazos de pago de la Ley de Morosidad"
+  ],
+  "docs": [
+   "Solicitud en la convocatoria del programa LEADER Ponent",
+   "Facturas de la inversión, con pagos dentro de los plazos de la Ley de Morosidad",
+   "Resto de documentación: según las bases de la convocatoria"
+  ],
+  "eval": "Hasta el 40 % de la inversión a fondo perdido, con un máximo de 100.000 € por empresa.",
+  "links": [
+   [
+    "Convocatoria LEADER Ponent",
+    "https://www.leaderponent.cat/oberta-la-convocatoria-dels-ajuts-leader-2026-per-impulsar-la-diversificacio-economica-de-les-zones-rurals/"
+   ],
+   [
+    "Trámite en Gencat",
+    "https://tramits.gencat.cat/ca/tramits/tramits-temes/8395-ajuts-leader-diversificacio-economica-zones-rurals?moda=1"
+   ],
+   [
+    "Línea de ayudas LEADER",
+    "https://www.leaderponent.cat/linia-dajuts-leader/"
+   ]
+  ]
+ },
+ {
+  "id": 15,
+  "tipo": "Subvención",
+  "titulo": "Programa TU+1: primera contratación de un autónomo",
+  "organo": "Generalitat de Catalunya · Empresa i Treball",
+  "ambito": "Cataluña",
+  "plazo": "Convocatoria cerrada · pendiente de la próxima",
+  "cerrada": true,
+  "importe": "Consulta el módulo en la convocatoria",
+  "resumen": "Programa de la Generalitat que fomenta que un autónomo sin trabajadores contrate de forma indefinida a su primera persona empleada.",
+  "reqs": {
+   "catalunya": "si",
+   "alta": "si",
+   "plantilla": "no",
+   "contratar": "si",
+   "indefinido": "si"
+  },
+  "requisitos": [
+   "Ser autónomo o autónoma sin trabajadores a cargo",
+   "Contratar de forma indefinida a una persona",
+   "Actividad en Cataluña",
+   "Condiciones y cuantía exactas: según cada convocatoria (bases: Orden EMT/220/2022)"
+  ],
+  "docs": [
+   "Documentación según las bases y la convocatoria vigente (Orden EMT/220/2022)"
+  ],
+  "eval": "Se convoca por años. En 2024, por ejemplo, el plazo de solicitud fue del 2 de septiembre al 14 de octubre. Pide aviso para saber cuándo abre la siguiente.",
+  "link": "https://tramits.gencat.cat/ca/tramits/tramits-temes/24279_-_Subvencions-del-programa-TU1?category=&moda=1"
+ },
+ {
+  "id": 16,
+  "tipo": "Ayuda",
+  "titulo": "Contratación de personas con discapacidad y colectivos vulnerables",
+  "organo": "Comunidad de Madrid · Servicio Público de Empleo",
+  "ambito": "Comunidad de Madrid",
+  "plazo": "Abierta · un mes desde el alta de la persona contratada",
+  "permTxt": "Abierta",
+  "importe": "7.500 €, 9.500 € o 6.500 € según el perfil, más extras",
+  "resumen": "Subvención por contratar de forma indefinida a personas con discapacidad, con capacidad intelectual límite o de colectivos vulnerables: es la línea con el importe más alto de Madrid.",
+  "reqs": {
+   "madrid": "si",
+   "contratar": "si",
+   "indefinido": "si"
+  },
+  "requisitos": [
+   "7.500 € por contratar con carácter indefinido (o convertir en indefinido) a una persona con discapacidad igual o superior al 33 %",
+   "9.500 € si tiene mayores dificultades de acceso al empleo, viene de un enclave laboral, es víctima de violencia de género, trata o terrorismo, o está en riesgo de exclusión social",
+   "6.500 € por personas con capacidad intelectual límite",
+   "Mantener el empleo indefinido durante 3 años"
+  ],
+  "docs": [
+   "Solicitud por la sede electrónica de la Comunidad de Madrid",
+   "Documentación exacta: consúltala en el trámite"
+  ],
+  "eval": "La Comunidad notifica de forma individual la concesión o denegación. Importes adicionales: 500 € si es mujer, 500 € por hijos menores de 16 o dependientes a cargo, 2.000 € si un autónomo contrata a su primer empleado y 1.000 € si eres una startup.",
+  "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/contratacion-colectivos-vulnerables"
+ },
+ {
+  "id": 17,
+  "tipo": "Subvención",
+  "titulo": "Fomento del comercio local (Línea L9.1)",
+  "organo": "Paeria de Lleida",
+  "ambito": "Lleida ciudad",
+  "plazo": "Convocatoria 2026: del 28/03/2026 al 28/04/2026",
+  "cierre": "2026-04-28",
+  "importe": "Consulta las bases y la convocatoria",
+  "resumen": "Línea L9.1 de la Paeria destinada al fomento del comercio local. La convocatoria de 2026 estuvo abierta del 28 de marzo al 28 de abril; la de 2025, del 29 de julio al 15 de septiembre.",
+  "reqs": {
+   "lleida": "si"
+  },
+  "requisitos": [
+   "Condiciones, beneficiarios y cuantías: consulta las bases definitivas y la convocatoria (PDF) en la sede electrónica de la Paeria",
+   "Presentación electrónica en el trámite de la Paeria"
+  ],
+  "docs": [
+   "Documentación: según las bases y la convocatoria publicadas en la sede electrónica"
+  ],
+  "eval": "Se convoca cada año y las fechas cambian de una edición a otra. Pide aviso para saber cuándo abre la siguiente.",
+  "links": [
+   [
+    "Convocatoria 2026",
+    "https://seu.paeria.cat/ajutsPublic/showPublicacion/42353"
+   ],
+   [
+    "Convocatoria 2025",
+    "https://seu.paeria.cat/ajutsPublic/showPublicacion/42226"
+   ],
+   [
+    "Trámite electrónico",
+    "https://tramits.paeria.cat/Ciutadania/DetallTramit.aspx?IdTema=51&IdTramit=1606"
+   ]
+  ]
+ },
+ {
+  "id": 18,
+  "tipo": "Subvención",
+  "titulo": "Impulso de la actividad económica del Centro Histórico (Plan de Barrios)",
+  "organo": "Paeria de Lleida · Promoció de la Ciutat · Generalitat (Pla de Barris)",
+  "ambito": "Centro Histórico de Lleida",
+  "plazo": "Hasta agotar crédito y como máximo el 10/11/2026 (provisional)",
+  "cierre": "2026-11-10",
+  "pend": true,
+  "importe": "70 % del gasto, hasta 10.000 € por solicitud",
+  "aviso": "La convocatoria aún no está publicada en la sede electrónica: los datos son provisionales y el plazo puede variar. Confirma las fechas y las condiciones cuando se publique",
+  "resumen": "Ayuda para abrir una nueva actividad comercial, profesional o de servicios en el Centro Histórico de Lleida, o para continuar una existente mediante traspaso. Financia el 70 % del gasto y se paga por adelantado el 100 %, sin garantía. Dotación total de 80.000 €.",
+  "reqs": {
+   "centre": "si"
+  },
+  "requisitos": [
+   "Autónomo, sociedad mercantil, cooperativa, sociedad civil u otra entidad con condición de microempresa o pequeña empresa",
+   "Actividad en local de planta baja, altillo comercial o planta superior, destinando el 100 % de la superficie",
+   "Inversión mínima de 2.000 € (sin IVA); hasta 2 solicitudes por beneficiario",
+   "Actividad ya iniciada: gastos hechos y pagados entre el 1/1 y el 31/12/2026. Actividad no iniciada: iniciarla como máximo el 30/06/2027, con gastos entre el 1/1/2026 y el 30/06/2027"
+  ],
+  "docs": [
+   "Formulario en línea firmado electrónicamente",
+   "Memoria descriptiva (actividad iniciada) o plan de empresa (actividad no iniciada), con presupuesto",
+   "Anexo 2: relación de gastos e inversiones",
+   "Autorización de transferencia bancaria",
+   "Alta censal, si ya ejerces la actividad",
+   "Declaraciones responsables y facturas o pagos, si procede"
+  ],
+  "eval": "Las solicitudes se resuelven por orden de llegada, hasta agotar el crédito. Resolución en un máximo de 3 meses desde la presentación. Sí se subvenciona: reforma y adecuación del local (rehabilitación, eficiencia energética, accesibilidad, licencias de actividad), compras para el inicio (mobiliario, equipos informáticos, maquinaria y bienes de equipamiento), gastos del local (alquiler o compra para la apertura), viabilidad del negocio (estudios de marketing y ventas) y digitalización. No se subvenciona: IVA e impuestos sobre la renta, existencias y stocks iniciales, intereses, recargos y sanciones, procedimientos judiciales, amortizaciones, dietas y desplazamientos. Actividades excluidas: juegos de azar y apuestas, manicura y pedicura exclusiva, bares musicales, discotecas, salas de baile, de fiestas y de conciertos, karaokes, cafés teatro y concierto, tatuajes y piercings, y venta o reparación de accesorios de telefonía móvil.",
+  "link": "#"
+ },
+ {
+  "id": 19,
+  "tipo": "Crédito",
+  "titulo": "Financiación del ICF (Institut Català de Finances)",
+  "organo": "Institut Català de Finances · Generalitat de Catalunya",
+  "ambito": "Cataluña",
+  "plazo": "Abierta todo el año, según la línea vigente",
+  "permTxt": "Abierta",
+  "importe": "Préstamos y avales: importes y condiciones según la línea",
+  "resumen": "El ICF es la entidad financiera pública de la Generalitat. Ofrece préstamos, avales y préstamos participativos a autónomos, pymes y emprendedores con sede social u operativa en Cataluña, para inversión, crecimiento, innovación, internacionalización o circulante.",
+  "reqs": {
+   "catalunya": "si"
+  },
+  "requisitos": [
+   "Autónomo, microempresa, pyme o emprendedor con sede social u operativa en Cataluña",
+   "Proyecto de inversión, crecimiento, innovación, internacionalización o necesidad de circulante",
+   "Muchas líneas se tramitan a través de bancos colaboradores, que analizan la viabilidad financiera",
+   "Las líneas, importes, plazos y tipos cambian cada año: consulta las vigentes en el ICF"
+  ],
+  "docs": [
+   "La documentación depende de la línea; suele incluir información del proyecto y datos económicos de la empresa o del autónomo",
+   "Solicitud a través del ICF o de una entidad colaboradora: consulta los pasos de la línea vigente"
+  ],
+  "eval": "No es una subvención: es financiación que se devuelve. La entidad analiza la viabilidad y la solvencia, y algunas líneas incluyen avales o ayudas en forma de garantía de la Generalitat. Tipo de interés, plazo y comisiones actuales: consúltalos en el ICF antes de decidir.",
+  "links": [
+   [
+    "ICF",
+    "https://www.icf.cat"
+   ],
+   [
+    "Financiación y subvenciones (Xarxa Emprèn)",
+    "https://xarxaempren.gencat.cat/es/consolida-el-teu-negoci/financament-i-subvencions/"
+   ],
+   [
+    "Medidas para empresas y autónomos (Canal Empresa)",
+    "https://canalempresa.gencat.cat/es/01_que_voleu_fer/mesuresempresesiautonoms/mesures-economiques-i-socials-per-a-empreses-i-autonoms/"
+   ]
+  ]
+ },
+ {
+  "id": 20,
+  "tipo": "Crédito",
+  "titulo": "ICO Empresas y Emprendedores",
+  "organo": "Instituto de Crédito Oficial (ICO)",
+  "ambito": "Estatal",
+  "plazo": "Abierta todo el año",
+  "permTxt": "Abierta",
+  "importe": "Hasta 12,5 millones de euros",
+  "resumen": "Líneas de financiación del ICO para proyectos de inversión, actividades empresariales y necesidades de liquidez y gastos. Se piden en las entidades de crédito, que son las que conceden la financiación.",
+  "reqs": {},
+  "requisitos": [
+   "Proyectos de inversión, actividades empresariales o necesidades de liquidez y gastos",
+   "Se solicita a través de las entidades de crédito adheridas",
+   "Importes, plazos y tipos varían según la línea y el año: consulta el ICO"
+  ],
+  "docs": [
+   "La documentación que pida la entidad de crédito donde lo solicites"
+  ],
+  "eval": "Es financiación, no subvención, y la decisión la toma la entidad de crédito. Confirma las líneas vigentes en la web oficial del ICO.",
+  "link": "https://www.ico.es/web/guest/ico-empresas-y-emprendedores"
+ },
+ {
+  "id": 21,
+  "tipo": "Crédito",
+  "titulo": "Línea Emprendedores de Enisa",
+  "organo": "ENISA · Ministerio de Industria, Comercio y Turismo",
+  "ambito": "Estatal",
+  "plazo": "Abierta todo el año",
+  "permTxt": "Abierta",
+  "importe": "Préstamos participativos de 25.000 a 300.000 €",
+  "resumen": "Préstamos participativos para pymes de menos de 24 meses de antigüedad promovidas por emprendedores, sin límite de edad, para apoyar las primeras fases de vida de la empresa.",
+  "reqs": {
+   "sl": "si",
+   "sl24": "si"
+  },
+  "requisitos": [
+   "Pyme con menos de 24 meses de antigüedad",
+   "Promovida por emprendedores, sin límite de edad",
+   "Es un préstamo participativo: financiación que se devuelve, no una subvención"
+  ],
+  "docs": [
+   "Documentación según Enisa: consulta los requisitos de la línea vigente"
+  ],
+  "eval": "La decide Enisa tras analizar el proyecto. Confirma las condiciones actuales en la web oficial de Enisa.",
+  "link": "https://www.enisa.es/es/financia-tu-empresa/lineas-de-financiacion/d/emprendedores"
+ }
+]
