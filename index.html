@@ -588,7 +588,7 @@ function renderProfile(){
  secuencia().forEach(function(k){if(k[0]==="#"){p.appendChild(el("h3","gh",k.slice(1)));return}if(!mostrar(k))return;
  if(k==="perfil"){p.appendChild(selPerfil());return}if(k==="forma"){p.appendChild(selForma());return}if(k==="ccaa"){p.appendChild(selCcaa());return}if(k==="provincia"){p.appendChild(selProvincia());return}if(k==="municipio"){p.appendChild(selMunicipio());return}
  var r=el("div","q");r.appendChild(txt("span",QUESTIONS[k]||k));
- if(["edad","unidad","ingresos","menores","nacimientoFecha"].indexOf(k)>=0){var inp=el("input","fld");inp.type="text";inp.value=A[k]||"";inp.setAttribute("aria-label",QUESTIONS[k]);inp.onchange=function(){A[k]=inp.value.trim();save();refrescar()};r.appendChild(inp)}
+ if(["edad","unidad","ingresos","menores","nacimientoFecha"].indexOf(k)>=0){var inp=el("input","fld");inp.type=k==="nacimientoFecha"?"date":"number";if(inp.type==="number"){inp.min="0";inp.step=k==="ingresos"?"100":"1"}inp.value=A[k]||"";inp.setAttribute("aria-label",QUESTIONS[k]);inp.onchange=function(){A[k]=inp.value.trim();save();refrescar()};r.appendChild(inp)}
  else r.appendChild(seg(k,function(){renderProfile();refrescar()}));p.appendChild(r);
  });
 }
