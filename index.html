@@ -626,6 +626,7 @@ function encajeNov(n,pf){
 }
 
 function renderFilters(){var tipos=["Todas"].concat(Array.from(new Set(AIDS.map(function(a){return a.tipo}).filter(Boolean))).sort());chips("filters",tipos,function(){return tipo},function(t){tipo=t});chips("estf",["Todas","Abiertas","Pendientes","Cerradas"],function(){return est},function(t){est=t})}
+function mailBody(){var o=[],labels={si:"Sí",no:"No",nose:"No sé"};secuencia().forEach(function(k){if(k[0]==="#"||A[k]===undefined||A[k]===""||!mostrar(k))return;var v=Object.prototype.hasOwnProperty.call(labels,A[k])?labels[A[k]]:String(A[k]);o.push((QUESTIONS[k]||k)+" "+v)});return o.length?"\\n\\nMis respuestas del test:\\n"+o.join("\\n"):""}
 function renderSourceChanges(){
  var section=document.getElementById("source-changes"),list=document.getElementById("source-changes-list");if(!section||!list)return;list.innerHTML="";
  var vistos={};try{vistos=JSON.parse(LS.get("subvenly_fuentes_revisadas")||"{}")||{}}catch(e){}
