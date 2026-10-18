@@ -412,6 +412,66 @@
       "monitor": true,
       "nota": "Buscador oficial de la sede electrónica; el filtro y la paginación pueden requerir revisión.",
       "oficial": true
+    },
+    {
+      "id": "balears-portal",
+      "nombre": "Govern de les Illes Balears · Portal oficial",
+      "ambito": "Illes Balears",
+      "categoria": "Ayudas y trámites",
+      "url": "https://www.caib.es/webgoib/",
+      "monitor": true,
+      "nota": "Portal oficial con accesos para ciudadanía, empresas y trámites; cada convocatoria debe identificarse por separado.",
+      "oficial": true
+    },
+    {
+      "id": "cantabria-ayudas",
+      "nombre": "Gobierno de Cantabria · Convocatorias, becas, ayudas y subvenciones",
+      "ambito": "Cantabria",
+      "categoria": "Ayudas generales",
+      "url": "https://sede.cantabria.es/sede/convocatorias-becas-ayudas-subvenciones-y-premios",
+      "monitor": true,
+      "nota": "Catálogo oficial de convocatorias de la sede electrónica.",
+      "oficial": true
+    },
+    {
+      "id": "clm-portal",
+      "nombre": "Junta de Castilla-La Mancha · Portal oficial",
+      "ambito": "Castilla-La Mancha",
+      "categoria": "Portal de entrada",
+      "url": "https://www.castillalamancha.es/",
+      "monitor": false,
+      "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia.",
+      "oficial": true
+    },
+    {
+      "id": "larioja-portal",
+      "nombre": "Gobierno de La Rioja · Portal oficial",
+      "ambito": "La Rioja",
+      "categoria": "Portal de entrada",
+      "url": "https://www.larioja.org/",
+      "monitor": false,
+      "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia.",
+      "oficial": true
+    },
+    {
+      "id": "ceuta-portal",
+      "nombre": "Ciudad Autónoma de Ceuta · Portal oficial",
+      "ambito": "Ceuta",
+      "categoria": "Portal de entrada",
+      "url": "https://www.ceuta.es/",
+      "monitor": false,
+      "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia.",
+      "oficial": true
+    },
+    {
+      "id": "melilla-portal",
+      "nombre": "Ciudad Autónoma de Melilla · Portal oficial",
+      "ambito": "Melilla",
+      "categoria": "Portal de entrada",
+      "url": "https://www.melilla.es/melillaportal/index.jsp",
+      "monitor": false,
+      "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia.",
+      "oficial": true
     }
   ],
   "coberturaTerritorial": [
@@ -419,115 +479,115 @@
       "nombre": "Andalucía",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial específico registrado"
+      "estado": "portal de ayudas oficial registrado"
     },
     {
       "nombre": "Aragón",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial específico registrado"
+      "estado": "portal de ayudas oficial registrado"
     },
     {
       "nombre": "Asturias",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial específico registrado"
+      "estado": "portal de ayudas oficial registrado"
     },
     {
       "nombre": "Illes Balears",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+      "estado": "portal de ayudas oficial registrado"
     },
     {
       "nombre": "Canarias",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial específico registrado"
+      "estado": "portal de ayudas oficial registrado"
     },
     {
       "nombre": "Cantabria",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+      "estado": "portal de ayudas oficial registrado"
     },
     {
       "nombre": "Castilla y León",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial específico registrado"
+      "estado": "portal de ayudas oficial registrado"
     },
     {
       "nombre": "Castilla-La Mancha",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+      "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
     },
     {
       "nombre": "Cataluña",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial específico registrado"
+      "estado": "portal de ayudas oficial registrado"
     },
     {
       "nombre": "Comunitat Valenciana",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial específico registrado"
+      "estado": "portal de ayudas oficial registrado"
     },
     {
       "nombre": "Extremadura",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial específico registrado"
+      "estado": "portal de ayudas oficial registrado"
     },
     {
       "nombre": "Galicia",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial específico registrado"
+      "estado": "portal de ayudas oficial registrado"
     },
     {
       "nombre": "Comunidad de Madrid",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial específico registrado"
+      "estado": "portal de ayudas oficial registrado"
     },
     {
       "nombre": "Región de Murcia",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial específico registrado"
+      "estado": "portal de ayudas oficial registrado"
     },
     {
       "nombre": "Comunidad Foral de Navarra",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+      "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
     },
     {
       "nombre": "País Vasco",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial específico registrado"
+      "estado": "portal de ayudas oficial registrado"
     },
     {
       "nombre": "La Rioja",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+      "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
     },
     {
       "nombre": "Ceuta",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+      "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
     },
     {
       "nombre": "Melilla",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+      "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
     }
   ]
 }
