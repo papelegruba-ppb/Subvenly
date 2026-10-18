@@ -509,6 +509,7 @@ Object.assign(QUESTIONS,{
  transporte:"¿Tu actividad pertenece al transporte o a un sector con ayudas específicas por carburante?"
 });
 Object.assign(DEP,{nacimientoFecha:"familia",menores:"familia",contratoAlquiler:"alquiler",empadronamiento:"alquiler",familiaMonoparental:"familia",familiaNumerosa:"familia"});
+delete DEP.familiaMonoparental;delete DEP.familiaNumerosa;
 Object.assign(FALTA,{
  ccaa:"residir o desarrollar la actividad en la comunidad autónoma indicada",municipioBarcelona:"residir en Barcelona ciudad si la convocatoria lo exige",municipioMadrid:"residir en Madrid ciudad si la convocatoria lo exige",
  familia:"tener una situación familiar contemplada en las bases",nacimientoFecha:"cumplir el plazo correspondiente a la fecha del nacimiento/adopción",menores:"tener menores a cargo según las condiciones",alquiler:"tener gastos de alquiler subvencionables",edad:"cumplir el tramo de edad de la convocatoria",unidad:"cumplir los requisitos de la unidad de convivencia",ingresos:"cumplir los límites de ingresos",contratoAlquiler:"disponer del contrato exigido",empadronamiento:"cumplir el requisito de empadronamiento si lo exige la convocatoria",residenciaLegal:"cumplir los requisitos de residencia",familiaMonoparental:"tener reconocida la condición si se solicita ese supuesto",familiaNumerosa:"tener reconocida la condición si se solicita ese supuesto",social:"cumplir los requisitos de la prestación concreta",fiscal:"cumplir los requisitos fiscales del beneficio concreto",emergencias:"estar dentro del ámbito territorial y acreditar los daños o circunstancias de la catástrofe",transporte:"pertenecer al sector y cumplir las condiciones de la medida de combustible"
@@ -545,11 +546,13 @@ function mostrar(k){
  if(k==="municipio"&&!A.provincia)return false;
  if(k==="amb"&&A.provincia!=="Barcelona")return false;
  if(["lleida","centre","ponent"].indexOf(k)>=0&&A.provincia!=="Lleida")return false;
- if(["nacimientoFecha","menores","familiaMonoparental","familiaNumerosa"].indexOf(k)>=0&&A.familia!=="si")return false;
+ if(["nacimientoFecha","menores"].indexOf(k)>=0&&A.familia!=="si")return false;
+ if(["familiaMonoparental","familiaNumerosa"].indexOf(k)>=0&&A.familia!=="si"&&A.alquiler!=="si"&&A.social!=="si")return false;
  if(["contratoAlquiler","empadronamiento"].indexOf(k)>=0&&A.alquiler!=="si")return false;
- if(["unidad","residenciaLegal"].indexOf(k)>=0&&A.social!=="si")return false;
- if(k==="ingresos"&&A.social!=="si"&&A.alquiler!=="si")return false;
- if(["edad","familiaMonoparental","familiaNumerosa"].indexOf(k)>=0&&A.familia!=="si"&&A.alquiler!=="si"&&A.social!=="si")return false;
+ if(k==="unidad"&&A.social!=="si"&&A.alquiler!=="si"&&A.familia!=="si")return false;
+ if(k==="residenciaLegal"&&A.social!=="si")return false;
+ if(k==="ingresos"&&A.social!=="si"&&A.alquiler!=="si"&&A.familia!=="si")return false;
+ if(k==="edad"&&A.familia!=="si"&&A.alquiler!=="si"&&A.social!=="si")return false;
  return true;
 }
 var IMPLICITO_BASE=IMPLICITO;
