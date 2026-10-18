@@ -577,7 +577,7 @@
  {
   "id": 21,
   "tipo": "Crédito",
-  "titulo": "Línea Emprendedores de Enisa",
+  "titulo": "Financiación ENISA para startups y pymes",
   "organo": "ENISA · Ministerio de Industria, Comercio y Turismo",
   "ambito": "Estatal",
   "plazo": "Consultar disponibilidad y condiciones de la línea vigente en ENISA",
@@ -585,8 +585,7 @@
   "importe": "Préstamos participativos de 25.000 a 1.500.000 €, según línea y condiciones vigentes",
   "resumen": "Préstamos participativos para pymes de menos de 24 meses de antigüedad promovidas por emprendedores, sin límite de edad, para apoyar las primeras fases de vida de la empresa.",
   "reqs": {
-   "sl": "si",
-   "sl24": "si"
+   "sl": "si"
   },
   "requisitos": [
    "Promovida por emprendedores, sin límite de edad",
