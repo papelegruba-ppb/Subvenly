@@ -542,6 +542,16 @@
    "monitor": true,
    "nota": "Buscador oficial de ayudas y subvenciones, con páginas de convocatorias y documentos relacionados.",
    "oficial": true
+  },
+  {
+   "id": "enisa-financiacion",
+   "nombre": "ENISA · Financiación para startups y pymes",
+   "ambito": "Estatal",
+   "categoria": "Financiación empresarial",
+   "url": "https://www.enisa.es/servicios/financiacion/startups-y-pymes/",
+   "monitor": true,
+   "nota": "Préstamos participativos, no subvenciones. Verificar la línea específica, requisitos, importes y disponibilidad vigentes.",
+   "oficial": true
   }
  ],
  "coberturaTerritorial": [
