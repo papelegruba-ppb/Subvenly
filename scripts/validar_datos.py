@@ -37,6 +37,10 @@ def main():
     exigir(len(personales) >= 5, "Faltan fichas personales/familiares")
     exigir(isinstance(fuentes_doc.get("fuentes"), list) and fuentes_doc["fuentes"], "No hay registro de fuentes")
     fuentes = fuentes_doc["fuentes"]
+    territorios = fuentes_doc.get("coberturaTerritorial", [])
+    exigir(len(territorios) >= 19, "El registro debe contemplar las 17 comunidades y Ceuta/Melilla")
+    nombres_territorio = {x.get("nombre") for x in territorios}
+    exigir({"Andalucía", "Cataluña", "Comunidad de Madrid", "Ceuta", "Melilla"}.issubset(nombres_territorio), "Faltan territorios clave en el registro de fuentes")
     sids = [x.get("id") for x in fuentes]
     exigir(len(sids) == len(set(sids)), "Hay IDs de fuentes duplicados")
     urls = [x.get("url") for x in fuentes]
@@ -67,7 +71,7 @@ def main():
         finally:
             pathlib.Path(ruta).unlink(missing_ok=True)
     print("OK: {} fichas ({} personales), {} fuentes, {} provincias, {} municipios; {} bloques JS válidos.".format(
-        len(fichas), len(personales), len(fuentes), len(provincias), municipios, len(inline)))
+        len(fichas), len(personales), len(fuentes), len(territorios), len(provincias), municipios, len(inline)))
     return 0
 
 if __name__ == "__main__":
