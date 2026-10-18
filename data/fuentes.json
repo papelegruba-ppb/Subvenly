@@ -1,7 +1,7 @@
 {
   "version": 1,
   "actualizado": "2026-10-18",
-  "nota": "Registro de fuentes oficiales o portales de referencia. Una fuente no equivale a una convocatoria. La cobertura autonómica/municipal debe ampliarse y verificarse de forma progresiva.",
+  "nota": "Registro de fuentes oficiales o portales de referencia. Una fuente no equivale a una convocatoria. La BDNS cubre convocatorias estatales, autonómicas y locales; se registran portales especializados donde ya están localizados y la cobertura directa pendiente se identifica explícitamente.",
   "fuentes": [
     {
       "id": "bdns",
@@ -282,6 +282,212 @@
       "monitor": true,
       "nota": "Portal de descubrimiento; comprobar convocatoria autonómica y fechas.",
       "oficial": true
+    },
+    {
+      "id": "directorio-ccaa",
+      "nombre": "Directorio oficial de portales autonómicos",
+      "ambito": "Estado / todas las comunidades y ciudades autónomas",
+      "categoria": "Directorio territorial",
+      "url": "https://administracion.gob.es/informacion/sedes-electronicas-y-portales-de-internet-publicos/portales/comunidades-autonomas",
+      "monitor": false,
+      "nota": "Punto de entrada oficial para localizar cada portal autonómico.",
+      "oficial": true
+    },
+    {
+      "id": "aragon-ayudas",
+      "nombre": "Gobierno de Aragón · Ayudas y subvenciones",
+      "ambito": "Aragón",
+      "categoria": "Ayudas generales",
+      "url": "https://www.aragon.es/tramites/ayudas-subvenciones-becas-premios",
+      "monitor": true,
+      "nota": "Incluye ayudas, prestaciones y convocatorias; revisar cada ficha individual.",
+      "oficial": true
+    },
+    {
+      "id": "asturias-ayudas",
+      "nombre": "Principado de Asturias · Buscador de ayudas",
+      "ambito": "Asturias",
+      "categoria": "Ayudas generales",
+      "url": "https://sede.asturias.es/ast/-/buscador-de-convocatorias-y-concesiones-de-ayudas-y-subvenciones-1",
+      "monitor": true,
+      "nota": "Buscador oficial de convocatorias y concesiones.",
+      "oficial": true
+    },
+    {
+      "id": "galicia-ayudas",
+      "nombre": "Xunta de Galicia · Axudas e subvencións",
+      "ambito": "Galicia",
+      "categoria": "Ayudas generales",
+      "url": "https://www.xunta.gal/es/medios/axudas-e-subvencions",
+      "monitor": true,
+      "nota": "Portal oficial de ayudas y subvenciones.",
+      "oficial": true
+    },
+    {
+      "id": "castillayleon-ayudas",
+      "nombre": "Junta de Castilla y León · Suscripción de ayudas y subvenciones",
+      "ambito": "Castilla y León",
+      "categoria": "Ayudas generales",
+      "url": "https://www.tramitacastillayleon.jcyl.es/web/es/tramites-servicios/suscripcion-ayudas-subvenciones-becas.html",
+      "monitor": true,
+      "nota": "Servicio oficial de novedades; contrastar con la convocatoria y boletín.",
+      "oficial": true
+    },
+    {
+      "id": "canarias-ayudas",
+      "nombre": "Gobierno de Canarias · Líneas de ayudas y subvenciones",
+      "ambito": "Canarias",
+      "categoria": "Ayudas generales",
+      "url": "https://www.gobiernodecanarias.org/transparencia/temas/contratos-convenios-subvenciones/ayudas-y-subvenciones/lineas/index.html",
+      "monitor": true,
+      "nota": "Portal oficial que remite a la BDNS y a procedimientos del Gobierno de Canarias.",
+      "oficial": true
+    },
+    {
+      "id": "madrid-ayudas",
+      "nombre": "Comunidad de Madrid · Buscador de ayudas y subvenciones",
+      "ambito": "Comunidad de Madrid",
+      "categoria": "Ayudas generales",
+      "url": "https://sede.comunidad.madrid/buscador?t=ayudas+y+subvenciones&tipo=All",
+      "monitor": true,
+      "nota": "Buscador oficial con estados y plazos de las fichas.",
+      "oficial": true
+    },
+    {
+      "id": "andalucia-ayudas",
+      "nombre": "Junta de Andalucía · Ayudas y subvenciones",
+      "ambito": "Andalucía",
+      "categoria": "Ayudas generales",
+      "url": "https://juntadeandalucia.es/organismos/transparencia/contratos-convenios/ayudas-junta-subvenciones.html",
+      "monitor": true,
+      "nota": "Portal oficial de ayudas de la Junta.",
+      "oficial": true
+    },
+    {
+      "id": "euskadi-ayudas",
+      "nombre": "Gobierno Vasco · Listado de ayudas",
+      "ambito": "País Vasco",
+      "categoria": "Ayudas generales",
+      "url": "https://www.euskadi.eus/gobierno-vasco/-/listado-de-ayudas/",
+      "monitor": true,
+      "nota": "Buscador oficial con filtros de territorio y estado de convocatoria.",
+      "oficial": true
+    }
+  ],
+  "coberturaTerritorial": [
+    {
+      "nombre": "Andalucía",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "portal oficial específico registrado"
+    },
+    {
+      "nombre": "Aragón",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "portal oficial específico registrado"
+    },
+    {
+      "nombre": "Asturias",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "portal oficial específico registrado"
+    },
+    {
+      "nombre": "Illes Balears",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+    },
+    {
+      "nombre": "Canarias",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "portal oficial específico registrado"
+    },
+    {
+      "nombre": "Cantabria",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+    },
+    {
+      "nombre": "Castilla y León",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "portal oficial específico registrado"
+    },
+    {
+      "nombre": "Castilla-La Mancha",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+    },
+    {
+      "nombre": "Cataluña",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "portal oficial específico registrado"
+    },
+    {
+      "nombre": "Comunitat Valenciana",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+    },
+    {
+      "nombre": "Extremadura",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+    },
+    {
+      "nombre": "Galicia",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "portal oficial específico registrado"
+    },
+    {
+      "nombre": "Comunidad de Madrid",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "portal oficial específico registrado"
+    },
+    {
+      "nombre": "Región de Murcia",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+    },
+    {
+      "nombre": "Comunidad Foral de Navarra",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+    },
+    {
+      "nombre": "País Vasco",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "portal oficial específico registrado"
+    },
+    {
+      "nombre": "La Rioja",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+    },
+    {
+      "nombre": "Ceuta",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+    },
+    {
+      "nombre": "Melilla",
+      "fuenteGeneral": "bdns",
+      "directorioOficial": "directorio-ccaa",
+      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
     }
   ]
 }
