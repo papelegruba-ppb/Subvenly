@@ -43,7 +43,15 @@ jobs:
         continue-on-error: true
         run: python scripts/actualizar_licitaciones.py
 
-      - name: Vigilar las páginas oficiales de los créditos
+      - name: Vigilar las fuentes oficiales registradas
+        id: vigilar_fuentes
+        continue-on-error: true
+        run: python scripts/vigilar_fuentes.py
+
+      - name: Validar catálogo, territorio y JavaScript
+        run: python scripts/validar_datos.py
+
+      - name: Vigilar las páginas oficiales de las fichas
         id: vigilar
         continue-on-error: true
         run: python scripts/vigilar_creditos.py
@@ -68,7 +76,7 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Avisar si la búsqueda falló
-        if: steps.buscar.outcome == 'failure' || steps.buscar_ue.outcome == 'failure' || steps.buscar_lic.outcome == 'failure' || steps.vigilar.outcome == 'failure'
+        if: steps.buscar.outcome == 'failure' || steps.buscar_ue.outcome == 'failure' || steps.buscar_lic.outcome == 'failure' || steps.vigilar.outcome == 'failure' || steps.vigilar_fuentes.outcome == 'failure'
         run: |
           echo "La web se ha publicado con los datos anteriores, pero alguna búsqueda de hoy falló. Revisa los pasos 'Buscar convocatorias'."
           exit 1

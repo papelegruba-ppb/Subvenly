@@ -597,5 +597,468 @@
   ],
   "eval": "La decide Enisa tras analizar el proyecto. Confirma las condiciones actuales en la web oficial de Enisa.",
   "link": "https://www.enisa.es/es/financia-tu-empresa/lineas-de-financiacion/d/emprendedores"
+ },
+ {
+  "id": 22,
+  "perfil": "personal",
+  "tipo": "Prestación",
+  "titulo": "Ingreso Mínimo Vital (IMV)",
+  "organo": "Seguridad Social · Estado",
+  "ambito": "Estatal",
+  "plazo": "Solicitud según requisitos vigentes",
+  "estadoManual": "Estado y requisitos: comprobar en la fuente oficial",
+  "importe": "Según composición e ingresos de la unidad de convivencia",
+  "resumen": "Prestación estatal para prevenir el riesgo de pobreza y exclusión social. La elegibilidad depende de los ingresos, patrimonio, residencia y composición de la unidad de convivencia.",
+  "reqs": {
+   "social": "si"
+  },
+  "requisitos": [
+   "La evaluación depende de los ingresos, patrimonio, residencia y composición de la unidad de convivencia",
+   "La preevaluación de Subvenly no sustituye el cálculo oficial ni la resolución del INSS"
+  ],
+  "docs": [
+   "Documentación personal y de la unidad de convivencia que solicite la Seguridad Social",
+   "Consulta la documentación vigente en el trámite oficial"
+  ],
+  "eval": "Subvenly solo puede hacer una preevaluación. La Seguridad Social determina el derecho y la cuantía.",
+  "links": [
+   [
+    "Solicitud e información oficial IMV",
+    "https://imv.seg-social.es/"
+   ],
+   [
+    "Trámite en Cataluña",
+    "https://tramits.gencat.cat/ca/tramits/tramits-temes/ingres-minim-vital"
+   ]
+  ]
+ },
+ {
+  "id": 23,
+  "perfil": "personal",
+  "tipo": "Prestación",
+  "titulo": "Prestación para familias con niños (Cataluña)",
+  "organo": "Generalitat de Catalunya",
+  "ambito": "Cataluña",
+  "plazo": "Consultar el plazo aplicable a cada situación",
+  "estadoManual": "Plazo y condiciones: comprobar en la fuente oficial",
+  "importe": "Según el supuesto y la normativa vigente",
+  "resumen": "Prestación para familias con niños. Deben comprobarse los requisitos, la fecha del nacimiento o adopción y el plazo aplicable.",
+  "reqs": {
+   "familia": "si",
+   "ccaa": "Cataluña"
+  },
+  "requisitos": [
+   "La fecha del nacimiento, adopción, tutela o acogida puede afectar al plazo aplicable",
+   "Comprobar las condiciones y la documentación vigentes en el trámite oficial"
+  ],
+  "docs": [
+   "Documentación identificativa y familiar que exija el trámite",
+   "Documentación adicional indicada en las bases o en la sede"
+  ],
+  "eval": "No se confirma la elegibilidad ni el plazo sin contrastar la ficha oficial vigente.",
+  "links": [
+   [
+    "Trámite oficial de la Generalitat",
+    "https://tramits.gencat.cat/ca/tramits/tramits-temes/Prestacio-per-a-families-amb-infants"
+   ]
+  ]
+ },
+ {
+  "id": 24,
+  "perfil": "personal",
+  "tipo": "Prestación",
+  "titulo": "Prestación por nacimiento y cuidado de menor",
+  "organo": "Seguridad Social · Estado",
+  "ambito": "Estatal",
+  "plazo": "Consultar requisitos y solicitud oficiales",
+  "estadoManual": "Requisitos y condiciones: comprobar en la fuente oficial",
+  "importe": "Según la base reguladora y la situación laboral",
+  "resumen": "Prestación estatal vinculada al nacimiento, adopción, guarda con fines de adopción o acogimiento, sujeta a los requisitos de Seguridad Social.",
+  "reqs": {
+   "familia": "si"
+  },
+  "requisitos": [
+   "Las condiciones pueden depender de la situación laboral y de cotización",
+   "Comprobar duración, requisitos y procedimiento vigentes en la Seguridad Social"
+  ],
+  "docs": [
+   "Documentación indicada en el trámite oficial"
+  ],
+  "eval": "La ficha no determina el derecho individual; la Seguridad Social evalúa los requisitos aplicables.",
+  "links": [
+   [
+    "Prestación oficial por nacimiento y cuidado de menor",
+    "https://prestaciones.seg-social.es/servicio/prestacion-nacimiento-adopcion-cuidado-menor.html"
+   ]
+  ]
+ },
+ {
+  "id": 25,
+  "perfil": "personal",
+  "tipo": "Ayuda",
+  "titulo": "Ayudas al pago del alquiler y la vivienda (Cataluña)",
+  "organo": "Generalitat de Catalunya · Habitatge",
+  "ambito": "Cataluña",
+  "plazo": "Depende de la convocatoria y del colectivo",
+  "estadoManual": "Convocatoria concreta y plazo: comprobar en la fuente oficial",
+  "importe": "Según la línea de ayuda vigente",
+  "resumen": "Punto de acceso a las líneas de ayudas al pago del alquiler y otras ayudas de vivienda. Las convocatorias pueden variar por edad, ingresos y situación familiar.",
+  "reqs": {
+   "alquiler": "si",
+   "ccaa": "Cataluña"
+  },
+  "requisitos": [
+   "Identificar la convocatoria concreta según edad, ingresos, municipio y situación residencial",
+   "Comprobar si la convocatoria está abierta y qué gastos o contratos admite"
+  ],
+  "docs": [
+   "Contrato y justificantes de alquiler, si los exige la convocatoria",
+   "Documentación de ingresos y convivencia según las bases"
+  ],
+  "eval": "Esta ficha agrupa líneas de vivienda; no equivale a una convocatoria única ni confirma que exista un plazo abierto.",
+  "links": [
+   [
+    "Ayudas de vivienda de la Generalitat",
+    "https://habitatge.gencat.cat/ca/ajuts/"
+   ],
+   [
+    "Subvenciones al pago del alquiler",
+    "https://habitatge.gencat.cat/ca/ajuts/ajuts-pagament-habitatge/subvencions-pagament-lloguer/"
+   ]
+  ]
+ },
+ {
+  "id": 26,
+  "perfil": "personal",
+  "tipo": "Ayuda",
+  "titulo": "Ayudas al pago del alquiler o cesión de uso (Barcelona)",
+  "organo": "Consorci de l'Habitatge de Barcelona",
+  "ambito": "Barcelona ciudad",
+  "plazo": "Según convocatoria",
+  "estadoManual": "Convocatoria y plazo: comprobar en la fuente oficial",
+  "importe": "Según la convocatoria aplicable",
+  "resumen": "Fuente de las convocatorias de Barcelona para ayudas al pago del alquiler o cesión de uso. La compatibilidad depende del municipio, ingresos y demás requisitos de cada línea.",
+  "reqs": {
+   "alquiler": "si",
+   "municipioBarcelona": "si"
+  },
+  "requisitos": [
+   "Residir en el ámbito territorial de la convocatoria",
+   "Comprobar límites de ingresos, alquiler máximo, empadronamiento y plazo en las bases vigentes"
+  ],
+  "docs": [
+   "Documentación indicada por el Consorci en la convocatoria aplicable"
+  ],
+  "eval": "La página agrupa convocatorias y no demuestra por sí sola que una línea esté abierta.",
+  "links": [
+   [
+    "Consorci de l'Habitatge de Barcelona",
+    "https://www.consorcihabitatge.barcelona/ca/subvencions-al-pagament-del-lloguer-o-cessio-dus"
+   ]
+  ]
+ },
+ {
+  "id": 27,
+  "perfil": "personal",
+  "tipo": "Ayuda",
+  "titulo": "Ayudas al alquiler para jóvenes (Comunidad de Madrid)",
+  "organo": "Comunidad de Madrid",
+  "ambito": "Comunidad de Madrid",
+  "plazo": "Consultar la convocatoria vigente",
+  "estadoManual": "Convocatoria y plazo: comprobar en la fuente oficial",
+  "importe": "Según la convocatoria vigente",
+  "resumen": "Ayudas de alquiler dirigidas a jóvenes, sujetas a edad, residencia, ingresos, contrato y condiciones de la convocatoria.",
+  "reqs": {
+   "alquiler": "si",
+   "madrid": "si",
+   "ccaa": "Comunidad de Madrid"
+  },
+  "requisitos": [
+   "Cumplir el tramo de edad y los requisitos de residencia e ingresos de la convocatoria",
+   "Comprobar plazo, alquiler máximo y demás condiciones en la sede oficial"
+  ],
+  "docs": [
+   "Contrato y justificantes de alquiler y la documentación que indique la convocatoria"
+  ],
+  "eval": "La elegibilidad requiere comprobar las bases de la convocatoria concreta.",
+  "links": [
+   [
+    "Sede oficial de la Comunidad de Madrid",
+    "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-alquiler-jovenes-0"
+   ]
+  ]
+ },
+ {
+  "id": 28,
+  "perfil": "personal",
+  "tipo": "Beneficio fiscal",
+  "titulo": "Beneficios fiscales y deducciones personales",
+  "organo": "Agencia Estatal de Administración Tributaria",
+  "ambito": "Estatal",
+  "plazo": "Según el impuesto y el ejercicio fiscal",
+  "estadoManual": "Requisitos y ejercicio fiscal: comprobar en la fuente oficial",
+  "importe": "Depende de la deducción y de las circunstancias personales",
+  "resumen": "Acceso a información oficial sobre beneficios fiscales y autorizaciones. Las deducciones por maternidad, nacimiento y otras circunstancias requieren evaluación fiscal específica.",
+  "reqs": {
+   "fiscal": "si"
+  },
+  "requisitos": [
+   "Distinguir deducciones estatales de las autonómicas",
+   "Comprobar el ejercicio fiscal, los requisitos personales y la compatibilidad con otras prestaciones"
+  ],
+  "docs": [
+   "Declaración de la renta y documentación justificativa que corresponda"
+  ],
+  "eval": "Es un beneficio fiscal, no necesariamente una subvención ni un pago directo.",
+  "links": [
+   [
+    "Agencia Tributaria · Beneficios fiscales",
+    "https://sede.agenciatributaria.gob.es/Sede/beneficios-fiscales-autorizaciones.html"
+   ]
+  ]
+ },
+ {
+  "id": 29,
+  "perfil": "personal",
+  "tipo": "Ayuda",
+  "titulo": "Ayudas al alquiler y fomento del alquiler (Andalucía)",
+  "organo": "Junta de Andalucía",
+  "ambito": "Andalucía",
+  "plazo": "Consultar convocatoria vigente",
+  "estadoManual": "Convocatoria y plazo: comprobar en la fuente oficial",
+  "importe": "Según la línea vigente",
+  "resumen": "Portal oficial de ayudas relacionadas con el alquiler y la vivienda en Andalucía. Solo corresponde si se cumplen los requisitos territoriales de la convocatoria.",
+  "reqs": {
+   "alquiler": "si",
+   "ccaa": "Andalucía"
+  },
+  "requisitos": [
+   "El domicilio y el contrato deben cumplir el ámbito territorial de la convocatoria",
+   "Comprobar edad, ingresos, importe máximo y fechas en las bases"
+  ],
+  "docs": [
+   "Documentación indicada en el procedimiento vigente"
+  ],
+  "eval": "No se considera abierta hasta verificar la convocatoria concreta.",
+  "links": [
+   [
+    "Junta de Andalucía · Fomento del alquiler",
+    "https://www.juntadeandalucia.es/organismos/viviendajuventudyordenaciondelterritorio/areas/vivienda-rehabilitacion/fomento-alquiler.html"
+   ]
+  ]
+ },
+ {
+  "id": 30,
+  "perfil": "personal",
+  "tipo": "Ayuda",
+  "titulo": "Ayuda por nacimiento o adopción (Ayuntamiento de Madrid)",
+  "organo": "Ayuntamiento de Madrid",
+  "ambito": "Madrid ciudad",
+  "plazo": "Próxima convocatoria anunciada · fecha pendiente de publicación",
+  "pend": true,
+  "estadoManual": "Próxima convocatoria anunciada · fecha pendiente de publicación",
+  "importe": "Según las bases de la próxima convocatoria",
+  "resumen": "Ayuda municipal por nacimiento o adopción. La ficha queda en seguimiento hasta que se publiquen las fechas y las bases de la próxima convocatoria.",
+  "reqs": {
+   "familia": "si",
+   "municipioMadrid": "si"
+  },
+  "requisitos": [
+   "La próxima convocatoria debe confirmar beneficiarios, fechas, importes y documentación",
+   "No se puede solicitar hasta que el plazo esté oficialmente abierto"
+  ],
+  "docs": [
+   "Pendiente de publicación de las bases y documentación de la próxima convocatoria"
+  ],
+  "eval": "Estado de próxima convocatoria anunciado; no se presume abierto ni se inventa una fecha.",
+  "links": [
+   [
+    "Sede electrónica del Ayuntamiento de Madrid",
+    "https://sede.madrid.es/portal/site/tramites/menuitem.62876cb64654a55e2dbd7003a8a409a0/?vgnextoid=6306ae0a39f2a910VgnVCM100000891ecb1aRCRD&vgnextchannel=2cb9a38813180210VgnVCM100000c90da8c0RCRD&vgnextfmt=default"
+   ]
+  ]
+ },
+ {
+  "id": 31,
+  "perfil": "personal",
+  "tipo": "Ayuda histórica",
+  "titulo": "Ayuda de 200 € para personas con bajos ingresos (2022)",
+  "organo": "Agencia Estatal de Administración Tributaria",
+  "ambito": "Estatal",
+  "plazo": "Cerrada · plazo de solicitud hasta el 30/09/2022",
+  "cerrada": true,
+  "importe": "200 € en pago único",
+  "resumen": "Convocatoria extraordinaria histórica dirigida a personas físicas que cumplieran los requisitos de actividad o desempleo, renta y patrimonio del ejercicio 2021.",
+  "reqs": {
+   "social": "si"
+  },
+  "requisitos": [
+   "Convocatoria cerrada; no se puede solicitar actualmente",
+   "La convocatoria original exigía ingresos de 2021 inferiores a 14.000 € y patrimonio inferior a 43.196,40 €, con otras condiciones de residencia y situación personal"
+  ],
+  "docs": [
+   "Consultar la ficha oficial histórica para conocer el expediente o resolver dudas sobre solicitudes presentadas"
+  ],
+  "verificacionPendiente": true,
+  "eval": "Registro histórico para identificar medidas similares; no equivale a una ayuda disponible.",
+  "links": [
+   [
+    "AEAT · Primera ayuda de 200 €",
+    "https://sede.agenciatributaria.gob.es/Sede/procedimientos/GC51.shtml"
+   ]
+  ]
+ },
+ {
+  "id": 32,
+  "perfil": "personal",
+  "tipo": "Ayuda histórica",
+  "titulo": "Segunda ayuda de 200 € para personas con bajos ingresos (2023)",
+  "organo": "Agencia Estatal de Administración Tributaria",
+  "ambito": "Estatal",
+  "plazo": "Cerrada · plazo de solicitud del 15/02/2023 al 31/03/2023",
+  "cierre": "2023-03-31",
+  "cerrada": true,
+  "importe": "200 € en pago único",
+  "resumen": "Segunda convocatoria extraordinaria histórica, referida a la actividad, rentas y patrimonio de 2022.",
+  "reqs": {
+   "social": "si"
+  },
+  "requisitos": [
+   "Convocatoria cerrada; no se puede solicitar actualmente",
+   "La convocatoria original contemplaba, entre otros requisitos, rentas de 2022 no superiores a 27.000 € y patrimonio inferior a 75.000 € a 31/12/2022"
+  ],
+  "docs": [
+   "Consultar la ficha oficial histórica para conocer el expediente o resolver dudas sobre solicitudes presentadas"
+  ],
+  "verificacionPendiente": true,
+  "eval": "Registro histórico para identificar medidas similares; no equivale a una ayuda disponible.",
+  "links": [
+   [
+    "AEAT · Segunda ayuda de 200 €",
+    "https://sede.agenciatributaria.gob.es/Sede/procedimientos/GC61.shtml"
+   ]
+  ]
+ },
+ {
+  "id": 33,
+  "perfil": "negocio",
+  "tipo": "Ayuda histórica",
+  "titulo": "Ayudas extraordinarias por subida de carburantes (2022)",
+  "organo": "Administración General del Estado",
+  "ambito": "Estatal",
+  "plazo": "Medida extraordinaria de 2022 · cerrada",
+  "cerrada": true,
+  "importe": "Según sector, actividad y vehículos elegibles",
+  "resumen": "Medidas temporales de apoyo a empresas y autónomos de sectores concretos afectados por el incremento del precio de los carburantes. No todas las actividades o vehículos eran elegibles.",
+  "reqs": {
+   "transporte": "si"
+  },
+  "requisitos": [
+   "Convocatoria histórica cerrada",
+   "Los beneficiarios dependían de la actividad económica, autorización de transporte y demás condiciones de la normativa"
+  ],
+  "docs": [
+   "Consultar la norma oficial y el procedimiento que correspondía a la actividad"
+  ],
+  "verificacionPendiente": true,
+  "eval": "Registro histórico; las nuevas ayudas de combustible deben verificarse por sector y edición.",
+  "links": [
+   [
+    "BOE · Real Decreto-ley 14/2022",
+    "https://www.boe.es/buscar/act.php?id=BOE-A-2022-12925"
+   ]
+  ]
+ },
+ {
+  "id": 34,
+  "perfil": "personal",
+  "tipo": "Ayuda histórica",
+  "titulo": "Ayudas por daños en vivienda y enseres causados por la DANA (2024)",
+  "organo": "Administración General del Estado",
+  "ambito": "Municipios afectados por la DANA de octubre-noviembre de 2024",
+  "plazo": "Medida extraordinaria de 2024 · consultar el histórico oficial",
+  "cerrada": true,
+  "importe": "Según el tipo y alcance del daño y las bases aplicables",
+  "resumen": "Referencia histórica de las ayudas extraordinarias para personas y hogares afectados por la DANA, incluidos daños en vivienda habitual y enseres. El municipio y el tipo de daño eran determinantes.",
+  "reqs": {
+   "emergencias": "si"
+  },
+  "requisitos": [
+   "Convocatoria histórica; no se presenta como abierta",
+   "La elegibilidad dependía de los municipios incluidos, el daño acreditado y la normativa aplicable"
+  ],
+  "docs": [
+   "Consultar la información oficial y la norma específica de la línea correspondiente"
+  ],
+  "verificacionPendiente": true,
+  "eval": "Registro histórico de emergencia; una nueva catástrofe requerirá una ficha y unas bases nuevas.",
+  "links": [
+   [
+    "La Moncloa · Información oficial de ayudas DANA",
+    "https://www.lamoncloa.gob.es/info-dana/Paginas/2024/051124-informacion-ayudas.aspx"
+   ]
+  ]
+ },
+ {
+  "id": 35,
+  "perfil": "negocio",
+  "tipo": "Ayuda histórica",
+  "titulo": "Ayuda directa a autónomos afectados por la DANA (2024)",
+  "organo": "Agencia Estatal de Administración Tributaria",
+  "ambito": "Municipios afectados por la DANA de octubre-noviembre de 2024",
+  "plazo": "Cerrada · plazo indicado hasta el 31/12/2024",
+  "cierre": "2024-12-31",
+  "cerrada": true,
+  "importe": "5.000 € por autónomo, según la medida histórica",
+  "resumen": "Ayuda directa extraordinaria para trabajadores autónomos afectados por la DANA de 2024. La ubicación fiscal y el ámbito territorial de la medida eran esenciales.",
+  "reqs": {
+   "emergencias": "si"
+  },
+  "requisitos": [
+   "Convocatoria histórica cerrada",
+   "La ayuda se limitaba a personas autónomas que cumplieran las condiciones territoriales y de actividad establecidas"
+  ],
+  "docs": [
+   "Consultar la información oficial histórica y la documentación de la línea"
+  ],
+  "verificacionPendiente": true,
+  "eval": "Registro histórico; no debe confundirse con futuras ayudas por catástrofes.",
+  "links": [
+   [
+    "La Moncloa · Ayudas DANA a trabajadores y autónomos",
+    "https://www.lamoncloa.gob.es/info-dana/Paginas/2024/071124-ayudas-trabajadores-autonomos.aspx?mode=Dark"
+   ]
+  ]
+ },
+ {
+  "id": 36,
+  "perfil": "negocio",
+  "tipo": "Ayuda histórica",
+  "titulo": "Ayudas directas a pymes afectadas por la DANA (2024)",
+  "organo": "Agencia Estatal de Administración Tributaria",
+  "ambito": "Municipios afectados por la DANA de octubre-noviembre de 2024",
+  "plazo": "Cerrada · plazo indicado hasta el 31/12/2024",
+  "cierre": "2024-12-31",
+  "cerrada": true,
+  "importe": "Entre 10.000 € y 150.000 € según la facturación, conforme a la medida histórica",
+  "resumen": "Ayudas directas extraordinarias a empresas y pymes afectadas por la DANA. La cuantía dependía del volumen de operaciones y de las condiciones de la convocatoria.",
+  "reqs": {
+   "emergencias": "si"
+  },
+  "requisitos": [
+   "Convocatoria histórica cerrada",
+   "La empresa debía cumplir los requisitos territoriales, de actividad y facturación de la medida"
+  ],
+  "docs": [
+   "Consultar la información oficial histórica y la documentación de la línea"
+  ],
+  "verificacionPendiente": true,
+  "eval": "Registro histórico; una nueva catástrofe o edición debe evaluarse con sus propias bases.",
+  "links": [
+   [
+    "La Moncloa · Ayudas DANA al sector privado",
+    "https://www.lamoncloa.gob.es/info-dana/paginas/2024/071124-ayudas-empresas-pymes.aspx"
+   ]
+  ]
  }
 ]
