@@ -289,8 +289,8 @@
       "ambito": "Estado / todas las comunidades y ciudades autónomas",
       "categoria": "Directorio territorial",
       "url": "https://administracion.gob.es/informacion/sedes-electronicas-y-portales-de-internet-publicos/portales/comunidades-autonomas",
-      "monitor": false,
-      "nota": "Punto de entrada oficial para localizar cada portal autonómico.",
+      "monitor": true,
+      "nota": "Punto de entrada oficial para localizar cada portal autonómico. La página general se vigila como señal de cambios; no sustituye al buscador especializado.",
       "oficial": true
     },
     {
@@ -439,8 +439,8 @@
       "ambito": "Castilla-La Mancha",
       "categoria": "Portal de entrada",
       "url": "https://www.castillalamancha.es/",
-      "monitor": false,
-      "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia.",
+      "monitor": true,
+      "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia. La página general se vigila como señal de cambios; no sustituye al buscador especializado.",
       "oficial": true
     },
     {
@@ -449,8 +449,8 @@
       "ambito": "La Rioja",
       "categoria": "Portal de entrada",
       "url": "https://www.larioja.org/",
-      "monitor": false,
-      "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia.",
+      "monitor": true,
+      "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia. La página general se vigila como señal de cambios; no sustituye al buscador especializado.",
       "oficial": true
     },
     {
@@ -459,8 +459,8 @@
       "ambito": "Ceuta",
       "categoria": "Portal de entrada",
       "url": "https://www.ceuta.es/",
-      "monitor": false,
-      "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia.",
+      "monitor": true,
+      "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia. La página general se vigila como señal de cambios; no sustituye al buscador especializado.",
       "oficial": true
     },
     {
