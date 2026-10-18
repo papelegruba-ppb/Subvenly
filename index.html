@@ -527,7 +527,7 @@ function secuencia(){
  if(c==="aut")l=l.concat(["#Tu situación como autónomo","nuevo","jovenyo","paro","desempleado","tarifa","hacienda"]);
  if(c==="sl")l=l.concat(["#Tu sociedad","sl24","hacienda"]);
  if(c==="empresaotra")l=l.concat(["#Tu empresa o entidad","hacienda"]);
- if(c==="nuevo")l=l.concat(["#Preparar el inicio de actividad","nuevo","jovenyo","paro","desempleado","hacienda"]);
+ if(c==="nuevo"&&A.perfil==="empresa")l=l.concat(["#Preparar la constitución de tu empresa"]);else if(c==="nuevo")l=l.concat(["#Preparar el inicio de actividad","nuevo","jovenyo","paro","desempleado","hacienda"]);
  l=l.concat(["#Dónde resides o desarrollas la actividad","ccaa","provincia","municipio","amb","lleida","centre","ponent"]);
  if(c==="aut"||c==="sl"||c==="empresaotra")l=l.concat(["#Tu equipo y las contrataciones","plantilla","contratar","indefinido","joven","bcn"]);
  if(A.perfil==="autonomo"||A.perfil==="ambos")l=l.concat(["#Ayudas personales y familiares","familia","nacimientoFecha","menores","alquiler","edad","unidad","ingresos","contratoAlquiler","empadronamiento","residenciaLegal","familiaMonoparental","familiaNumerosa","social","fiscal"]);
