@@ -53,7 +53,7 @@ def main():
     exigir(isinstance(novedades, dict) and isinstance(licitaciones, dict), "Estructura de novedades o licitaciones inválida")
     html = (ROOT / "index.html").read_text(encoding="utf-8")
     scripts = re.findall(r"<script\b([^>]*)>(.*?)</script>", html, flags=re.I | re.S)
-    inline = [code for attrs, code in scripts if not re.search(r"\bsrc\\s*=", attrs, flags=re.I) and code.strip()]
+    inline = [code for attrs, code in scripts if not re.search(r"\bsrc\s*=", attrs, flags=re.I) and code.strip()]
     exigir(inline, "No se encontraron scripts JavaScript inline para validar")
     node = subprocess.run(["node", "--version"], capture_output=True, text=True)
     exigir(node.returncode == 0, "Node.js no está disponible para validar JavaScript")
