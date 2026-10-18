@@ -28,12 +28,26 @@ DETALLE = "https://www.infosubvenciones.es/bdnstrans/api/convocatorias?numConv={
 # Ejemplo para limitarlo: ["cataluna", "catalunya", "lleida", "madrid"]
 TERRITORIOS = []
 # La convocatoria debe mencionar alguno de estos temas...
-INCLUIR = ["autonom", "emprend", "pyme", "microempres", "pequena empresa", "empresa", "comerc",
-           "contratacion", "contractacio", "empleo", "ocupacio", "digitaliz", "inversion",
-           "inversio", "innovacion", "innovacio", "formacion", "formacio", "establecimiento",
-           "negocio", "turis", "rural", "industri", "internacionaliz", "eficiencia energ", "autoocupacio"]
-# ...y no estos
-EXCLUIR = ["beca", "deportiv", "esportiv", "universit", "alumn", "festejo", "comedor", "bienestar animal"]
+INCLUIR = [
+    # Empresa, autónomos, empleo e innovación
+    "autonom", "emprend", "pyme", "microempres", "pequena empresa", "empresa", "comerc",
+    "contratacion", "contractacio", "empleo", "ocupacio", "digitaliz", "inversion", "inversio",
+    "innovacion", "innovacio", "formacion", "formacio", "establecimiento", "negocio", "turis",
+    "rural", "industri", "internacionaliz", "eficiencia energ", "autoocupacio", "cuota cero",
+    "tarifa cero", "bonificacion", "bonificacio", "ayuda al empleo",
+    # Personas, familias, vivienda y prestaciones
+    "ingreso minimo vital", "ingres minim vital", "renta garantizada", "renda garantida",
+    "nacimiento", "naixement", "adopcion", "adopcio", "familia", "families", "infancia",
+    "infancia", "hijos a cargo", "crianza", "maternidad", "maternitat", "alquiler", "lloguer",
+    "vivienda", "habitatge", "arrendamiento", "jovenes", "joves", "discapacidad", "discapacitat",
+    "dependencia", "dependencia", "pobreza", "vulnerabilidad", "emergencia social",
+    # Emergencias, energía, combustible y medidas extraordinarias
+    "dana", "catastrofe", "catastrofe", "emergencia", "combustible", "gasoleo", "gasoil",
+    "carburante", "energia", "anticrisis", "pago unico", "pagament unic", "200 euros",
+    "200 €", "marcas", "marques", "propiedad industrial", "propietat industrial"
+]
+# Exclusiones de bajo valor; no excluir becas o ayudas educativas de forma global.
+EXCLUIR = ["deportiv", "esportiv", "festejo", "bienestar animal"]
 # -----------------------------------------------------------------
 
 def norm(t):
