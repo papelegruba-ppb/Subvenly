@@ -1,663 +1,663 @@
 {
-  "version": 1,
-  "actualizado": "2026-10-18",
-  "nota": "Registro de fuentes oficiales o portales de referencia. Una fuente no equivale a una convocatoria. La BDNS cubre convocatorias estatales, autonómicas y locales; se registran portales especializados donde ya están localizados y la cobertura directa pendiente se identifica explícitamente.",
-  "fuentes": [
-    {
-      "id": "bdns",
-      "nombre": "Base de Datos Nacional de Subvenciones",
-      "ambito": "Estado / todas las CCAA y entidades locales",
-      "categoria": "Subvenciones",
-      "url": "https://www.infosubvenciones.es/bdnstrans/",
-      "monitor": true,
-      "nota": "Fuente transversal; contrastar cada convocatoria y sus bases.",
-      "oficial": true
-    },
-    {
-      "id": "sepe-bonificaciones",
-      "nombre": "SEPE · Bonificaciones y ayudas",
-      "ambito": "Estatal",
-      "categoria": "Empleo y contratación",
-      "url": "https://www.sepe.es/HomeSepe/es/empresas/informacion-para-empresas/bonificaciones-ayudas.html",
-      "monitor": true,
-      "nota": "Bonificaciones e incentivos laborales.",
-      "oficial": true
-    },
-    {
-      "id": "seguridad-social-nacimiento",
-      "nombre": "Seguridad Social · Nacimiento y cuidado de menor",
-      "ambito": "Estatal",
-      "categoria": "Familia y prestaciones",
-      "url": "https://prestaciones.seg-social.es/servicio/prestacion-nacimiento-adopcion-cuidado-menor.html",
-      "monitor": true,
-      "nota": "Prestación personal, separada de las subvenciones empresariales.",
-      "oficial": true
-    },
-    {
-      "id": "imv",
-      "nombre": "Ingreso Mínimo Vital",
-      "ambito": "Estatal",
-      "categoria": "Prestaciones sociales",
-      "url": "https://imv.seg-social.es/",
-      "monitor": true,
-      "nota": "Verificar requisitos, unidad de convivencia, ingresos y procedimiento.",
-      "oficial": true
-    },
-    {
-      "id": "aeat-beneficios",
-      "nombre": "AEAT · Beneficios fiscales",
-      "ambito": "Estatal",
-      "categoria": "Fiscalidad personal",
-      "url": "https://sede.agenciatributaria.gob.es/Sede/beneficios-fiscales-autorizaciones.html",
-      "monitor": true,
-      "nota": "Distinguir beneficios fiscales de subvenciones.",
-      "oficial": true
-    },
-    {
-      "id": "eu-funding",
-      "nombre": "Comisión Europea · Funding & Tenders",
-      "ambito": "Unión Europea",
-      "categoria": "Financiación y programas UE",
-      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/",
-      "monitor": true,
-      "nota": "Conservar programa, convocatoria, elegibilidad y fechas oficiales.",
-      "oficial": true
-    },
-    {
-      "id": "euipo",
-      "nombre": "EUIPO",
-      "ambito": "Unión Europea",
-      "categoria": "Pymes, marcas y diseños",
-      "url": "https://www.euipo.europa.eu/es",
-      "monitor": true,
-      "nota": "Comprobar cada edición y disponibilidad de fondos.",
-      "oficial": true
-    },
-    {
-      "id": "gencat-economia",
-      "nombre": "Generalitat · Economia i Hisenda: ajuts i subvencions",
-      "ambito": "Cataluña",
-      "categoria": "Ayudas generales",
-      "url": "https://economia.gencat.cat/ca/ambits-actuacio/ajuts-subvencions/",
-      "monitor": true,
-      "nota": "Portal de descubrimiento, no una convocatoria individual.",
-      "oficial": true
-    },
-    {
-      "id": "gencat-naixement",
-      "nombre": "Generalitat · Prestació per a famílies amb infants",
-      "ambito": "Cataluña",
-      "categoria": "Nacimiento y familia",
-      "url": "https://tramits.gencat.cat/ca/tramits/tramits-temes/Prestacio-per-a-families-amb-infants",
-      "monitor": true,
-      "nota": "Vigilar plazos vinculados a la fecha del nacimiento y cambios de bases.",
-      "oficial": true
-    },
-    {
-      "id": "gencat-imv",
-      "nombre": "Generalitat · Trámite IMV",
-      "ambito": "Cataluña / estatal",
-      "categoria": "Prestaciones sociales",
-      "url": "https://tramits.gencat.cat/ca/tramits/tramits-temes/ingres-minim-vital",
-      "monitor": true,
-      "nota": "Complementa la fuente estatal; deduplicar la misma prestación.",
-      "oficial": true
-    },
-    {
-      "id": "gencat-habitatge",
-      "nombre": "Generalitat · Ayudas de vivienda",
-      "ambito": "Cataluña",
-      "categoria": "Alquiler y vivienda",
-      "url": "https://habitatge.gencat.cat/ca/ajuts/",
-      "monitor": true,
-      "nota": "Separar cada línea y convocatoria concreta.",
-      "oficial": true
-    },
-    {
-      "id": "gencat-lloguer",
-      "nombre": "Generalitat · Subvencions pagament lloguer",
-      "ambito": "Cataluña",
-      "categoria": "Alquiler",
-      "url": "https://habitatge.gencat.cat/ca/ajuts/ajuts-pagament-habitatge/subvencions-pagament-lloguer/",
-      "monitor": true,
-      "nota": "Controlar aperturas, edades y plazos de cada línea.",
-      "oficial": true
-    },
-    {
-      "id": "paeria",
-      "nombre": "Paeria de Lleida · Buscador de ayudas",
-      "ambito": "Lleida",
-      "categoria": "Ayudas municipales",
-      "url": "https://seu.paeria.cat/ajutsPublic/cercadorCategoria/180",
-      "monitor": true,
-      "nota": "Revisar convocatoria, bases, anexos y agotamiento de crédito.",
-      "oficial": true
-    },
-    {
-      "id": "barcelona-ajuts",
-      "nombre": "Ajuntament de Barcelona · Subvencions",
-      "ambito": "Barcelona",
-      "categoria": "Ayudas municipales",
-      "url": "https://ajuntament.barcelona.cat/ca/informacio-administrativa/subvencions",
-      "monitor": true,
-      "nota": "Separar beneficiarios particulares y empresariales.",
-      "oficial": true
-    },
-    {
-      "id": "barcelona-habitatge",
-      "nombre": "Consorci de l'Habitatge de Barcelona",
-      "ambito": "Barcelona",
-      "categoria": "Alquiler y vivienda",
-      "url": "https://www.consorcihabitatge.barcelona/ca/subvencions-al-pagament-del-lloguer-o-cessio-dus",
-      "monitor": true,
-      "nota": "Vigilar convocatorias por separado.",
-      "oficial": true
-    },
-    {
-      "id": "madrid-alquiler-joven",
-      "nombre": "Comunidad de Madrid · Ayudas alquiler jóvenes",
-      "ambito": "Comunidad de Madrid",
-      "categoria": "Alquiler y vivienda",
-      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-alquiler-jovenes-0",
-      "monitor": true,
-      "nota": "No presentar como abierta sin fechas oficiales vigentes.",
-      "oficial": true
-    },
-    {
-      "id": "madrid-cuota-cero",
-      "nombre": "Comunidad de Madrid · Tarifa Cero",
-      "ambito": "Comunidad de Madrid",
-      "categoria": "Autónomos",
-      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-tarifa-cero",
-      "monitor": true,
-      "nota": "Vigilar periodos de solicitud y requisitos.",
-      "oficial": true
-    },
-    {
-      "id": "madrid-nacimiento",
-      "nombre": "Ayuntamiento de Madrid · Ayuda por nacimiento/adopción",
-      "ambito": "Madrid ciudad",
-      "categoria": "Nacimiento y familia",
-      "url": "https://sede.madrid.es/portal/site/tramites/menuitem.62876cb64654a55e2dbd7003a8a409a0/?vgnextoid=6306ae0a39f2a910VgnVCM100000891ecb1aRCRD&vgnextchannel=2cb9a38813180210VgnVCM100000c90da8c0RCRD&vgnextfmt=default",
-      "monitor": true,
-      "nota": "Si se anuncia próxima convocatoria sin fechas, conservar ese estado literal.",
-      "oficial": true
-    },
-    {
-      "id": "andalucia-alquiler",
-      "nombre": "Junta de Andalucía · Fomento del alquiler",
-      "ambito": "Andalucía",
-      "categoria": "Alquiler y vivienda",
-      "url": "https://www.juntadeandalucia.es/organismos/viviendajuventudyordenaciondelterritorio/areas/vivienda-rehabilitacion/fomento-alquiler.html",
-      "monitor": true,
-      "nota": "Separar las líneas y comprobar vigencia.",
-      "oficial": true
-    },
-    {
-      "id": "aragon-cuota-cero",
-      "nombre": "Gobierno de Aragón · Cuota Cero",
-      "ambito": "Aragón",
-      "categoria": "Autónomos",
-      "url": "https://www.aragon.es/tramitador/-/tramite/programa-emprendedores-autonomos/cuota-cero",
-      "monitor": true,
-      "nota": "Requisitos y periodos de la edición vigente.",
-      "oficial": true
-    },
-    {
-      "id": "andalucia-cuota-cero",
-      "nombre": "Junta de Andalucía · Cuota Cero",
-      "ambito": "Andalucía",
-      "categoria": "Autónomos",
-      "url": "https://www.juntadeandalucia.es/organismos/empleoempresaytrabajoautonomo/areas/trabajo-autonomo/fomento-trabajo-autonomo/paginas/subv-fomento-cuota-cero.html",
-      "monitor": true,
-      "nota": "Requisitos y periodos de la edición vigente.",
-      "oficial": true
-    },
-    {
-      "id": "balears-cuota-cero",
-      "nombre": "Autònoms IB · Cuota Cero",
-      "ambito": "Illes Balears",
-      "categoria": "Autónomos",
-      "url": "https://autonomsib.es/es/ayudas-para-autonomos/cuota-cero/",
-      "monitor": false,
-      "nota": "Fuente secundaria orientativa; verificar siempre la convocatoria y las bases en el organismo convocante.",
-      "oficial": false
-    },
-    {
-      "id": "canarias-cuota-cero",
-      "nombre": "Gobierno de Canarias · Cuota Cero",
-      "ambito": "Canarias",
-      "categoria": "Autónomos",
-      "url": "https://www.gobiernodecanarias.org/economia/autonomos/subvenciones/cuota_cero/",
-      "monitor": true,
-      "nota": "Requisitos y periodos de la edición vigente.",
-      "oficial": true
-    },
-    {
-      "id": "accio",
-      "nombre": "ACCIÓ · Servicios",
-      "ambito": "Cataluña",
-      "categoria": "Innovación y empresa",
-      "url": "https://www.accio.gencat.cat/es/serveis/index.html",
-      "monitor": true,
-      "nota": "Extraer cada programa de innovación, internacionalización y competitividad.",
-      "oficial": true
-    },
-    {
-      "id": "soc",
-      "nombre": "SOC · Ayudas y subvenciones",
-      "ambito": "Cataluña",
-      "categoria": "Empleo y formación",
-      "url": "https://serveiocupacio.gencat.cat/es/soc/transparencia-bon-govern/ajuts-subvencions/index.html",
-      "monitor": true,
-      "nota": "Ayudas de contratación, formación y empleo.",
-      "oficial": true
-    },
-    {
-      "id": "cido-subvencions",
-      "nombre": "CIDO · Subvenciones (datos abiertos)",
-      "ambito": "Cataluña / local",
-      "categoria": "Ayudas locales",
-      "url": "https://dadesobertes.diba.cat/datasets/cido-subvencions",
-      "monitor": true,
-      "nota": "Fuente estructurada; deduplicar contra BDNS y organismos convocantes.",
-      "oficial": true
-    },
-    {
-      "id": "ted",
-      "nombre": "TED · Licitaciones europeas",
-      "ambito": "Unión Europea",
-      "categoria": "Licitaciones (sección separada)",
-      "url": "https://docs.ted.europa.eu/api/latest/search.html",
-      "monitor": true,
-      "nota": "Mantener licitaciones separadas del catálogo de ayudas.",
-      "oficial": true
-    },
-    {
-      "id": "moves",
-      "nombre": "IDAE · MOVES y movilidad sostenible",
-      "ambito": "Estatal",
-      "categoria": "Movilidad y energía",
-      "url": "https://www.idae.es/ayudas-y-financiacion",
-      "monitor": true,
-      "nota": "Portal de descubrimiento; comprobar convocatoria autonómica y fechas.",
-      "oficial": true
-    },
-    {
-      "id": "directorio-ccaa",
-      "nombre": "Directorio oficial de portales autonómicos",
-      "ambito": "Estado / todas las comunidades y ciudades autónomas",
-      "categoria": "Directorio territorial",
-      "url": "https://administracion.gob.es/informacion/sedes-electronicas-y-portales-de-internet-publicos/portales/comunidades-autonomas",
-      "monitor": true,
-      "nota": "Punto de entrada oficial para localizar cada portal autonómico. La página general se vigila como señal de cambios; no sustituye al buscador especializado.",
-      "oficial": true
-    },
-    {
-      "id": "aragon-ayudas",
-      "nombre": "Gobierno de Aragón · Ayudas y subvenciones",
-      "ambito": "Aragón",
-      "categoria": "Ayudas generales",
-      "url": "https://www.aragon.es/tramites/ayudas-subvenciones-becas-premios",
-      "monitor": true,
-      "nota": "Incluye ayudas, prestaciones y convocatorias; revisar cada ficha individual.",
-      "oficial": true
-    },
-    {
-      "id": "asturias-ayudas",
-      "nombre": "Principado de Asturias · Buscador de ayudas",
-      "ambito": "Asturias",
-      "categoria": "Ayudas generales",
-      "url": "https://sede.asturias.es/ast/-/buscador-de-convocatorias-y-concesiones-de-ayudas-y-subvenciones-1",
-      "monitor": true,
-      "nota": "Buscador oficial de convocatorias y concesiones.",
-      "oficial": true
-    },
-    {
-      "id": "galicia-ayudas",
-      "nombre": "Xunta de Galicia · Axudas e subvencións",
-      "ambito": "Galicia",
-      "categoria": "Ayudas generales",
-      "url": "https://www.xunta.gal/es/medios/axudas-e-subvencions",
-      "monitor": true,
-      "nota": "Portal oficial de ayudas y subvenciones.",
-      "oficial": true
-    },
-    {
-      "id": "castillayleon-ayudas",
-      "nombre": "Junta de Castilla y León · Suscripción de ayudas y subvenciones",
-      "ambito": "Castilla y León",
-      "categoria": "Ayudas generales",
-      "url": "https://www.tramitacastillayleon.jcyl.es/web/es/tramites-servicios/suscripcion-ayudas-subvenciones-becas.html",
-      "monitor": true,
-      "nota": "Servicio oficial de novedades; contrastar con la convocatoria y boletín.",
-      "oficial": true
-    },
-    {
-      "id": "canarias-ayudas",
-      "nombre": "Gobierno de Canarias · Líneas de ayudas y subvenciones",
-      "ambito": "Canarias",
-      "categoria": "Ayudas generales",
-      "url": "https://www.gobiernodecanarias.org/transparencia/temas/contratos-convenios-subvenciones/ayudas-y-subvenciones/lineas/index.html",
-      "monitor": true,
-      "nota": "Portal oficial que remite a la BDNS y a procedimientos del Gobierno de Canarias.",
-      "oficial": true
-    },
-    {
-      "id": "madrid-ayudas",
-      "nombre": "Comunidad de Madrid · Buscador de ayudas y subvenciones",
-      "ambito": "Comunidad de Madrid",
-      "categoria": "Ayudas generales",
-      "url": "https://sede.comunidad.madrid/buscador?t=ayudas+y+subvenciones&tipo=All",
-      "monitor": true,
-      "nota": "Buscador oficial con estados y plazos de las fichas.",
-      "oficial": true
-    },
-    {
-      "id": "andalucia-ayudas",
-      "nombre": "Junta de Andalucía · Ayudas y subvenciones",
-      "ambito": "Andalucía",
-      "categoria": "Ayudas generales",
-      "url": "https://juntadeandalucia.es/organismos/transparencia/contratos-convenios/ayudas-junta-subvenciones.html",
-      "monitor": true,
-      "nota": "Portal oficial de ayudas de la Junta.",
-      "oficial": true
-    },
-    {
-      "id": "euskadi-ayudas",
-      "nombre": "Gobierno Vasco · Listado de ayudas",
-      "ambito": "País Vasco",
-      "categoria": "Ayudas generales",
-      "url": "https://www.euskadi.eus/gobierno-vasco/-/listado-de-ayudas/",
-      "monitor": true,
-      "nota": "Buscador oficial con filtros de territorio y estado de convocatoria.",
-      "oficial": true
-    },
-    {
-      "id": "valencia-oportunidades",
-      "nombre": "Generalitat Valenciana · Listado de oportunidades",
-      "ambito": "Comunitat Valenciana",
-      "categoria": "Ayudas generales",
-      "url": "https://gvanext.gva.es/es-es/oportunidades",
-      "monitor": true,
-      "nota": "Buscador de oportunidades con tipos de ayuda, beneficiarios y estado.",
-      "oficial": true
-    },
-    {
-      "id": "extremadura-ayudas",
-      "nombre": "Junta de Extremadura · Ayudas publicadas en DOE",
-      "ambito": "Extremadura",
-      "categoria": "Ayudas generales",
-      "url": "https://ayudaspri.juntaex.es/portal/ayudas",
-      "monitor": true,
-      "nota": "Portal oficial de ayudas publicadas en el Diario Oficial de Extremadura.",
-      "oficial": true
-    },
-    {
-      "id": "navarra-ayudas",
-      "nombre": "Gobierno de Navarra · Desarrollo empresarial y ayudas",
-      "ambito": "Navarra",
-      "categoria": "Ayudas empresariales",
-      "url": "https://www.navarra.es/es/desarrollo-empresarial",
-      "monitor": true,
-      "nota": "Fuente sectorial de empresa; completar con el buscador general de trámites para prestaciones personales.",
-      "oficial": true
-    },
-    {
-      "id": "murcia-ayudas",
-      "nombre": "Región de Murcia · Buscador de ayudas y subvenciones",
-      "ambito": "Región de Murcia",
-      "categoria": "Ayudas generales",
-      "url": "https://sede.carm.es/web/pagina?BUSCAR=SI&B_Buscar.x=0&B_Buscar.y=0&IDCONTENIDO=2377&IDTIPO=200&Q_CONSULTA=subvenciones+&RASTRO=c%24m40288&RESULTADO_INFERIOR=21&RESULTADO_SUPERIOR=40",
-      "monitor": true,
-      "nota": "Buscador oficial de la sede electrónica; el filtro y la paginación pueden requerir revisión.",
-      "oficial": true
-    },
-    {
-      "id": "balears-portal",
-      "nombre": "Govern de les Illes Balears · Portal oficial",
-      "ambito": "Illes Balears",
-      "categoria": "Ayudas y trámites",
-      "url": "https://www.caib.es/webgoib/",
-      "monitor": true,
-      "nota": "Portal oficial con accesos para ciudadanía, empresas y trámites; cada convocatoria debe identificarse por separado.",
-      "oficial": true
-    },
-    {
-      "id": "cantabria-ayudas",
-      "nombre": "Gobierno de Cantabria · Convocatorias, becas, ayudas y subvenciones",
-      "ambito": "Cantabria",
-      "categoria": "Ayudas generales",
-      "url": "https://sede.cantabria.es/sede/convocatorias-becas-ayudas-subvenciones-y-premios",
-      "monitor": true,
-      "nota": "Catálogo oficial de convocatorias de la sede electrónica.",
-      "oficial": true
-    },
-    {
-      "id": "clm-portal",
-      "nombre": "Junta de Castilla-La Mancha · Portal oficial",
-      "ambito": "Castilla-La Mancha",
-      "categoria": "Portal de entrada",
-      "url": "https://www.castillalamancha.es/",
-      "monitor": true,
-      "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia. La página general se vigila como señal de cambios; no sustituye al buscador especializado.",
-      "oficial": true
-    },
-    {
-      "id": "larioja-portal",
-      "nombre": "Gobierno de La Rioja · Portal oficial",
-      "ambito": "La Rioja",
-      "categoria": "Portal de entrada",
-      "url": "https://www.larioja.org/",
-      "monitor": true,
-      "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia. La página general se vigila como señal de cambios; no sustituye al buscador especializado.",
-      "oficial": true
-    },
-    {
-      "id": "ceuta-portal",
-      "nombre": "Ciudad Autónoma de Ceuta · Portal oficial",
-      "ambito": "Ceuta",
-      "categoria": "Portal de entrada",
-      "url": "https://www.ceuta.es/",
-      "monitor": true,
-      "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia. La página general se vigila como señal de cambios; no sustituye al buscador especializado.",
-      "oficial": true
-    },
-    {
-      "id": "melilla-portal",
-      "nombre": "Ciudad Autónoma de Melilla · Portal oficial",
-      "ambito": "Melilla",
-      "categoria": "Portal de entrada",
-      "url": "https://www.melilla.es/melillaportal/index.jsp",
-      "monitor": false,
-      "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia.",
-      "oficial": true
-    },
-    {
-      "id": "aeat-200-2022",
-      "nombre": "AEAT · Primera ayuda de 200 euros (2022)",
-      "ambito": "Estatal",
-      "categoria": "Ayudas personales históricas",
-      "url": "https://sede.agenciatributaria.gob.es/Sede/procedimientos/GC51.shtml",
-      "monitor": true,
-      "nota": "Convocatoria histórica cerrada; conservar para reconocer medidas similares en nuevas ediciones.",
-      "oficial": true
-    },
-    {
-      "id": "aeat-200-2023",
-      "nombre": "AEAT · Segunda ayuda de 200 euros (2023)",
-      "ambito": "Estatal",
-      "categoria": "Ayudas personales históricas",
-      "url": "https://sede.agenciatributaria.gob.es/Sede/procedimientos/GC61.shtml",
-      "monitor": true,
-      "nota": "Convocatoria histórica cerrada; distinguir de futuras ayudas con importe parecido.",
-      "oficial": true
-    },
-    {
-      "id": "dana-2024-general",
-      "nombre": "La Moncloa · Información oficial de ayudas DANA 2024",
-      "ambito": "Estatal / municipios afectados",
-      "categoria": "Emergencias y catástrofes",
-      "url": "https://www.lamoncloa.gob.es/info-dana/Paginas/2024/051124-informacion-ayudas.aspx",
-      "monitor": true,
-      "nota": "Portal histórico de medidas; verificar cada línea, municipio y plazo antes de reutilizar datos.",
-      "oficial": true
-    },
-    {
-      "id": "dana-2024-empresas",
-      "nombre": "La Moncloa · Ayudas DANA al sector privado",
-      "ambito": "Estatal / municipios afectados",
-      "categoria": "Emergencias y catástrofes empresariales",
-      "url": "https://www.lamoncloa.gob.es/info-dana/paginas/2024/071124-ayudas-empresas-pymes.aspx",
-      "monitor": true,
-      "nota": "Referencia histórica para empresas, pymes, vehículos, establecimientos y beneficios fiscales.",
-      "oficial": true
-    },
-    {
-      "id": "dana-2024-autonomos",
-      "nombre": "La Moncloa · Ayudas DANA a trabajadores y autónomos",
-      "ambito": "Estatal / municipios afectados",
-      "categoria": "Emergencias y catástrofes",
-      "url": "https://www.lamoncloa.gob.es/info-dana/Paginas/2024/071124-ayudas-trabajadores-autonomos.aspx?mode=Dark",
-      "monitor": true,
-      "nota": "Referencia histórica; no presentar como abierta sin una nueva convocatoria oficial.",
-      "oficial": true
-    },
-    {
-      "id": "boe-gasoleo-2022",
-      "nombre": "BOE · Medidas de apoyo por subida de carburantes (2022)",
-      "ambito": "Estatal",
-      "categoria": "Combustible y transporte",
-      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2022-12925",
-      "monitor": true,
-      "nota": "Base normativa histórica; las ayudas de combustible deben clasificarse por sector y edición.",
-      "oficial": true
-    },
-    {
-      "id": "melilla-ayudas",
-      "nombre": "Ciudad Autónoma de Melilla · Subvenciones públicas y ayudas",
-      "ambito": "Melilla",
-      "categoria": "Ayudas generales",
-      "url": "https://melilla.es/melillaPortal/contenedor.jsp?codMenu=514&codMenuPN=602&codResi=1&codbusqueda=693&language=es&layout=contenedor.jsp&numeroPagina=1&seccion=s_ldoc_d1_v1.jsp",
-      "monitor": true,
-      "nota": "Buscador oficial de ayudas y subvenciones, con páginas de convocatorias y documentos relacionados.",
-      "oficial": true
-    }
-  ],
-  "coberturaTerritorial": [
-    {
-      "nombre": "Andalucía",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal de ayudas oficial registrado"
-    },
-    {
-      "nombre": "Aragón",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal de ayudas oficial registrado"
-    },
-    {
-      "nombre": "Asturias",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal de ayudas oficial registrado"
-    },
-    {
-      "nombre": "Illes Balears",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal de ayudas oficial registrado"
-    },
-    {
-      "nombre": "Canarias",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal de ayudas oficial registrado"
-    },
-    {
-      "nombre": "Cantabria",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal de ayudas oficial registrado"
-    },
-    {
-      "nombre": "Castilla y León",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal de ayudas oficial registrado"
-    },
-    {
-      "nombre": "Castilla-La Mancha",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
-    },
-    {
-      "nombre": "Cataluña",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal de ayudas oficial registrado"
-    },
-    {
-      "nombre": "Comunitat Valenciana",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal de ayudas oficial registrado"
-    },
-    {
-      "nombre": "Extremadura",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal de ayudas oficial registrado"
-    },
-    {
-      "nombre": "Galicia",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal de ayudas oficial registrado"
-    },
-    {
-      "nombre": "Comunidad de Madrid",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal de ayudas oficial registrado"
-    },
-    {
-      "nombre": "Región de Murcia",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal de ayudas oficial registrado"
-    },
-    {
-      "nombre": "Comunidad Foral de Navarra",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal de ayudas oficial registrado"
-    },
-    {
-      "nombre": "País Vasco",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal de ayudas oficial registrado"
-    },
-    {
-      "nombre": "La Rioja",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
-    },
-    {
-      "nombre": "Ceuta",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
-    },
-    {
-      "nombre": "Melilla",
-      "fuenteGeneral": "bdns",
-      "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial de ayudas registrado"
-    }
-  ]
+ "version": 1,
+ "actualizado": "2026-10-18",
+ "nota": "Registro de fuentes oficiales o portales de referencia. Una fuente no equivale a una convocatoria. La BDNS cubre convocatorias estatales, autonómicas y locales; se registran portales especializados donde ya están localizados y la cobertura directa pendiente se identifica explícitamente.",
+ "fuentes": [
+  {
+   "id": "bdns",
+   "nombre": "Base de Datos Nacional de Subvenciones",
+   "ambito": "Estado / todas las CCAA y entidades locales",
+   "categoria": "Subvenciones",
+   "url": "https://www.infosubvenciones.es/bdnstrans/",
+   "monitor": true,
+   "nota": "Fuente transversal; contrastar cada convocatoria y sus bases.",
+   "oficial": true
+  },
+  {
+   "id": "sepe-bonificaciones",
+   "nombre": "SEPE · Bonificaciones y ayudas",
+   "ambito": "Estatal",
+   "categoria": "Empleo y contratación",
+   "url": "https://www.sepe.es/HomeSepe/es/empresas/informacion-para-empresas/bonificaciones-ayudas.html",
+   "monitor": true,
+   "nota": "Bonificaciones e incentivos laborales.",
+   "oficial": true
+  },
+  {
+   "id": "seguridad-social-nacimiento",
+   "nombre": "Seguridad Social · Nacimiento y cuidado de menor",
+   "ambito": "Estatal",
+   "categoria": "Familia y prestaciones",
+   "url": "https://prestaciones.seg-social.es/servicio/prestacion-nacimiento-adopcion-cuidado-menor.html",
+   "monitor": true,
+   "nota": "Prestación personal, separada de las subvenciones empresariales.",
+   "oficial": true
+  },
+  {
+   "id": "imv",
+   "nombre": "Ingreso Mínimo Vital",
+   "ambito": "Estatal",
+   "categoria": "Prestaciones sociales",
+   "url": "https://imv.seg-social.es/",
+   "monitor": true,
+   "nota": "Verificar requisitos, unidad de convivencia, ingresos y procedimiento.",
+   "oficial": true
+  },
+  {
+   "id": "aeat-beneficios",
+   "nombre": "AEAT · Beneficios fiscales",
+   "ambito": "Estatal",
+   "categoria": "Fiscalidad personal",
+   "url": "https://sede.agenciatributaria.gob.es/Sede/beneficios-fiscales-autorizaciones.html",
+   "monitor": true,
+   "nota": "Distinguir beneficios fiscales de subvenciones.",
+   "oficial": true
+  },
+  {
+   "id": "eu-funding",
+   "nombre": "Comisión Europea · Funding & Tenders",
+   "ambito": "Unión Europea",
+   "categoria": "Financiación y programas UE",
+   "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/",
+   "monitor": true,
+   "nota": "Conservar programa, convocatoria, elegibilidad y fechas oficiales.",
+   "oficial": true
+  },
+  {
+   "id": "euipo",
+   "nombre": "EUIPO",
+   "ambito": "Unión Europea",
+   "categoria": "Pymes, marcas y diseños",
+   "url": "https://www.euipo.europa.eu/es",
+   "monitor": true,
+   "nota": "Comprobar cada edición y disponibilidad de fondos.",
+   "oficial": true
+  },
+  {
+   "id": "gencat-economia",
+   "nombre": "Generalitat · Economia i Hisenda: ajuts i subvencions",
+   "ambito": "Cataluña",
+   "categoria": "Ayudas generales",
+   "url": "https://economia.gencat.cat/ca/ambits-actuacio/ajuts-subvencions/",
+   "monitor": true,
+   "nota": "Portal de descubrimiento, no una convocatoria individual.",
+   "oficial": true
+  },
+  {
+   "id": "gencat-naixement",
+   "nombre": "Generalitat · Prestació per a famílies amb infants",
+   "ambito": "Cataluña",
+   "categoria": "Nacimiento y familia",
+   "url": "https://tramits.gencat.cat/ca/tramits/tramits-temes/Prestacio-per-a-families-amb-infants",
+   "monitor": true,
+   "nota": "Vigilar plazos vinculados a la fecha del nacimiento y cambios de bases.",
+   "oficial": true
+  },
+  {
+   "id": "gencat-imv",
+   "nombre": "Generalitat · Trámite IMV",
+   "ambito": "Cataluña / estatal",
+   "categoria": "Prestaciones sociales",
+   "url": "https://tramits.gencat.cat/ca/tramits/tramits-temes/ingres-minim-vital",
+   "monitor": true,
+   "nota": "Complementa la fuente estatal; deduplicar la misma prestación.",
+   "oficial": true
+  },
+  {
+   "id": "gencat-habitatge",
+   "nombre": "Generalitat · Ayudas de vivienda",
+   "ambito": "Cataluña",
+   "categoria": "Alquiler y vivienda",
+   "url": "https://habitatge.gencat.cat/ca/ajuts/",
+   "monitor": true,
+   "nota": "Separar cada línea y convocatoria concreta.",
+   "oficial": true
+  },
+  {
+   "id": "gencat-lloguer",
+   "nombre": "Generalitat · Subvencions pagament lloguer",
+   "ambito": "Cataluña",
+   "categoria": "Alquiler",
+   "url": "https://habitatge.gencat.cat/ca/ajuts/ajuts-pagament-habitatge/subvencions-pagament-lloguer/",
+   "monitor": true,
+   "nota": "Controlar aperturas, edades y plazos de cada línea.",
+   "oficial": true
+  },
+  {
+   "id": "paeria",
+   "nombre": "Paeria de Lleida · Buscador de ayudas",
+   "ambito": "Lleida",
+   "categoria": "Ayudas municipales",
+   "url": "https://seu.paeria.cat/ajutsPublic/cercadorCategoria/180",
+   "monitor": true,
+   "nota": "Revisar convocatoria, bases, anexos y agotamiento de crédito.",
+   "oficial": true
+  },
+  {
+   "id": "barcelona-ajuts",
+   "nombre": "Ajuntament de Barcelona · Subvencions",
+   "ambito": "Barcelona",
+   "categoria": "Ayudas municipales",
+   "url": "https://ajuntament.barcelona.cat/ca/informacio-administrativa/subvencions",
+   "monitor": true,
+   "nota": "Separar beneficiarios particulares y empresariales.",
+   "oficial": true
+  },
+  {
+   "id": "barcelona-habitatge",
+   "nombre": "Consorci de l'Habitatge de Barcelona",
+   "ambito": "Barcelona",
+   "categoria": "Alquiler y vivienda",
+   "url": "https://www.consorcihabitatge.barcelona/ca/subvencions-al-pagament-del-lloguer-o-cessio-dus",
+   "monitor": true,
+   "nota": "Vigilar convocatorias por separado.",
+   "oficial": true
+  },
+  {
+   "id": "madrid-alquiler-joven",
+   "nombre": "Comunidad de Madrid · Ayudas alquiler jóvenes",
+   "ambito": "Comunidad de Madrid",
+   "categoria": "Alquiler y vivienda",
+   "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-alquiler-jovenes-0",
+   "monitor": true,
+   "nota": "No presentar como abierta sin fechas oficiales vigentes.",
+   "oficial": true
+  },
+  {
+   "id": "madrid-cuota-cero",
+   "nombre": "Comunidad de Madrid · Tarifa Cero",
+   "ambito": "Comunidad de Madrid",
+   "categoria": "Autónomos",
+   "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-tarifa-cero",
+   "monitor": true,
+   "nota": "Vigilar periodos de solicitud y requisitos.",
+   "oficial": true
+  },
+  {
+   "id": "madrid-nacimiento",
+   "nombre": "Ayuntamiento de Madrid · Ayuda por nacimiento/adopción",
+   "ambito": "Madrid ciudad",
+   "categoria": "Nacimiento y familia",
+   "url": "https://sede.madrid.es/portal/site/tramites/menuitem.62876cb64654a55e2dbd7003a8a409a0/?vgnextoid=6306ae0a39f2a910VgnVCM100000891ecb1aRCRD&vgnextchannel=2cb9a38813180210VgnVCM100000c90da8c0RCRD&vgnextfmt=default",
+   "monitor": true,
+   "nota": "Si se anuncia próxima convocatoria sin fechas, conservar ese estado literal.",
+   "oficial": true
+  },
+  {
+   "id": "andalucia-alquiler",
+   "nombre": "Junta de Andalucía · Fomento del alquiler",
+   "ambito": "Andalucía",
+   "categoria": "Alquiler y vivienda",
+   "url": "https://www.juntadeandalucia.es/organismos/viviendajuventudyordenaciondelterritorio/areas/vivienda-rehabilitacion/fomento-alquiler.html",
+   "monitor": true,
+   "nota": "Separar las líneas y comprobar vigencia.",
+   "oficial": true
+  },
+  {
+   "id": "aragon-cuota-cero",
+   "nombre": "Gobierno de Aragón · Cuota Cero",
+   "ambito": "Aragón",
+   "categoria": "Autónomos",
+   "url": "https://www.aragon.es/tramitador/-/tramite/programa-emprendedores-autonomos/cuota-cero",
+   "monitor": true,
+   "nota": "Requisitos y periodos de la edición vigente.",
+   "oficial": true
+  },
+  {
+   "id": "andalucia-cuota-cero",
+   "nombre": "Junta de Andalucía · Cuota Cero",
+   "ambito": "Andalucía",
+   "categoria": "Autónomos",
+   "url": "https://www.juntadeandalucia.es/organismos/empleoempresaytrabajoautonomo/areas/trabajo-autonomo/fomento-trabajo-autonomo/paginas/subv-fomento-cuota-cero.html",
+   "monitor": true,
+   "nota": "Requisitos y periodos de la edición vigente.",
+   "oficial": true
+  },
+  {
+   "id": "balears-cuota-cero",
+   "nombre": "Autònoms IB · Cuota Cero",
+   "ambito": "Illes Balears",
+   "categoria": "Autónomos",
+   "url": "https://autonomsib.es/es/ayudas-para-autonomos/cuota-cero/",
+   "monitor": false,
+   "nota": "Fuente secundaria orientativa; verificar siempre la convocatoria y las bases en el organismo convocante.",
+   "oficial": false
+  },
+  {
+   "id": "canarias-cuota-cero",
+   "nombre": "Gobierno de Canarias · Cuota Cero",
+   "ambito": "Canarias",
+   "categoria": "Autónomos",
+   "url": "https://www.gobiernodecanarias.org/economia/autonomos/subvenciones/cuota_cero/",
+   "monitor": true,
+   "nota": "Requisitos y periodos de la edición vigente.",
+   "oficial": true
+  },
+  {
+   "id": "accio",
+   "nombre": "ACCIÓ · Servicios",
+   "ambito": "Cataluña",
+   "categoria": "Innovación y empresa",
+   "url": "https://www.accio.gencat.cat/es/serveis/index.html",
+   "monitor": true,
+   "nota": "Extraer cada programa de innovación, internacionalización y competitividad.",
+   "oficial": true
+  },
+  {
+   "id": "soc",
+   "nombre": "SOC · Ayudas y subvenciones",
+   "ambito": "Cataluña",
+   "categoria": "Empleo y formación",
+   "url": "https://serveiocupacio.gencat.cat/es/soc/transparencia-bon-govern/ajuts-subvencions/index.html",
+   "monitor": true,
+   "nota": "Ayudas de contratación, formación y empleo.",
+   "oficial": true
+  },
+  {
+   "id": "cido-subvencions",
+   "nombre": "CIDO · Subvenciones (datos abiertos)",
+   "ambito": "Cataluña / local",
+   "categoria": "Ayudas locales",
+   "url": "https://dadesobertes.diba.cat/datasets/cido-subvencions",
+   "monitor": true,
+   "nota": "Fuente estructurada; deduplicar contra BDNS y organismos convocantes.",
+   "oficial": true
+  },
+  {
+   "id": "ted",
+   "nombre": "TED · Licitaciones europeas",
+   "ambito": "Unión Europea",
+   "categoria": "Licitaciones (sección separada)",
+   "url": "https://docs.ted.europa.eu/api/latest/search.html",
+   "monitor": true,
+   "nota": "Mantener licitaciones separadas del catálogo de ayudas.",
+   "oficial": true
+  },
+  {
+   "id": "moves",
+   "nombre": "IDAE · MOVES y movilidad sostenible",
+   "ambito": "Estatal",
+   "categoria": "Movilidad y energía",
+   "url": "https://www.idae.es/ayudas-y-financiacion",
+   "monitor": true,
+   "nota": "Portal de descubrimiento; comprobar convocatoria autonómica y fechas.",
+   "oficial": true
+  },
+  {
+   "id": "directorio-ccaa",
+   "nombre": "Directorio oficial de portales autonómicos",
+   "ambito": "Estado / todas las comunidades y ciudades autónomas",
+   "categoria": "Directorio territorial",
+   "url": "https://administracion.gob.es/informacion/sedes-electronicas-y-portales-de-internet-publicos/portales/comunidades-autonomas",
+   "monitor": true,
+   "nota": "Punto de entrada oficial para localizar cada portal autonómico. La página general se vigila como señal de cambios; no sustituye al buscador especializado.",
+   "oficial": true
+  },
+  {
+   "id": "aragon-ayudas",
+   "nombre": "Gobierno de Aragón · Ayudas y subvenciones",
+   "ambito": "Aragón",
+   "categoria": "Ayudas generales",
+   "url": "https://www.aragon.es/tramites/ayudas-subvenciones-becas-premios",
+   "monitor": true,
+   "nota": "Incluye ayudas, prestaciones y convocatorias; revisar cada ficha individual.",
+   "oficial": true
+  },
+  {
+   "id": "asturias-ayudas",
+   "nombre": "Principado de Asturias · Buscador de ayudas",
+   "ambito": "Asturias",
+   "categoria": "Ayudas generales",
+   "url": "https://sede.asturias.es/ast/-/buscador-de-convocatorias-y-concesiones-de-ayudas-y-subvenciones-1",
+   "monitor": true,
+   "nota": "Buscador oficial de convocatorias y concesiones.",
+   "oficial": true
+  },
+  {
+   "id": "galicia-ayudas",
+   "nombre": "Xunta de Galicia · Axudas e subvencións",
+   "ambito": "Galicia",
+   "categoria": "Ayudas generales",
+   "url": "https://www.xunta.gal/es/medios/axudas-e-subvencions",
+   "monitor": true,
+   "nota": "Portal oficial de ayudas y subvenciones.",
+   "oficial": true
+  },
+  {
+   "id": "castillayleon-ayudas",
+   "nombre": "Junta de Castilla y León · Suscripción de ayudas y subvenciones",
+   "ambito": "Castilla y León",
+   "categoria": "Ayudas generales",
+   "url": "https://www.tramitacastillayleon.jcyl.es/web/es/tramites-servicios/suscripcion-ayudas-subvenciones-becas.html",
+   "monitor": true,
+   "nota": "Servicio oficial de novedades; contrastar con la convocatoria y boletín.",
+   "oficial": true
+  },
+  {
+   "id": "canarias-ayudas",
+   "nombre": "Gobierno de Canarias · Líneas de ayudas y subvenciones",
+   "ambito": "Canarias",
+   "categoria": "Ayudas generales",
+   "url": "https://www.gobiernodecanarias.org/transparencia/temas/contratos-convenios-subvenciones/ayudas-y-subvenciones/lineas/index.html",
+   "monitor": true,
+   "nota": "Portal oficial que remite a la BDNS y a procedimientos del Gobierno de Canarias.",
+   "oficial": true
+  },
+  {
+   "id": "madrid-ayudas",
+   "nombre": "Comunidad de Madrid · Buscador de ayudas y subvenciones",
+   "ambito": "Comunidad de Madrid",
+   "categoria": "Ayudas generales",
+   "url": "https://sede.comunidad.madrid/buscador?t=ayudas+y+subvenciones&tipo=All",
+   "monitor": true,
+   "nota": "Buscador oficial con estados y plazos de las fichas.",
+   "oficial": true
+  },
+  {
+   "id": "andalucia-ayudas",
+   "nombre": "Junta de Andalucía · Ayudas y subvenciones",
+   "ambito": "Andalucía",
+   "categoria": "Ayudas generales",
+   "url": "https://juntadeandalucia.es/organismos/transparencia/contratos-convenios/ayudas-junta-subvenciones.html",
+   "monitor": true,
+   "nota": "Portal oficial de ayudas de la Junta.",
+   "oficial": true
+  },
+  {
+   "id": "euskadi-ayudas",
+   "nombre": "Gobierno Vasco · Listado de ayudas",
+   "ambito": "País Vasco",
+   "categoria": "Ayudas generales",
+   "url": "https://www.euskadi.eus/gobierno-vasco/-/listado-de-ayudas/",
+   "monitor": true,
+   "nota": "Buscador oficial con filtros de territorio y estado de convocatoria.",
+   "oficial": true
+  },
+  {
+   "id": "valencia-oportunidades",
+   "nombre": "Generalitat Valenciana · Listado de oportunidades",
+   "ambito": "Comunitat Valenciana",
+   "categoria": "Ayudas generales",
+   "url": "https://gvanext.gva.es/es-es/oportunidades",
+   "monitor": true,
+   "nota": "Buscador de oportunidades con tipos de ayuda, beneficiarios y estado.",
+   "oficial": true
+  },
+  {
+   "id": "extremadura-ayudas",
+   "nombre": "Junta de Extremadura · Ayudas publicadas en DOE",
+   "ambito": "Extremadura",
+   "categoria": "Ayudas generales",
+   "url": "https://ayudaspri.juntaex.es/portal/ayudas",
+   "monitor": true,
+   "nota": "Portal oficial de ayudas publicadas en el Diario Oficial de Extremadura.",
+   "oficial": true
+  },
+  {
+   "id": "navarra-ayudas",
+   "nombre": "Gobierno de Navarra · Desarrollo empresarial y ayudas",
+   "ambito": "Navarra",
+   "categoria": "Ayudas empresariales",
+   "url": "https://www.navarra.es/es/desarrollo-empresarial",
+   "monitor": true,
+   "nota": "Fuente sectorial de empresa; completar con el buscador general de trámites para prestaciones personales.",
+   "oficial": true
+  },
+  {
+   "id": "murcia-ayudas",
+   "nombre": "Región de Murcia · Buscador de ayudas y subvenciones",
+   "ambito": "Región de Murcia",
+   "categoria": "Ayudas generales",
+   "url": "https://sede.carm.es/web/pagina?BUSCAR=SI&B_Buscar.x=0&B_Buscar.y=0&IDCONTENIDO=2377&IDTIPO=200&Q_CONSULTA=subvenciones+&RASTRO=c%24m40288&RESULTADO_INFERIOR=21&RESULTADO_SUPERIOR=40",
+   "monitor": true,
+   "nota": "Buscador oficial de la sede electrónica; el filtro y la paginación pueden requerir revisión.",
+   "oficial": true
+  },
+  {
+   "id": "balears-portal",
+   "nombre": "Govern de les Illes Balears · Portal oficial",
+   "ambito": "Illes Balears",
+   "categoria": "Ayudas y trámites",
+   "url": "https://www.caib.es/webgoib/",
+   "monitor": true,
+   "nota": "Portal oficial con accesos para ciudadanía, empresas y trámites; cada convocatoria debe identificarse por separado.",
+   "oficial": true
+  },
+  {
+   "id": "cantabria-ayudas",
+   "nombre": "Gobierno de Cantabria · Convocatorias, becas, ayudas y subvenciones",
+   "ambito": "Cantabria",
+   "categoria": "Ayudas generales",
+   "url": "https://sede.cantabria.es/sede/convocatorias-becas-ayudas-subvenciones-y-premios",
+   "monitor": true,
+   "nota": "Catálogo oficial de convocatorias de la sede electrónica.",
+   "oficial": true
+  },
+  {
+   "id": "clm-portal",
+   "nombre": "Junta de Castilla-La Mancha · Portal oficial",
+   "ambito": "Castilla-La Mancha",
+   "categoria": "Portal de entrada",
+   "url": "https://www.castillalamancha.es/",
+   "monitor": true,
+   "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia. La página general se vigila como señal de cambios; no sustituye al buscador especializado.",
+   "oficial": true
+  },
+  {
+   "id": "larioja-portal",
+   "nombre": "Gobierno de La Rioja · Portal oficial",
+   "ambito": "La Rioja",
+   "categoria": "Portal de entrada",
+   "url": "https://www.larioja.org/",
+   "monitor": true,
+   "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia. La página general se vigila como señal de cambios; no sustituye al buscador especializado.",
+   "oficial": true
+  },
+  {
+   "id": "ceuta-portal",
+   "nombre": "Ciudad Autónoma de Ceuta · Portal oficial",
+   "ambito": "Ceuta",
+   "categoria": "Portal de entrada",
+   "url": "https://www.ceuta.es/",
+   "monitor": true,
+   "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia. La página general se vigila como señal de cambios; no sustituye al buscador especializado.",
+   "oficial": true
+  },
+  {
+   "id": "melilla-portal",
+   "nombre": "Ciudad Autónoma de Melilla · Portal oficial",
+   "ambito": "Melilla",
+   "categoria": "Portal de entrada",
+   "url": "https://www.melilla.es/melillaportal/index.jsp",
+   "monitor": false,
+   "nota": "Portal oficial general; localizar y registrar el buscador especializado de ayudas antes de automatizar su vigilancia.",
+   "oficial": true
+  },
+  {
+   "id": "aeat-200-2022",
+   "nombre": "AEAT · Primera ayuda de 200 euros (2022)",
+   "ambito": "Estatal",
+   "categoria": "Ayudas personales históricas",
+   "url": "https://sede.agenciatributaria.gob.es/Sede/procedimientos/GC51.shtml",
+   "monitor": true,
+   "nota": "Convocatoria histórica cerrada; conservar para reconocer medidas similares en nuevas ediciones.",
+   "oficial": true
+  },
+  {
+   "id": "aeat-200-2023",
+   "nombre": "AEAT · Segunda ayuda de 200 euros (2023)",
+   "ambito": "Estatal",
+   "categoria": "Ayudas personales históricas",
+   "url": "https://sede.agenciatributaria.gob.es/Sede/procedimientos/GC61.shtml",
+   "monitor": true,
+   "nota": "Convocatoria histórica cerrada; distinguir de futuras ayudas con importe parecido.",
+   "oficial": true
+  },
+  {
+   "id": "dana-2024-general",
+   "nombre": "La Moncloa · Información oficial de ayudas DANA 2024",
+   "ambito": "Estatal / municipios afectados",
+   "categoria": "Emergencias y catástrofes",
+   "url": "https://www.lamoncloa.gob.es/info-dana/Paginas/2024/051124-informacion-ayudas.aspx",
+   "monitor": true,
+   "nota": "Portal histórico de medidas; verificar cada línea, municipio y plazo antes de reutilizar datos.",
+   "oficial": true
+  },
+  {
+   "id": "dana-2024-empresas",
+   "nombre": "La Moncloa · Ayudas DANA al sector privado",
+   "ambito": "Estatal / municipios afectados",
+   "categoria": "Emergencias y catástrofes empresariales",
+   "url": "https://www.lamoncloa.gob.es/info-dana/paginas/2024/071124-ayudas-empresas-pymes.aspx",
+   "monitor": true,
+   "nota": "Referencia histórica para empresas, pymes, vehículos, establecimientos y beneficios fiscales.",
+   "oficial": true
+  },
+  {
+   "id": "dana-2024-autonomos",
+   "nombre": "La Moncloa · Ayudas DANA a trabajadores y autónomos",
+   "ambito": "Estatal / municipios afectados",
+   "categoria": "Emergencias y catástrofes",
+   "url": "https://www.lamoncloa.gob.es/info-dana/Paginas/2024/071124-ayudas-trabajadores-autonomos.aspx?mode=Dark",
+   "monitor": true,
+   "nota": "Referencia histórica; no presentar como abierta sin una nueva convocatoria oficial.",
+   "oficial": true
+  },
+  {
+   "id": "boe-gasoleo-2022",
+   "nombre": "BOE · Medidas de apoyo por subida de carburantes (2022)",
+   "ambito": "Estatal",
+   "categoria": "Combustible y transporte",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2022-12925",
+   "monitor": true,
+   "nota": "Base normativa histórica; las ayudas de combustible deben clasificarse por sector y edición.",
+   "oficial": true
+  },
+  {
+   "id": "melilla-ayudas",
+   "nombre": "Ciudad Autónoma de Melilla · Subvenciones públicas y ayudas",
+   "ambito": "Melilla",
+   "categoria": "Ayudas generales",
+   "url": "https://melilla.es/melillaPortal/contenedor.jsp?codMenu=514&codMenuPN=602&codResi=1&codbusqueda=693&language=es&layout=contenedor.jsp&numeroPagina=1&seccion=s_ldoc_d1_v1.jsp",
+   "monitor": true,
+   "nota": "Buscador oficial de ayudas y subvenciones, con páginas de convocatorias y documentos relacionados.",
+   "oficial": true
+  }
+ ],
+ "coberturaTerritorial": [
+  {
+   "nombre": "Andalucía",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal de ayudas oficial registrado"
+  },
+  {
+   "nombre": "Aragón",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal de ayudas oficial registrado"
+  },
+  {
+   "nombre": "Asturias",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal de ayudas oficial registrado"
+  },
+  {
+   "nombre": "Illes Balears",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal de ayudas oficial registrado"
+  },
+  {
+   "nombre": "Canarias",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal de ayudas oficial registrado"
+  },
+  {
+   "nombre": "Cantabria",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal de ayudas oficial registrado"
+  },
+  {
+   "nombre": "Castilla y León",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal de ayudas oficial registrado"
+  },
+  {
+   "nombre": "Castilla-La Mancha",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
+  },
+  {
+   "nombre": "Cataluña",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal de ayudas oficial registrado"
+  },
+  {
+   "nombre": "Comunitat Valenciana",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal de ayudas oficial registrado"
+  },
+  {
+   "nombre": "Extremadura",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal de ayudas oficial registrado"
+  },
+  {
+   "nombre": "Galicia",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal de ayudas oficial registrado"
+  },
+  {
+   "nombre": "Comunidad de Madrid",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal de ayudas oficial registrado"
+  },
+  {
+   "nombre": "Región de Murcia",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal de ayudas oficial registrado"
+  },
+  {
+   "nombre": "Comunidad Foral de Navarra",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal de ayudas oficial registrado"
+  },
+  {
+   "nombre": "País Vasco",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal de ayudas oficial registrado"
+  },
+  {
+   "nombre": "La Rioja",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
+  },
+  {
+   "nombre": "Ceuta",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
+  },
+  {
+   "nombre": "Melilla",
+   "fuenteGeneral": "bdns",
+   "directorioOficial": "directorio-ccaa",
+   "estado": "portal oficial de ayudas registrado"
+  }
+ ]
 }
