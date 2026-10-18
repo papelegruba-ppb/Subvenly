@@ -219,9 +219,9 @@
       "ambito": "Illes Balears",
       "categoria": "Autónomos",
       "url": "https://autonomsib.es/es/ayudas-para-autonomos/cuota-cero/",
-      "monitor": true,
-      "nota": "Verificar y priorizar bases del organismo convocante.",
-      "oficial": true
+      "monitor": false,
+      "nota": "Fuente secundaria orientativa; verificar siempre la convocatoria y las bases en el organismo convocante.",
+      "oficial": false
     },
     {
       "id": "canarias-cuota-cero",
@@ -372,6 +372,46 @@
       "monitor": true,
       "nota": "Buscador oficial con filtros de territorio y estado de convocatoria.",
       "oficial": true
+    },
+    {
+      "id": "valencia-oportunidades",
+      "nombre": "Generalitat Valenciana · Listado de oportunidades",
+      "ambito": "Comunitat Valenciana",
+      "categoria": "Ayudas generales",
+      "url": "https://gvanext.gva.es/es-es/oportunidades",
+      "monitor": true,
+      "nota": "Buscador de oportunidades con tipos de ayuda, beneficiarios y estado.",
+      "oficial": true
+    },
+    {
+      "id": "extremadura-ayudas",
+      "nombre": "Junta de Extremadura · Ayudas publicadas en DOE",
+      "ambito": "Extremadura",
+      "categoria": "Ayudas generales",
+      "url": "https://ayudaspri.juntaex.es/portal/ayudas",
+      "monitor": true,
+      "nota": "Portal oficial de ayudas publicadas en el Diario Oficial de Extremadura.",
+      "oficial": true
+    },
+    {
+      "id": "navarra-ayudas",
+      "nombre": "Gobierno de Navarra · Desarrollo empresarial y ayudas",
+      "ambito": "Navarra",
+      "categoria": "Ayudas empresariales",
+      "url": "https://www.navarra.es/es/desarrollo-empresarial",
+      "monitor": true,
+      "nota": "Fuente sectorial de empresa; completar con el buscador general de trámites para prestaciones personales.",
+      "oficial": true
+    },
+    {
+      "id": "murcia-ayudas",
+      "nombre": "Región de Murcia · Buscador de ayudas y subvenciones",
+      "ambito": "Región de Murcia",
+      "categoria": "Ayudas generales",
+      "url": "https://sede.carm.es/web/pagina?BUSCAR=SI&B_Buscar.x=0&B_Buscar.y=0&IDCONTENIDO=2377&IDTIPO=200&Q_CONSULTA=subvenciones+&RASTRO=c%24m40288&RESULTADO_INFERIOR=21&RESULTADO_SUPERIOR=40",
+      "monitor": true,
+      "nota": "Buscador oficial de la sede electrónica; el filtro y la paginación pueden requerir revisión.",
+      "oficial": true
     }
   ],
   "coberturaTerritorial": [
@@ -433,13 +473,13 @@
       "nombre": "Comunitat Valenciana",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+      "estado": "portal oficial específico registrado"
     },
     {
       "nombre": "Extremadura",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+      "estado": "portal oficial específico registrado"
     },
     {
       "nombre": "Galicia",
@@ -457,7 +497,7 @@
       "nombre": "Región de Murcia",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "acceso general mediante BDNS y directorio oficial; portal especializado pendiente de registrar"
+      "estado": "portal oficial específico registrado"
     },
     {
       "nombre": "Comunidad Foral de Navarra",
