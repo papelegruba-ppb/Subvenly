@@ -229,7 +229,7 @@ function secuencia(){var c=camino(),l=["#Sobre ti","alta"];
   if(!c)return l;
   if(c==="aut")l=l.concat(["#Tu situación como autónomo","nuevo","jovenyo","paro","desempleado","tarifa","hacienda"]);
   if(c==="sl")l=l.concat(["#Tu sociedad","sl24","hacienda"]);
-  if(c==="nuevo")l=l.concat(["#Preparar el inicio de actividad","nuevo","jovenyo","paro","desempleado","hacienda"]);
+  if(c==="nuevo"&&A.perfil==="empresa")l=l.concat(["#Preparar la constitución de tu empresa"]);else if(c==="nuevo")l=l.concat(["#Preparar el inicio de actividad","nuevo","jovenyo","paro","desempleado","hacienda"]);
   l=l.concat(["#Dónde está tu actividad","ccaa","provincia","municipio","amb","lleida","centre","ponent"]);
   if(c==="aut"||c==="sl") {l.push("#Tu equipo y las contrataciones");l.push("plantilla");l.push("contratar","indefinido","joven","bcn")}
   return l}
