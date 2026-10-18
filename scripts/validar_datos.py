@@ -35,6 +35,7 @@ def main():
             exigir(f.get("plazo") or f.get("estadoManual"), "Ficha pendiente sin estado explicativo: " + str(f.get("id")))
     personales = [f for f in fichas if f.get("perfil") == "personal"]
     exigir(len(personales) >= 5, "Faltan fichas personales/familiares")
+    exigir(all(f.get("estadoManual") or f.get("cerrada") or f.get("cierre") for f in personales), "Ficha personal sin estado o plazo explícito")
     exigir(isinstance(fuentes_doc.get("fuentes"), list) and fuentes_doc["fuentes"], "No hay registro de fuentes")
     fuentes = fuentes_doc["fuentes"]
     territorios = fuentes_doc.get("coberturaTerritorial", [])
