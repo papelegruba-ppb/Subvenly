@@ -58,7 +58,7 @@ def main():
         ant = previo.get(sid, {})
         cambios = list(ant.get("cambios", []))
         if not permitido(url):
-            resultado[sid] = {"estado": "no_verificable", "comprobado": hoy, "url": url, "hash": ant.get("hash", ""), "cambios": cambios[-10:]}
+            resultado[sid] = {"estado": "cambio" if ant.get("estado") == "cambio" else "no_verificable", "comprobado": hoy, "url": url, "hash": ant.get("hash", ""), "cambios": cambios[-10:]}
             print(f"  {sid}: no_verificable (robots.txt o acceso)")
             continue
         try:
@@ -80,7 +80,7 @@ def main():
             print(f"  {sid}: {estado}")
             time.sleep(0.5)
         except Exception as exc:
-            resultado[sid] = {"estado": "no_verificable", "comprobado": hoy, "url": url,
+            resultado[sid] = {"estado": "cambio" if ant.get("estado") == "cambio" else "no_verificable", "comprobado": hoy, "url": url,
                               "hash": ant.get("hash", ""), "texto": ant.get("texto", ""), "cambios": cambios[-10:],
                               "error": str(exc)[:300]}
             print(f"  {sid}: no_verificable ({exc})")
