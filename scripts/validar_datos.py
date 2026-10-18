@@ -70,7 +70,7 @@ def main():
             exigir(r.returncode == 0, "Error de sintaxis JS en bloque " + str(i) + ": " + r.stderr)
         finally:
             pathlib.Path(ruta).unlink(missing_ok=True)
-    print("OK: {} fichas ({} personales), {} fuentes, {} provincias, {} municipios; {} bloques JS válidos.".format(
+    print("OK: {} fichas ({} personales), {} fuentes, {} territorios, {} provincias, {} municipios; {} bloques JS válidos.".format(
         len(fichas), len(personales), len(fuentes), len(territorios), len(provincias), municipios, len(inline)))
     return 0
 
