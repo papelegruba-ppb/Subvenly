@@ -4,12 +4,14 @@ Buscador de ayudas, subvenciones y créditos para autónomos y empresas, con tes
 
 ## Qué hay en la carpeta
 - `index.html`: la aplicación (diseño y test).
-- `data/fichas.json`: las fichas revisadas a mano. Para añadir una ayuda, copia una ficha y cambia sus textos.
-- `data/novedades.json`, `data/licitaciones.json`, `data/vigilancia.json`: lo que encuentran las búsquedas automáticas (los rellenan los scripts, no los toques).
+- `data/fichas.json`: fichas de ayudas y prestaciones, con reglas de compatibilidad y estado verificable. Las fichas personales llevan `perfil: "personal"`.
+- `data/novedades.json`, `data/licitaciones.json`, `data/vigilancia.json` y `data/vigilancia_fuentes.json`: resultados y huellas de seguimiento automático. `data/fuentes.json` registra las fuentes oficiales.
 - `scripts/actualizar.py`: busca cada noche convocatorias nuevas en la BDNS: estatales, de todas las comunidades autónomas y de ayuntamientos. Los filtros (temas, territorios) están arriba del todo, en `AJUSTES`.
 - `scripts/actualizar_ue.py`: busca convocatorias abiertas o próximas de la Unión Europea para pymes, startups y emprendedores (portal Funding & Tenders). Los títulos vienen en inglés.
 - `scripts/actualizar_licitaciones.py`: busca licitaciones abiertas (en plazo de presentar oferta) en la Plataforma de Contratación del Sector Público y las guarda en `data/licitaciones.json`.
-- `scripts/vigilar_creditos.py`: visita las páginas oficiales de las fichas de tipo «Crédito» y avisa en la web si parecen haber cambiado (`data/vigilancia.json`). Respeta el `robots.txt` de cada sitio: si una web no permite visitas automáticas, no se vigila.
+- `scripts/vigilar_creditos.py`: pese al nombre histórico, vigila los enlaces oficiales de todas las fichas y registra posibles cambios de fechas, importes o bases en `data/vigilancia.json`. Respeta `robots.txt`.
+- `scripts/vigilar_fuentes.py`: vigila las páginas de `data/fuentes.json` y conserva las huellas y muestras antes/después de cambios para revisión.
+- `scripts/validar_datos.py`: valida JSON, identificadores, enlaces, cobertura geográfica y sintaxis de los bloques JavaScript antes de publicar.
 - `.github/workflows/actualizar.yml`: la tarea programada que ejecuta el script y publica la web.
 - `fonts/`, `assets/`, `favicon.svg`: fuentes (Fraunces e Inter, licencia OFL) y logos de Subvenly.
 
@@ -21,7 +23,7 @@ Buscador de ayudas, subvenciones y créditos para autónomos y empresas, con tes
 
 A partir de ahí se ejecuta solo cada noche, a las 03:17 UTC, y también cada vez que cambies algo en `main`.
 
-## Si la primera ejecución falla
+## Cobertura y estados de las ayudas\n\n- El test pregunta primero si se buscan ayudas como particular/familia, autónomo, empresa/sociedad o en ambos ámbitos. La ruta personal activa preguntas de familia, nacimiento/adopción, alquiler, unidad de convivencia, ingresos y beneficios fiscales solo cuando corresponden. Las rutas empresariales existentes se mantienen.\n- Las fichas pueden indicar una próxima convocatoria anunciada sin fecha, una convocatoria pendiente de verificar o un plazo concreto. Una página de información general no se trata como una convocatoria abierta.\n- Las páginas oficiales se comprueban a diario. Si cambia el contenido, se guarda una señal de revisión con muestras anteriores y nuevas; el sistema **no** cambia automáticamente los requisitos ni concluye que la convocatoria está abierta. Las bases o PDFs que cambien deben revisarse y confirmarse antes de modificar reglas de compatibilidad.\n- BDNS permite descubrir convocatorias estatales, autonómicas y locales en toda España. La cobertura directa de portales regionales y municipales se amplía progresivamente en `data/fuentes.json`; no debe anunciarse como exhaustiva mientras queden fuentes por incorporar o sin verificar.\n- Las ayudas personales, beneficios fiscales, subvenciones empresariales, financiación y licitaciones se deben mantener como categorías distintas. Las licitaciones siguen en sección separada.\n\n## Si la primera ejecución falla
 Abre la ejecución, entra en el paso **Buscar convocatorias nuevas** y copia el texto del registro. Si llegó a descargar datos, mira también `data/_diagnostico.json`: muestra los campos reales que devuelve la BDNS. Si falla la parte de la UE, mira también `data/_diagnostico_ue.json`. Con eso se ajustan los scripts. Aunque la búsqueda falle, la web se publica con los datos anteriores.
 
 ## Cosas a saber
