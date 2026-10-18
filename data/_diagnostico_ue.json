@@ -1,20 +1,20 @@
 {
  "fecha": "2026-10-18",
- "recibidas": 300,
+ "recibidas": 301,
  "ejemplo": {
   "apiVersion": "2.157",
-  "reference": "50149486TOPICSen",
-  "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-HERITAGE-06",
+  "reference": "50149633TOPICSen",
+  "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-TRANSFO-04",
   "contentType": "text/plain",
   "language": "en",
   "databaseLabel": "SEDIA",
   "database": "SEDIA",
-  "summary": "Future-proofing sustainable cultural tourism",
+  "summary": "The impact of EU labour mobility on the Member States of the EU",
   "weight": 0.0,
   "groupById": "2",
-  "content": "Future-proofing sustainable cultural tourism",
+  "content": "The impact of EU labour mobility on the Member States of the EU",
   "accessRestriction": false,
-  "checksum": "1843AE08D071F15D4DF3F2A0A25EE073850EBA504451B7BE2756F437538BD759",
+  "checksum": "67600DCBCC89282604E2C0AAB6561BD38DC865971475CF0734364B8E2D35E163",
   "metadata": {
    "latestInfos": [
     "[]"
@@ -23,23 +23,11 @@
     "2027-05-13T00:00:00.000+0000"
    ],
    "keywords": [
-    "HORIZON-CL2-2027-01-HERITAGE-06",
+    "HORIZON-CL2-2027-01-TRANSFO-04",
     "HORIZON-CL2-2027-01",
-    "Artificial intelligence, intelligent systems, multi agent systems",
-    "Business models",
-    "Capacity building",
-    "Data and image processing",
-    "Digitalisation/ICT and cultural heritage",
-    "Environmental sciences",
-    "Experimentally-driven research and innovation",
-    "International cooperation",
-    "Knowledge transfer",
-    "Policy making and economics",
-    "Regional development",
-    "Social innovation",
-    "Social sciences, interdisciplinary",
-    "Tourism / Travel",
-    "Visual arts, performing arts, design"
+    "Development, economic growth",
+    "Econometrics, statistical methods",
+    "Macroeconomics"
    ],
    "language": [
     "en"
@@ -49,7 +37,7 @@
    ],
    "focusArea": [],
    "destinationDetails": [
-    "<p>Europe’s rich cultural heritage and strong creative industries not only reflect our past but also shape our future. It is by building on this foundation and developing our strengths that we can face the great challenges of our time with confidence and shape a desirable common future. Europe's cultural heritage originates from the interaction between people and places through time and is constantly evolving<sup>[1]</sup>. Every citizen has a right to engage with the cultural heritage of their choice, while respecting the rights and freedoms of others, as an aspect of the right to participate freely in cultural life<sup>[2]</sup>.</p><p>Europe’s diverse tangible and intangible cultural heritage and dynamic cultural and creative industries (CCIs) are strategic assets. They enrich our lives, foster social cohesion and societal resilience, and contribute to a sense of belonging. They underpin a growing economy that generates more employment than the automotive industry and a similar trade balance as food, drinks and tobacco combined. Many of Europe’s multinational companies build their international success on European heritage and creativity. At the same time, the sector is nurturing large numbers of dynamic small, medium (SMEs) and micro enterprises, creating employment not the least for young people, while deploying their creativity not only to generate income but also to contribute to social and cultural sustainability, wellbeing and to projecting European values at home and abroad. The cultural and creative industries are engines of innovation not only in themselves, but across the entire economy, thus contributing strongly to Europe’s overall competitiveness and future prosperity.</p><p>This destination adopts a people-centred perspective and places cultural heritage and the cultural and creative industries at the very heart of the European economy, its competitiveness and sustainability. R&amp;I activities under this destination will be aligned with the main principles and objectives of the Culture Compass for Europe and support objectives such as circular and just fashion and textiles value-chains, social cohesion and resilience through arts, design and cultural practices and creative entrepreneurial ecosystems for regional development. R&amp;I activities under this destination will support and strengthen European cultural heritage and cultural and creative industries essentially along the following lines:</p><p><strong>Europe’s sustainable prosperity and competitiveness</strong>: To secure Europe’s future prosperity and competitiveness, it is necessary to unlock the innovative power of our cultural heritage and CCIs. The CCIs contribute strongly to drive innovation not only in themselves but also in other industries and economic sectors, shape new technologies and can contribute to user-driven innovation, open innovation and cross-sectoral innovation, in addition to their wider societal contributions such as to cultural wealth, social cohesion and resilience.</p><p>R&amp;I actions under this area will focus on boosting the innovation-driving role of the CCIs, on creative startups, on the impact of artificial intelligence technologies on creativity and CCIs, while ensuring that new technologies are fairly deployed, along with the contributions of artistic intelligence and soft skills, boosting a circular economy and global partnerships in cultural policies and CCIs, among other things.</p><p><strong>Supporting people, strengthening our societies and our social model</strong>: Cultural heritage, the arts and the CCIs have a crucial role to play for resilient and socially sustainable societies, shaping and strengthening the values that hold us together and give meaning and a sense of belonging.</p><p>R&amp;I actions under this area will focus on boosting the role of culture, the arts and creative industries in contributing to well-being, to the social economy and in general the societal impact of cultural heritage. R&amp;I actions will explore and strengthen the role of culture, heritage and CCIs in shaping the technologies of the future and focus on safeguarding intangible heritage and linguistic diversity, on sustainable cultural tourism and on countering illicit trafficking of cultural goods, among others.</p><p>Some actions funded under this Destination will need access to and/or generate data. Where appropriate, actions should leverage the data and services available through European Research Infrastructures federated under the European Open Science Cloud or included in the European Strategy Forum on Research Infrastructures (ESFRI) and the ESFRI roadmap, as well as data from relevant European Data Spaces. In particular, projects that produce data or digital tools of potential interest to cultural heritage institutions or researchers should, as appropriate, establish links to and/or consider integrating their results in the European Collaborative Cloud for Cultural Heritage (ECCCH)<sup>[3]</sup>.Particular efforts should be made to ensure that the data produced in the context of actions under this Destination is FAIR (Findable, Accessible, Interoperable and Re-usable).</p><p>The innovation ecosystems created and nurtured by the Knowledge and Innovation Communities (KICs) of the European Institute of Innovation and Technology (EIT), in particular the KIC “EIT Culture and Creativity”, may contribute to actions under this destination, and may as appropriate be considered by applicants. Furthermore, applicants are invited to consult funding opportunities in other parts of the Horizon Europe Work Programme, including for instance the funding opportunities for companies, high potential start-ups, entrepreneurs and innovative researchers offered under the European Innovation Council.</p><p>R&amp;I actions under this Destination will help ensure Europe’s sustainable prosperity and competitiveness, support people, strengthening our societies and our social model, contribute to protecting our democracy, upholding our values and boosting a global Europe, leveraging our power and partnerships. They will contribute to reaching the UN Sustainable Development Goals and to building a stronger, more participatory and crisis-resilient society and economy. They will support the realisation of the full potential of cultural heritage, arts and cultural and creative industries as drivers of sustainable innovation and a European sense of belonging.</p><p>To maximise the impacts of R&amp;I under this Destination in line with EU priorities, international cooperation is encouraged whenever relevant in the proposed topics.</p><p><u>Expected impact</u>:</p><p>Proposals for topics under this Destination should set out a credible pathway to contributing to the following expected impact of the Horizon Europe Strategic Plan:</p><ul level=\"0\"><li>The full potential of cultural heritage, arts and cultural and creative industries and sectors as drivers of both sustainable innovation and a European sense of belonging is realised through a continuous engagement with society, citizens and economic sectors.</li> </ul><p class=\"eui-u-font-s\">[1] <sup> </sup>Council conclusions of 21 May 2014 on cultural heritage as a strategic resource for a sustainable Europe (2014/C 183/08) <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52014XG0614(08)\">https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52014XG0614(08)</a></p><p class=\"eui-u-font-s\">[2] <sup> </sup><a href=\"https://rm.coe.int/1680083746\">CETS 199 - Council of Europe Framework Convention on the Value of Cultural Heritage for Society (coe.int)</a></p><p class=\"eui-u-font-s\">[3] See further for instance <a href=\"https://research-and-innovation.ec.europa.eu/research-area/social-sciences-and-humanities/cultural-heritage-and-cultural-and-creative-industries-ccis/cultural-heritage-cloud_en\">https://research-and-innovation.ec.europa.eu/research-area/social-sciences-and-humanities/cultural-heritage-and-cultural-and-creative-industries-ccis/cultural-heritage-cloud_en</a></p>"
+    "<p>Projects funded under this destination should contribute to the following expected impacts in the Horizon Europe Strategic Plan 2025-2027<sup>[1]</sup>:</p><ul level=\"0\"><li>Strengthening social and economic resilience and sustainability</li><li>Boosting inclusive growth and reducing vulnerabilities effectively</li> </ul><p>The expected impacts reflect the two-pronged nature of the destination. On the one hand, research funded by this destination will improve the understanding of how the macro drivers of change (technological change, climate change, new global trade patterns, along with migration, human mobility, and other demographic changes) impact society and inform policy makers on how to mitigate negative consequences and harness newly created opportunities. The results obtained should improve the understanding of the interplay between different drivers of change and their social, ethical, political, and economic implications. The improved understanding of these challenges and their economic, social, and distributional impacts will fill in the research gaps while also inform the design and assessment of policies addressing existing and emerging challenges, including in the areas of education, well-being and mental health.</p><p>On the other hand, research and innovation investment should be geared towards deepening the understanding of how ongoing changes impact society, with a specific emphasis on the key objectives of boosting inclusive and sustainable growth and effectively reducing vulnerabilities, poverty and inequalities. This knowledge should provide valuable insights to policymakers to design and assess policies that effectively address vulnerabilities while capitalizing on emerging opportunities.</p><p>Overall, the destination’s activities will help promote the EU’s inclusive growth, resilience, and fair transition towards climate neutrality, by providing solid analytical evidence to implementing actions related to:</p><ul level=\"0\"><li>The European Pillar of Social Rights, and its Action Plan with its three ambitious targets (78% employment rate, 60% of population with yearly training, and reduction of the number of people at risk of poverty and social exclusion by at least 15 million by 2030)</li><li>the European Education Area and its EU-level 2030 targets</li><li>The Union of Skills (including envisaged initiatives on skills portability and the European Strategy for Vocational Education and Training, the Pact for Skills and the Skills Agenda)</li><li>the first-ever EU Anti-Poverty Strategy and the European Affordable Housing Plan</li><li>The Union of Equality policies and strategies, including:   <ul level=\"1\"><li>the Strategy for the Rights of Persons with Disabilities 2021-2030<sup>[2]</sup> (in line with the United Nations Convention on the Rights of Persons with Disabilities<sup>[3]</sup>); the European Accessibility Act (Directive 2019/882), and the European Disability Card</li><li>The Gender Equality Strategy 2020 – 2025 and the Directive combating violence against women and domestic violence</li><li>EU Anti-racism Action Plan 2020-2025</li><li>The Strategic EU Framework for Roma Equality, Inclusion and Participation 2020-2030</li><li>The LGBTIQ Equality Strategy 2020-2025</li>   </ul> </li><li>The Communication on Demographic change in Europe: a toolbox for action</li><li>The EU’s just transition policy framework, in line with the 2040 Climate Target Plan, including the Just Transition Mechanism, the Social Climate Fund, and the Council Recommendation on ensuring a fair transition towards climate neutrality</li><li>The new Pact for European Social Dialogue and the Council Recommendation on strengthening social dialogue in the EU.</li><li>The European Child Guarantee</li><li>The Council Recommendation on adequate minimum income</li><li>The Commission Communication on a comprehensive approach to mental health</li><li>The new Pact on Asylum and Migration and its accompanying actions, initiatives and legislation.</li> </ul><p>A new European Partnership on Social Transformations and Resilience<sup>[4]</sup>, focused on the social sciences and humanities (SSH), will be launched to make use of their potential to foster resilience, fairness and inclusiveness, and social cohesion in the light of changes in climate and environment, technology, demography, and unexpected shocks. The Partnership will fund research and innovation activities in the areas of the future of work, modernisation of social protection and essential services, education and skills development and a fair transition towards climate neutrality.</p><p>Applicants are encouraged to consider, where relevant, the services offered by the current and future EU-funded European Research Infrastructures, particularly those in the social sciences and humanities (SSH) domain<sup>[5]</sup>.</p><p>Where applicable, proposals should leverage the data and services available through European Research Infrastructures federated under the European Open Science Cloud (EOSC), as well as data from relevant Data Spaces. Particular efforts should be made to ensure that the data produced in the context of this research is FAIR (Findable, Accessible, Interoperable and Re-usable).</p><p>To maximise the impacts of R&amp;I under this Destination in line with EU priorities, international cooperation is encouraged whenever relevant in the proposed topics.</p><p>Research on social and economic transformations funded by topics in the present Work Programme will build upon its predecessors in Horizon 2020 and Horizon Europe and further push the boundaries of state-of-the-art knowledge. It will do so by further engaging with a vast array of stakeholders, not limited to universities and research centres, but also extending to social partners (trade unions and business organizations), civil society organizations, practitioners, VET providers, and SMEs.</p><p>The destination will rely on a carefully balanced mix of actions, to bring together a balanced and appropriate set of stakeholders to achieve research of the highest quality, while aiming at providing recommendations to policymakers at European, national, regional and local level that could have a beneficial societal and economic impact. In order to facilitate the latter, it will maximise the feedback to policy and the dissemination and exploitation of research and innovation results and practices in the domain of social and economic transformations.</p><p class=\"eui-u-font-s\">[1] <sup> </sup><a href=\"https://op.europa.eu/en/publication-detail/-/publication/6abcc8e7-e685-11ee-8b2b-01aa75ed71a1/language-en\">https://op.europa.eu/en/publication-detail/-/publication/6abcc8e7-e685-11ee-8b2b-01aa75ed71a1/language-en</a></p><p class=\"eui-u-font-s\">[2] <sup> </sup><a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A52021DC0101\">https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A52021DC0101</a></p><p class=\"eui-u-font-s\">[3] <sup> </sup><a href=\"https://www.ohchr.org/en/instruments-mechanisms/instruments/convention-rights-persons-disabilities\">https://www.ohchr.org/en/instruments-mechanisms/instruments/convention-rights-persons-disabilities</a></p><p class=\"eui-u-font-s\">[4]  see topic HORIZON-CL2-2026-02-TRANSFO-01 in this Work Programme</p><p class=\"eui-u-font-s\">[5] <sup> </sup><a href=\"https://ri-portfolio.esfri.eu/\">https://ri-portfolio.esfri.eu/</a> for example CESSDA - Consortium of European Social Science Data Archives</p>"
    ],
    "typeOfMGAs": [
     "43027849"
@@ -61,7 +49,7 @@
     "50149973"
    ],
    "destinationGroup": [
-    "45355259"
+    "45355262"
    ],
    "DATASOURCE": [
     "SEDIA"
@@ -76,10 +64,10 @@
     "43108390"
    ],
    "descriptionByte": [
-    "<p class=\"topicdescriptionkind\">Expected Outcome:</p><p>Projects should contribute to the first expected outcome, plus those under either Focus 1 or Focus 2, depending on the chosen focus</p><ul level=\"0\"><li>Evidence-based policy recommendations and solutions for integrating cultural tourism into strategies for regenerative sustainability, environmental protection (for example, from degradation or biodiversity loss), digital transformation, social inclusion and gender equality at all levels of government. As a result, cultural tourism becomes a stronger driver of regenerative sustainable development, increases workforce numbers and skills, and improves working conditions. Research impact is maximised through coordinated dissemination and policy co-creation, facilitating implementation of research-based solutions by policymakers and stakeholders.</li> </ul><p><strong>Focus 1</strong></p><ul level=\"0\"><li>A comprehensive analytical framework for ethical AI integration in sustainable cultural tourism balancing sustainable competitiveness with cultural authenticity and inclusivity.</li><li>Methodological frameworks and tools for AI-assisted foresight in cultural tourism enabling policymakers, civil society and stakeholders to anticipate changes and adapt strategies proactively.</li> </ul><p><strong>Focus 2</strong></p><ul level=\"0\"><li>Evidence-based, community-centric models and strategies for sustainable cultural tourism in emerging and less-developed destinations, adaptable to diverse contexts within and beyond the EU.</li><li>An international collaborative network for small business and civil society in cultural tourism, focused on cross-border partnerships, regenerative practices and equitable benefit-sharing. This network will connect stakeholders with researchers, policymakers, expertise, and resources to co-create culturally respectful, regenerative cultural tourism models and improve workforce conditions in underserved regions.</li> </ul><p class=\"topicdescriptionkind\">Scope:</p><p>Cultural tourism accounts for about 40% of global tourism<sup>[1]</sup> and continues to grow as travellers seek unique, authentic, and immersive experiences. In addition to its economic benefits, cultural tourism enriches societies through cultural exchange and cross-cultural understanding. The sector faces major transformation driven by technological advancement, shifting consumer expectations, climate change, sustainability imperatives, environmental degradation and threats to cultural integrity – including commodification and heritage degradation. Furthermore, there is a growing emphasis on inclusive and meaningful travel experiences, including accessibility for travellers with disabilities and others with specific needs. This topic takes a multidimensional approach to future-proofing sustainable cultural tourism amid technological, social and environmental change across the EU and beyond. Proposals should select either Focus 1 or Focus 2 and clearly state their selection:</p><p><strong>Focus 1: Transformative AI integration and strategic foresight for cultural tourism resilience</strong></p><p>Proposals are expected to explore how integrating AI-powered tools and other emerging technologies with cultural tourism can strengthen its resilience, inclusivity, and sustainability. Additionally, through AI-assisted participatory foresight proposals should address the need for tourism systems to move from reactive management to anticipatory governance models, building resilience to global challenges.</p><p>Proposals should investigate AI applications that reshape cultural tourism experiences while ensuring that they remain authentic and respectful of local integrity; enhance inclusivity, including equal access to technology and improved accessibility for persons with disabilities; help manage visitor pressure. They could leverage available public and private data and infrastructures, such as the European Data space for Tourism.<sup>[2]</sup><sup> </sup>Building on recent developments in AI and immersive technologies, proposals could for example use AI-powered virtual and augmented reality to boost visitor engagement and cross-cultural appreciation of cultural sites while preserving historical integrity. They should investigate novel approaches to AI-driven personalisation that develop inclusive, non-discriminatory, tailored cultural experiences, which are ethically managed, and ensure fair representation of minority or lesser-known heritage and cultural expressions.</p><p>Proposals could analyse the integration of AI in multilingual interpretation and cultural mediation to overcome language barriers and deepen cultural understanding of local contexts or develop and refine AI-powered tools for visitor flow management, real-time heritage monitoring, and balancing preservation with inclusive tourism.</p><p>Furthermore, proposals are expected to develop methodological frameworks for applying AI-assisted foresight (scenario planning, horizon scanning, among others to anticipate trends and challenges in cultural tourism – such as shifts in visitor behaviour, cultural commodification risks, and potential disruptions (eg related to climate, pandemics, energy crises), enabling the identification of opportunities and risks and fostering proactive, data-informed policy responses. AI-based predictive analytics should be combined with participatory workshops to engage local communities, authorities, and cultural organisations in co-creating forward-looking sustainable tourism strategies.</p><p><strong>Focus 2: Cultural tourism as a catalyst for sustainable local development</strong></p><p>Proposals are expected to develop sustainable cultural tourism frameworks and strategies tailored to emerging and less-developed destinations, especially in low-income and lesser-known regions seeking to leverage culture and creativity for economic growth and social development, including through addressing depopulation and preventing overtourism. These frameworks may foster creative entrepreneurial ecosystems for regional development. Partnerships with non-EU countries are encouraged. Proposals should investigate cross-border collaboration models that enable mutual learning, upskilling, fair working conditions, knowledge transfer and capacity building between EU and non-EU partners. Proposals should identify and adapt proven sustainable cultural tourism models to diverse less-developed settings (urban, peri-urban, rural) emphasizing equitable benefit-sharing. The research should include the analysis of case studies of successful community integration in cultural tourism decision-making. Partnerships among local communities, creative industries (including crafts), local businesses and cultural heritage organisations should be prioritised to co-create economically viable, environmentally balanced, authentic and culturally respectful tourism offerings, potentially using living labs and pilot demonstrations. Projects are expected to establish collaborative networks for small businesses and civil society actors in cultural tourism, supporting them through access to researchers, policymakers, expertise, knowledge, resources and collaborative opportunities.</p><p>Regardless of focus, all proposals should ensure cooperation with and policy uptake of existing knowledge, tools, and best practices from past and ongoing EU-funded research on cultural tourism and related areas<sup>[3]</sup>. They should develop frameworks integrating cultural tourism with broader sustainability, digital transformation, and social inclusion goals. Furthermore, they should create co-creative policy development methodologies involving diverse stakeholders (policymakers across various government levels, local communities, NGOs, businesses, industry) to translate research insights into evidence-based strategies and contextually appropriate interventions boosting cultural tourism as a resource for sustainable development and fostering workforce growth and skills, and improved working conditions in cultural tourism. Finally, they should establish continuous knowledge exchange mechanisms among researchers, practitioners, and policymakers to ensure ongoing relevance and impact.</p><p class=\"eui-u-font-s\">[1] <sup> </sup>UN World Tourism Organization (2018), <em>Tourism and Culture Synergies</em>, p. 21.</p><p><a href=\"https://www.e-unwto.org/doi/epdf/10.18111/9789284418978\">https://www.e-unwto.org/doi/epdf/10.18111/9789284418978</a></p><p class=\"eui-u-font-s\">[2] <sup> </sup><a href=\"https://hadea.ec.europa.eu/calls-proposals/data-space-tourism_en\">https://hadea.ec.europa.eu/calls-proposals/data-space-tourism_en</a></p><p class=\"eui-u-font-s\">[3] This includes projects funded by Cluster 6 topic HORIZON-CL6-2024-COMMUNITIES-02-2-two-stage: New sustainable business and production models for farmers and rural communities.</p>"
+    "<p class=\"topicdescriptionkind\">Expected Outcome:</p><p>Projects should contribute to all of the following expected outcomes:</p><ul level=\"0\"><li>Policymakers gain insights into the economic and social effects of worker mobility across the EU, including effects on wages, fiscal budgets, and social systems for both sending and receiving regions.</li><li>The benefits of mobility are maximised through actionable recommendations, which consider challenges such as demographic changes, regional effects, digitalisation and, to a suitable extent, further developments such as the green transition or adaptation to climate change (including its potential impact on the economic development and the attractiveness of regions) or the green transition and discussions around the accession of further countries to the EU and wider geopolitical instabilities. </li> </ul><p class=\"topicdescriptionkind\">Scope:</p><p>While the EU facilitates free movement as one of the four freedoms of the single market, the long-term social and economic dynamics and implications for both receiving and, especially, sending regions remain underexplored. These include not only direct effects on fiscal and social budgets but also more subtle impacts, such as on the networks, skills, and experiences that individuals bring back to their home regions, but also on the income distribution in the country from which the movers originate.</p><p>Gaining a deeper, data-supported understanding of these diverse often complex effects is crucial for shaping policies that effectively harness the benefits of mobility across Europe. In doing so the research shall contribute to the ongoing efforts of strengthening the internal market and make Europe more competitive, while also ensuring social fairness and delivering on the European Pillar of Social Rights, in particular with regard to fair working conditions and ensuring access to adequate income and social protection for all. For the variations across different groups (including - but not limited to - gender, age, level of qualification) could be explored. Harnessing the benefits of mobility is also to be seen in the wider context of the green and digital transitions, necessitating enhanced labour mobility to address skill mismatches and shortages and demographic challenges. </p><p>Proposals should build on relevant previous research (including from SSH disciplines), some of which has been conducted in previous Horizon Europe and Horizon 2020 projects<sup>[1]</sup>. Proposals should have a clear focus. Quantitative approaches and/or econometrics should be part of the proposed methodology. Approaches which can capture developments over time, such as panel analysis, might thereby be of added value. </p><p>Projects should analyse the effects of labour mobility on the functioning of social security systems (eventually differentiating between the different pillars of the social security systems, e.g. pension system, health, care, etc.) in countries of origin and destination and their coordination and/or provide research which fosters an informed debate on potential strategies for a future-proof and efficient EU-level social security coordination.</p><p>Beyond that, the projects may: </p><ul level=\"0\"><li>Explore ways to improve the quantification of the volume of various forms [e.g. long-term movers, seasonal work and other forms of short-term mobility, postings, cross-border (tele-)work etc] of labour mobility and/or make available figures more comparable across Member States.</li><li>Develop economic models to assess the EU-level economic effects of labour mobility.</li><li>Pay attention to the ecological effects of labour mobility and link those with the socio-economic effects.</li><li>Analyse whether and in which way the composition of movers (e.g. skill-level, age structure, status in labour market, etc.) matters for the socio-economic effects observed in the countries/regions of origin/destination.</li><li>Provide a comparative analysis of intra-EU labour mobility with labour mobility in other world regions or to geographical mobility within Member States. </li><li>Develop and test a model to forecast labour mobility in different scenarios (e.g. making assumptions about the economic and social development in different parts of the EU). </li><li>Take an evidence-based position whether – and in which way - geographical mobility contributes to manage economic change (e.g. whether movers are more willing to work in another sector).</li><li>Analyse to which extent and under which conditions regions with net-outward mobility have benefited or can benefit – eventually in the longer run – from this mobility. </li><li>Investigate the economic and social differences between labour migration and labour mobility, the experience with EU enlargement might be used to analyse this. </li><li>Provide evidence on which policy instruments are most suitable to ensure a labour mobility which is not perceived as unfair (e.g linked to exploitation, social dumping etc.). </li> </ul><p>These aspects illustrate thematic areas which could contribute to the objective of developing a vision for the future of labour mobility in the European Union and to discuss how legal and institutional frameworks can be adapted to support mobility in a way that is both economically and socially beneficial. This includes modernising the coordination of social security and ensuring that policies reflect the realities of modern society and work arrangements.</p><p>Where applicable, proposals should leverage the data and services available through European Research Infrastructures federated under the European Open Science Cloud (EOSC), as well as data from relevant Data Spaces. Particular efforts should be made to ensure that the data produced in the context of this topic is FAIR (Findable, Accessible, Interoperable and Re-usable).</p><p class=\"eui-u-font-s\">[1] <sup> </sup>See e.g. HORIZON-CL2-2022-TRANSFORMATIONS-01-02 - The impact of spatial mobility on European demographics, society, welfare system and labour market; <a href=\"https://publications.europa.eu/resource/cellar/a9351b1c-4d31-11ee-9220-01aa75ed71a1.0001.03/DOC_1\">https://publications.europa.eu/resource/cellar/a9351b1c-4d31-11ee-9220-01aa75ed71a1.0001.03/DOC_1</a> ; <a href=\"https://publications.europa.eu/resource/cellar/d697ee14-77ad-11ea-a07e-01aa75ed71a1.0001.01/DOC_1\">https://publications.europa.eu/resource/cellar/d697ee14-77ad-11ea-a07e-01aa75ed71a1.0001.01/DOC_1</a> ; <a href=\"https://cordis.europa.eu/project/id/727072\">https://cordis.europa.eu/project/id/727072</a> ; <a href=\"https://cordis.europa.eu/project/id/794030\">https://cordis.europa.eu/project/id/794030</a></p>"
    ],
    "identifier": [
-    "HORIZON-CL2-2027-01-HERITAGE-06"
+    "HORIZON-CL2-2027-01-TRANSFO-04"
    ],
    "es_ContentType": [
     "text/plain"
@@ -94,102 +82,32 @@
     "2"
    ],
    "esST_URL": [
-    "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-HERITAGE-06"
+    "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-TRANSFO-04"
    ],
    "tags": [
-    "AI integration",
-    "AI-assisted foresight",
-    "accessible tourism",
-    "anticipatory governance",
-    "capacity building",
-    "civil society",
-    "collaborative networks",
-    "community-centric models",
-    "creative industries",
-    "cross-border partnerships",
-    "cultural authenticity",
-    "cultural heritage organisations",
-    "cultural tourism",
-    "depopulation",
-    "digital transformation",
-    "emerging destinations",
-    "equitable benefit-sharing",
-    "gender equality",
-    "heritage preservation",
-    "immersive experiences",
-    "inclusivity",
-    "knowledge transfer",
-    "living labs",
-    "local development",
-    "minority heritage",
-    "overtourism",
-    "participatory foresight",
-    "regenerative sustainability",
-    "small business",
-    "social inclusion",
-    "sustainable competitiveness",
-    "visitor flow management",
-    "workforce skills",
-    "working conditions"
+    "Labour Mobility",
+    "Single Market",
+    "Social Security Systems"
    ],
    "cenTagsA": [
-    "TOPICS-000186",
-    "TOPICS-031153",
-    "TOPICS-031154",
-    "TOPICS-014094",
-    "TOPICS-031155",
-    "TOPICS-031156",
-    "TOPICS-031157",
-    "TOPICS-003656",
-    "TOPICS-031158",
-    "TOPICS-031159",
-    "TOPICS-009980",
-    "TOPICS-031160",
-    "TOPICS-000506",
-    "TOPICS-031161",
-    "TOPICS-008852",
-    "TOPICS-031162",
-    "TOPICS-031163",
-    "TOPICS-000736",
-    "TOPICS-001438",
-    "TOPICS-000823",
-    "TOPICS-028597",
-    "TOPICS-000288",
-    "TOPICS-031164",
-    "TOPICS-031165",
-    "TOPICS-008922",
-    "TOPICS-031166",
-    "TOPICS-031167",
-    "TOPICS-031168",
-    "TOPICS-031169",
-    "TOPICS-031170",
-    "TOPICS-031171",
-    "TOPICS-031172",
-    "TOPICS-001477",
-    "TOPICS-031173",
-    "TOPICS-031174",
-    "TOPICS-000756",
-    "TOPICS-031175",
-    "TOPICS-001435",
-    "TOPICS-000801",
-    "TOPICS-001548",
-    "TOPICS-005586",
-    "TOPICS-012392",
-    "TOPICS-000375",
-    "TOPICS-006510",
-    "TOPICS-000775",
-    "TOPICS-000971",
-    "TOPICS-002716",
-    "TOPICS-000794",
-    "TOPICS-000586",
-    "TOPICS-006139",
-    "TOPICS-008874"
+    "TOPICS-001720",
+    "TOPICS-000076",
+    "TOPICS-001721",
+    "TOPICS-001722",
+    "TOPICS-001723",
+    "TOPICS-001724",
+    "TOPICS-001725",
+    "TOPICS-001726",
+    "TOPICS-001727",
+    "TOPICS-001728",
+    "TOPICS-001729",
+    "TOPICS-001730"
    ],
    "esDA_QueueDate": [
-    "2026-03-02T10:53:14.413+0100"
+    "2026-03-02T10:52:50.219+0100"
    ],
    "destinationDescription": [
-    "Innovative Research on European Cultural Heritage and Cultural and Creative Industries (2026-27)"
+    "Innovative Research on Social and Economic Transformations (2026-27)"
    ],
    "actions": [
     "[{\"types\":[{\"typeOfAction\":\"HORIZON-RIA HORIZON  Research and Innovation Actions\",\"typeOfMGA\":[{\"id\":43027849,\"abbreviation\":\"HORIZON-AG-LS\",\"description\":\"HORIZON Lump Sum Grant\"}]}],\"status\":{\"id\":31094501,\"abbreviation\":\"Forthcoming\",\"description\":\"Forthcoming\"},\"plannedOpeningDate\":\"2027-05-13\",\"submissionProcedure\":{\"id\":31094504,\"abbreviation\":\"single-stage\",\"description\":\"single-stage\"},\"deadlineDates\":[\"2027-09-23\"]}]"
@@ -213,53 +131,49 @@
     "2"
    ],
    "destination": [
-    "48080701"
+    "48080703"
    ],
    "topicConditions": [
     "<div class=\"eui-u-mt-l>\"><h4>General conditions</h4><div><h4>1. Admissibility Conditions: Proposal page limit and layout</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex A</a> and <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex E</a> of the Horizon Europe Work Programme General Annexes.</p><p><strong>Proposal page limits and layout:</strong> described in Part B of the Application Form available in the Submission System.</p></div></div><div><h4>2. Eligible Countries</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex B</a> of the Work Programme General Annexes.</p><p>A number of non-EU/non-Associated Countries that are not automatically eligible for funding have made specific provisions for making funding available for their participants in Horizon Europe projects. See the information in the <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/programme-guide_horizon_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Horizon Europe Programme Guide</a>.</p></div></div><div><h4>3. Other Eligible Conditions</h4><div class=\"eui-u-mt-s\"><p>Subject to restrictions for the protection of European communication networks.</p></div><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex B</a> of the Work Programme General Annexes.</p></div></div><div><h4>4. Financial and operational capacity and exclusion</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex C</a> of the Work Programme General Annexes.</p></div></div><div><h4>5a. Evaluation and award: Award criteria, scoring and thresholds</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex D</a> of the Work Programme General Annexes.</p></div></div><div><h4>5b. Evaluation and award: Submission and evaluation processes</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex F</a> of the Work Programme General Annexes and the <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/guidance/om_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Online Manual</a>.</p></div></div><div><h4>5c. Evaluation and award: Indicative timeline for evaluation and grant agreement</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex F</a> of the Work Programme General Annexes.</p></div></div><div><h4>6. Legal and financial set-up of the grants</h4><div class=\"eui-u-mt-s\"><p>The granting authority may, up to 4 years after the end of the action, object to a transfer of ownership or to the exclusive licensing of results, as set out in the specific provision of Annex 5.</p></div><div class=\"eui-u-mt-s\"><p>Eligible costs will take the form of a lump sum as defined in the Decision of 7 July 2021 authorising the use of lump sum contributions under the Horizon Europe Programme – the Framework Programme for Research and Innovation (2021-2027) – and in actions under the Research and Training Programme of the European Atomic Energy Community (2021-2025) [[This <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/ls-decision_he_en.pdf\"><u>decision</u></a> is available on the Funding and Tenders Portal, in the reference documents section for Horizon Europe, under ‘Simplified costs decisions’ or through this link: <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/ls-decision_he_en.pdf\"><u>https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/ls-decision_he_en.pdf</u></a>]].</p></div><div class=\"eui-u-mt-s\"><p>In addition, as described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex G</a> of the Work Programme General Annexes.</p></div></div></div><div class=\"eui-u-mt-l\"><h4>Specific conditions</h4> <div class=\"eui-u-mt-s\"><p>As described in the specific topic of the Work Programme.</p></div></div><div class=\"eui-u-mt-l\"><div class=\"eui-u-mt-s\">\n</div><h4>Application and evaluation forms and model grant agreement (MGA):</h4> <div class=\"eui-u-mt-s\"><p><strong>Application form templates</strong> <em>— the application form specific to this call is available in the Submission System</em></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/temp-form/af/af_he-ria-ia_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Standard application form (HE RIA, IA)</a></p><p><strong>Evaluation form templates</strong> <em>— will be used with the necessary adaptations</em> </p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/temp-form/ef/ef_he-ria-ia_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Standard evaluation form (HE RIA, IA)</a>&#xa0;</p><p><strong>Guidance</strong></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/programme-guide_horizon_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">HE Programme Guide</a>&#xa0;</p><p><strong>Model Grant Agreements (MGA)</strong></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/agr-contr/ls-mga_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Lump Sum MGA</a>&#xa0;</p><p><strong>Call-specific instructions</strong>&#xa0;</p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/temp-form/af/detailed-budget-table_he-ls-euratom_en.xlsm\" rel=\"noopener noreferrer\" target=\"_blank\">Detailed budget table (HE LS)</a>&#xa0;</p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/ls-funding-what-do-i-need-to-know_he_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Guidance: \"Lump sums - what do I need to know?\"</a></p></div><h4>Additional documents:</h4> <div class=\"eui-u-mt-s\"><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-1-general-introduction_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">HE Main Work Programme 2026-2027 – 1. General Introduction</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-5-culture-creativity-and-inclusive-society_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">HE Main Work Programme 2026-2027 – 5. Culture, Creativity and Inclusive Society</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-15-general-annexes_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">HE Main Work Programme 2026-2027 – 15. General Annexes</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/programme-guide_horizon_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">HE Programme Guide</a></p><p><a href=\"https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32021R0695\" rel=\"noopener noreferrer\" target=\"_blank\">HE Framework Programme 2021/695</a></p><p><a href=\"https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32021D0764\" rel=\"noopener noreferrer\" target=\"_blank\">HE Specific Programme Decision 2021/764</a></p><p><a href=\"https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=OJ:L_202402509\" rel=\"noopener noreferrer\" target=\"_blank\">EU Financial Regulation 2024/2509</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/ls-decision_he_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Decision authorising the use of lump sum contributions under the Horizon Europe Programme</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/guidance/rules-lev-lear-fca_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Rules for Legal Entity Validation, LEAR Appointment and Financial Capacity Assessment</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/guidance/aga_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">EU Grants AGA — Annotated Model Grant Agreement</a></p><p><a href=\"https://webgate.ec.europa.eu/funding-tenders-opportunities/display/OM/Online+Manual\" rel=\"noopener noreferrer\" target=\"_blank\">Funding &amp; Tenders Portal Online Manual</a> </p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/ftp/tc_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Funding &amp; Tenders Portal Terms and Conditions</a>&#xa0;</p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/support/legalnotice\" rel=\"noopener noreferrer\" target=\"_blank\">Funding &amp; Tenders Portal Privacy Statement</a></p></div></div>"
    ],
    "title": [
-    "Future-proofing sustainable cultural tourism"
+    "The impact of EU labour mobility on the Member States of the EU"
    ],
    "esST_checksum": [
-    "1843AE08D071F15D4DF3F2A0A25EE073850EBA504451B7BE2756F437538BD759"
+    "67600DCBCC89282604E2C0AAB6561BD38DC865971475CF0734364B8E2D35E163"
    ],
    "esST_FileName": [
     "file.txt"
    ],
    "ccm2Id": [
-    "50149486"
+    "50149633"
    ],
    "REFERENCE": [
-    "50149486TOPICSen"
+    "50149633TOPICSen"
    ],
    "programmeDivision": [
     "43108390",
     "43108541",
     "43118846",
-    "43118859"
+    "43118966"
    ],
    "crossCuttingPriorities": [
-    "INCO",
-    "LAC",
-    "MEDIT",
     "AI",
     "SSH",
     "DigitalAgenda",
-    "Africa",
     "SocInnov"
    ],
    "esDA_FirstIngestDate": [
-    "2025-12-15T20:05:37.617+0100"
+    "2025-12-15T20:05:29.936+0100"
    ],
    "esDA_IngestDate": [
-    "2026-03-02T10:53:14.428+0100"
+    "2026-03-02T10:52:50.235+0100"
    ],
    "typesOfAction": [
     "HORIZON  Research and Innovation Actions"
    ],
    "url": [
-    "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-HERITAGE-06"
+    "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-TRANSFO-04"
    ],
    "allowPartnerSearch": [
     "true"
@@ -272,6 +186,6 @@
   "enrichedMetadata": {},
   "children": [],
   "highlightedFragments": [],
-  "citation": "Future-proofing sustainable cultural tourism. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-HERITAGE-06"
+  "citation": "The impact of EU labour mobility on the Member States of the EU. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-TRANSFO-04"
  }
 }
