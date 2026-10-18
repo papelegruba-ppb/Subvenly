@@ -5,7 +5,7 @@ Buscador de ayudas, subvenciones y créditos para autónomos y empresas, con tes
 ## Qué hay en la carpeta
 - `index.html`: la aplicación (diseño y test).
 - `data/fichas.json`: fichas de ayudas y prestaciones, con reglas de compatibilidad y estado verificable. Las fichas personales llevan `perfil: "personal"`.
-- `data/novedades.json`, `data/licitaciones.json`, `data/vigilancia.json` y `data/vigilancia_fuentes.json`: resultados y huellas de seguimiento automático. `data/fuentes.json` registra las fuentes oficiales.
+- `data/novedades.json`, `data/licitaciones.json`, `data/vigilancia.json` y `data/vigilancia_fuentes.json`: resultados y huellas de seguimiento automático. `data/fuentes.json` registra las fuentes oficiales y el estado de cobertura territorial; la aplicación muestra el catálogo de fuentes para abrirlas desde la web.
 - `scripts/actualizar.py`: busca cada noche convocatorias nuevas en la BDNS: estatales, de todas las comunidades autónomas y de ayuntamientos. Los filtros (temas, territorios) están arriba del todo, en `AJUSTES`.
 - `scripts/actualizar_ue.py`: busca convocatorias abiertas o próximas de la Unión Europea para pymes, startups y emprendedores (portal Funding & Tenders). Los títulos vienen en inglés.
 - `scripts/actualizar_licitaciones.py`: busca licitaciones abiertas (en plazo de presentar oferta) en la Plataforma de Contratación del Sector Público y las guarda en `data/licitaciones.json`.
