@@ -151,6 +151,7 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
 var QUESTIONS={
   proyecto:"¿Estás pensando en darte de alta como autónomo?",
   ccaa:"Comunidad autónoma de mi actividad:",
+  provincia:"Provincia:",
   municipio:"Municipio:",
   alta:"¿Ya estás dado de alta como autónomo?",
   sl:"¿Has constituido una sociedad (SL) para tu actividad?",
@@ -214,45 +215,68 @@ function seg(key,cb){var w=el("div","seg");
 var CCAA=[["Andalucía","andalucia"],["Aragón","aragon"],["Asturias","asturias"],["Illes Balears","balear"],["Canarias","canarias"],["Cantabria","cantabria"],["Castilla y León","castilla y leon"],["Castilla-La Mancha","castilla-la mancha|castilla la mancha"],["Cataluña","cataluna|catalunya"],["Comunitat Valenciana","valencia"],["Extremadura","extremadura"],["Galicia","galicia"],["Comunidad de Madrid","madrid"],["Región de Murcia","murcia"],["Navarra","navarra"],["País Vasco","pais vasco|euskadi"],["La Rioja","rioja"],["Ceuta","ceuta"],["Melilla","melilla"]];
 var NUTS={ES11:"Galicia",ES12:"Asturias",ES13:"Cantabria",ES21:"País Vasco",ES22:"Navarra",ES23:"La Rioja",ES24:"Aragón",ES30:"Comunidad de Madrid",ES41:"Castilla y León",ES42:"Castilla-La Mancha",ES43:"Extremadura",ES51:"Cataluña",ES52:"Comunitat Valenciana",ES53:"Illes Balears",ES61:"Andalucía",ES62:"Región de Murcia",ES63:"Ceuta",ES64:"Melilla",ES70:"Canarias"};
 var CATONLY=["amb","lleida","centre","ponent"];
-function camino(){var a=A.alta;
-  if(a==="si")return"aut";
-  if(a==="no"||a==="nose"){
+function camino(){
+  if(A.alta==="si")return"aut";
+  if(A.alta==="no"||A.alta==="nose"){
     if(A.sl==="si")return"sl";
-    if(A.sl==="no"||A.sl==="nose"){if(A.proyecto==="si")return"aut";if(A.proyecto==="no"||A.proyecto==="nose")return"otro"}}
-  return""}
+    if(A.sl==="no"||A.sl==="nose")return A.proyecto==="si"?"nuevo":A.proyecto==="no"||A.proyecto==="nose"?"otro":"";
+  }
+  return"";
+}
 function secuencia(){var c=camino(),l=["#Sobre ti","alta"];
   if(A.alta==="no"||A.alta==="nose"){l.push("sl");if(A.sl==="no"||A.sl==="nose")l.push("proyecto")}
   if(!c)return l;
   if(c==="aut")l=l.concat(["#Tu situación como autónomo","nuevo","jovenyo","paro","desempleado","tarifa","hacienda"]);
   if(c==="sl")l=l.concat(["#Tu sociedad","sl24","hacienda"]);
-  l=l.concat(["#Dónde está tu actividad","ccaa","municipio","amb","lleida","centre","ponent"]);
-  if(c!=="otro"){l.push("#Tu equipo y las contrataciones");if(c==="sl"||A.alta==="si")l.push("plantilla");l=l.concat(["contratar","indefinido","joven","bcn"])}
+  if(c==="nuevo")l=l.concat(["#Preparar el inicio de actividad","nuevo","jovenyo","paro","desempleado","hacienda"]);
+  l=l.concat(["#Dónde está tu actividad","ccaa","provincia","municipio","amb","lleida","centre","ponent"]);
+  if(c==="aut"||c==="sl") {l.push("#Tu equipo y las contrataciones");l.push("plantilla");l.push("contratar","indefinido","joven","bcn")}
   return l}
-function mostrar(k){if(DEP[k]&&A[DEP[k]]!=="si")return false;if(CATONLY.indexOf(k)>=0&&A.ccaa!=="Cataluña")return false;return true}
+function mostrar(k){
+  if(DEP[k]&&A[DEP[k]]!=="si")return false;
+  if(CATONLY.indexOf(k)>=0&&A.ccaa!=="Cataluña")return false;
+  if(k==="provincia"&&!A.ccaa)return false;
+  if(k==="municipio"&&!A.provincia)return false;
+  if(k==="amb"&&A.provincia!=="Barcelona")return false;
+  if(["lleida","centre","ponent"].indexOf(k)>=0&&A.provincia!=="Lleida")return false;
+  return true}
 var IMPLICITO={sl:{nuevo:"no",tarifa:"no",jovenyo:"no",paro:"no",desempleado:"no"},aut:{sl:"no",sl24:"no"}};
 function impl(k){var c=camino();
   if(A.ccaa){if(k==="catalunya")return A.ccaa==="Cataluña"?"si":"no";if(k==="madrid")return A.ccaa==="Comunidad de Madrid"?"si":"no";if(CATONLY.indexOf(k)>=0&&A.ccaa!=="Cataluña")return"no"}
-  if(k==="plantilla"&&c==="aut"&&A.alta!=="si")return"no";
+  if(k==="amb"&&A.provincia&&A.provincia!=="Barcelona")return"no";
+  if(["lleida","centre","ponent"].indexOf(k)>=0&&A.provincia&&A.provincia!=="Lleida")return"no";
+  if(k==="plantilla"&&c==="nuevo")return"no";
   if(IMPLICITO[c]&&IMPLICITO[c][k]!==undefined)return IMPLICITO[c][k];
   return undefined}
 function eff(k){var i=impl(k);if(i!==undefined)return i;
-  if(["alta","sl","proyecto","ccaa","municipio","catalunya","madrid"].indexOf(k)>=0)return A[k];
+  if(["alta","sl","proyecto","ccaa","provincia","municipio","catalunya","madrid"].indexOf(k)>=0)return A[k];
   return secuencia().indexOf(k)>=0&&mostrar(k)?A[k]:undefined}
 function refrescar(){renderList();renderNovedades();renderLic()}
+function geoData(){return window.SUBVENLY_GEOGRAFIA&&window.SUBVENLY_GEOGRAFIA.provinces||[]}
 function selCcaa(){var r=el("div","q");r.appendChild(txt("span","¿En qué comunidad autónoma está tu actividad?"));
   var s=el("select","fld");s.setAttribute("aria-label","Comunidad autónoma");s.appendChild(new Option("Elige…",""));
   CCAA.forEach(function(c){s.appendChild(new Option(c[0],c[0]))});s.value=A.ccaa||"";
-  s.onchange=function(){A.ccaa=s.value;if(s.value){A.catalunya=s.value==="Cataluña"?"si":"no";A.madrid=s.value==="Comunidad de Madrid"?"si":"no"}else{delete A.ccaa;delete A.catalunya;delete A.madrid}save();renderProfile();refrescar()};
-  r.appendChild(s);return r}
-function inpMuni(){var r=el("div","q");r.appendChild(txt("span","Municipio (opcional, sirve para las ayudas de ayuntamientos)"));
-  var i=el("input","fld");i.type="text";i.placeholder="Ej.: Lleida";i.setAttribute("aria-label","Municipio");i.value=A.municipio||"";
-  i.oninput=function(){A.municipio=i.value;save();renderNovedades();renderLic()};r.appendChild(i);return r}
+  s.onchange=function(){A.ccaa=s.value;delete A.provincia;delete A.municipio;
+    if(s.value){A.catalunya=s.value==="Cataluña"?"si":"no";A.madrid=s.value==="Comunidad de Madrid"?"si":"no"}else{delete A.catalunya;delete A.madrid}
+    save();renderProfile();refrescar()};r.appendChild(s);return r}
+function selProvincia(){var r=el("div","q");r.appendChild(txt("span","¿En qué provincia está tu actividad?"));
+  var s=el("select","fld");s.setAttribute("aria-label","Provincia");s.appendChild(new Option("Elige primero tu comunidad…",""));
+  geoData().filter(function(p){return p.c===A.ccaa}).sort(function(a,b){return a.n.localeCompare(b.n,"es")}).forEach(function(p){s.appendChild(new Option(p.n,p.n))});
+  s.value=A.provincia||"";s.disabled=!A.ccaa;
+  s.onchange=function(){if(s.value)A.provincia=s.value;else delete A.provincia;delete A.municipio;save();renderProfile();refrescar()};r.appendChild(s);return r}
+function selMunicipio(){var r=el("div","q");r.appendChild(txt("span","¿En qué municipio está tu actividad?"));
+  var s=el("select","fld");s.setAttribute("aria-label","Municipio");s.appendChild(new Option("Elige primero tu provincia…",""));
+  var p=geoData().find(function(x){return x.n===A.provincia&&x.c===A.ccaa});
+  if(p)p.m.slice().sort(function(a,b){return a.localeCompare(b,"es")}).forEach(function(m){s.appendChild(new Option(m,m))});
+  s.value=A.municipio||"";s.disabled=!p;
+  s.onchange=function(){if(s.value)A.municipio=s.value;else delete A.municipio;save();renderProfile();refrescar()};r.appendChild(s);return r}
 function renderProfile(){var p=document.getElementById("profile");p.innerHTML="";
   secuencia().forEach(function(k){if(k[0]==="#"){p.appendChild(el("h3","gh",k.slice(1)));return}
     if(!mostrar(k))return;
     if(k==="ccaa"){p.appendChild(selCcaa());return}
-    if(k==="municipio"){p.appendChild(inpMuni());return}
-    var r=el("div","q");r.appendChild(txt("span",QUESTIONS[k]));
+    if(k==="provincia"){p.appendChild(selProvincia());return}
+    if(k==="municipio"){p.appendChild(selMunicipio());return}
+    var r=el("div","q");r.appendChild(txt("span",QUESTIONS[k]||k));
     r.appendChild(seg(k,function(){renderProfile();refrescar()}));p.appendChild(r)})}
 function chips(id,arr,get,set){var f=document.getElementById(id);f.innerHTML="";
   arr.forEach(function(t){var b=el("button","chip",t);b.type="button";b.setAttribute("aria-pressed",get()===t);
@@ -444,9 +468,12 @@ function renderLic(){var c=document.getElementById("lic-list");c.innerHTML="";if
   if(all.length>LIC_MAX){var mm=el("div","row"),b=el("button","btn alt","Ver más licitaciones ("+(all.length-LIC_MAX)+")");b.type="button";b.onclick=function(){LIC_MAX+=15;renderLic()};mm.appendChild(b);c.appendChild(mm)}}
 function init(){renderProfile();renderFilters();renderList();buildNovTop();renderNovedades();buildLicTop();renderLic()}
 function cargar(u,def){return fetch(u,{cache:"no-cache"}).then(function(r){if(!r.ok)throw new Error(u);return r.json()}).catch(function(){return def})}
-Promise.all([cargar("data/fichas.json",null),cargar("data/novedades.json",{items:[]}),cargar("data/licitaciones.json",{items:[]}),cargar("data/vigilancia.json",{fichas:{}})]).then(function(r){
+Promise.all([cargar("data/fichas.json",null),cargar("data/novedades.json",{items:[]}),cargar("data/licitaciones.json",{items:[]}),cargar("data/vigilancia.json",{fichas:{}}),cargar("data/geografia.json",null)]).then(function(r){
   if(!r[0]){document.getElementById("list").appendChild(el("div","empty","No se han podido cargar las ayudas. Recarga la página o ábrela desde su dirección web."));return}
-  AIDS=r[0];NOV=r[1]||{items:[]};LIC=r[2]||{items:[]};VIG=(r[3]&&r[3].fichas)||{};init()});
+  AIDS=r[0];NOV=r[1]||{items:[]};LIC=r[2]||{items:[]};VIG=(r[3]&&r[3].fichas)||{};
+  window.SUBVENLY_GEOGRAFIA=r[4]||{provinces:[]};
+  if(!r[4])console.warn("No se ha podido cargar el catálogo geográfico; los desplegables de provincia y municipio estarán vacíos.");
+  init()});
 </script>
 </body>
 </html>
