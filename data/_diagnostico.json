@@ -1,0 +1,31 @@
+{
+ "fecha": "2026-10-18",
+ "recibidas": 2581,
+ "relevantes": 309,
+ "detalles_pedidos": 300,
+ "detalle_funciona": true,
+ "claves_primer_elemento": [
+  "codigoInvente",
+  "descripcion",
+  "descripcionLeng",
+  "fechaRecepcion",
+  "id",
+  "mrr",
+  "nivel1",
+  "nivel2",
+  "nivel3",
+  "numeroConvocatoria"
+ ],
+ "ejemplo": {
+  "id": 1137553,
+  "mrr": false,
+  "numeroConvocatoria": "935992",
+  "descripcion": "EXP. 8159/2026.- SUBVENCION NOMINATIVA ANUALIDAD 2026 ASOCIACION DAÑO CEREBRAL ADQUIRIDO E ICTUS DE LA VEGA BAJA.",
+  "descripcionLeng": null,
+  "fechaRecepcion": "2026-10-18",
+  "nivel1": "LOCAL",
+  "nivel2": "ALMORADÍ",
+  "nivel3": "AYUNTAMIENTO DE ALMORADÍ",
+  "codigoInvente": null
+ }
+}
