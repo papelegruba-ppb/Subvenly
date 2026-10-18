@@ -601,7 +601,7 @@ function renderList(){
   if(p==="particular"&&a.perfil!=="personal")return false;
   if(p==="empresa"&&a.perfil==="personal")return false;
   if(p==="autonomo"&&a.perfil==="empresa")return false;
-  return(tipo==="Todas"||a.tipo===tipo)&&(est==="Todas"||(est==="Cerradas")===(k==="closed"));
+  if(est==="Abiertas"&&k!=="open"&&k!=="perm")return false;if(est==="Pendientes"&&k!=="soon")return false;if(est==="Cerradas"&&k!=="closed")return false;return(tipo==="Todas"||a.tipo===tipo)&&(est==="Todas"||["Abiertas","Pendientes","Cerradas"].indexOf(est)>=0);
  }).map(function(a){return{a:a,e:evalAid(a)}});
  items.sort(function(x,y){return(estado(x.a).k==="closed")-(estado(y.a).k==="closed")});
  if(!items.length){l.appendChild(el("div","empty","No hay fichas con estos filtros."));return}
@@ -625,6 +625,7 @@ function encajeNov(n,pf){
  return{s:bad?"no":unk?"mid":"si",why:why};
 }
 
+function renderFilters(){var tipos=["Todas"].concat(Array.from(new Set(AIDS.map(function(a){return a.tipo}).filter(Boolean))).sort());chips("filters",tipos,function(){return tipo},function(t){tipo=t});chips("estf",["Todas","Abiertas","Pendientes","Cerradas"],function(){return est},function(t){est=t})}
 function renderSourceChanges(){
  var section=document.getElementById("source-changes"),list=document.getElementById("source-changes-list");if(!section||!list)return;list.innerHTML="";
  var vistos={};try{vistos=JSON.parse(LS.get("subvenly_fuentes_revisadas")||"{}")||{}}catch(e){}
