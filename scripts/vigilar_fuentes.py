@@ -32,7 +32,7 @@ def obtener(url):
         tipo = r.headers.get("Content-Type", "")
     if "text/html" in tipo or not tipo:
         text = raw.decode("utf-8", "ignore")
-        text = re.sub(r"(?is)<(script|style|noscript|nav|header|footer)[^>]*>.*?</\\1>", " ", text)
+        text = re.sub(r"(?is)<script[^>]*>.*?</script>|<style[^>]*>.*?</style>|<noscript[^>]*>.*?</noscript>|<nav[^>]*>.*?</nav>|<header[^>]*>.*?</header>|<footer[^>]*>.*?</footer>", " ", text)
         text = re.sub(r"(?s)<[^>]+>", " ", text)
         text = " ".join(text.split())[:MAX_TEXTO]
     else:
