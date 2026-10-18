@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Vigila las páginas oficiales de las fichas de tipo «Crédito» y avisa si parecen haber cambiado.
-No reescribe las condiciones: marca la ficha para que se revise. Respeta robots.txt.
+"""Vigila los enlaces oficiales de todas las fichas de ayudas y detecta posibles cambios.
+No reescribe automáticamente fechas ni requisitos: registra diferencias para revisión. Respeta robots.txt.
 Escribe data/vigilancia.json. Solo biblioteca estándar.
 """
 import json, os, re, sys, time, hashlib, datetime as dt
@@ -61,11 +61,10 @@ def main():
     previo = leer("vigilancia.json", {}).get("fichas", {})
     res = {}
     for f in fichas:
-        if f.get("tipo") != "Crédito":
-            continue
         fid, ant = str(f["id"]), previo.get(str(f["id"]), {})
         snaps = ant.get("snapshots", {})
         estado, desde, nuevos = "igual", ant.get("desde", ""), {}
+        cambios = list(ant.get("cambios", []))
         for u in urls(f):
             try:
                 if not permitido(u):
@@ -79,11 +78,15 @@ def main():
             nuevos[u] = {"texto": t, "nota": ""}
             if u in snaps and snaps[u].get("texto") and cambio(snaps[u]["texto"], t):
                 estado, desde = "cambio", hoy
+                antes = snaps[u]["texto"]
+                cambios.append({"fecha": hoy, "url": u,
+                                "tipo": "cambio_cifras_fechas_importes" if cifras(antes) != cifras(t) else "cambio_contenido_bases",
+                                "antes": antes[:1200], "despues": t[:1200]})
         if estado == "igual" and ant.get("estado") == "cambio" and ant.get("desde"):
             estado = "cambio"          # el aviso se mantiene hasta que lo revises y lo quites
         if not nuevos or all(v["nota"] for v in nuevos.values()):
             estado = "no_verificable"
-        res[fid] = {"estado": estado, "desde": desde, "comprobado": hoy, "snapshots": nuevos}
+        res[fid] = {"estado": estado, "desde": desde, "comprobado": hoy, "snapshots": nuevos, "cambios": cambios[-20:]}
         print(f"  ficha {fid} «{f.get('titulo','')[:40]}»: {estado}")
     escribir("vigilancia.json", {"actualizado": hoy, "fichas": res}, compacto=True)
     return 0
