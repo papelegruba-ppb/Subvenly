@@ -497,8 +497,7 @@ Object.assign(QUESTIONS,{
  fiscal:"¿Quieres comprobar deducciones y beneficios fiscales personales?"
 });
 Object.assign(DEP,{nacimientoFecha:"familia",menores:"familia",contratoAlquiler:"alquiler",empadronamiento:"alquiler",familiaMonoparental:"familia",familiaNumerosa:"familia"});
-Object.assign(FALTA,{
- familia:"tener una situación familiar contemplada en las bases",nacimientoFecha:"cumplir el plazo correspondiente a la fecha del nacimiento/adopción",menores:"tener menores a cargo según las condiciones",alquiler:"tener gastos de alquiler subvencionables",edad:"cumplir el tramo de edad de la convocatoria",unidad:"cumplir los requisitos de la unidad de convivencia",ingresos:"cumplir los límites de ingresos",contratoAlquiler:"disponer del contrato exigido",empadronamiento:"cumplir el requisito de empadronamiento si lo exige la convocatoria",residenciaLegal:"cumplir los requisitos de residencia",familiaMonoparental:"tener reconocida la condición si se solicita ese supuesto",familiaNumerosa:"tener reconocida la condición si se solicita ese supuesto",social:"cumplir los requisitos de la prestación concreta",fiscal:"cumplir los requisitos fiscales del beneficio concreto"
+Object.assign(FALTA,{\n ccaa:"residir o desarrollar la actividad en la comunidad autónoma indicada",municipioBarcelona:"residir en Barcelona ciudad si la convocatoria lo exige",municipioMadrid:"residir en Madrid ciudad si la convocatoria lo exige",\n familia:"tener una situación familiar contemplada en las bases",nacimientoFecha:"cumplir el plazo correspondiente a la fecha del nacimiento/adopción",menores:"tener menores a cargo según las condiciones",alquiler:"tener gastos de alquiler subvencionables",edad:"cumplir el tramo de edad de la convocatoria",unidad:"cumplir los requisitos de la unidad de convivencia",ingresos:"cumplir los límites de ingresos",contratoAlquiler:"disponer del contrato exigido",empadronamiento:"cumplir el requisito de empadronamiento si lo exige la convocatoria",residenciaLegal:"cumplir los requisitos de residencia",familiaMonoparental:"tener reconocida la condición si se solicita ese supuesto",familiaNumerosa:"tener reconocida la condición si se solicita ese supuesto",social:"cumplir los requisitos de la prestación concreta",fiscal:"cumplir los requisitos fiscales del beneficio concreto"
 });
 function camino(){
  if(!A.perfil)return "";
@@ -543,6 +542,8 @@ function impl(k){
  if(k==="perfil")return A.perfil;
  if(k==="sl"&&A.perfil==="empresa")return A.forma==="sl"?"si":"no";
  if(k==="forma")return A.forma;
+ if(k==="municipioBarcelona")return A.municipio?(nrm(A.municipio)==="barcelona"?"si":"no"):undefined;
+ if(k==="municipioMadrid")return A.municipio?(A.ccaa==="Comunidad de Madrid"&&nrm(A.municipio)==="madrid"?"si":"no"):undefined;
  if(A.ccaa){if(k==="catalunya")return A.ccaa==="Cataluña"?"si":"no";if(k==="madrid")return A.ccaa==="Comunidad de Madrid"?"si":"no"}
  if(k==="amb"&&A.provincia&&A.provincia!=="Barcelona")return "no";
  if(["lleida","centre","ponent"].indexOf(k)>=0&&A.provincia&&A.provincia!=="Lleida")return "no";
