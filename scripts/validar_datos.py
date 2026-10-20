@@ -24,6 +24,7 @@ def main():
     ids = [str(x.get("id")) for x in fichas]
     exigir(len(ids) == len(set(ids)), "Hay IDs de fichas duplicados")
     for f in fichas:
+        exigir(f.get("categoria"), "Ficha sin categoría de objetivo: " + str(f.get("id")))
         exigir(f.get("id") is not None and f.get("titulo") and isinstance(f.get("reqs", {}), dict),
                "Ficha sin id, título o requisitos válidos: " + str(f.get("id")))
         exigir(isinstance(f.get("requisitos", []), list), "requisitos debe ser una lista: " + str(f.get("id")))
@@ -59,7 +60,7 @@ def main():
     html = (ROOT / "index.html").read_text(encoding="utf-8")
     # Comprobaciones estáticas de rutas y filtros principales de la interfaz.
     for token in ('id="advf"', 'function aplicaPerfil(a)', 'function controlPregunta(k)',
-                  'Todos los ámbitos', 'Todos los organismos', 'Pendientes', 'Por verificar',
+                  'Todos los ámbitos', 'Todos los organismos', 'Todos los objetivos', 'categoriaAyuda', 'Pendientes', 'Por verificar',
                   'nacimientoFecha:"date"', 'menores:"number"', 'compatAyuda'):
         exigir(token in html, "Falta función o control de test/filtros: " + token)
     # Cada requisito usado por las fichas debe tener una pregunta visible en el test.
