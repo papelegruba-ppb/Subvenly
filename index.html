@@ -191,7 +191,7 @@ function falta(k,a){var f=FALTA[k];return typeof f==="object"?f[a.reqs[k]]:f}
 var AIDS=[],NOV={items:[]},LIC={items:[]},VIG={};
 
 // ===== LÓGICA =====
-var A={},tipo="Todas",est="Todas",busquedaAyuda="",ambitoAyuda="",organoAyuda="",compatAyuda="";
+var A={},tipo="Todas",est="Todas",busquedaAyuda="",ambitoAyuda="",organoAyuda="",compatAyuda="",categoriaAyuda="";
 var LS={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 try{A=JSON.parse(LS.get("ans_subvenly")||"{}")||{}}catch(e){A={}}
 function save(){LS.set("ans_subvenly",JSON.stringify(A))}
@@ -315,6 +315,8 @@ function renderFilters(){
   function sel(label,value,options,change){var x=el("select","fld");x.setAttribute("aria-label",label);options.forEach(function(o){x.appendChild(new Option(o[1],o[0]))});x.value=value;x.onchange=function(){change(x.value);renderList()};f.appendChild(x)}
   var ambitos=Array.from(new Set(AIDS.map(function(a){return a.ambito}).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,"es")});
   var organos=Array.from(new Set(AIDS.map(function(a){return a.organo}).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,"es")});
+  var categorias=Array.from(new Set(AIDS.map(function(a){return a.categoria}).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,"es")});
+  sel("Objetivo de la ayuda",categoriaAyuda,[["","Todos los objetivos"]].concat(categorias.map(function(x){return[x,x]})),function(v){categoriaAyuda=v});
   sel("Ámbito territorial",ambitoAyuda,[["","Todos los ámbitos"]].concat(ambitos.map(function(x){return[x,x]})),function(v){ambitoAyuda=v});
   sel("Administración u organismo",organoAyuda,[["","Todos los organismos"]].concat(organos.map(function(x){return[x,x]})),function(v){organoAyuda=v});
   sel("Compatibilidad según el test",compatAyuda,[["","Todas las compatibilidades"],["si","Encaja"],["mid","Puede encajar / por verificar"],["no","No encaja"]],function(v){compatAyuda=v});
@@ -329,7 +331,7 @@ function mkCard(it,mode,answered){var a=it.a,e=it.e,s=estado(a),closed=s.k==="cl
   var bg=el("div","badges");bg.appendChild(el("span","st st-"+s.k,s.t));
   if(answered)bg.appendChild(el("span","badge "+LBL[e.s][1],LBL[e.s][0]));
   t.appendChild(bg);c.appendChild(t);
-  c.appendChild(el("p","meta","Plazo: "+a.plazo+" · <span class='amount'>"+a.importe+"</span>"));
+  c.appendChild(el("p","meta",(a.categoria?a.categoria+" · ":"")+"Plazo: "+a.plazo+" · <span class='amount'>"+a.importe+"</span>"));
   c.appendChild(txt("p",a.resumen));
   if(a.aviso){var av=el("div","miss m");av.appendChild(txt("strong","Convocatoria pendiente de publicar"));av.appendChild(txt("span",a.aviso));c.appendChild(av)}
   var vg=VIG[String(a.id)];if(vg&&vg.estado==="cambio"){var vb=el("div","miss m");vb.appendChild(txt("strong","Posible cambio en la web oficial"));vb.appendChild(txt("span","Desde el "+fmt(vg.desde)+" la página oficial parece haber cambiado. Confirma importes y condiciones antes de decidir."));c.appendChild(vb)}
@@ -351,10 +353,10 @@ function renderList(){var l=document.getElementById("list");l.innerHTML="";
   var qAyuda=nrm(busquedaAyuda);
   var items=AIDS.filter(function(a){var k=estado(a).k;
     var pasaEstado=est==="Todas"||(est==="Cerradas"&&k==="closed")||(est==="Abiertas"&&(k==="open"||k==="perm"))||(est==="Pendientes"&&k==="soon")||(est==="Por verificar"&&k==="pending");
-    var texto=nrm([a.titulo,a.organo,a.ambito,a.tipo,a.resumen,a.importe,(a.requisitos||[]).join(" ")].join(" "));
+    var texto=nrm([a.titulo,a.organo,a.ambito,a.tipo,a.categoria,a.resumen,a.importe,(a.requisitos||[]).join(" ")].join(" "));
     var pasaTexto=!qAyuda||texto.indexOf(qAyuda)>=0;
     var pasaCompat=!compatAyuda||evalAid(a).s===compatAyuda;
-    return aplicaPerfil(a)&&(tipo==="Todas"||a.tipo===tipo)&&pasaEstado&&pasaTexto&&(!ambitoAyuda||a.ambito===ambitoAyuda)&&(!organoAyuda||a.organo===organoAyuda)&&pasaCompat;
+    return aplicaPerfil(a)&&(tipo==="Todas"||a.tipo===tipo)&&pasaEstado&&pasaTexto&&(!categoriaAyuda||a.categoria===categoriaAyuda)&&(!ambitoAyuda||a.ambito===ambitoAyuda)&&(!organoAyuda||a.organo===organoAyuda)&&pasaCompat;
   }).map(function(a){return{a:a,e:evalAid(a)}});
   items.sort(function(x,y){return(estado(x.a).k==="closed")-(estado(y.a).k==="closed")});
   if(!items.length){l.appendChild(el("div","empty","No hay fichas con estos filtros."));return}
