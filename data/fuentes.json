@@ -582,6 +582,16 @@
       "monitor": true,
       "nota": "Pago único en supuestos familiares concretos, separado de la prestación por nacimiento y cuidado de menor; revisar límites de ingresos y requisitos vigentes.",
       "oficial": true
+    },
+    {
+      "id": "gencat-rgc",
+      "nombre": "Generalitat de Catalunya · Renda Garantida de Ciutadania (RGC)",
+      "ambito": "Cataluña",
+      "categoria": "Prestaciones sociales",
+      "url": "https://tramits.gencat.cat/es/tramits/tramits-temes/rgc-i-complement-activables",
+      "monitor": true,
+      "nota": "Prestación personal para personas/unidades familiares. Exige solicitud previa del IMV, con requisitos y excepciones por tipo de beneficiario; revisar umbrales, residencia y condiciones laborales en el trámite oficial.",
+      "oficial": true
     }
   ],
   "coberturaTerritorial": [
