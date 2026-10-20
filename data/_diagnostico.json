@@ -1,8 +1,8 @@
 {
- "fecha": "2026-10-19",
- "recibidas": 327,
- "relevantes": 58,
- "detalles_pedidos": 2,
+ "fecha": "2026-10-20",
+ "recibidas": 315,
+ "relevantes": 65,
+ "detalles_pedidos": 61,
  "detalle_funciona": true,
  "claves_primer_elemento": [
   "codigoInvente",
@@ -17,15 +17,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1137556,
+  "id": 1137874,
   "mrr": false,
-  "numeroConvocatoria": "935995",
-  "descripcion": "Subvenciones municipales para la ayuda de fomento del empleo destinada a empresas de Ulldecona que contraten personas desempleadas y a nuevos autónomos empadronados en Ulldecona, anualidad 2026.",
-  "descripcionLeng": "Subvencions municipals per a l’ajut de foment de l’ocupació destinat a empreses d’Ulldecona que contractin persones desocupades i a nous autònoms empadronats a Ulldecona, anualitat 2026.",
-  "fechaRecepcion": "2026-10-18",
+  "numeroConvocatoria": "936313",
+  "descripcion": "SUBVENCIÓN NOMINATIVA A LA ENTIDADE SINSAL AUDIO S.L PARA EL DESARROLLO  DEL  FESTIVAL SINSAL PRIMAVERA 2026",
+  "descripcionLeng": "SUBVENCIÓN NOMINATIVA Á ENTIDADE SINSAL AUDIO S.L PARA O DESENVOLVEMENTO DO FESTIVAL SINSAL PRIMAVEIRA 2026",
+  "fechaRecepcion": "2026-10-19",
   "nivel1": "LOCAL",
-  "nivel2": "ULLDECONA",
-  "nivel3": "AYUNTAMIENTO DE ULLDECONA",
+  "nivel2": "VIGO",
+  "nivel3": "AYUNTAMIENTO DE VIGO",
   "codigoInvente": null
  }
 }

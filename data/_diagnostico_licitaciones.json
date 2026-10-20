@@ -1,20 +1,20 @@
 {
- "fecha": "2026-10-19",
- "ficheros": 2,
- "encontradas": 126,
- "guardadas": 126,
+ "fecha": "2026-10-20",
+ "ficheros": 11,
+ "encontradas": 1057,
+ "guardadas": 1022,
  "ejemplo": {
-  "id": "433/2026",
-  "titulo": "Asfaltado Barrios",
-  "organo": "Alcaldía del Ayuntamiento de Ágreda",
-  "territorio": "Soria",
-  "nuts": "ES417",
-  "tipo": "Obras",
-  "cpv": "45233200",
-  "presupuesto": 12397,
-  "cierre": "2026-10-30",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=kInEZq1lbZi7JOCXkOhcDg%3D%3D",
-  "visto": "2026-10-18",
-  "actualizada": "2026-10-17"
+  "id": "CSP.021/2026",
+  "titulo": "Concesión del servicio de cafetería Comedor en la Escuela Politécnica de la Universidad de Extremadura",
+  "organo": "Rectorado de la Universidad de Extremadura",
+  "territorio": "Badajoz",
+  "nuts": "ES431",
+  "tipo": "Concesión de servicios",
+  "cpv": "55330000",
+  "presupuesto": 1000,
+  "cierre": "2026-11-16",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=NdD4GVJvg2zjHF5qKI4aaw%3D%3D",
+  "visto": "2026-10-20",
+  "actualizada": "2026-10-19"
  }
 }
