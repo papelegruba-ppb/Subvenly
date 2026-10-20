@@ -14,11 +14,12 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   actualizar:
     runs-on: ubuntu-latest
+    timeout-minutes: 55
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
@@ -31,21 +32,25 @@ jobs:
       - name: Buscar convocatorias nuevas
         id: buscar
         continue-on-error: true
+        timeout-minutes: 8
         run: python scripts/actualizar.py
 
       - name: Buscar convocatorias de la Unión Europea
         id: buscar_ue
         continue-on-error: true
+        timeout-minutes: 8
         run: python scripts/actualizar_ue.py
 
       - name: Buscar licitaciones abiertas
         id: buscar_lic
         continue-on-error: true
+        timeout-minutes: 8
         run: python scripts/actualizar_licitaciones.py
 
       - name: Vigilar las fuentes oficiales registradas
         id: vigilar_fuentes
         continue-on-error: true
+        timeout-minutes: 12
         run: python scripts/vigilar_fuentes.py
 
       - name: Validar catálogo, territorio y JavaScript
@@ -54,6 +59,7 @@ jobs:
       - name: Vigilar las páginas oficiales de las fichas
         id: vigilar
         continue-on-error: true
+        timeout-minutes: 12
         run: python scripts/vigilar_creditos.py
 
       - name: Guardar los datos en el repositorio
