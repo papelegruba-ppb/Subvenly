@@ -1221,5 +1221,59 @@
       ]
     ],
     "categoria": "Familia y nacimiento"
+  },
+  {
+    "id": 40,
+    "perfil": "personal",
+    "tipo": "Prestación",
+    "titulo": "Renta Garantizada de Ciudadanía (RGC) · Cataluña",
+    "organo": "Generalitat de Catalunya · Departament de Drets Socials i Inclusió",
+    "ambito": "Cataluña",
+    "plazo": "Solicitud según situación; consultar el trámite oficial",
+    "estadoManual": "Prestación vigente sujeta a requisitos personales, familiares y económicos; comprobar condiciones aplicables",
+    "importe": "No se usa como filtro; consultar los umbrales oficiales vigentes",
+    "resumen": "Prestación económica para personas y unidades familiares con recursos insuficientes para cubrir necesidades básicas. Puede complementar el IMV cuando los ingresos no alcanzan el mínimo garantizado en Cataluña. Dirigida a personas físicas y unidades de convivencia, no a sociedades mercantiles.",
+    "reqs": {
+      "ccaa": "Cataluña",
+      "social": "si"
+    },
+    "requisitos": [
+      "Tener más de 23 años, salvo excepciones previstas para personas desde los 18 años (por ejemplo, determinadas situaciones familiares o de vulnerabilidad)",
+      "Estar empadronado en Cataluña y acreditar, con carácter general, residencia continuada y efectiva durante los 24 meses anteriores; existen excepciones específicas",
+      "Haber solicitado previamente el Ingreso Mínimo Vital (IMV)",
+      "Tener ingresos y recursos de la unidad familiar por debajo de los límites aplicables; se examinan especialmente los ingresos de los dos meses anteriores y la composición familiar",
+      "No disponer de patrimonio inmobiliario, salvo la vivienda habitual, conforme a las reglas aplicables",
+      "Con carácter general, no estar trabajando; existen excepciones, entre otras, para determinadas familias monoparentales o numerosas y supuestos de trabajo parcial",
+      "No estar en un servicio residencial permanente ni en un centro penitenciario en régimen ordinario o cerrado, salvo excepciones previstas",
+      "Cumplir las demás condiciones y obligaciones de inserción social o laboral que correspondan al tipo de prestación"
+    ],
+    "docs": [
+      "DNI/NIE y documentación de residencia",
+      "Certificado de empadronamiento e historial de residencia cuando corresponda",
+      "Documentación de convivencia y composición de la unidad familiar",
+      "Justificantes de ingresos, patrimonio y prestaciones de los miembros de la unidad",
+      "Justificante de solicitud o resolución del IMV y de otras prestaciones que procedan",
+      "Documentación adicional indicada por la Generalitat para el caso concreto"
+    ],
+    "eval": "Prestación para particulares y unidades familiares; no mostrar como ayuda empresarial ni como beneficio de una SL. Una persona autónoma no debe excluirse automáticamente: hay que comprobar cómo computan sus ingresos y si cumple las condiciones personales. Subvenly solo realiza una preevaluación; la Generalitat determina el derecho y la cuantía.",
+    "links": [
+      [
+        "Trámite oficial RGC y complemento a prestaciones estatales (personas activables)",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/rgc-i-complement-activables"
+      ],
+      [
+        "RGC para personas no activables",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/21221_-_Prestacio-complementaria-a-pensions-estatals-collectius-no-activables"
+      ],
+      [
+        "Información Generalitat: IMV y RGC",
+        "https://dretssocials.gencat.cat/ca/ambits_tematics/pobresa_i_inclusio_social/imv-rgc/"
+      ],
+      [
+        "Cómo solicitar la RGC y requisitos generales",
+        "https://dretssocials.gencat.cat/ca/ambits_tematics/pobresa_i_inclusio_social/renda_garantida_ciutadania/rendagarantida_/comdemanarla/"
+      ]
+    ],
+    "categoria": "Prestaciones sociales y familia"
   }
 ]
