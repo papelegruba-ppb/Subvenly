@@ -1,8 +1,8 @@
 {
  "fecha": "2026-10-20",
- "recibidas": 315,
- "relevantes": 65,
- "detalles_pedidos": 61,
+ "recibidas": 311,
+ "relevantes": 63,
+ "detalles_pedidos": 0,
  "detalle_funciona": true,
  "claves_primer_elemento": [
   "codigoInvente",
