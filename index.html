@@ -128,8 +128,9 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
     <div class="row"><button class="btn alt" id="reset">Empezar de nuevo</button></div>
   </section>
 
-  <div class="filters" id="filters" role="group" aria-label="Filtrar por tipo"></div>
+  <div class="filters" id="filters" role="group" aria-label="Filtrar por tipo de ayuda"></div>
   <div class="filters" id="estf" role="group" aria-label="Filtrar por estado"></div>
+  <div class="filters" id="advf" aria-label="Filtros avanzados de ayudas"></div>
   <div id="list" aria-live="polite"></div>
   <section id="source-changes" hidden><h2 class="gh">Cambios detectados en fuentes oficiales</h2><div id="source-changes-list" class="grid"></div></section>
   <details id="sources-panel" class="card" style="margin-top:18px"><summary style="cursor:pointer;font-weight:600">Fuentes oficiales y cobertura territorial</summary><p class="meta">Abre una fuente para consultar las convocatorias originales. Las fuentes generales no equivalen a convocatorias abiertas.</p><div id="sources-coverage" class="facts"></div><div id="sources-list" class="grid"></div></details>
@@ -190,7 +191,7 @@ function falta(k,a){var f=FALTA[k];return typeof f==="object"?f[a.reqs[k]]:f}
 var AIDS=[],NOV={items:[]},LIC={items:[]},VIG={};
 
 // ===== LÓGICA =====
-var A={},tipo="Todas",est="Todas";
+var A={},tipo="Todas",est="Todas",busquedaAyuda="",ambitoAyuda="",organoAyuda="",compatAyuda="";
 var LS={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 try{A=JSON.parse(LS.get("ans_subvenly")||"{}")||{}}catch(e){A={}}
 function save(){LS.set("ans_subvenly",JSON.stringify(A))}
@@ -305,6 +306,15 @@ function renderFilters(){
   var tipos=["Todas"].concat(Array.from(new Set(AIDS.map(function(a){return a.tipo}).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,"es")}));
   chips("filters",tipos,function(){return tipo},function(t){tipo=t});
   chips("estf",["Todas","Abiertas","Pendientes","Por verificar","Cerradas"],function(){return est},function(t){est=t});
+  var f=document.getElementById("advf");f.innerHTML="";
+  var q=el("input","fld");q.type="search";q.placeholder="Buscar por nombre, organismo, objetivo o importe…";q.setAttribute("aria-label","Buscar ayudas");q.value=busquedaAyuda;
+  q.oninput=function(){busquedaAyuda=q.value;renderList()};f.appendChild(q);
+  function sel(label,value,options,change){var x=el("select","fld");x.setAttribute("aria-label",label);options.forEach(function(o){x.appendChild(new Option(o[1],o[0]))});x.value=value;x.onchange=function(){change(x.value);renderList()};f.appendChild(x)}
+  var ambitos=Array.from(new Set(AIDS.map(function(a){return a.ambito}).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,"es")});
+  var organos=Array.from(new Set(AIDS.map(function(a){return a.organo}).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,"es")});
+  sel("Ámbito territorial",ambitoAyuda,[["","Todos los ámbitos"]].concat(ambitos.map(function(x){return[x,x]})),function(v){ambitoAyuda=v});
+  sel("Administración u organismo",organoAyuda,[["","Todos los organismos"]].concat(organos.map(function(x){return[x,x]})),function(v){organoAyuda=v});
+  sel("Compatibilidad según el test",compatAyuda,[["","Todas las compatibilidades"],["si","Encaja"],["mid","Puede encajar / por verificar"],["no","No encaja"]],function(v){compatAyuda=v});
 }
 function mailBody(){var o=[];secuencia().forEach(function(k){if(k[0]==="#"||!A[k]||!mostrar(k))return;o.push(QUESTIONS[k]+" "+((k==="ccaa"||k==="municipio")?A[k]:({si:"Sí",no:"No",nose:"No sé"})[A[k]]))});return o.length?"\n\nMis respuestas del test:\n"+o.join("\n"):""}
 function alertLink(a,cls){var l=el("a","btn "+cls,"Avísame cuando abra");
@@ -335,9 +345,13 @@ function aplicaPerfil(a){
   return true;
 }
 function renderList(){var l=document.getElementById("list");l.innerHTML="";
+  var qAyuda=nrm(busquedaAyuda);
   var items=AIDS.filter(function(a){var k=estado(a).k;
     var pasaEstado=est==="Todas"||(est==="Cerradas"&&k==="closed")||(est==="Abiertas"&&(k==="open"||k==="perm"))||(est==="Pendientes"&&k==="soon")||(est==="Por verificar"&&k==="pending");
-    return aplicaPerfil(a)&&(tipo==="Todas"||a.tipo===tipo)&&pasaEstado;
+    var texto=nrm([a.titulo,a.organo,a.ambito,a.tipo,a.resumen,a.importe,(a.requisitos||[]).join(" ")].join(" "));
+    var pasaTexto=!qAyuda||texto.indexOf(qAyuda)>=0;
+    var pasaCompat=!compatAyuda||evalAid(a).s===compatAyuda;
+    return aplicaPerfil(a)&&(tipo==="Todas"||a.tipo===tipo)&&pasaEstado&&pasaTexto&&(!ambitoAyuda||a.ambito===ambitoAyuda)&&(!organoAyuda||a.organo===organoAyuda)&&pasaCompat;
   }).map(function(a){return{a:a,e:evalAid(a)}});
   items.sort(function(x,y){return(estado(x.a).k==="closed")-(estado(y.a).k==="closed")});
   if(!items.length){l.appendChild(el("div","empty","No hay fichas con estos filtros."));return}
@@ -392,7 +406,7 @@ function drawDlg(){var a=cur,tabs=document.getElementById("tabs"),pane=document.
 }
 document.getElementById("close").onclick=function(){document.getElementById("dlg").close()};
 document.getElementById("dlg").addEventListener("click",function(e){if(e.target===this)this.close()});
-document.getElementById("reset").onclick=function(){A={};save();renderProfile();refrescar()};
+document.getElementById("reset").onclick=function(){A={};tipo="Todas";est="Todas";busquedaAyuda="";ambitoAyuda="";organoAyuda="";compatAyuda="";save();renderProfile();renderFilters();refrescar()};
 var NOV_MAX=15,novQ="",novN1="Todas",novT="Todos";
 function nrm(t){return String(t||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase()}
 function n1lab(v){var k=nrm(v);if(k.indexOf("union europea")>=0)return"Unión Europea";return k.indexOf("estad")===0||k.indexOf("estatal")>=0?"Estatal":k.indexOf("autonom")>=0?"Autonómica":k.indexOf("local")>=0?"Local":"Otros"}
