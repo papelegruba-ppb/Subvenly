@@ -411,7 +411,7 @@ function drawDlg(){var a=cur,tabs=document.getElementById("tabs"),pane=document.
 }
 document.getElementById("close").onclick=function(){document.getElementById("dlg").close()};
 document.getElementById("dlg").addEventListener("click",function(e){if(e.target===this)this.close()});
-document.getElementById("reset").onclick=function(){A={};tipo="Todas";est="Todas";busquedaAyuda="";ambitoAyuda="";organoAyuda="";compatAyuda="";save();renderProfile();renderFilters();refrescar()};
+document.getElementById("reset").onclick=function(){A={};tipo="Todas";est="Todas";busquedaAyuda="";ambitoAyuda="";organoAyuda="";compatAyuda="";categoriaAyuda="";save();renderProfile();renderFilters();refrescar()};
 var NOV_MAX=15,novQ="",novN1="Todas",novT="Todos";
 function nrm(t){return String(t||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase()}
 function n1lab(v){var k=nrm(v);if(k.indexOf("union europea")>=0)return"Unión Europea";return k.indexOf("estad")===0||k.indexOf("estatal")>=0?"Estatal":k.indexOf("autonom")>=0?"Autonómica":k.indexOf("local")>=0?"Local":"Otros"}
