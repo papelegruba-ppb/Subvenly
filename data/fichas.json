@@ -577,27 +577,28 @@
  {
   "id": 21,
   "tipo": "Crédito",
-  "titulo": "Línea Emprendedores de Enisa",
+  "titulo": "Financiación ENISA para startups y pymes",
   "organo": "ENISA · Ministerio de Industria, Comercio y Turismo",
   "ambito": "Estatal",
-  "plazo": "Abierta todo el año",
+  "plazo": "Consultar disponibilidad y condiciones de la línea vigente en ENISA",
   "permTxt": "Abierta",
-  "importe": "Préstamos participativos de 25.000 a 300.000 €",
+  "importe": "Préstamos participativos de 25.000 a 1.500.000 €, según línea y condiciones vigentes",
   "resumen": "Préstamos participativos para pymes de menos de 24 meses de antigüedad promovidas por emprendedores, sin límite de edad, para apoyar las primeras fases de vida de la empresa.",
   "reqs": {
-   "sl": "si",
-   "sl24": "si"
+   "sl": "si"
   },
   "requisitos": [
-   "Pyme con menos de 24 meses de antigüedad",
    "Promovida por emprendedores, sin límite de edad",
+   "Es un préstamo participativo: financiación que se devuelve, no una subvención",
+   "Empresa constituida legalmente en España, con personalidad jurídica propia y domicilio fiscal en territorio nacional",
+   "Pyme con proyecto viable, innovador y ventajas competitivas; revisar requisitos de la línea específica",
    "Es un préstamo participativo: financiación que se devuelve, no una subvención"
   ],
   "docs": [
    "Documentación según Enisa: consulta los requisitos de la línea vigente"
   ],
-  "eval": "La decide Enisa tras analizar el proyecto. Confirma las condiciones actuales en la web oficial de Enisa.",
-  "link": "https://www.enisa.es/es/financia-tu-empresa/lineas-de-financiacion"
+  "eval": "La web oficial de ENISA indica financiación de 25.000 a 1.500.000 € para startups y pymes; importes y requisitos concretos dependen de la línea. No presentar como garantizada una línea específica sin comprobar su ficha vigente.",
+  "link": "https://www.enisa.es/servicios/financiacion/startups-y-pymes/"
  },
  {
   "id": 22,
@@ -765,8 +766,8 @@
   "titulo": "Ayudas al alquiler para jóvenes (Comunidad de Madrid)",
   "organo": "Comunidad de Madrid",
   "ambito": "Comunidad de Madrid",
-  "plazo": "Consultar la convocatoria vigente",
-  "estadoManual": "Convocatoria y plazo: comprobar en la fuente oficial",
+  "plazo": "Convocatoria 2025: del 04/11/2025 al 15/12/2025 (cerrada); próxima edición sin fecha confirmada",
+  "estadoManual": "Convocatoria 2025 cerrada; nueva edición sin fecha confirmada",
   "importe": "Según la convocatoria vigente",
   "resumen": "Ayudas de alquiler dirigidas a jóvenes, sujetas a edad, residencia, ingresos, contrato y condiciones de la convocatoria.",
   "reqs": {
@@ -784,8 +785,12 @@
   "eval": "La elegibilidad requiere comprobar las bases de la convocatoria concreta.",
   "links": [
    [
-    "Sede oficial de la Comunidad de Madrid",
+    "Sede oficial · Ayudas al alquiler de vivienda para jóvenes y sectores de escasos recursos (2025)",
     "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-alquiler-jovenes-0"
+   ],
+   [
+    "Buscador oficial de ayudas de alquiler de la Comunidad de Madrid",
+    "https://sede.comunidad.madrid/buscador?t=ayudas+alquiler+vivienda"
    ]
   ]
  },
