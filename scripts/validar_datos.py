@@ -57,6 +57,11 @@ def main():
     exigir(len(comunidades) >= 17, "El catálogo geográfico no cubre todas las comunidades y ciudades autónomas")
     exigir(isinstance(novedades, dict) and isinstance(licitaciones, dict), "Estructura de novedades o licitaciones inválida")
     html = (ROOT / "index.html").read_text(encoding="utf-8")
+    # Comprobaciones estáticas de rutas y filtros principales de la interfaz.
+    for token in ('id="advf"', 'function aplicaPerfil(a)', 'function controlPregunta(k)',
+                  'Todos los ámbitos', 'Todos los organismos', 'Pendientes', 'Por verificar',
+                  'nacimientoFecha:"date"', 'menores:"number"', 'compatAyuda'):
+        exigir(token in html, "Falta función o control de test/filtros: " + token)
     # Cada requisito usado por las fichas debe tener una pregunta visible en el test.
     question_blocks = re.findall(r"var QUESTIONS\s*=\s*\{([\s\S]*?)\n\};", html)
     question_blocks += re.findall(r"Object\.assign\(QUESTIONS,\s*\{([\s\S]*?)\}\);", html)
