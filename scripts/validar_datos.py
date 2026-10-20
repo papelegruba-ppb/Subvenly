@@ -57,6 +57,15 @@ def main():
     exigir(len(comunidades) >= 17, "El catálogo geográfico no cubre todas las comunidades y ciudades autónomas")
     exigir(isinstance(novedades, dict) and isinstance(licitaciones, dict), "Estructura de novedades o licitaciones inválida")
     html = (ROOT / "index.html").read_text(encoding="utf-8")
+    # Cada requisito usado por las fichas debe tener una pregunta visible en el test.
+    question_blocks = re.findall(r"var QUESTIONS\s*=\s*\{([\s\S]*?)\n\};", html)
+    question_blocks += re.findall(r"Object\.assign\(QUESTIONS,\s*\{([\s\S]*?)\}\);", html)
+    question_keys = set()
+    for block in question_blocks:
+        question_keys.update(re.findall(r"^\s*([A-Za-z_$][\w$]*):", block, flags=re.M))
+    requirement_keys = {key for ficha in fichas for key in (ficha.get("reqs") or {})}
+    missing_questions = sorted(requirement_keys - question_keys)
+    exigir(not missing_questions, "Faltan preguntas visibles para requisitos de fichas: " + ", ".join(missing_questions))
     scripts = re.findall(r"<script\b([^>]*)>(.*?)</script>", html, flags=re.I | re.S)
     inline = [code for attrs, code in scripts if not re.search(r"\bsrc\s*=", attrs, flags=re.I) and code.strip()]
     exigir(inline, "No se encontraron scripts JavaScript inline para validar")
