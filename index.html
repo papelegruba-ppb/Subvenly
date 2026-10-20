@@ -128,8 +128,9 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
     <div class="row"><button class="btn alt" id="reset">Empezar de nuevo</button></div>
   </section>
 
-  <div class="filters" id="filters" role="group" aria-label="Filtrar por tipo"></div>
+  <div class="filters" id="filters" role="group" aria-label="Filtrar por tipo de ayuda"></div>
   <div class="filters" id="estf" role="group" aria-label="Filtrar por estado"></div>
+  <div class="filters" id="advf" aria-label="Filtros avanzados de ayudas"></div>
   <div id="list" aria-live="polite"></div>
   <section id="source-changes" hidden><h2 class="gh">Cambios detectados en fuentes oficiales</h2><div id="source-changes-list" class="grid"></div></section>
   <details id="sources-panel" class="card" style="margin-top:18px"><summary style="cursor:pointer;font-weight:600">Fuentes oficiales y cobertura territorial</summary><p class="meta">Abre una fuente para consultar las convocatorias originales. Las fuentes generales no equivalen a convocatorias abiertas.</p><div id="sources-coverage" class="facts"></div><div id="sources-list" class="grid"></div></details>
@@ -190,7 +191,7 @@ function falta(k,a){var f=FALTA[k];return typeof f==="object"?f[a.reqs[k]]:f}
 var AIDS=[],NOV={items:[]},LIC={items:[]},VIG={};
 
 // ===== LÓGICA =====
-var A={},tipo="Todas",est="Todas";
+var A={},tipo="Todas",est="Todas",busquedaAyuda="",ambitoAyuda="",organoAyuda="",compatAyuda="";
 var LS={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 try{A=JSON.parse(LS.get("ans_subvenly")||"{}")||{}}catch(e){A={}}
 function save(){LS.set("ans_subvenly",JSON.stringify(A))}
@@ -199,10 +200,19 @@ function txt(tag,s){var e=el(tag);e.textContent=s;return e}
 function fmt(d){var p=d.split("-");return p[2]+"/"+p[1]+"/"+p[0]}
 function estado(a){
   if(a.cerrada)return{k:"closed",t:"Cerrada"};
-  if(!a.cierre)return{k:"perm",t:a.permTxt||"Siempre abierta"};
+  var hoy=new Date().toISOString().slice(0,10),manual=String(a.estadoManual||"").toLocaleLowerCase("es");
+  if(a.cierre&&a.cierre<hoy)return{k:"closed",t:"Cerrada"};
+  if(a.pend||manual.indexOf("próxima")>=0||manual.indexOf("nueva edición")>=0||manual.indexOf("pendiente de publicar")>=0)return{k:"soon",t:"Pendiente de convocatoria"};
+  if(manual){
+    if(manual.indexOf("cerrad")>=0)return{k:"closed",t:"Cerrada"};
+    return{k:"pending",t:"Por verificar"};
+  }
+  if(!a.cierre){
+    if(String(a.permTxt||"").toLocaleLowerCase("es").indexOf("abierta")>=0)return{k:"perm",t:"Abierta (según ficha)"};
+    return{k:"pending",t:"Sin plazo confirmado"};
+  }
   var d=Math.ceil((new Date(a.cierre+"T23:59:59")-new Date())/864e5);
-  if(d<0)return{k:"closed",t:"Cerrada"};
-  if(a.pend)return{k:"soon",t:"Pendiente de publicar"};
+  if(d<=0)return{k:"closed",t:"Cerrada"};
   if(d<=14)return{k:"soon",t:"Cierra en "+d+(d===1?" día":" días")};
   return{k:"open",t:"Abierta hasta el "+fmt(a.cierre)}}
 function evalAid(a){var bad=[],unk=[];
@@ -230,7 +240,10 @@ function secuencia(){var c=camino(),l=["#Sobre ti","alta"];
   if(!c)return l;
   if(c==="aut")l=l.concat(["#Tu situación como autónomo","nuevo","jovenyo","paro","desempleado","tarifa","hacienda"]);
   if(c==="sl")l=l.concat(["#Tu sociedad","sl24","hacienda"]);
-  if(c==="nuevo"&&A.perfil==="empresa")l=l.concat(["#Preparar la constitución de tu empresa"]);else if(c==="nuevo")l=l.concat(["#Preparar el inicio de actividad","nuevo","jovenyo","paro","desempleado","hacienda"]);
+  if(c==="nuevo"&&A.perfil==="empresa"){
+   l.push("#Preparar la constitución de tu empresa","proyecto");
+   if(A.proyecto==="si")l=l.concat(["nuevo","jovenyo","paro","desempleado","hacienda"]);
+ }else if(c==="nuevo")l=l.concat(["#Preparar el inicio de actividad","nuevo","jovenyo","paro","desempleado","hacienda"]);
   l=l.concat(["#Dónde está tu actividad","ccaa","provincia","municipio","amb","lleida","centre","ponent"]);
   if(c==="aut"||c==="sl") {l.push("#Tu equipo y las contrataciones");l.push("plantilla");l.push("contratar","indefinido","joven","bcn")}
   return l}
@@ -272,6 +285,15 @@ function selMunicipio(){var r=el("div","q");r.appendChild(txt("span","¿En qué 
   if(p)p.m.slice().sort(function(a,b){return a.localeCompare(b,"es")}).forEach(function(m){s.appendChild(new Option(m,m))});
   s.value=A.municipio||"";s.disabled=!p;
   s.onchange=function(){if(s.value)A.municipio=s.value;else delete A.municipio;save();renderProfile();refrescar()};r.appendChild(s);return r}
+function controlPregunta(k){
+  var tipos={nacimientoFecha:"date",menores:"number",edad:"number",unidad:"number",ingresos:"number"};
+  if(!tipos[k])return null;
+  var input=el("input","fld");input.type=tipos[k];input.setAttribute("aria-label",QUESTIONS[k]||k);
+  input.value=A[k]===undefined?"":A[k];
+  if(tipos[k]==="number"){input.min="0";input.step=k==="ingresos"?"0.01":"1";if(k==="edad")input.max="120";if(k==="menores"||k==="unidad")input.max="30"}
+  input.onchange=function(){if(input.value==="")delete A[k];else A[k]=input.value;save();renderProfile();refrescar()};
+  return input;
+}
 function renderProfile(){var p=document.getElementById("profile");p.innerHTML="";
   secuencia().forEach(function(k){if(k[0]==="#"){p.appendChild(el("h3","gh",k.slice(1)));return}
     if(!mostrar(k))return;
@@ -279,13 +301,24 @@ function renderProfile(){var p=document.getElementById("profile");p.innerHTML=""
     if(k==="provincia"){p.appendChild(selProvincia());return}
     if(k==="municipio"){p.appendChild(selMunicipio());return}
     var r=el("div","q");r.appendChild(txt("span",QUESTIONS[k]||k));
-    r.appendChild(seg(k,function(){renderProfile();refrescar()}));p.appendChild(r)})}
+    var control=controlPregunta(k);r.appendChild(control||seg(k,function(){renderProfile();refrescar()}));p.appendChild(r)})}
 function chips(id,arr,get,set){var f=document.getElementById(id);f.innerHTML="";
   arr.forEach(function(t){var b=el("button","chip",t);b.type="button";b.setAttribute("aria-pressed",get()===t);
     b.onclick=function(){set(t);renderFilters();renderList()};f.appendChild(b)})}
 function renderFilters(){
-  chips("filters",["Todas","Ayuda","Subvención","Crédito"],function(){return tipo},function(t){tipo=t});
-  chips("estf",["Todas","Abiertas","Cerradas"],function(){return est},function(t){est=t})}
+  var tipos=["Todas"].concat(Array.from(new Set(AIDS.map(function(a){return a.tipo}).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,"es")}));
+  chips("filters",tipos,function(){return tipo},function(t){tipo=t});
+  chips("estf",["Todas","Abiertas","Pendientes","Por verificar","Cerradas"],function(){return est},function(t){est=t});
+  var f=document.getElementById("advf");f.innerHTML="";
+  var q=el("input","fld");q.type="search";q.placeholder="Buscar por nombre, organismo, objetivo o importe…";q.setAttribute("aria-label","Buscar ayudas");q.value=busquedaAyuda;
+  q.oninput=function(){busquedaAyuda=q.value;renderList()};f.appendChild(q);
+  function sel(label,value,options,change){var x=el("select","fld");x.setAttribute("aria-label",label);options.forEach(function(o){x.appendChild(new Option(o[1],o[0]))});x.value=value;x.onchange=function(){change(x.value);renderList()};f.appendChild(x)}
+  var ambitos=Array.from(new Set(AIDS.map(function(a){return a.ambito}).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,"es")});
+  var organos=Array.from(new Set(AIDS.map(function(a){return a.organo}).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,"es")});
+  sel("Ámbito territorial",ambitoAyuda,[["","Todos los ámbitos"]].concat(ambitos.map(function(x){return[x,x]})),function(v){ambitoAyuda=v});
+  sel("Administración u organismo",organoAyuda,[["","Todos los organismos"]].concat(organos.map(function(x){return[x,x]})),function(v){organoAyuda=v});
+  sel("Compatibilidad según el test",compatAyuda,[["","Todas las compatibilidades"],["si","Encaja"],["mid","Puede encajar / por verificar"],["no","No encaja"]],function(v){compatAyuda=v});
+}
 function mailBody(){var o=[];secuencia().forEach(function(k){if(k[0]==="#"||!A[k]||!mostrar(k))return;o.push(QUESTIONS[k]+" "+((k==="ccaa"||k==="municipio")?A[k]:({si:"Sí",no:"No",nose:"No sé"})[A[k]]))});return o.length?"\n\nMis respuestas del test:\n"+o.join("\n"):""}
 function alertLink(a,cls){var l=el("a","btn "+cls,"Avísame cuando abra");
   l.href="mailto:hola@subvenly.com?subject="+encodeURIComponent("Avísame cuando abra: "+a.titulo)+"&body="+encodeURIComponent("Hola, me interesa: "+a.titulo+mailBody());return l}
@@ -306,9 +339,23 @@ function mkCard(it,mode,answered){var a=it.a,e=it.e,s=estado(a),closed=s.k==="cl
   var row=el("div","row"),b=el("button","btn"+(mode==="no"?" alt":""),mode==="no"?"Ver qué necesito":"Ver detalle y test");b.type="button";
   b.onclick=function(){openDlg(a,mode==="no"?"test":"resumen")};row.appendChild(b);
   if(closed)row.appendChild(alertLink(a,"alt"));c.appendChild(row);return c}
+function aplicaPerfil(a){
+  if(!A.perfil)return true;
+  if(A.perfil==="particular")return a.perfil==="personal";
+  if(A.perfil==="empresa")return a.perfil!=="personal";
+  if(A.perfil==="autonomo")return true;
+  if(A.perfil==="ambos")return true;
+  return true;
+}
 function renderList(){var l=document.getElementById("list");l.innerHTML="";
+  var qAyuda=nrm(busquedaAyuda);
   var items=AIDS.filter(function(a){var k=estado(a).k;
-    return(tipo==="Todas"||a.tipo===tipo)&&(est==="Todas"||(est==="Cerradas")===(k==="closed"))}).map(function(a){return{a:a,e:evalAid(a)}});
+    var pasaEstado=est==="Todas"||(est==="Cerradas"&&k==="closed")||(est==="Abiertas"&&(k==="open"||k==="perm"))||(est==="Pendientes"&&k==="soon")||(est==="Por verificar"&&k==="pending");
+    var texto=nrm([a.titulo,a.organo,a.ambito,a.tipo,a.resumen,a.importe,(a.requisitos||[]).join(" ")].join(" "));
+    var pasaTexto=!qAyuda||texto.indexOf(qAyuda)>=0;
+    var pasaCompat=!compatAyuda||evalAid(a).s===compatAyuda;
+    return aplicaPerfil(a)&&(tipo==="Todas"||a.tipo===tipo)&&pasaEstado&&pasaTexto&&(!ambitoAyuda||a.ambito===ambitoAyuda)&&(!organoAyuda||a.organo===organoAyuda)&&pasaCompat;
+  }).map(function(a){return{a:a,e:evalAid(a)}});
   items.sort(function(x,y){return(estado(x.a).k==="closed")-(estado(y.a).k==="closed")});
   if(!items.length){l.appendChild(el("div","empty","No hay fichas con estos filtros."));return}
   var answered=Object.keys(A).length>0;
@@ -362,7 +409,7 @@ function drawDlg(){var a=cur,tabs=document.getElementById("tabs"),pane=document.
 }
 document.getElementById("close").onclick=function(){document.getElementById("dlg").close()};
 document.getElementById("dlg").addEventListener("click",function(e){if(e.target===this)this.close()});
-document.getElementById("reset").onclick=function(){A={};save();renderProfile();refrescar()};
+document.getElementById("reset").onclick=function(){A={};tipo="Todas";est="Todas";busquedaAyuda="";ambitoAyuda="";organoAyuda="";compatAyuda="";save();renderProfile();renderFilters();refrescar()};
 var NOV_MAX=15,novQ="",novN1="Todas",novT="Todos";
 function nrm(t){return String(t||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase()}
 function n1lab(v){var k=nrm(v);if(k.indexOf("union europea")>=0)return"Unión Europea";return k.indexOf("estad")===0||k.indexOf("estatal")>=0?"Estatal":k.indexOf("autonom")>=0?"Autonómica":k.indexOf("local")>=0?"Local":"Otros"}
@@ -561,7 +608,7 @@ var IMPLICITO_BASE=IMPLICITO;
 function impl(k){
  var c=camino();
  if(k==="perfil")return A.perfil;
- if(k==="sl"&&A.perfil==="empresa")return A.forma==="sl"?"si":"no";
+ if(k==="sl"&&A.perfil==="empresa"){if(!A.forma)return undefined;return A.forma==="sl"?"si":"no";}
  if(k==="forma")return A.forma;
  if(k==="municipioBarcelona")return A.municipio?(nrm(A.municipio)==="barcelona"?"si":"no"):undefined;
  if(k==="municipioMadrid")return A.municipio?(A.ccaa==="Comunidad de Madrid"&&nrm(A.municipio)==="madrid"?"si":"no"):undefined;
