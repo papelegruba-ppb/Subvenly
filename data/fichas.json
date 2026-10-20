@@ -659,26 +659,29 @@
     "id": 23,
     "perfil": "personal",
     "tipo": "Prestación",
-    "titulo": "Prestación para familias con niños (Cataluña)",
+    "titulo": "Ayuda por nacimiento, adopción, tutela o acogimiento (Cataluña)",
     "organo": "Generalitat de Catalunya",
     "ambito": "Cataluña",
-    "plazo": "Consultar el plazo aplicable a cada situación",
-    "estadoManual": "Plazo y condiciones: comprobar en la fuente oficial",
-    "importe": "Según el supuesto y la normativa vigente",
-    "resumen": "Prestación para familias con niños. Deben comprobarse los requisitos, la fecha del nacimiento o adopción y el plazo aplicable.",
+    "plazo": "Plazo según fecha del nacimiento o hecho causante; consultar la ficha oficial",
+    "estadoManual": "Plazo y requisitos sujetos a la ficha oficial vigente",
+    "importe": "Consultar condiciones oficiales; no se usa como filtro",
+    "resumen": "Prestación de la Generalitat para familias que han tenido un hijo por nacimiento, adopción, tutela o acogimiento y no superan el límite de ingresos. Es una ayuda para personas y familias, no para sociedades.",
     "reqs": {
       "familia": "si",
       "ccaa": "Cataluña"
     },
     "requisitos": [
-      "La fecha del nacimiento, adopción, tutela o acogida puede afectar al plazo aplicable",
-      "Comprobar las condiciones y la documentación vigentes en el trámite oficial"
+      "Dirigida a personas y familias; no a sociedades mercantiles",
+      "Residencia legal en Cataluña y condiciones de residencia previa previstas en el trámite",
+      "Límite de ingresos de la unidad familiar según su composición",
+      "El plazo depende de la fecha del nacimiento, adopción, tutela o acogimiento; comprobar el plazo vigente antes de tramitar"
     ],
     "docs": [
-      "Documentación identificativa y familiar que exija el trámite",
-      "Documentación adicional indicada en las bases o en la sede"
+      "DNI/NIE de la persona solicitante y documentación familiar indicada por la Generalitat",
+      "Datos y documentación de la unidad familiar que exija el trámite",
+      "Documentación adicional según el supuesto (tutela, acogimiento, familia monoparental o numerosa)"
     ],
-    "eval": "No se confirma la elegibilidad ni el plazo sin contrastar la ficha oficial vigente.",
+    "eval": "La ficha se muestra para descubrir la prestación; verificar residencia, ingresos, plazo y documentación en el trámite oficial.",
     "links": [
       [
         "Trámite oficial de la Generalitat",
@@ -1101,5 +1104,122 @@
       ]
     ],
     "categoria": "Emergencias y catástrofes"
+  },
+  {
+    "id": 37,
+    "perfil": "personal",
+    "tipo": "Prestación",
+    "titulo": "Complemento de ayuda para la infancia (CAPI) vinculado al IMV",
+    "organo": "Seguridad Social · Estado",
+    "ambito": "Estatal",
+    "plazo": "Solicitud a través del trámite del Ingreso Mínimo Vital; consultar condiciones vigentes",
+    "estadoManual": "Derecho sujeto a comprobación de ingresos, patrimonio y unidad de convivencia",
+    "importe": "No se usa como filtro; consultar la fuente oficial",
+    "resumen": "Complemento mensual por menores de edad que forman parte de la unidad de convivencia. Puede corresponder también a hogares que no cobran el IMV completo, si cumplen los límites específicos del CAPI. Es una prestación para personas y hogares, nunca para una SL como beneficiaria.",
+    "reqs": {
+      "social": "si"
+    },
+    "requisitos": [
+      "Debe haber menores de 18 años en la unidad de convivencia",
+      "Se evalúan ingresos, patrimonio neto y activos de la unidad de convivencia",
+      "Puede reconocerse junto al IMV o de forma independiente si se cumplen los requisitos específicos del CAPI",
+      "El derecho se solicita mediante el trámite del IMV y lo determina el INSS"
+    ],
+    "docs": [
+      "Datos de identidad y de la unidad de convivencia",
+      "Información de menores, ingresos y patrimonio que solicite el INSS",
+      "Documentación vigente indicada en el trámite oficial"
+    ],
+    "eval": "Solo para particulares/unidades de convivencia. No mostrar como ayuda empresarial ni para SL; la preevaluación no sustituye la resolución del INSS.",
+    "links": [
+      [
+        "Solicitud e información oficial del IMV y CAPI",
+        "https://imv.seg-social.es/"
+      ],
+      [
+        "Preguntas frecuentes de la Seguridad Social sobre el CAPI",
+        "https://www.seg-social.es/wps/portal/wss/internet/FAQ/044f87eb-644b-41e1-a888-9c2cfafa78b8/42b9f3e8-8eea-4106-864e-2b5d5e"
+      ]
+    ],
+    "categoria": "Prestaciones sociales y familia"
+  },
+  {
+    "id": 38,
+    "perfil": "personal",
+    "tipo": "Prestación",
+    "titulo": "Renta Social Garantizada (RESOGA) · Illes Balears",
+    "organo": "Govern de les Illes Balears · Servicios Sociales",
+    "ambito": "Illes Balears",
+    "plazo": "Solicitud según situación; la sede no establece un plazo general de convocatoria",
+    "estadoManual": "Prestación sujeta a requisitos personales y económicos; verificar residencia en la fuente vigente",
+    "importe": "No se usa como filtro; consultar la fuente oficial",
+    "resumen": "Prestación periódica para personas, familias y unidades de convivencia en situación de vulnerabilidad económica en las Illes Balears. Es subsidiaria del IMV y está dirigida a personas físicas, no a sociedades.",
+    "reqs": {
+      "ccaa": "Illes Balears",
+      "social": "si"
+    },
+    "requisitos": [
+      "Situación de vulnerabilidad económica de la persona o unidad de convivencia",
+      "Haber solicitado el IMV previamente o acreditar que no se puede solicitar por no cumplir sus requisitos",
+      "Empadronamiento en un municipio de las Illes Balears",
+      "Las páginas oficiales consultadas muestran referencias distintas sobre la residencia mínima (12 meses en la ficha de sede y 3 años en la página de requisitos); verificar la norma vigente antes de evaluar el caso",
+      "Comprobar los requisitos de edad, unidad de convivencia, prestaciones previas y situación laboral en la sede oficial"
+    ],
+    "docs": [
+      "Solicitud oficial y documentos de identidad de la unidad de convivencia",
+      "Solicitud o resolución del IMV, salvo excepción prevista",
+      "Certificado histórico de empadronamiento y convivencia",
+      "Documentación de ingresos, prestaciones y residencia que exija la CAIB"
+    ],
+    "eval": "Solo para particulares/unidades de convivencia. No mostrar como ayuda para autónomos o SL en cuanto a beneficiario empresarial; si la persona tiene actividad económica, revisar cómo computa sus ingresos según las bases.",
+    "links": [
+      [
+        "Trámite oficial RESOGA · Sede electrónica CAIB",
+        "https://www.caib.es/seucaib/es/tramites/tramite/2615446/"
+      ],
+      [
+        "Requisitos oficiales RESOGA",
+        "https://caib.es/sites/rendasocialgarantida/es/requisitos_para_acceder_a_la_prestacion"
+      ]
+    ],
+    "categoria": "Prestaciones sociales"
+  },
+  {
+    "id": 39,
+    "perfil": "personal",
+    "tipo": "Prestación",
+    "titulo": "Prestación económica por nacimiento o adopción (Estado)",
+    "organo": "Seguridad Social · Estado",
+    "ambito": "Estatal",
+    "plazo": "Según nacimiento o adopción y requisitos; comprobar en la fuente oficial",
+    "estadoManual": "Derecho sujeto a supuestos familiares e ingresos; comprobar condiciones vigentes",
+    "importe": "No se usa como filtro; consultar la fuente oficial",
+    "resumen": "Prestación estatal de pago único por nacimiento o adopción en determinados supuestos, como familias numerosas o monoparentales y progenitores con discapacidad reconocida, sujeta a límites de ingresos. Es distinta de la prestación por nacimiento y cuidado de menor y está dirigida a personas físicas.",
+    "reqs": {
+      "familia": "si"
+    },
+    "requisitos": [
+      "Nacimiento o adopción que cumpla los supuestos establecidos por la Seguridad Social",
+      "Supuestos familiares previstos, como familia numerosa o monoparental, o discapacidad del progenitor en el grado exigido",
+      "Límites de ingresos y demás condiciones de la prestación",
+      "Comprobar normativa, plazo y documentación vigentes en la fuente oficial"
+    ],
+    "docs": [
+      "Documentación de identidad",
+      "Documentación del nacimiento o adopción",
+      "Acreditación de la situación familiar y, si procede, discapacidad e ingresos"
+    ],
+    "eval": "Ficha diferenciada de la prestación por nacimiento y cuidado de menor. Solo para personas/familias, nunca para SL; la Seguridad Social decide el derecho.",
+    "links": [
+      [
+        "Información oficial de la Seguridad Social sobre la prestación por nacimiento o adopción",
+        "https://www.seg-social.es/wps/portal/wss/internet/InformacionUtil/44539/44999/265"
+      ],
+      [
+        "Trámite oficial de prestación por nacimiento, adopción y cuidado de menor",
+        "https://prestaciones.seg-social.es/servicio/prestacion-nacimiento-adopcion-cuidado-menor.html"
+      ]
+    ],
+    "categoria": "Familia y nacimiento"
   }
 ]
