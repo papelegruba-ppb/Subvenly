@@ -1,20 +1,20 @@
 {
  "fecha": "2026-10-20",
- "recibidas": 298,
+ "recibidas": 299,
  "ejemplo": {
   "apiVersion": "2.157",
-  "reference": "50148919TOPICSen",
-  "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-HERITAGE-02",
+  "reference": "50149561TOPICSen",
+  "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-HERITAGE-07",
   "contentType": "text/plain",
   "language": "en",
   "databaseLabel": "SEDIA",
   "database": "SEDIA",
-  "summary": "AI4Creatives Support Platform: embracing a fair AI revolution",
+  "summary": "Societal impact of cultural heritage",
   "weight": 0.0,
   "groupById": "2",
-  "content": "AI4Creatives Support Platform: embracing a fair AI revolution",
+  "content": "Societal impact of cultural heritage",
   "accessRestriction": false,
-  "checksum": "9ADF2D636442610B3852807184935171393AEA285E16A39762EB6A5DD027A683",
+  "checksum": "B55CED22F5637D3ACEE8ED164F9BCEFE1B6FF21091A67341D98333E4D73A23BA",
   "metadata": {
    "latestInfos": [
     "[]"
@@ -23,36 +23,11 @@
     "2027-05-13T00:00:00.000+0000"
    ],
    "keywords": [
-    "HORIZON-CL2-2027-01-HERITAGE-02",
+    "HORIZON-CL2-2027-01-HERITAGE-07",
     "HORIZON-CL2-2027-01",
-    "Artificial intelligence, intelligent systems, multi agent systems",
-    "Arts, Art history",
-    "Business models",
-    "Capacity building",
-    "Copyrights",
-    "Creativity management",
-    "Cultural studies, cultural diversity",
-    "Data and image processing",
-    "Digitalisation/ICT and cultural heritage",
-    "Ethics in research and innovation",
-    "Experimentally-driven research and innovation",
-    "Information science (social aspects)",
-    "Innovation Management Assessment",
-    "Innovation Management Consulting",
-    "Knowledge and Technology transfer",
-    "Knowledge transfer",
-    "Knowledge translation",
-    "Linked open data",
-    "Media and socio-cultural communication",
-    "Performing arts studies (Musicology, Theater science, Dramaturgy)",
-    "Semantic web technologies",
-    "Social innovation",
-    "Technology development",
-    "Training",
-    "Training for artists",
-    "Trustworthy ICT",
-    "Visual arts, performing arts, design",
-    "Web and information systems, database systems, information retrieval and digital libraries, data fusion"
+    "Anthropology, ethnology",
+    "Cultural anthropology",
+    "Social structure, inequalities, social mobility, interethnic relations"
    ],
    "language": [
     "en"
@@ -89,10 +64,10 @@
     "43108390"
    ],
    "descriptionByte": [
-    "<p class=\"topicdescriptionkind\">Expected Outcome:</p><p>Projects should contribute to all of the following expected outcomes:</p><ul level=\"0\"><li>The cultural and creative sectors and industries (CCSI) have access to a dedicated European virtual AI support platform. This hub will facilitate collaboration among a strong and open network of CCSI networks, professionals, researchers, AI tech companies, creative startups, ethical AI experts, rights management infrastructures, other industries with a shared interest in the field of AI for culture and creativity and a focus on research and innovation.</li><li>The AI4Creatives Support Platform provides easy access to shared services, expertise, capacity building, training, and tools needed to design, develop and adopt AI solutions tailored to cultural and creative processes and needs, enhancing innovation and competitiveness.</li><li>Filling a gap, the platform enables the development and sharing of AI applications that adhere to EU values, principles and regulations, implementing transparency, ethical standards, promoting cultural diversity, addressing biases, and ensuring equitable access to culture and creativity. </li> </ul><p class=\"topicdescriptionkind\">Scope:</p><p>This topic addresses the pressing need to coordinate, support, disseminate and capitalise on relevant outcomes from Horizon Europe Cluster 2-funded projects aimed to equip CCSI to leverage the digital transformation, from other relevant Horizon Europe projects, and from initiatives exploring AI in relation to CCSI under other EU programmes, such as the AI Continent Action Plan, (including AI Factories, GenAI4EU, Apply AI and the envisaged AI strategy for cultural and creative sectors and industries), AI Innovation package, and others. The aim is maximising their impact and driving innovation and competitiveness.</p><p>AI offers significant opportunities for CCSI, but challenges persist, including skill gaps, limited interaction with technology partners, structural weaknesses of CCSI, mostly small and micro enterprises with weak bargaining power against big tech providers, and limited resources to train dedicated AI models. Other challenges relate to AI ethics, transparency and intellectual property rights, including copyright. By transcending siloed approaches and establishing synergies, CCSI can take advantage of economies of scale, harness AI's potential and drive innovation. The goal is establishing a permanent, networked reference point for CCSI through a virtual support platform that builds capacity and facilitates networking and collaboration among CCSI, stakeholders, researchers, technology developers, AI ethicists, and other industries and startups, with the overall aim to enable artists, cultural professionals, creative companies and cultural organisations to engage with AI, including dealing with biases and risks. The Support Platform is expected to enable the CCSI to access and utilize available custom-made tools, quality data, resources, knowledge, training, and AI applications aligned with their specific needs and with EU principles and regulations, thus easing the adoption of appropriate innovative ethical solutions and approaches tailored to the CCSI. Among the possible functions of the Support Platform should be:</p><ul level=\"0\"><li>Disseminate or develop frameworks, standards, best practices, and toolkits serving as strategic guidance for integrating ethical AI into CCSI value chains.</li><li>Facilitate cross-sector collaboration, synergies, and partnerships between CCSI professionals, AI tech companies, and startups, liaising with initiatives like the European Collaborative Cloud for Cultural Heritage (ECCCH), AI Factories, research infrastructures on cultural heritage and digital humanities, European Digital Innovation Hubs, ALT EDIC and LLMs4EU, Common European Data Space for Cultural heritage and other data spaces, and other EU initiatives in this area.</li><li>Build and develop a solid copyright infrastructure to support the use and licensing of copyright-protected content in the context of AI.</li><li>Suggest education and training frameworks and provide training to foster effective AI use in CCSI. Encourage CCSI and SMEs to engage with available federated data sources, digital infrastructures, computational resources, other available platforms to develop their own AI-powered products and services.</li><li>Develop a roadmap for emerging challenges in AI and other emerging technologies related to culture and creativity.</li><li>Engage in policy dialogues with policymakers, industry leaders, and stakeholders to emphasize culture's contribution to quality, ethical, and fair AI developments. </li> </ul><p>The platform is expected to develop and operate based on a robust sustainability and business model, ensuring long-term viability beyond the initial project phase. The business model should align with the platform’s objectives, ensuring it remains accessible to diverse organisations in terms of size and resources and that funding is not dominated by special interest groups.</p><p>The project should liaise with the EIT KIC Culture and Creativity to establish synergies, exchange information, and enhance mutual outcomes and impact. It should build on Horizon Europe funded projects in the area of AI and CCSI, particularly those funded under topics HORIZON-CL2-2025-01-HERITAGE-04: Leveraging artificial intelligence for creativity-driven innovation, HORIZON-CL2-2026-01-HERITAGE-03: AI integration in CCSI work practice: catalysing innovation and competitiveness, HORIZON-CL2-2026-01-HERITAGE-04: Towards a fair and transparent market for cultural and creative content in the era of generative AI, and establish synergies with relevant projects, and initiatives supported by other relevant EU programmes, such as Digital Europe, Creative Europe and their successors. The project should conduct a pilot of the virtual platform to ensure alignment with CCSI needs, assessing technical and operational feasibility to ensure sustainability over time. The virtual Support Platform should be fully operational by the project's conclusion.</p>"
+    "<p class=\"topicdescriptionkind\">Expected Outcome:</p><p>Projects should contribute to all of the following expected outcomes:</p><ul level=\"0\"><li>Enhanced understanding of the societal impact of cultural heritage; Good practices and case studies to enable positive societal impact described and documented, for the context of the research area chosen. </li><li>Capacity building and knowledge dissemination among practitioners and policymakers. </li><li>Produce and disseminate policy recommendations, guidance, and toolkits, supporting policymakers, in. the context of the research area chosen as appropriate. </li> </ul><p class=\"topicdescriptionkind\">Scope:</p><p>Heritage is a dynamic resource that can foster societal resilience, intercultural dialogue, and a sense of belonging in increasingly diverse and fragmented societies. It can contribute to social cohesion and resilience through arts, design and cultural practices. Thus, cultural heritage is central to the preservation of the social fabric and community cohesion. Understanding and amplifying the societal impact of cultural heritage is essential for reinforcing identity, cohesion, and global leadership based on shared values. Research proposals should explore how cultural heritage actively shapes civic engagement, social innovation, collective memory, and the transmission of democratic values.</p><p>Moreover, it is crucial to develop new narratives around heritage — ones that are forward-looking, critically aware, and deeply connected to Europe's evolving values. Such work will not only strengthen Europe's internal cohesion but also position cultural heritage as a strategic asset in addressing global challenges.</p><p>In this context, social innovation could also translate into working with cultural heritage practitioners and custodians to explore how cultural heritage can solve some of today's societal challenges (achieving better social inclusion, social cohesion, well-being, and equality). Whereas previous research (including contributions by SSH disciplines) has widely explored developing heritage-based education, contribution of culture to rural development and cultural tourism, there are some fields that could benefit from more research: cultural participation and access to culture, with a focus on young people; gender roles and identities; a shared cultural heritage and shared responsibility in the light of security challenges.</p><p>Research projects should choose one of the following areas:</p><p>A. <strong>Cultural participation and access to cultural heritage</strong></p><p>Access to culture, acquired through socialisation and education, plays a crucial role in shaping cultural practices and preferences. As mentioned in the Political Guidelines<sup>[1]</sup> for the European Commission, there is a need to improve access to cultural heritage, in particular for young people, and contribute to tackle cultural inequality and strengthen a sense of identity and belonging. In addition, attention should be paid to disadvantaged groups, eventually solidifying participatory culture and democracy and fostering a sense of stewardship towards cultural heritage.</p><p>A Special Eurobarometer on Europeans’ Attitudes Towards Culture<sup>[2]</sup>, published in May 2025, showed that a majority of Europeans believe that their country and the EU should work more closely together when it comes to making arts and culture more accessible to everyone.</p><p>Prior research<sup>[3]</sup> indicates that increased cultural participation can potentially enhance civic engagement, social inclusion, and democratic governance, and counteract alienation and social disengagement. However, research also indicates profound and multifaceted barriers to access. These barriers include, for example, geography, including the challenge of rural isolation; under-representation of minority groups; economic disparity.</p><p>The proposals should explore good practices for fostering access to cultural heritage, with a focus on young people and ways to empower them to take an active role in their communities and strengthen social cohesion. Proposals should also explore which are the main barriers for access to culture and effective means to increase cultural participation, identifying specificities for different types of groups.</p><p>The proposals should employ interdisciplinary and participatory methods to identify effective models for inclusive cultural participation. Results are expected to guide policies on cultural access, with recommendations, for instance, for digital infrastructure, educational programmes, and cross-sector collaboration to foster inclusive citizenship.</p><p>B. <strong>Gender roles and identities</strong></p><p>Cultural heritage has the power to promote diversity and inclusion by showcasing diverse narratives and histories, but it can also perpetuate inequality if stereotypes, cultural role models, and representations are limited or biased, silencing marginalised voices.</p><p>The proposed research should explore the complex relationships between cultural productions, representations and societal attitudes towards different sexes and gender identities, with a focus on understanding how culture can shape our cultural landscape and influence our attitudes and imaginaries.</p><p>Proposals should provide an analysis of the representation and overview of different gender identities and intersecting factors such as racial or ethnical background, disability or socioeconomic background, in cultural fields. Proposals should explore how gender aspects have been absent, or forgotten, in major supranational cultural narratives. Proposals should provide actionable recommendations on how to promote a more inclusive and diverse representation, including in the cultural content, and to address the absence of diverse representations in the cultural field. These recommendations should be developed in a dialogue with different stakeholders, for example researchers, policymakers, cultural heritage institutions, civil society representatives.</p><p>C. <strong>Cultural heritage, cohesion and security</strong></p><p>The proposed research should explore the role and conceptualisation of cultural heritage as a distinctive element of our shared identities and democratic values. It should also examine the links between culture and security including issues of disinformation and foreign information manipulation and interference (FIMI) etc. Proposals are expected to explore the notions of shared heritage and shared responsibility as an expression of our social interdependence, and culture as a factor of union and cohesion.</p><p>Cases of instrumentalisation of cultural heritage and the political influence on museums or other cultural institutions should also be taken into account in the research. Culture can also face factors of destabilisation, attacks on cultural heritage can destabilise society and jeopardize security while cultural content can greatly influence public opinion and the imaginaries. The proposals should explore how to deal with polarising narratives and controversial aspects of cultural heritage use.</p><p>The proposals should propose good practices, policy guidelines, run pilot projects and propose didactic materials to raise awareness on existing challenges, enhance “neutrality” in cultural heritage management, collective responsibility and cultural resilience; explore the notions of care and repair applied to cultural heritage.</p><p>Proposals shall clearly indicate the thematic area they have selected to work on.</p><p>Proposals should adopt a multidisciplinary approach (involving, for instance and not exhaustively, heritage and museum studies, cultural anthropology, ethnology, media studies, theatre studies, literary studies, musicology etc.) to assess and demonstrate how cultural heritage initiatives contribute to societal well-being, community empowerment, inclusion, and sustainable development while identification of needs for further research in the field should be promoted.</p><p>Proposals should prioritize empirical research, participatory methodologies, and policy innovation to maximize and communicate the transformative power of cultural heritage across all layers of society.</p><p>Proposals should connect to both formal and non-formal education, particularly arts education. Encouraging collaboration between cultural heritage actors and educational institutions would enhance impact.</p><p>Proposals should build on existing knowledge, activities, networks and platforms, notably the ones funded by the EU, for example paying attention to the future digital tools and platforms provided by the European Collaborative Cloud for Cultural Heritage (ECCCH), and the Common European Data Space for Cultural Heritage.</p><p>Furthermore, links should be established and complementarities sought with closely related actions, such as relevant R&amp;I actions funded by Horizon Europe or Horizon 2020.</p><p class=\"eui-u-font-s\">[1] <sup> </sup><a href=\"https://commission.europa.eu/document/download/e6cd4328-673c-4e7a-8683-f63ffb2cf648_en?filename=PoliticalGuidelines2024-2029_EN.pdf\">https://commission.europa.eu/document/download/e6cd4328-673c-4e7a-8683-f63ffb2cf648_en?filename=Political%20Guidelines%202024-2029_EN.pdf</a></p><p class=\"eui-u-font-s\">[2] <sup> </sup><a href=\"https://culture.ec.europa.eu/news/eurobarometer-publishes-findings-on-europeans-attitudes-towards-culture\">https://culture.ec.europa.eu/news/eurobarometer-publishes-findings-on-europeans-attitudes-towards-culture</a></p><p class=\"eui-u-font-s\">[3] <sup> </sup><a href=\"https://op.europa.eu/en/publication-detail/-/publication/07370fba-110d-11ee-b12e-01aa75ed71a1/language-en\">Culture and democracy, the evidence - Publications Office of the EU</a></p>"
    ],
    "identifier": [
-    "HORIZON-CL2-2027-01-HERITAGE-02"
+    "HORIZON-CL2-2027-01-HERITAGE-07"
    ],
    "es_ContentType": [
     "text/plain"
@@ -107,118 +82,45 @@
     "2"
    ],
    "esST_URL": [
-    "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-HERITAGE-02"
+    "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-HERITAGE-07"
    ],
    "tags": [
-    "AI support platform",
-    "CCSI",
-    "EU regulation compliance",
-    "SME empowerment",
-    "accessibility",
-    "business model sustainability",
-    "capacity building",
-    "copyright infrastructure",
-    "creative ecosystem.",
-    "creative innovation",
-    "creative startups",
-    "cross-sector collaboration",
-    "cultural and creative sectors",
-    "cultural diversity",
-    "custom AI models",
-    "data quality",
-    "digital humanities",
-    "digital infrastructures",
-    "digital tools",
-    "digital transformation",
-    "economies of scale",
-    "emerging technologies",
-    "ethical AI",
-    "federated data",
-    "inclusion",
-    "knowledge sharing",
-    "market access",
-    "policy dialogue",
-    "resource sharing",
-    "rights management",
-    "skill gaps",
-    "standards",
-    "transparency"
+    "cultural heritage",
+    "cultural studies",
+    "gender",
+    "imaginary",
+    "informal education",
+    "intergenerational",
+    "social representations",
+    "sociology",
+    "youth"
    ],
    "cenTagsA": [
-    "TOPICS-030793",
-    "TOPICS-030794",
-    "TOPICS-000015",
-    "TOPICS-030795",
-    "TOPICS-003468",
-    "TOPICS-030796",
-    "TOPICS-030797",
-    "TOPICS-030798",
-    "TOPICS-021243",
-    "TOPICS-001590",
-    "TOPICS-009980",
-    "TOPICS-021473",
-    "TOPICS-030799",
-    "TOPICS-030800",
-    "TOPICS-020515",
-    "TOPICS-000506",
-    "TOPICS-014877",
-    "TOPICS-006984",
-    "TOPICS-030801",
-    "TOPICS-030802",
-    "TOPICS-030803",
-    "TOPICS-001603",
-    "TOPICS-000204",
-    "TOPICS-001521",
-    "TOPICS-017026",
-    "TOPICS-030804",
-    "TOPICS-030805",
-    "TOPICS-030806",
-    "TOPICS-010494",
-    "TOPICS-030807",
-    "TOPICS-030808",
-    "TOPICS-030809",
-    "TOPICS-011354",
-    "TOPICS-014074",
-    "TOPICS-007053",
-    "TOPICS-014977",
-    "TOPICS-030810",
-    "TOPICS-030811",
-    "TOPICS-006632",
-    "TOPICS-006510",
-    "TOPICS-002716",
-    "TOPICS-000794",
-    "TOPICS-001580",
-    "TOPICS-008874",
-    "TOPICS-010354",
-    "TOPICS-001105",
-    "TOPICS-000323",
-    "TOPICS-016759",
-    "TOPICS-001469",
-    "TOPICS-016028",
-    "TOPICS-000288",
-    "TOPICS-010301",
-    "TOPICS-012392",
-    "TOPICS-002848",
-    "TOPICS-000851",
-    "TOPICS-004833",
-    "TOPICS-000289",
-    "TOPICS-006299",
-    "TOPICS-000290",
-    "TOPICS-000775",
-    "TOPICS-011330",
-    "TOPICS-003179",
-    "TOPICS-003502",
-    "TOPICS-000375",
-    "TOPICS-000833"
+    "TOPICS-025170",
+    "TOPICS-001719",
+    "TOPICS-003981",
+    "TOPICS-000795",
+    "TOPICS-012912",
+    "TOPICS-010655",
+    "TOPICS-005653",
+    "TOPICS-001126",
+    "TOPICS-000536",
+    "TOPICS-025171",
+    "TOPICS-001140",
+    "TOPICS-017074",
+    "TOPICS-025172",
+    "TOPICS-013641",
+    "TOPICS-001136",
+    "TOPICS-014062"
    ],
    "esDA_QueueDate": [
-    "2026-03-02T10:52:54.954+0100"
+    "2026-03-02T10:59:39.527+0100"
    ],
    "destinationDescription": [
     "Innovative Research on European Cultural Heritage and Cultural and Creative Industries (2026-27)"
    ],
    "actions": [
-    "[{\"types\":[{\"typeOfAction\":\"HORIZON-CSA HORIZON Coordination and Support Actions\",\"typeOfMGA\":[{\"id\":43027849,\"abbreviation\":\"HORIZON-AG-LS\",\"description\":\"HORIZON Lump Sum Grant\"}]}],\"status\":{\"id\":31094501,\"abbreviation\":\"Forthcoming\",\"description\":\"Forthcoming\"},\"plannedOpeningDate\":\"2027-05-13\",\"submissionProcedure\":{\"id\":31094504,\"abbreviation\":\"single-stage\",\"description\":\"single-stage\"},\"deadlineDates\":[\"2027-09-23\"]}]"
+    "[{\"types\":[{\"typeOfAction\":\"HORIZON-RIA HORIZON  Research and Innovation Actions\",\"typeOfMGA\":[{\"id\":43027849,\"abbreviation\":\"HORIZON-AG-LS\",\"description\":\"HORIZON Lump Sum Grant\"}]}],\"status\":{\"id\":31094501,\"abbreviation\":\"Forthcoming\",\"description\":\"Forthcoming\"},\"plannedOpeningDate\":\"2027-05-13\",\"submissionProcedure\":{\"id\":31094504,\"abbreviation\":\"single-stage\",\"description\":\"single-stage\"},\"deadlineDates\":[\"2027-09-23\"]}]"
    ],
    "startDate": [
     "2027-05-13T00:00:00.000+0000"
@@ -242,22 +144,22 @@
     "48080701"
    ],
    "topicConditions": [
-    "<div class=\"eui-u-mt-l>\"><h4>General conditions</h4><div><h4>1. Admissibility Conditions: Proposal page limit and layout</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-15-general-annexes_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex A</a> and <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-15-general-annexes_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex E</a> of the Horizon Europe Work Programme General Annexes.</p><p><strong>Proposal page limits and layout:</strong> described in Part B of the Application Form available in the Submission System.</p></div></div><div><h4>2. Eligible Countries</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-15-general-annexes_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex B</a> of the Work Programme General Annexes.</p><p>A number of non-EU/non-Associated Countries that are not automatically eligible for funding have made specific provisions for making funding available for their participants in Horizon Europe projects. See the information in the <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/programme-guide_horizon_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Horizon Europe Programme Guide</a>.</p></div></div><div><h4>3. Other Eligible Conditions</h4><div class=\"eui-u-mt-s\"><p>Subject to restrictions for the protection of European communication networks.</p></div><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-15-general-annexes_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex B</a> of the Work Programme General Annexes.</p></div></div><div><h4>4. Financial and operational capacity and exclusion</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-15-general-annexes_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex C</a> of the Work Programme General Annexes.</p></div></div><div><h4>5a. Evaluation and award: Award criteria, scoring and thresholds</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-15-general-annexes_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex D</a> of the Work Programme General Annexes.</p></div></div><div><h4>5b. Evaluation and award: Submission and evaluation processes</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-15-general-annexes_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex F</a> of the Work Programme General Annexes and the <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/guidance/om_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Online Manual</a>.</p></div></div><div><h4>5c. Evaluation and award: Indicative timeline for evaluation and grant agreement</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-15-general-annexes_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex F</a> of the Work Programme General Annexes.</p></div></div><div><h4>6. Legal and financial set-up of the grants</h4><div class=\"eui-u-mt-s\"><p>Eligible costs will take the form of a lump sum as defined in the Decision of 7 July 2021 authorising the use of lump sum contributions under the Horizon Europe Programme – the Framework Programme for Research and Innovation (2021-2027) – and in actions under the Research and Training Programme of the European Atomic Energy Community (2021-2025) [[This <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/ls-decision_he_en.pdf\"><u>decision</u></a> is available on the Funding and Tenders Portal, in the reference documents section for Horizon Europe, under ‘Simplified costs decisions’ or through this link: <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/ls-decision_he_en.pdf\"><u>https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/ls-decision_he_en.pdf</u></a>]].</p></div><div class=\"eui-u-mt-s\"><p>In addition, as described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex G</a> of the Work Programme General Annexes.</p></div></div></div><div class=\"eui-u-mt-l\"><h4>Specific conditions</h4> <div class=\"eui-u-mt-s\"><p>As described in the specific topic of the Work Programme.</p></div></div><div class=\"eui-u-mt-l\"><div class=\"eui-u-mt-s\">\n</div><h4>Application and evaluation forms and model grant agreement (MGA):</h4> <div class=\"eui-u-mt-s\"><p><strong>Application form templates</strong> <em>— the application form specific to this call is available in the Submission System</em></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/temp-form/af/af_he-csa_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Standard application form (HE CSA)</a> </p><p><strong>Evaluation form templates</strong> <em>— will be used with the necessary adaptations</em>&#xa0;</p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/temp-form/ef/ef_he-csa_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Standard evaluation form (HE CSA)</a>&#xa0;</p><p><strong>Guidance</strong></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/programme-guide_horizon_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">HE Programme Guide</a>&#xa0;</p><p><strong>Model Grant Agreements (MGA)</strong></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/agr-contr/ls-mga_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Lump Sum MGA</a>&#xa0;</p><p><strong>Call-specific instructions</strong>&#xa0;</p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/temp-form/af/detailed-budget-table_he-ls-euratom_en.xlsm\" rel=\"noopener noreferrer\" target=\"_blank\">Detailed budget table (HE LS)</a>&#xa0;</p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/ls-funding-what-do-i-need-to-know_he_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Guidance: \"Lump sums - what do I need to know?\"</a></p></div><h4>Additional documents:</h4> <div class=\"eui-u-mt-s\"><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-1-general-introduction_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">HE Main Work Programme 2026-2027 – 1. General Introduction</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-5-culture-creativity-and-inclusive-society_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">HE Main Work Programme 2026-2027 – 5. Culture, Creativity and Inclusive Society</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-15-general-annexes_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">HE Main Work Programme 2026-2027 – 15. General Annexes</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/programme-guide_horizon_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">HE Programme Guide</a></p><p><a href=\"https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32021R0695\" rel=\"noopener noreferrer\" target=\"_blank\">HE Framework Programme 2021/695</a></p><p><a href=\"https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32021D0764\" rel=\"noopener noreferrer\" target=\"_blank\">HE Specific Programme Decision 2021/764</a></p><p><a href=\"https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=OJ:L_202402509\" rel=\"noopener noreferrer\" target=\"_blank\">EU Financial Regulation 2024/2509</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/ls-decision_he_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Decision authorising the use of lump sum contributions under the Horizon Europe Programme</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/guidance/rules-lev-lear-fca_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Rules for Legal Entity Validation, LEAR Appointment and Financial Capacity Assessment</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/guidance/aga_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">EU Grants AGA — Annotated Model Grant Agreement</a> </p><p><a href=\"https://webgate.ec.europa.eu/funding-tenders-opportunities/display/OM/Online+Manual\" rel=\"noopener noreferrer\" target=\"_blank\">Funding &amp; Tenders Portal Online Manual</a>&#xa0;</p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/ftp/tc_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Funding &amp; Tenders Portal Terms and Conditions</a>&#xa0;</p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/support/legalnotice\" rel=\"noopener noreferrer\" target=\"_blank\">Funding &amp; Tenders Portal Privacy Statement</a></p></div></div>"
+    "<div class=\"eui-u-mt-l>\"><h4>General conditions</h4><div><h4>1. Admissibility Conditions: Proposal page limit and layout</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex A</a> and <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex E</a> of the Horizon Europe Work Programme General Annexes.</p><p><strong>Proposal page limits and layout:</strong> described in Part B of the Application Form available in the Submission System.</p></div></div><div><h4>2. Eligible Countries</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex B</a> of the Work Programme General Annexes.</p><p>A number of non-EU/non-Associated Countries that are not automatically eligible for funding have made specific provisions for making funding available for their participants in Horizon Europe projects. See the information in the <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/programme-guide_horizon_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Horizon Europe Programme Guide</a>.</p></div></div><div><h4>3. Other Eligible Conditions</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex B</a> of the Work Programme General Annexes.</p></div></div><div><h4>4. Financial and operational capacity and exclusion</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex C</a> of the Work Programme General Annexes.</p></div></div><div><h4>5a. Evaluation and award: Award criteria, scoring and thresholds</h4><div class=\"eui-u-mt-s\"><p>To ensure a balanced portfolio, grants will be awarded to applications not only in order of ranking but at least also to those that are the highest ranked within each area provided in the scope (A, B and C), provided that the applications attain all thresholds. </p></div><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex D</a> of the Work Programme General Annexes.</p></div></div><div><h4>5b. Evaluation and award: Submission and evaluation processes</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex F</a> of the Work Programme General Annexes and the <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/guidance/om_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Online Manual</a>.</p></div></div><div><h4>5c. Evaluation and award: Indicative timeline for evaluation and grant agreement</h4><div class=\"eui-u-mt-s\"><p>As described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex F</a> of the Work Programme General Annexes.</p></div></div><div><h4>6. Legal and financial set-up of the grants</h4><div class=\"eui-u-mt-s\"><p>The granting authority may, up to 4 years after the end of the action, object to a transfer of ownership or to the exclusive licensing of results, as set out in the specific provision of Annex 5.</p></div><div class=\"eui-u-mt-s\"><p>Eligible costs will take the form of a lump sum as defined in the Decision of 7 July 2021 authorising the use of lump sum contributions under the Horizon Europe Programme – the Framework Programme for Research and Innovation (2021-2027) – and in actions under the Research and Training Programme of the European Atomic Energy Community (2021-2025) [[This <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/ls-decision_he_en.pdf\"><u>decision</u></a> is available on the Funding and Tenders Portal, in the reference documents section for Horizon Europe, under ‘Simplified costs decisions’ or through this link: <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/ls-decision_he_en.pdf\"><u>https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/ls-decision_he_en.pdf</u></a>]].</p></div><div class=\"eui-u-mt-s\"><p>In addition, as described in <a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2025/wp-14-general-annexes_horizon-2025_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Annex G</a> of the Work Programme General Annexes.</p></div></div></div><div class=\"eui-u-mt-l\"><h4>Specific conditions</h4> <div class=\"eui-u-mt-s\"><p>As described in the specific topic of the Work Programme.</p></div></div><div class=\"eui-u-mt-l\"><div class=\"eui-u-mt-s\">\n</div><h4>Application and evaluation forms and model grant agreement (MGA):</h4> <div class=\"eui-u-mt-s\"><p><strong>Application form templates</strong> <em>— the application form specific to this call is available in the Submission System</em></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/temp-form/af/af_he-ria-ia_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Standard application form (HE RIA, IA)</a></p><p><strong>Evaluation form templates</strong> <em>— will be used with the necessary adaptations</em> </p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/temp-form/ef/ef_he-ria-ia_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Standard evaluation form (HE RIA, IA)</a>&#xa0;</p><p><strong>Guidance</strong></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/programme-guide_horizon_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">HE Programme Guide</a>&#xa0;</p><p><strong>Model Grant Agreements (MGA)</strong></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/agr-contr/ls-mga_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Lump Sum MGA</a>&#xa0;</p><p><strong>Call-specific instructions</strong>&#xa0;</p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/temp-form/af/detailed-budget-table_he-ls-euratom_en.xlsm\" rel=\"noopener noreferrer\" target=\"_blank\">Detailed budget table (HE LS)</a>&#xa0;</p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/ls-funding-what-do-i-need-to-know_he_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Guidance: \"Lump sums - what do I need to know?\"</a></p></div><h4>Additional documents:</h4> <div class=\"eui-u-mt-s\"><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-1-general-introduction_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">HE Main Work Programme 2026-2027 – 1. General Introduction</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-5-culture-creativity-and-inclusive-society_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">HE Main Work Programme 2026-2027 – 5. Culture, Creativity and Inclusive Society</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-15-general-annexes_horizon-2026-2027_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">HE Main Work Programme 2026-2027 – 15. General Annexes</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/programme-guide_horizon_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">HE Programme Guide</a></p><p><a href=\"https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32021R0695\" rel=\"noopener noreferrer\" target=\"_blank\">HE Framework Programme 2021/695</a></p><p><a href=\"https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32021D0764\" rel=\"noopener noreferrer\" target=\"_blank\">HE Specific Programme Decision 2021/764</a></p><p><a href=\"https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=OJ:L_202402509\" rel=\"noopener noreferrer\" target=\"_blank\">EU Financial Regulation 2024/2509</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/ls-decision_he_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Decision authorising the use of lump sum contributions under the Horizon Europe Programme</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/guidance/rules-lev-lear-fca_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Rules for Legal Entity Validation, LEAR Appointment and Financial Capacity Assessment</a></p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/guidance/aga_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">EU Grants AGA — Annotated Model Grant Agreement</a></p><p><a href=\"https://webgate.ec.europa.eu/funding-tenders-opportunities/display/OM/Online+Manual\" rel=\"noopener noreferrer\" target=\"_blank\">Funding &amp; Tenders Portal Online Manual</a> </p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/ftp/tc_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Funding &amp; Tenders Portal Terms and Conditions</a>&#xa0;</p><p><a href=\"https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/support/legalnotice\" rel=\"noopener noreferrer\" target=\"_blank\">Funding &amp; Tenders Portal Privacy Statement</a></p></div></div>"
    ],
    "title": [
-    "AI4Creatives Support Platform: embracing a fair AI revolution"
+    "Societal impact of cultural heritage"
    ],
    "esST_checksum": [
-    "9ADF2D636442610B3852807184935171393AEA285E16A39762EB6A5DD027A683"
+    "B55CED22F5637D3ACEE8ED164F9BCEFE1B6FF21091A67341D98333E4D73A23BA"
    ],
    "esST_FileName": [
     "file.txt"
    ],
    "ccm2Id": [
-    "50148919"
+    "50149561"
    ],
    "REFERENCE": [
-    "50148919TOPICSen"
+    "50149561TOPICSen"
    ],
    "programmeDivision": [
     "43108390",
@@ -268,20 +170,19 @@
    "crossCuttingPriorities": [
     "AI",
     "SSH",
-    "DigitalAgenda",
-    "SocInnov"
+    "DigitalAgenda"
    ],
    "esDA_FirstIngestDate": [
-    "2025-12-15T20:05:31.534+0100"
+    "2025-12-15T20:05:35.667+0100"
    ],
    "esDA_IngestDate": [
-    "2026-03-02T10:52:54.967+0100"
+    "2026-03-02T10:59:39.543+0100"
    ],
    "typesOfAction": [
-    "HORIZON Coordination and Support Actions"
+    "HORIZON  Research and Innovation Actions"
    ],
    "url": [
-    "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-HERITAGE-02"
+    "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-HERITAGE-07"
    ],
    "allowPartnerSearch": [
     "true"
@@ -294,6 +195,6 @@
   "enrichedMetadata": {},
   "children": [],
   "highlightedFragments": [],
-  "citation": "AI4Creatives Support Platform: embracing a fair AI revolution. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-HERITAGE-02"
+  "citation": "Societal impact of cultural heritage. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-HERITAGE-07"
  }
 }
