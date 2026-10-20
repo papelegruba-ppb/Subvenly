@@ -60,7 +60,7 @@ def main():
     html = (ROOT / "index.html").read_text(encoding="utf-8")
     # Comprobaciones estáticas de rutas y filtros principales de la interfaz.
     for token in ('id="advf"', 'function aplicaPerfil(a)', 'function controlPregunta(k)',
-                  'Todos los ámbitos', 'Todos los organismos', 'Pendientes', 'Por verificar',
+                  'Todos los ámbitos', 'Todos los organismos', 'Todos los objetivos', 'categoriaAyuda', 'Pendientes', 'Por verificar',
                   'nacimientoFecha:"date"', 'menores:"number"', 'compatAyuda'):
         exigir(token in html, "Falta función o control de test/filtros: " + token)
     # Cada requisito usado por las fichas debe tener una pregunta visible en el test.
