@@ -25,7 +25,7 @@ FEEDS = [
 # ---------- AJUSTES ----------
 DIAS_PRIMERA_VEZ = 7     # cuántos días atrás mira la primera vez
 MARGEN_DIAS = 1
-MAX_FICHEROS = 60        # tope de ficheros de 500 entradas por fuente y ejecución
+MAX_FICHEROS = 6        # tope de ficheros de 500 entradas por fuente y ejecución
 MAX_ITEMS = 4000
 SIN_PLAZO_DIAS = 30      # si una licitación no indica fecha límite, se conserva este tiempo
 TIPOS = {"1": "Suministros", "2": "Servicios", "3": "Obras", "21": "Gestión de servicios públicos",
@@ -52,15 +52,15 @@ def desc(e, nombre):
 def txt(e):
     return " ".join((e.text or "").split()) if e is not None else ""
 
-def leer_url(url, intentos=3):
+def leer_url(url, intentos=2):
     req = urllib.request.Request(url, headers={"User-Agent": "Subvenly/1.0 (+actualizacion nocturna)"})
     for i in range(intentos):
         try:
-            with urllib.request.urlopen(req, timeout=120) as r:
+            with urllib.request.urlopen(req, timeout=30) as r:
                 return r.read()
         except (urllib.error.URLError, TimeoutError) as e:
             print(f"  intento {i+1}/{intentos} fallido: {e}")
-            time.sleep(4 * (i + 1))
+            time.sleep(2 * (i + 1))
     raise RuntimeError("No se pudo descargar " + url)
 
 def importe(v):
