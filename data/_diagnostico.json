@@ -1,8 +1,8 @@
 {
- "fecha": "2026-10-20",
- "recibidas": 311,
- "relevantes": 63,
- "detalles_pedidos": 0,
+ "fecha": "2026-10-21",
+ "recibidas": 613,
+ "relevantes": 126,
+ "detalles_pedidos": 63,
  "detalle_funciona": true,
  "claves_primer_elemento": [
   "codigoInvente",
@@ -17,15 +17,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1137874,
+  "id": 1138188,
   "mrr": false,
-  "numeroConvocatoria": "936313",
-  "descripcion": "SUBVENCIÓN NOMINATIVA A LA ENTIDADE SINSAL AUDIO S.L PARA EL DESARROLLO  DEL  FESTIVAL SINSAL PRIMAVERA 2026",
-  "descripcionLeng": "SUBVENCIÓN NOMINATIVA Á ENTIDADE SINSAL AUDIO S.L PARA O DESENVOLVEMENTO DO FESTIVAL SINSAL PRIMAVEIRA 2026",
-  "fechaRecepcion": "2026-10-19",
+  "numeroConvocatoria": "936627",
+  "descripcion": "Solicitud Subvención Nominativa del Ayuntamiento de Villar del Pozo para Renovación luminarias\n\t",
+  "descripcionLeng": null,
+  "fechaRecepcion": "2026-10-20",
   "nivel1": "LOCAL",
-  "nivel2": "VIGO",
-  "nivel3": "AYUNTAMIENTO DE VIGO",
+  "nivel2": "DIPUTACIÓN PROV. DE CIUDAD REAL",
+  "nivel3": "DIPUTACIÓN PROVINCIAL DE CIUDAD REAL",
   "codigoInvente": null
  }
 }
