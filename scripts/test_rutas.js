@@ -62,12 +62,12 @@ assert(q.includes("familiaEvento") && !q.includes("empleoSituacion"),
   "La ruta familiar debe evitar preguntas de desempleo.");
 assert(!context.mostrar("empleoSituacion"), "No debe mostrar preguntas de empleo en la ruta familiar.");
 
-setAnswers({perfil:"ambos",situacionPersonal:"desempleo",familia:"si"});
+setAnswers({perfil:"ambos",situacionPersonal:"desempleo",familia:"si",direccionIgual:"no"});
 q = sequence();
 assert(q.includes("alta") && q.includes("ccaa") && q.includes("situacionPersonal") && q.includes("empleoSituacion"),
   "El perfil mixto debe conservar la ruta de negocio y mostrar la ruta personal aunque falte forma jurídica.");
 
-setAnswers({perfil:"ambos",ccaa:"Comunidad de Madrid",provincia:"Madrid",municipio:"Madrid",ccaaResidencia:"Cataluña",provinciaResidencia:"Barcelona",municipioResidencia:"Barcelona"});
+setAnswers({perfil:"ambos",direccionIgual:"no",ccaa:"Comunidad de Madrid",provincia:"Madrid",municipio:"Madrid",ccaaResidencia:"Cataluña",provinciaResidencia:"Barcelona",municipioResidencia:"Barcelona"});
 q = sequence();
 assert(q.includes("ccaa") && q.includes("ccaaResidencia") && q.includes("municipioResidencia"),
   "El perfil mixto debe recoger por separado la ubicación de actividad y la residencia.");
