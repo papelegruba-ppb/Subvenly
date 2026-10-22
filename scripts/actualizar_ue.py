@@ -23,7 +23,7 @@ BUSQUEDAS = [
     "youth", "civil society organisations", "non-profit organisations", "health", "transport and mobility",
     "biodiversity", "women and equality", "sport", "public authorities", "citizens"
 ]
-PAGINAS = 3          # páginas de 50 resultados por búsqueda
+PAGINAS = 2          # páginas de 50 resultados por búsqueda para repartir consultas entre más temas
 ESTADOS = ["31094501", "31094502"]   # próximas y abiertas
 TIPOS = ["1", "2", "8"]              # subvenciones, premios y financiación en cascada
 # -----------------------------
@@ -45,13 +45,13 @@ def consultar(texto, pagina):
     url = API + "?" + urllib.parse.urlencode({"apiKey": "SEDIA", "text": texto, "pageSize": 50, "pageNumber": pagina})
     req = urllib.request.Request(url, data=cuerpo, method="POST", headers={
         "Content-Type": f"multipart/form-data; boundary={limite}", "User-Agent": "Subvenly/1.0", "Accept": "application/json"})
-    for i in range(3):
+    for i in range(2):
         try:
-            with urllib.request.urlopen(req, timeout=60) as r:
+            with urllib.request.urlopen(req, timeout=20) as r:
                 return json.load(r)
         except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
             print(f"  intento {i+1}/3 fallido: {e}")
-            time.sleep(3 * (i + 1))
+            time.sleep(1 * (i + 1))
     raise RuntimeError("No se pudo consultar el portal de la UE")
 
 def convertir(r, hoy):
