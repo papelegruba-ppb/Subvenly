@@ -53,7 +53,7 @@ INCLUIR = [
     "cultura", "cultural", "patrimonio", "patrimoni", "museo", "cinematograf", "audiovisual",
     "artes escenicas", "arts esceniques", "deporte", "deportiv", "esport", "club deportivo",
     "investigacion", "investigacio", "ciencia", "cientific", "agricultura", "agricola",
-    "ganaderia", "ramaderia", "pesca", "acuicultura", "forestal", "explotacion agraria",
+    "ganader", "ramader", "pesca", "acuicultura", "forestal", "explotacion agraria",
     "medio ambiente", "medi ambient", "biodiversidad", "biodiversitat", "residuos", "residus",
     "agua", "sequía", "sequia", "incendio", "incendis", "inundacion", "inundacio", "catastrofe",
     "catastrofe", "dana", "emergencia", "combustible", "gasoleo", "gasoil", "carburante",
