@@ -170,6 +170,7 @@ class TestConvocatoriasUE(unittest.TestCase):
         self.assertEqual(item["plazo_inicio"], "2027-02-01")
         self.assertEqual(item["plazo_fin"], "2027-05-30")
         self.assertEqual(item["estadoConvocatoria"], "próxima")
+        self.assertEqual(item["fuente"], "Comisión Europea")
 
 
 class TestLicitaciones(unittest.TestCase):

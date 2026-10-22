@@ -101,6 +101,7 @@ def main():
            "El RSS CIDO de becas debe estar registrado como fuente oficial y atribuida")
     cido_script = (ROOT / "scripts" / "actualizar_cido.py").read_text(encoding="utf-8")
     bdns_script = (ROOT / "scripts" / "actualizar.py").read_text(encoding="utf-8")
+    ue_script = (ROOT / "scripts" / "actualizar_ue.py").read_text(encoding="utf-8")
     workflow = (ROOT / ".github" / "workflows" / "actualizar.yml").read_text(encoding="utf-8")
     exigir("def parsear_rss(" in cido_script and "https://cido.diba.cat/rss/subvencions/beques" in cido_script and '"estadoConvocatoria": "por verificar"' in cido_script and
            "licenciaDatos" in cido_script and "def combinar(" in cido_script,
@@ -108,6 +109,8 @@ def main():
     exigir("id: buscar_cido" in workflow and "CIDO_OUTCOME" in workflow and
            "def es_bdns(item)" in bdns_script and "if not es_bdns(item):" in bdns_script,
            "El flujo debe ejecutar CIDO y evitar consultar sus IDs como si fueran de BDNS")
+    exigir('"fuente": "Comisión Europea"' in ue_script and '"estadoConvocatoria": estado_convocatoria' in ue_script,
+           "El importador europeo debe identificar la fuente y conservar el estado de la convocatoria")
     monitor_script = (ROOT / "scripts" / "vigilar_fuentes.py").read_text(encoding="utf-8")
     exigir("ThreadPoolExecutor" in monitor_script and "MAX_WORKERS = 8" in monitor_script and
            "TIMEOUT_ROBOTS = 6" in monitor_script and "TIMEOUT_PAGINA = 12" in monitor_script,
@@ -152,11 +155,14 @@ def main():
     exigir("opcionesPregunta(k)" in perfil_ui and "function selCcaaResidencia()" in html and "ccaaResidencia" in perfil_ui and "dgsimulador/introSimulador.do" in perfil_ui and
            "idAmb=100404&idProc=133655" in perfil_ui and "solicitud-informes-riesgos-cirbe-p58.html" in perfil_ui,
            "La interfaz efectiva no presenta los selectores nuevos o el simulador SEPE")
-    exigir("CIDO" in novedades_top_ui and "Fuente: CIDO" in novedades_cards_ui,
+    exigir("CIDO" in novedades_top_ui and "fuenteNov(n)" in novedades_cards_ui and "Fuente: CIDO" in html,
            "La interfaz debe identificar las fuentes CIDO y describir la cobertura automática real")
     exigir("usaResidencia" in novedades_ui and "ubicacionIndeterminada" in novedades_ui and
            "candidatosMunicipio" in novedades_ui and "ccaaResidencia" in perfil_novedades,
            "Las novedades no distinguen residencia, actividad y beneficiarios aún desconocidos")
+    exigir("function fuenteNov(" in html and "function estadoNov(" in html and
+           "Fuente por identificar" in html and "Estado por verificar" in html,
+           "Las novedades deben identificar la procedencia cuando sea posible y mostrar el estado desconocido sin ocultarlo")
     exigir("cierreFechaHora" in estado_ui and "k:\"verify\"" in estado_ui and
            estado_ui.find("if(a.pend)return") >= 0 and
            estado_ui.find("if(a.pend)return") < estado_ui.find("if(a.cierre){") and

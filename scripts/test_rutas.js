@@ -26,11 +26,23 @@ const context = {
   ccaaDe: value => value
 };
 vm.createContext(context);
-vm.runInContext(["camino","anadirRutaPersonal","secuencia","mostrar","estado","valorAid","evalAid","perfilNov","tiposBen","encajeNov"].map(activeFunction).join("\n"), context);
+vm.runInContext(["camino","anadirRutaPersonal","secuencia","mostrar","estado","valorAid","evalAid","perfilNov","tiposBen","encajeNov","fuenteNov","estadoNov"].map(activeFunction).join("\n"), context);
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
 }
+
+assert(context.fuenteNov({id:"934562",link:"https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/934562"}) === "Fuente: BDNS",
+  "Las novedades BDNS deben mostrar su fuente aunque el registro antiguo no tenga el campo fuente.");
+assert(context.fuenteNov({id:"cido-21573898",link:"https://cido.diba.cat/subvencions/21573898/ajuts"}) === "Fuente: CIDO · Diputació de Barcelona",
+  "Las novedades CIDO deben conservar la atribución de origen.");
+assert(context.fuenteNov({id:"UE-HORIZON-TEST",link:"https://ec.europa.eu/info/funding-tenders/topic-details/test"}) === "Fuente: Comisión Europea",
+  "Las novedades de la UE deben identificar la fuente europea.");
+assert(context.fuenteNov({id:"otro",organo:"Organismo local"}) === "Organismo: Organismo local · fuente por identificar",
+  "No se debe inventar la fuente cuando no puede identificarse con seguridad.");
+assert(context.estadoNov({}) === "por verificar" && context.estadoNov({estadoConvocatoria:"en plazo"}) === "en plazo" &&
+  context.estadoNov({estadoConvocatoria:"cerrada"}) === "cerrada",
+  "Las novedades sin estado confirmado deben quedar marcadas por verificar y conservar los estados conocidos.");
 function setAnswers(values) { context.A = values; }
 function sequence() { return Array.from(context.secuencia()); }
 
@@ -76,6 +88,22 @@ const localUnknownBeneficiary = context.encajeNov({
 },pf);
 assert(localUnknownBeneficiary.s === "mid",
   "Una novedad local sin beneficiarios identificados no debe descartarse si coincide con la residencia aunque la actividad esté en otra comunidad: " + JSON.stringify(localUnknownBeneficiary));
+
+setAnswers({perfil:"particular",situacionPersonal:"familia",ccaa:"",municipio:"",ccaaResidencia:"Cataluña",provinciaResidencia:"Barcelona",municipioResidencia:"Barcelona"});
+const pfParticular = context.perfilNov();
+const personalOnlyRegional = context.encajeNov({
+  n1:"regional", n2:"Cataluña", n3:"Generalitat de Catalunya",
+  organo:"Generalitat de Catalunya", titulo:"Ayuda para familias",
+  beneficiarios:"personas físicas y familias"
+}, pfParticular);
+const personalOnlyLocal = context.encajeNov({
+  n1:"local", n2:"Cataluña", n3:"Ajuntament de Barcelona",
+  organo:"Ajuntament de Barcelona", titulo:"Ayuda municipal para familias",
+  beneficiarios:"personas físicas y familias"
+}, pfParticular);
+assert(personalOnlyRegional.s === "si" && personalOnlyLocal.s === "si",
+  "El perfil particular debe evaluar las novedades autonómicas y locales con su residencia, aunque no tenga ubicación de actividad: " +
+  JSON.stringify({pfParticular,personalOnlyRegional,personalOnlyLocal}));
 
 setAnswers({perfil:"particular",situacionPersonal:"retorno",retorno:"si",cirbeNecesidad:"si"});
 q = sequence();

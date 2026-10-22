@@ -79,7 +79,7 @@ def convertir(r, hoy):
         estado_convocatoria = "en plazo"
     else:
         estado_convocatoria = "por verificar"
-    return {"id": "UE-" + ident, "titulo": titulo[:300], "organo": "Comisión Europea", "ambito": "Unión Europea",
+    return {"id": "UE-" + ident, "fuente": "Comisión Europea", "titulo": titulo[:300], "organo": "Comisión Europea", "ambito": "Unión Europea",
             "territorio": "Unión Europea", "n1": "UNIÓN EUROPEA", "n2": "UNIÓN EUROPEA", "n3": "COMISIÓN EUROPEA",
             "fecha": hoy.isoformat(), "fechaTipo": "detectada", "plazo_inicio": apertura,
             "cierre": cierre, "plazo_fin": cierre, "estadoConvocatoria": estado_convocatoria,
