@@ -1,8 +1,8 @@
 {
- "fecha": "2026-10-21",
- "recibidas": 613,
- "relevantes": 126,
- "detalles_pedidos": 63,
+ "fecha": "2026-10-22",
+ "recibidas": 985,
+ "relevantes": 195,
+ "detalles_pedidos": 71,
  "detalle_funciona": true,
  "claves_primer_elemento": [
   "codigoInvente",
@@ -17,15 +17,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1138188,
+  "id": 1138582,
   "mrr": false,
-  "numeroConvocatoria": "936627",
-  "descripcion": "Solicitud Subvención Nominativa del Ayuntamiento de Villar del Pozo para Renovación luminarias\n\t",
-  "descripcionLeng": null,
-  "fechaRecepcion": "2026-10-20",
-  "nivel1": "LOCAL",
-  "nivel2": "DIPUTACIÓN PROV. DE CIUDAD REAL",
-  "nivel3": "DIPUTACIÓN PROVINCIAL DE CIUDAD REAL",
+  "numeroConvocatoria": "937021",
+  "descripcion": "SUBVENCIÓN NOMINATIVA A LA CÁMARA OFICIAL DE COMERCIO, INDUSTRIA, SERVICIOS Y NAVEGACIÓN DE MENORCA PARA EL DESARROLLO DE ACTUACIONES DE FOMENTO DEL EMPRENDIMIENTO Y LA INTERNACIONALIZACIÓN DURANTE EL EJERCICIO 2026",
+  "descripcionLeng": "SUBVENCIÓ NOMINATIVA A LA CAMBRA OFICIAL DE COMERÇ, INDUSTRIA, SERVEIS I NAVEGACIÓ DE MENORCA PER AL DESENVOLUPAMENT D'ACTUACIONS DE FOMENT DE L'EMPRENEDORIA I LA INTERNACINALITZACIÓ DURANT L'EXERCICI 2026",
+  "fechaRecepcion": "2026-10-22",
+  "nivel1": "AUTONOMICA",
+  "nivel2": "ILLES BALEARS",
+  "nivel3": "DIRECCIÓN GENERAL DE COMERCIO Y EMPRESA",
   "codigoInvente": null
  }
 }

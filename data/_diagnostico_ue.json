@@ -1,8 +1,8 @@
 {
- "fecha": "2026-10-21",
- "recibidas": 297,
+ "fecha": "2026-10-22",
+ "recibidas": 300,
  "ejemplo": {
-  "apiVersion": "2.157",
+  "apiVersion": "2.157.1",
   "reference": "50149768TOPICSen",
   "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL2-2027-01-HERITAGE-08",
   "contentType": "text/plain",
