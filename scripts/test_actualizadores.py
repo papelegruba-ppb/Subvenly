@@ -29,6 +29,12 @@ class TestCoberturaBDNS(unittest.TestCase):
     def test_excluye_titulos_sin_terminos_de_ayuda(self):
         self.assertFalse(actualizar.relevante({"descripcion": "Anuncio de una reunión ordinaria"}))
 
+    def test_busca_tambien_en_titulo_cooficial(self):
+        self.assertTrue(actualizar.relevante({
+            "descripcion": "Convocatoria general de subvenciones",
+            "descripcionLeng": "Ajuts per a la investigació agrícola",
+        }))
+
     def test_detalle_normaliza_plazo_y_beneficiarios(self):
         raw = {
             "fechaInicioSolicitud": "2026-10-01",
