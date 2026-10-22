@@ -186,10 +186,14 @@ var QUESTIONS={
   finTrabajo:"¿En qué fecha terminó tu último trabajo?",
   motivoFin:"¿Cómo terminó tu último trabajo?",
   cotizados:"¿Cuántos días has cotizado por desempleo en los últimos 6 años, aproximadamente?",
-  paroPrevio:"¿Has cobrado o agotado anteriormente una prestación contributiva por desempleo?",
+  paroPrevio:"¿Has agotado una prestación contributiva por desempleo?",
   fechaAgotamiento:"¿En qué fecha agotaste el paro, si lo agotaste?",
   cargasFamiliares:"¿Tienes cónyuge o hijos a cargo?",
   trabajoExtranjero:"¿Has trabajado en el extranjero antes de regresar?",
+  paisProcedencia:"¿Desde qué tipo de país regresas?",
+  mesesTrabajoExtranjero:"¿Cuántos meses has trabajado en el extranjero durante los últimos seis años?",
+  cotizadosAntesEmigrar:"¿Cuántos días cotizaste por desempleo en España en los seis años anteriores a emigrar?",
+  cotizacionDesempleo6:"¿Has cotizado por desempleo en España al menos seis años en total a lo largo de tu vida laboral?",
   fechaRetorno:"¿En qué fecha regresaste a España?",
   ingresosPersonales:"¿Cuáles son aproximadamente tus ingresos mensuales actuales (euros)?",
   unidadFamiliar:"¿Cuántas personas forman tu unidad de convivencia?",
@@ -331,11 +335,11 @@ function selMunicipio(){var r=el("div","q");r.appendChild(txt("span",A.perfil===
   s.value=A.municipio||"";s.disabled=!p;
   s.onchange=function(){if(s.value)A.municipio=s.value;else delete A.municipio;save();renderProfile();refrescar()};r.appendChild(s);return r}
 function controlPregunta(k){
-  var tipos={nacimientoFecha:"date",finTrabajo:"date",fechaAgotamiento:"date",fechaRetorno:"date",menores:"number",edad:"number",unidad:"number",ingresos:"number",ingresosPersonales:"number",unidadFamiliar:"number",cotizados:"number"};
+  var tipos={nacimientoFecha:"date",finTrabajo:"date",fechaAgotamiento:"date",fechaRetorno:"date",menores:"number",edad:"number",unidad:"number",ingresos:"number",ingresosPersonales:"number",unidadFamiliar:"number",cotizados:"number",mesesTrabajoExtranjero:"number",cotizadosAntesEmigrar:"number"};
   if(!tipos[k])return null;
   var input=el("input","fld");input.type=tipos[k];input.setAttribute("aria-label",QUESTIONS[k]||k);
   input.value=A[k]===undefined?"":A[k];
-  if(tipos[k]==="number"){input.min="0";input.step=(k==="ingresos"||k==="ingresosPersonales")?"0.01":"1";if(k==="edad")input.max="120";if(["menores","unidad","unidadFamiliar"].indexOf(k)>=0)input.max="30";if(k==="cotizados")input.max="2190"}
+  if(tipos[k]==="number"){input.min="0";input.step=(k==="ingresos"||k==="ingresosPersonales")?"0.01":"1";if(k==="edad")input.max="120";if(["menores","unidad","unidadFamiliar"].indexOf(k)>=0)input.max="30";if(k==="cotizados"||k==="cotizadosAntesEmigrar")input.max="2190";if(k==="mesesTrabajoExtranjero")input.max="1200"}
   input.onchange=function(){if(input.value==="")delete A[k];else A[k]=input.value;save();renderProfile();refrescar()};
   return input;
 }
@@ -348,6 +352,7 @@ function opcionesPregunta(k){
     nacionalidad:[["espanola","Nacionalidad española"],["ue","Nacionalidad UE/EEE/Suiza"],["extracomunitaria","Nacionalidad de fuera de la UE"],["otra","Otra situación"]],
     residenciaLegal:[["no_aplica","No aplica: tengo nacionalidad española"],["si","Sí, tengo residencia o autorización válida"],["no","No tengo residencia/autorización vigente"],["nose","No lo sé o necesito comprobarlo"]],
     retorno:[["si","Sí, ya he regresado"],["no","Todavía no he regresado"]],
+    paisProcedencia:[["eee_suiza","UE/EEE o Suiza"],["convenio","Fuera de UE/EEE, con convenio de desempleo"],["sin_convenio","Fuera de UE/EEE, sin convenio de desempleo"],["nose","No lo sé; necesito comprobar el país"]],
     tramitar:[["si","Sí, quiero que me ayudéis a tramitarla"],["no","No, solo quiero información"]]
   };
   return opts[k]||null;
@@ -643,7 +648,7 @@ Object.assign(QUESTIONS,{
  perfil:"¿Para quién buscas ayudas?",
  forma:"¿Qué forma jurídica tiene o tendrá el negocio?",
  familia:"¿Buscas ayudas relacionadas con nacimiento, adopción o hijos a cargo?",
- nacimientoFecha:"¿En qué fecha nació el menor o se produjo la adopción/acogida?",
+ nacimientoFecha:"¿En qué fecha nació o se prevé el nacimiento/adopción/acogida?",
  menores:"¿Cuántos menores tienes a cargo?",
  alquiler:"¿Buscas ayudas para pagar el alquiler de tu vivienda habitual?",
  edad:"¿Qué edad tienes?",
@@ -679,7 +684,7 @@ function valorAid(k,a){
  }
  return eff(k);
 }
-function evalAid(a){var bad=[],unk=[];var reqs=a.reqs||{};Object.keys(reqs).forEach(function(k){var v=valorAid(k,a);if(!v||v==="nose")unk.push(k);else if(v!==reqs[k])bad.push(k)});if(!Object.keys(reqs).length)unk.push("bases");if(a.pend||a.estadoManual||a.verificacionPendiente)unk.push("bases");unk=Array.from(new Set(unk));return{s:bad.length?"no":unk.length?"mid":"si",bad:bad,unk:unk}}
+function evalAid(a){var bad=[],unk=[];var reqs=a.reqs||{};Object.keys(reqs).forEach(function(k){var v=valorAid(k,a),esperado=reqs[k];if(v===undefined||v===null||v===""||v==="nose"){unk.push(k);return}if(esperado&&typeof esperado==="object"&&!Array.isArray(esperado)){if(Array.isArray(esperado.oneOf)&&esperado.oneOf.indexOf(v)<0){bad.push(k);return}if(esperado.min!==undefined||esperado.max!==undefined){var n=Number(v);if(!Number.isFinite(n)){unk.push(k);return}if((esperado.min!==undefined&&n<esperado.min)||(esperado.max!==undefined&&n>esperado.max))bad.push(k);return}unk.push(k);return}if(v!==esperado)bad.push(k)});if(!Object.keys(reqs).length)unk.push("bases");if(a.pend||a.estadoManual||a.verificacionPendiente)unk.push("bases");unk=Array.from(new Set(unk));return{s:bad.length?"no":unk.length?"mid":"si",bad:bad,unk:unk}}
 function camino(){
  if(!A.perfil)return "";
  if(A.perfil==="particular")return "particular";
@@ -688,20 +693,44 @@ function camino(){
  if(A.alta==="no"||A.alta==="nose"){if(A.sl==="si")return "sl";if(A.sl==="no"||A.sl==="nose")return A.proyecto==="si"?"nuevo":(A.proyecto==="no"||A.proyecto==="nose"?"otro":"")}
  return "";
 }
+function anadirRutaPersonal(l){
+ l=l.concat(["#Tu situación personal","situacionPersonal","#Preferencias personales","social","fiscal","emergencias"]);
+ if(A.situacionPersonal==="familia"){
+  l=l.concat(["#Nacimiento, adopción y crianza","familia","familiaEvento"]);
+  if(A.familia==="si"&&A.familiaEvento){
+   if(["primer_hijo","otro_hijo","embarazo"].indexOf(A.familiaEvento)>=0)l.push("nacimientoFecha");
+   if(["otro_hijo","crianza"].indexOf(A.familiaEvento)>=0)l.push("menores");
+   l=l.concat(["familiaMonoparental","familiaNumerosa","edad","unidad","ingresos","nacionalidad","residenciaLegal","unidadFamiliar","tramitar"]);
+  }
+ }
+ if(A.situacionPersonal==="desempleo"){
+  l=l.concat(["#Empleo y prestaciones","nacionalidad","residenciaLegal","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cargasFamiliares","edad","ingresosPersonales","unidadFamiliar"]);
+  if(Number(A.edad)>=52)l.push("cotizacionDesempleo6");
+  l.push("tramitar");
+ }
+ if(A.situacionPersonal==="retorno"){
+  l=l.concat(["#Retorno a España","retorno","nacionalidad","residenciaLegal","trabajoExtranjero"]);
+  if(A.retorno==="si")l=l.concat(["fechaRetorno","paisProcedencia","mesesTrabajoExtranjero","cotizadosAntesEmigrar","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","ingresosPersonales","cirbeNecesidad"]);
+  l.push("tramitar");
+ }
+ if(A.situacionPersonal==="extranjeria")l=l.concat(["#Residencia y situación administrativa","nacionalidad","residenciaLegal","ingresosPersonales","unidadFamiliar","tramitar"]);
+ if(A.situacionPersonal==="ingresos")l=l.concat(["#Situación económica","nacionalidad","residenciaLegal","edad","ingresosPersonales","unidadFamiliar","tramitar"]);
+ if(A.situacionPersonal==="vivienda"){
+  l=l.concat(["#Vivienda y economía","alquiler","nacionalidad","residenciaLegal"]);
+  if(A.alquiler==="si")l=l.concat(["contratoAlquiler","empadronamiento"]);
+  l=l.concat(["edad","ingresosPersonales","unidadFamiliar","tramitar"]);
+ }
+ if(A.situacionPersonal==="discapacidad")l=l.concat(["#Cuidados y apoyos","nacionalidad","residenciaLegal","edad","ingresosPersonales","unidadFamiliar","tramitar"]);
+ if(A.situacionPersonal==="estudios")l=l.concat(["#Estudios y juventud","nacionalidad","residenciaLegal","edad","ingresosPersonales","tramitar"]);
+ if(A.situacionPersonal==="otra")l=l.concat(["#Tu situación","nacionalidad","residenciaLegal","ingresosPersonales","unidadFamiliar","tramitar"]);
+ return l;
+}
 function secuencia(){
  var c=camino(),l=["#Sobre ti","perfil"];
  if(!A.perfil)return l;
  if(A.perfil==="particular"){
-  l=l.concat(["#Dónde resides","ccaa","provincia","municipio","#Tu situación personal","situacionPersonal","#Ayudas personales y familiares","familia","nacimientoFecha","menores","alquiler","edad","unidad","ingresos","contratoAlquiler","empadronamiento","residenciaLegal","familiaMonoparental","familiaNumerosa","social","fiscal","emergencias"]);
-  if(A.situacionPersonal==="familia")l=l.concat(["#Nacimiento, adopción y crianza","familiaEvento","tramitar"]);
-  if(A.situacionPersonal==="desempleo")l=l.concat(["#Empleo y prestaciones","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cargasFamiliares","ingresosPersonales","tramitar"]);
-  if(A.situacionPersonal==="retorno")l=l.concat(["#Retorno a España","retorno","nacionalidad","residenciaLegal","trabajoExtranjero","fechaRetorno","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","ingresosPersonales","cirbeNecesidad","tramitar"]);
-  if(A.situacionPersonal==="extranjeria")l=l.concat(["#Residencia y situación administrativa","nacionalidad","residenciaLegal","ingresosPersonales","unidadFamiliar","tramitar"]);
-  if(A.situacionPersonal==="ingresos")l=l.concat(["#Situación económica","ingresosPersonales","unidadFamiliar","tramitar"]);
-  if(A.situacionPersonal==="vivienda")l=l.concat(["#Vivienda y economía","ingresosPersonales","unidadFamiliar","tramitar"]);
-  if(A.situacionPersonal==="discapacidad")l=l.concat(["#Cuidados y apoyos","ingresosPersonales","unidadFamiliar","tramitar"]);
-  if(A.situacionPersonal==="estudios")l=l.concat(["#Estudios y juventud","ingresosPersonales","tramitar"]);
-  if(A.situacionPersonal==="otra")l=l.concat(["#Tu situación","ingresosPersonales","unidadFamiliar","tramitar"]);
+  l=l.concat(["#Dónde resides","ccaa","provincia","municipio"]);
+  l=anadirRutaPersonal(l);
   return Array.from(new Set(l));
  }
  if(A.perfil==="empresa"){l.push("forma");if(!c)return l}
@@ -713,17 +742,8 @@ function secuencia(){
  l=l.concat(["#Dónde resides o desarrollas la actividad","ccaa","provincia","municipio","amb","lleida","centre","ponent"]);
  if(c==="aut"||c==="sl"||c==="empresaotra")l=l.concat(["#Tu equipo y las contrataciones","plantilla","contratar","indefinido","joven","bcn","#Otras ayudas de actividad","transporte","emergencias"]);
  if(A.perfil==="autonomo"||A.perfil==="ambos"){
-  l=l.concat(["#Dónde resides","ccaaResidencia","provinciaResidencia","municipioResidencia","#Ayudas personales y familiares","situacionPersonal","familia","nacimientoFecha","menores","alquiler","edad","unidad","ingresos","contratoAlquiler","empadronamiento","residenciaLegal","familiaMonoparental","familiaNumerosa","social","fiscal"]);
-  if(A.situacionPersonal==="familia")l=l.concat(["#Nacimiento, adopción y crianza","familiaEvento","tramitar"]);
-  if(A.situacionPersonal==="desempleo")l=l.concat(["#Empleo y prestaciones","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cargasFamiliares","ingresosPersonales","tramitar"]);
-  if(A.situacionPersonal==="retorno")l=l.concat(["#Retorno a España","retorno","nacionalidad","trabajoExtranjero","fechaRetorno","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","ingresosPersonales","cirbeNecesidad","tramitar"]);
-  if(A.situacionPersonal==="extranjeria")l=l.concat(["#Residencia y situación administrativa","nacionalidad","ingresosPersonales","unidadFamiliar","tramitar"]);
-  if(A.situacionPersonal==="ingresos")l=l.concat(["#Situación económica","ingresosPersonales","unidadFamiliar","tramitar"]);
-  if(A.situacionPersonal==="vivienda")l=l.concat(["#Vivienda y economía","ingresosPersonales","unidadFamiliar","tramitar"]);
-  if(A.situacionPersonal==="discapacidad")l=l.concat(["#Cuidados y apoyos","ingresosPersonales","unidadFamiliar","tramitar"]);
-  if(A.situacionPersonal==="estudios")l=l.concat(["#Estudios y juventud","ingresosPersonales","tramitar"]);
-  if(A.situacionPersonal==="otra")l=l.concat(["#Tu situación","ingresosPersonales","unidadFamiliar","tramitar"]);
-  if(c!=="aut"&&c!=="sl"&&c!=="empresaotra")l.push("emergencias");
+  l=l.concat(["#Dónde resides","ccaaResidencia","provinciaResidencia","municipioResidencia"]);
+  l=anadirRutaPersonal(l);
  }
  return Array.from(new Set(l));
 }
@@ -736,8 +756,14 @@ function mostrar(k){
  if(k==="municipioResidencia"&&!A.provinciaResidencia)return false;
  if(k==="amb"&&A.provincia!=="Barcelona")return false;
  if(["lleida","centre","ponent"].indexOf(k)>=0&&A.provincia!=="Lleida")return false;
- if(k==="familiaEvento"&&A.situacionPersonal!=="familia")return false;
- if(["nacimientoFecha","menores"].indexOf(k)>=0&&A.familia!=="si")return false;
+ if(k==="familia"&&A.situacionPersonal!=="familia")return false;
+ if(k==="familiaEvento"&&(A.situacionPersonal!=="familia"||A.familia!=="si"))return false;
+ if(k==="nacimientoFecha"&&(A.situacionPersonal!=="familia"||A.familia!=="si"||["primer_hijo","otro_hijo","embarazo"].indexOf(A.familiaEvento)<0))return false;
+ if(k==="menores"&&(A.situacionPersonal!=="familia"||A.familia!=="si"||["otro_hijo","crianza"].indexOf(A.familiaEvento)<0))return false;
+ if(k==="alquiler"&&A.situacionPersonal!=="vivienda")return false;
+ if(k==="residenciaLegal"&&A.nacionalidad==="espanola")return false;
+ if(["paisProcedencia","mesesTrabajoExtranjero","cotizadosAntesEmigrar"].indexOf(k)>=0&&(A.situacionPersonal!=="retorno"||A.retorno!=="si"||A.trabajoExtranjero!=="si"))return false;
+ if(k==="cotizacionDesempleo6"&&(A.situacionPersonal!=="desempleo"||Number(A.edad)<52))return false;
  if(["familiaMonoparental","familiaNumerosa"].indexOf(k)>=0&&A.familia!=="si"&&A.alquiler!=="si"&&A.social!=="si")return false;
  if(["contratoAlquiler","empadronamiento"].indexOf(k)>=0&&A.alquiler!=="si")return false;
  if(k==="unidad"&&A.social!=="si"&&A.alquiler!=="si"&&A.familia!=="si")return false;
