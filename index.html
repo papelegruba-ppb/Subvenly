@@ -369,7 +369,30 @@ function renderProfile(){var p=document.getElementById("profile");p.innerHTML=""
   if(A.perfil==="particular"&&["desempleo","retorno"].indexOf(A.situacionPersonal)>=0&&A.demandaEmpleo==="no"){
     var aviso=el("div","miss m");aviso.appendChild(txt("strong","Antes de solicitar una prestación del SEPE, inscríbete como demandante de empleo."));
     aviso.appendChild(txt("p","La inscripción se realiza en el servicio autonómico de empleo. Selecciona tu comunidad y provincia para localizar el canal oficial."));
-    var link=el("a","btn alt","Buscar servicio de empleo de mi comunidad");link.href="https://www.sistemanacionalempleo.es/HomeSne";link.target="_blank";link.rel="noopener";aviso.appendChild(link);p.appendChild(aviso);
+    var serviciosEmpleo={
+      "Andalucía":["Servicio Andaluz de Empleo (SAE)","https://www.juntadeandalucia.es/organismos/sae.html"],
+      "Aragón":["Instituto Aragonés de Empleo (INAEM)","https://inaem.aragon.es/"],
+      "Asturias":["Trabajastur","https://trabajastur.asturias.es/"],
+      "Illes Balears":["Servei d'Ocupació de les Illes Balears (SOIB)","https://soib.es/"],
+      "Canarias":["Servicio Canario de Empleo","https://www.gobiernodecanarias.org/empleo/"],
+      "Cantabria":["Emplea Cantabria","https://empleacantabria.es/"],
+      "Castilla-La Mancha":["Empleo y Formación de Castilla-La Mancha","https://empleoyformacion.castillalamancha.es/"],
+      "Castilla y León":["Servicio Público de Empleo de Castilla y León (ECYL)","https://empleo.jcyl.es/"],
+      "Cataluña":["Servei Públic d'Ocupació de Catalunya (SOC)","https://serveiocupacio.gencat.cat/"],
+      "Comunitat Valenciana":["LABORA","https://labora.gva.es/"],
+      "Extremadura":["SEXPE","https://sexpeemplea.juntaex.es/"],
+      "Galicia":["Emprego Galicia","https://emprego.xunta.gal/"],
+      "Comunidad de Madrid":["Oficina de Empleo de la Comunidad de Madrid","https://www.comunidad.madrid/servicios/empleo"],
+      "Región de Murcia":["Servicio Regional de Empleo y Formación (SEF)","https://www.sefcarm.es/"],
+      "Navarra":["Servicio Navarro de Empleo - Nafar Lansare","https://www.navarra.es/es/empleo"],
+      "País Vasco":["Lanbide","https://www.lanbide.euskadi.eus/"],
+      "La Rioja":["Empleo y Formación de La Rioja","https://www.larioja.org/empleo-formacion/es"],
+      "Ceuta":["SEPE - Dirección Provincial de Ceuta","https://www.sepe.es/"],
+      "Melilla":["SEPE - Dirección Provincial de Melilla","https://www.sepe.es/"]
+    };
+    var servicio=serviciosEmpleo[A.ccaa]||["Sistema Nacional de Empleo","https://www.sistemanacionalempleo.es/HomeSne"];
+    aviso.appendChild(txt("p","Servicio correspondiente a "+(A.ccaa||"tu comunidad autónoma")+(A.provincia?", provincia de "+A.provincia:"")+". Comprueba el trámite de inscripción inicial o reactivación de la demanda."));
+    var link=el("a","btn alt","Inscribirme en "+servicio[0]);link.href=servicio[1];link.target="_blank";link.rel="noopener";aviso.appendChild(link);p.appendChild(aviso);
   }
   if(A.perfil==="particular"&&["desempleo","retorno"].indexOf(A.situacionPersonal)>=0){
     var sepe=el("p","notice");sepe.appendChild(txt("strong","Simulador oficial del SEPE: "));
