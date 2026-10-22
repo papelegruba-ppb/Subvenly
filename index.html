@@ -817,6 +817,9 @@ function renderProfile(){
   if(k==="ccaa"){p.appendChild(selCcaa());return}
   if(k==="provincia"){p.appendChild(selProvincia());return}
   if(k==="municipio"){p.appendChild(selMunicipio());return}
+  if(k==="ccaaResidencia"){p.appendChild(selCcaaResidencia());return}
+  if(k==="provinciaResidencia"){p.appendChild(selProvinciaResidencia());return}
+  if(k==="municipioResidencia"){p.appendChild(selMunicipioResidencia());return}
   var r=el("div","q");r.appendChild(txt("span",QUESTIONS[k]||k));
   var opts=typeof opcionesPregunta==="function"?opcionesPregunta(k):null;
   var control=opts?selectPregunta(k,opts):controlPregunta(k);
