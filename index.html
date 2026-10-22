@@ -893,14 +893,15 @@ function renderProfile(){
 }
 function estado(a){
  if(a.cerrada)return{k:"closed",t:"Cerrada"};
- if(a.pend)return{k:"pending",t:a.plazo||a.estadoManual||"Próxima convocatoria anunciada · fecha pendiente de publicación"};
  if(a.cierre){
   var fin=a.cierreFechaHora?new Date(a.cierreFechaHora):new Date(a.cierre+"T23:59:59");
   var ahora=new Date(),d=Math.ceil((fin-ahora)/864e5);
   if(fin<ahora)return{k:"closed",t:"Cerrada"};
+  if(a.pend)return{k:"pending",t:a.plazo||a.estadoManual||"Próxima convocatoria anunciada · pendiente de confirmar"};
   if(d<=14)return{k:"soon",t:"Cierra el "+fmt(a.cierre)+(a.cierreFechaHora?" a las "+String(a.cierreFechaHora).slice(11,16):"")};
   return{k:"open",t:"Abierta hasta el "+fmt(a.cierre)+(a.cierreFechaHora?" a las "+String(a.cierreFechaHora).slice(11,16):"")};
  }
+ if(a.pend)return{k:"pending",t:a.plazo||a.estadoManual||"Próxima convocatoria anunciada · fecha pendiente de publicación"};
  if(a.estadoManual){
   var m=nrm(a.estadoManual);
   if(/proxima convocatoria|nueva edicion|fecha pendiente|pendiente de publicacion/.test(m))return{k:"pending",t:a.estadoManual};
@@ -924,10 +925,17 @@ function renderList(){
  }).map(function(a){return{a:a,e:evalAid(a)}});
  items.sort(function(x,y){
   var order={open:0,soon:1,perm:2,pending:3,verify:4,closed:5};
-  return (order[estado(x.a).k]??4)-(order[estado(y.a).k]??4);
+  return (order[estado(x.a).k]||0)-(order[estado(y.a).k]||0);
  });
  if(!items.length){l.appendChild(el("div","empty","No hay fichas con estos filtros."));return}
- items.forEach(function(x){l.appendChild(card(x.a,x.e))});
+ var answered=!!A.perfil;
+ if(!answered){var g=el("div","grid");items.forEach(function(it){g.appendChild(mkCard(it,"si",false))});l.appendChild(g);return}
+ [["si","Te encajan","cumples los requisitos"],["mid","Pueden encajar","falta confirmar algo"],["no","Casi. Mira qué te falta.","mira qué necesitarías"]].forEach(function(gr){
+  var grp=items.filter(function(it){return it.e.s===gr[0]});
+  l.appendChild(el("h2","gh",gr[1]+" ("+grp.length+") <small>· "+gr[2]+"</small>"));
+  if(!grp.length){l.appendChild(el("div","empty","Ninguna en este grupo."));return}
+  var g=el("div","grid");grp.forEach(function(it){g.appendChild(mkCard(it,gr[0],true))});l.appendChild(g);
+ });
 }
 function perfilNov(){
  var c=camino(),aut=A.perfil==="autonomo"||A.perfil==="ambos"||c==="aut"||c==="nuevo",soc=A.perfil==="empresa"||c==="sl"||c==="empresaotra";
