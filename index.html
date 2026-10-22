@@ -539,6 +539,19 @@ function encajeNov(n,pf){var why=[],bad=false,unk=false,amb=n1lab(n.n1),de=ccaaD
   else{unk=true;why.push("indica si eres autónomo o sociedad")}
   return{s:bad?"no":unk?"mid":"si",why:why}}
 var novTodas=false,NOV_OCULTAS=0;
+function fuenteNov(n){
+  var id=String(n&&n.id||"").toLowerCase(),link=String(n&&n.link||"").toLowerCase();
+  if(n&&n.fuente==="CIDO"||id.indexOf("cido-")===0||link.indexOf("cido.diba.cat/")>=0)return "Fuente: CIDO · Diputació de Barcelona";
+  if(n&&n.fuente==="BDNS"||/^\\d+$/.test(id)||link.indexOf("infosubvenciones.es/bdnstrans/")>=0)return "Fuente: BDNS";
+  if(id.indexOf("ue-")===0||link.indexOf("ec.europa.eu/info/funding-tenders/")>=0)return "Fuente: Comisión Europea";
+  if(n&&n.organo)return "Organismo: "+n.organo+" · fuente por identificar";
+  return "Fuente por identificar";
+}
+function estadoNov(n){
+  var e=String(n&&n.estadoConvocatoria||"").toLowerCase();
+  if(e==="por verificar"||e==="próxima"||e==="en plazo")return e;
+  return "por verificar";
+}
 function novItems(){var q=nrm(novQ),hoy=new Date().toISOString().slice(0,10),pf=perfilNov();
   var arr=((NOV&&NOV.items)||[]).filter(function(n){
     if(n.plazo_fin&&n.plazo_fin<hoy)return false;
@@ -572,11 +585,12 @@ function renderNovedades(){var c=document.getElementById("nov-list");c.innerHTML
   var g=el("div","grid");
   all.slice(0,NOV_MAX).forEach(function(n){var card=el("article","card nov"),t=el("div","top");
     var lt=el("div","","<h3></h3><div class='meta'></div>");lt.querySelector("h3").textContent=n.titulo;
-    lt.querySelector(".meta").textContent=[n.fuente==="CIDO"?"Fuente: CIDO · Diputació de Barcelona":"",n.organo,tit(n.n1?n1lab(n.n1):""),n.fecha?(n.fechaTipo==="detectada"?"Detectada el ":"Publicada el ")+fmt(n.fecha):""].filter(Boolean).join(" · ");t.appendChild(lt);
+    lt.querySelector(".meta").textContent=[fuenteNov(n),n.organo,tit(n.n1?n1lab(n.n1):""),n.fecha?(n.fechaTipo==="detectada"?"Detectada el ":"Publicada el ")+fmt(n.fecha):""].filter(Boolean).join(" · ");t.appendChild(lt);
     if(n._e)t.appendChild(el("span","badge "+(n._e.s==="si"?"b-si":n._e.s==="mid"?"b-mid":"b-no"),n._e.s==="si"?"Posible encaje":n._e.s==="mid"?"Por confirmar":"No encaja"));
-    if(n.estadoConvocatoria==="próxima")t.appendChild(el("span","st st-soon","Próxima apertura"));
-    else if(n.estadoConvocatoria==="en plazo")t.appendChild(el("span","st st-open","En plazo · portal UE"));
-    else if(n.estadoConvocatoria==="por verificar")t.appendChild(el("span","st st-pending","Estado por verificar"));
+    var estadoN=estadoNov(n);
+    if(estadoN==="próxima")t.appendChild(el("span","st st-soon","Próxima apertura"));
+    else if(estadoN==="en plazo")t.appendChild(el("span","st st-open","En plazo · portal UE"));
+    else t.appendChild(el("span","st st-pending","Estado por verificar"));
     if(n.nueva)t.appendChild(el("span","badge nuevo","Nuevo"));card.appendChild(t);
     if(n._e&&n._e.s==="mid"&&n._e.why.length)card.appendChild(txt("p","Para confirmar: "+n._e.why.join("; ")+".")).className="meta";
     var d=[];
