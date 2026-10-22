@@ -690,7 +690,7 @@ function secuencia(){
   return Array.from(new Set(l));
  }
  if(A.perfil==="empresa"){l.push("forma");if(!c)return l}
- else {l.push("alta");if(A.alta==="no"||A.alta==="nose"){l.push("sl");if(A.sl==="no"||A.sl==="nose")l.push("proyecto")}if(!c)return l}
+ else {l.push("alta");if(A.alta==="no"||A.alta==="nose"){l.push("sl");if(A.sl==="no"||A.sl==="nose")l.push("proyecto")}if(!c&&["autonomo","ambos"].indexOf(A.perfil)<0)return l}
  if(c==="aut")l=l.concat(["#Tu situación como autónomo","nuevo","jovenyo","paro","desempleado","tarifa","hacienda"]);
  if(c==="sl")l=l.concat(["#Tu sociedad","sl24","hacienda"]);
  if(c==="empresaotra")l=l.concat(["#Tu empresa o entidad","hacienda"]);
