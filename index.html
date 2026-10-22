@@ -949,10 +949,30 @@ function tiposBen(b){var t=nrm(b);if(!t)return null;var c={};c.aut=(t.indexOf("f
 function encajeNov(n,pf){
  var why=[],bad=false,unk=false,amb=n1lab(n.n1),de=ccaaDe(n.n2),c=tiposBen(n.beneficiarios);
  var usaResidencia=!!(c&&c.persona&&pf.particular&&["autonomo","ambos"].indexOf(pf.perfil)>=0);
+ var ubicacionIndeterminada=!!(!c&&pf.particular&&["autonomo","ambos"].indexOf(pf.perfil)>=0&&(pf.ccaaResidencia||pf.muniResidencia));
  var ccaaPerfil=usaResidencia?pf.ccaaResidencia:pf.ccaa;
  var muniPerfil=usaResidencia?pf.muniResidencia:pf.muni;
- if(amb==="Autonómica"){if(!ccaaPerfil){unk=true;why.push("indica tu comunidad autónoma")}else if(de&&de!==ccaaPerfil)bad=true;else if(!de){unk=true;why.push("comprueba el territorio")}}
- else if(amb==="Local"){if(muniPerfil){if(nrm([n.n3,n.titulo,n.organo].join(" ")).indexOf(muniPerfil)<0)bad=true}else if(ccaaPerfil&&de&&de!==ccaaPerfil)bad=true;else{unk=true;why.push("indica tu municipio")}}
+ var candidatosCCAA=ubicacionIndeterminada?[pf.ccaa,pf.ccaaResidencia].filter(Boolean):[ccaaPerfil].filter(Boolean);
+ var candidatosMunicipio=ubicacionIndeterminada?[pf.muni,pf.muniResidencia].filter(Boolean):[muniPerfil].filter(Boolean);
+ var textoLocal=nrm([n.n3,n.titulo,n.organo].join(" "));
+ if(amb==="Autonómica"){
+  if(!candidatosCCAA.length){unk=true;why.push("indica tu comunidad autónoma")}
+  else if(de&&candidatosCCAA.indexOf(de)<0){
+   if(ubicacionIndeterminada&&candidatosCCAA.length<2){unk=true;why.push("comprueba el territorio")}
+   else bad=true;
+  }else if(!de){unk=true;why.push("comprueba el territorio")}
+ }
+ else if(amb==="Local"){
+  if(candidatosMunicipio.some(function(m){return textoLocal.indexOf(m)>=0})){
+   // Una coincidencia con la residencia o con la actividad evita excluir por el territorio equivocado.
+  }else if(ubicacionIndeterminada){
+   if(candidatosMunicipio.length>=2)bad=true;
+   else if(de&&candidatosCCAA.length&&candidatosCCAA.every(function(ca){return ca!==de}))bad=true;
+   else{unk=true;why.push("comprueba tu municipio de residencia o actividad")}
+  }else if(muniPerfil)bad=true;
+  else if(ccaaPerfil&&de&&de!==ccaaPerfil)bad=true;
+  else{unk=true;why.push("indica tu municipio")}
+ }
  if(c===null){unk=true;why.push("comprueba a quién va dirigida")}
  else {var coincide=(pf.aut&&c.aut)||(pf.soc&&c.soc)||(pf.particular&&c.persona);if(!coincide){if(pf.perfil==="particular"&&!c.persona)unk=true;else if(pf.aut||pf.soc)bad=true;else unk=true;why.push("comprueba los beneficiarios exactos")}}
  return{s:bad?"no":unk?"mid":"si",why:why};
