@@ -680,7 +680,7 @@ function secuencia(){
   l=l.concat(["#Dónde resides","ccaa","provincia","municipio","#Tu situación personal","situacionPersonal","#Ayudas personales y familiares","familia","nacimientoFecha","menores","alquiler","edad","unidad","ingresos","contratoAlquiler","empadronamiento","residenciaLegal","familiaMonoparental","familiaNumerosa","social","fiscal","emergencias"]);
   if(A.situacionPersonal==="familia")l=l.concat(["#Nacimiento, adopción y crianza","familiaEvento","tramitar"]);
   if(A.situacionPersonal==="desempleo")l=l.concat(["#Empleo y prestaciones","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cargasFamiliares","ingresosPersonales","tramitar"]);
-  if(A.situacionPersonal==="retorno")l=l.concat(["#Retorno a España","retorno","nacionalidad","residenciaLegal","trabajoExtranjero","fechaRetorno","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","ingresosPersonales","tramitar"]);
+  if(A.situacionPersonal==="retorno")l=l.concat(["#Retorno a España","retorno","nacionalidad","residenciaLegal","trabajoExtranjero","fechaRetorno","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","ingresosPersonales","cirbeNecesidad","tramitar"]);
   if(A.situacionPersonal==="extranjeria")l=l.concat(["#Residencia y situación administrativa","nacionalidad","residenciaLegal","ingresosPersonales","unidadFamiliar","tramitar"]);
   if(A.situacionPersonal==="ingresos")l=l.concat(["#Situación económica","ingresosPersonales","unidadFamiliar","tramitar"]);
   if(A.situacionPersonal==="vivienda")l=l.concat(["#Vivienda y economía","ingresosPersonales","unidadFamiliar","tramitar"]);
@@ -701,7 +701,7 @@ function secuencia(){
   l=l.concat(["#Ayudas personales y familiares","situacionPersonal","familia","nacimientoFecha","menores","alquiler","edad","unidad","ingresos","contratoAlquiler","empadronamiento","residenciaLegal","familiaMonoparental","familiaNumerosa","social","fiscal"]);
   if(A.situacionPersonal==="familia")l=l.concat(["#Nacimiento, adopción y crianza","familiaEvento","tramitar"]);
   if(A.situacionPersonal==="desempleo")l=l.concat(["#Empleo y prestaciones","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cargasFamiliares","ingresosPersonales","tramitar"]);
-  if(A.situacionPersonal==="retorno")l=l.concat(["#Retorno a España","retorno","nacionalidad","trabajoExtranjero","fechaRetorno","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","ingresosPersonales","tramitar"]);
+  if(A.situacionPersonal==="retorno")l=l.concat(["#Retorno a España","retorno","nacionalidad","trabajoExtranjero","fechaRetorno","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","ingresosPersonales","cirbeNecesidad","tramitar"]);
   if(A.situacionPersonal==="extranjeria")l=l.concat(["#Residencia y situación administrativa","nacionalidad","ingresosPersonales","unidadFamiliar","tramitar"]);
   if(A.situacionPersonal==="ingresos")l=l.concat(["#Situación económica","ingresosPersonales","unidadFamiliar","tramitar"]);
   if(A.situacionPersonal==="vivienda")l=l.concat(["#Vivienda y economía","ingresosPersonales","unidadFamiliar","tramitar"]);
@@ -800,6 +800,18 @@ function renderProfile(){
  if(personal&&["desempleo","retorno"].indexOf(A.situacionPersonal)>=0){
   var sepe=el("p","notice");sepe.appendChild(txt("strong","Simulador oficial del SEPE: "));
   var a=el("a","","calcular prestaciones y subsidios");a.href="https://sede.sepe.gob.es/dgsimulador/introSimulador.do";a.target="_blank";a.rel="noopener";sepe.appendChild(a);p.appendChild(sepe);
+ }
+ if(personal&&A.situacionPersonal==="retorno"){
+  var docs=el("div","miss m");docs.appendChild(txt("strong","Documentación oficial para personas retornadas"));
+  docs.appendChild(txt("p","El Certificado de Emigrante Retornado (CER) puede acreditar trabajo y cotización en el extranjero en los supuestos aplicables. La exigencia depende del país y de la prestación; para retornos desde la UE/EEE o Suiza, el SEPE indica que normalmente se acredita directamente el trabajo extranjero, y para Reino Unido se utiliza el documento U1."));
+  var cer=el("a","btn alt","Consultar y solicitar el CER");cer.href="https://mptmd.sede.gob.es/procedimiento/portada?idAmb=100404&idProc=133655";cer.target="_blank";cer.rel="noopener";docs.appendChild(cer);
+  var guia=el("a","btn alt","Guía oficial del retorno");guia.href="https://www.inclusion.gob.es/web/ciudadania/guia-de-retorno";guia.target="_blank";guia.rel="noopener";docs.appendChild(guia);
+  var sepeRet=el("a","btn alt","Prestaciones del SEPE para emigrantes retornados");sepeRet.href="https://www.sepe.es/HomeSepe/es/prestaciones-desempleo/subsidio-desempleo/subsidio-de-emigrante-retornado.html";sepeRet.target="_blank";sepeRet.rel="noopener";docs.appendChild(sepeRet);
+  if(A.cirbeNecesidad==="si"){
+   docs.appendChild(txt("p","El informe CIRBE del Banco de España recoge préstamos, créditos, avales y otros riesgos declarados. La solicitud electrónica requiere identificación admitida por la sede."));
+   var cirbe=el("a","btn alt","Solicitar informe CIRBE en el Banco de España");cirbe.href="https://sedeelectronica.bde.es/sede/es/tramites/solicitud-informes-riesgos-cirbe-p58.html";cirbe.target="_blank";cirbe.rel="noopener";docs.appendChild(cirbe);
+  }
+  p.appendChild(docs);
  }
 }
 function estado(a){
