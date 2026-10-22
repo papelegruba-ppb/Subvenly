@@ -20,7 +20,7 @@ const context = {
   Date,
   Math,
   Array,
-  nrm: value => String(value || "").normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").toLowerCase(),
+  nrm: value => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(),
   eff: key => context.A[key]
 };
 vm.createContext(context);
