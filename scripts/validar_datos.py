@@ -89,6 +89,20 @@ def main():
         registro = next((x for x in territorios if x.get("nombre") == nombre), {})
         exigir("pendiente" in registro.get("estado", "").lower() or "registrado" in registro.get("estado", "").lower(),
                "La cobertura territorial debe describir honestamente su estado: " + nombre)
+    cido = fuentes_por_id.get("cido-rss-local", {})
+    exigir(cido.get("url") == "https://cido.diba.cat/rss/subvencions/subvencions-ens-locals" and
+           cido.get("oficial") is True and cido.get("monitor") is True and
+           "CC BY" in cido.get("licencia", ""),
+           "El RSS CIDO debe estar registrado como fuente oficial, monitorizada y atribuida")
+    cido_script = (ROOT / "scripts" / "actualizar_cido.py").read_text(encoding="utf-8")
+    bdns_script = (ROOT / "scripts" / "actualizar.py").read_text(encoding="utf-8")
+    workflow = (ROOT / ".github" / "workflows" / "actualizar.yml").read_text(encoding="utf-8")
+    exigir("def parsear_rss(" in cido_script and '"estadoConvocatoria": "por verificar"' in cido_script and
+           "licenciaDatos" in cido_script and "def combinar(" in cido_script,
+           "El importador CIDO debe normalizar, deduplicar y marcar el estado por verificar")
+    exigir("id: buscar_cido" in workflow and "CIDO_OUTCOME" in workflow and
+           "def es_bdns(item)" in bdns_script and "if not es_bdns(item):" in bdns_script,
+           "El flujo debe ejecutar CIDO y evitar consultar sus IDs como si fueran de BDNS")
     provincias = geo.get("provinces", [])
     exigir(len(provincias) >= 50, "El catálogo geográfico no contiene todas las provincias")
     municipios = sum(len(p.get("m", [])) for p in provincias)
