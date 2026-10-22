@@ -1,8 +1,8 @@
 {
  "fecha": "2026-10-22",
  "ficheros": 2,
- "encontradas": 153,
- "guardadas": 1297,
+ "encontradas": 189,
+ "guardadas": 1467,
  "fuentes_correctas": [],
  "fuentes_parciales": [
   "perfiles",
@@ -11,16 +11,16 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "04101/2026/131-SER",
-  "titulo": "El objeto del contrato consiste en la prestación de los servicios de diseño y ejecución de un programa con perspectiva de género dirigido a mujeres de 60 años o más de la ciudad de València, orientado al fomento de su empoderamiento y de su participación activa en asociaciones y organizaciones de la",
-  "organo": "Concejalía Delegada de Contratación del Ajuntament de València",
-  "territorio": "Valencia/València",
-  "nuts": "ES523",
-  "tipo": "Servicios",
-  "cpv": "80000000",
-  "presupuesto": 70560,
+  "id": "212/26",
+  "titulo": "Suministro por lotes de proyectores para cambio a iluminación Led en las Instalaciones Deportivas Municipales dependientes de la Fundación Municipal de Deportes de Badajoz.",
+  "organo": "Presidencia de la Fundación Municipal de Deporte - FMD del Ayuntamiento de Badajoz",
+  "territorio": "Badajoz",
+  "nuts": "ES431",
+  "tipo": "Suministros",
+  "cpv": "31510000",
+  "presupuesto": 51589,
   "cierre": "2026-11-05",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=p04ZkKVvCwnLIx6q1oPaMg%3D%3D",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=nRl%2Bzz3mcdMmMOlAXxDEjw%3D%3D",
   "visto": "2026-10-22",
   "actualizada": "2026-10-21"
  }
