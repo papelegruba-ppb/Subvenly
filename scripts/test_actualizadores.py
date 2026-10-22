@@ -54,6 +54,16 @@ class TestCoberturaBDNS(unittest.TestCase):
 
 
 class TestConvocatoriasUE(unittest.TestCase):
+    def test_error_temporal_de_consulta_ue_no_aborta_el_importador(self):
+        with patch.object(actualizar_ue.urllib.request, "urlopen", side_effect=TimeoutError("timeout")):
+            anterior = actualizar_ue.ERRORES_CONSULTA
+            actualizar_ue.ERRORES_CONSULTA = 0
+            try:
+                self.assertIsNone(actualizar_ue.consultar("SME", 0))
+                self.assertEqual(actualizar_ue.ERRORES_CONSULTA, 1)
+            finally:
+                actualizar_ue.ERRORES_CONSULTA = anterior
+
     def test_separa_fecha_detectada_apertura_y_estado(self):
         raw = {
             "metadata": {
