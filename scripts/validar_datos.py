@@ -121,6 +121,11 @@ def main():
     exigir(prueba_rutas.returncode == 0,
            "Fallaron las pruebas de rutas del test: " + (prueba_rutas.stdout + prueba_rutas.stderr).strip())
     print(prueba_rutas.stdout.strip())
+    prueba_actualizadores = subprocess.run([sys.executable, str(ROOT / "scripts" / "test_actualizadores.py")],
+                                           capture_output=True, text=True, cwd=ROOT)
+    exigir(prueba_actualizadores.returncode == 0,
+           "Fallaron las pruebas de actualizadores: " + (prueba_actualizadores.stdout + prueba_actualizadores.stderr).strip())
+    print(prueba_actualizadores.stdout.strip())
     print("OK: {} fichas ({} personales), {} fuentes, {} territorios, {} provincias, {} municipios; {} bloques JS válidos.".format(
         len(fichas), len(personales), len(fuentes), len(territorios), len(provincias), municipios, len(inline)))
     return 0
