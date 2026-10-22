@@ -304,7 +304,7 @@ def main():
     for i in items:
         i["nueva"] = i["visto"] >= nueva_lim
     items.sort(key=lambda i: (i["fecha"], i["id"]), reverse=True)
-    estado_actualizacion = "parcial" if error_retroceso else "correcta"
+    estado_actualizacion = "parcial" if error_retroceso or not det_ok else "correcta"
     escribir("_diagnostico.json", {"fecha": hoy.isoformat(), "recibidas": len(raw), "relevantes": len(filtradas),
         "detalles_pedidos": detalles, "detalle_funciona": det_ok, "estado": estado_actualizacion,
         "retroceso_desde": (retroceso_desde.isoformat() if not fixture else None),
@@ -315,7 +315,7 @@ def main():
         "estadoActualizacion": estado_actualizacion, "items": items[:MAX_ITEMS]}, compacto=True)
     escribir("estado.json", {"ultima": hoy.isoformat(), "retrocesoHasta": retroceso_hasta_siguiente})
     print(f"Guardadas {min(len(items), MAX_ITEMS)} novedades; actualización {estado_actualizacion}.")
-    return 2 if error_retroceso else 0
+    return 2 if estado_actualizacion == "parcial" else 0
 
 if __name__ == "__main__":
     try:
