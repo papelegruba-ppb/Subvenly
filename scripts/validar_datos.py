@@ -82,7 +82,7 @@ def main():
            "La ruta efectiva no incorpora situación personal, empleo y tramitación")
     exigir("fechaAgotamiento" in mostrar and "fechaRetorno" in mostrar,
            "Faltan condiciones para mostrar fechas de desempleo/retorno solo cuando correspondan")
-    exigir("opcionesPregunta(k)" in perfil_ui and "selCcaaResidencia()" in perfil_ui and "dgsimulador/introSimulador.do" in perfil_ui and
+    exigir("opcionesPregunta(k)" in perfil_ui and "function selCcaaResidencia()" in html and "dgsimulador/introSimulador.do" in perfil_ui and
            "idAmb=100404&idProc=133655" in perfil_ui and "solicitud-informes-riesgos-cirbe-p58.html" in perfil_ui,
            "La interfaz efectiva no presenta los selectores nuevos o el simulador SEPE")
     exigir(estado_ui.find("if(a.pend)return") >= 0 and
