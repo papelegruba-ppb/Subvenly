@@ -112,8 +112,7 @@ class TestVigilanciaFuentes(unittest.TestCase):
         fuente = {"id":"fuente-prueba","url":"https://example.test/ayudas"}
         anterior = {"fuente-prueba":{"estado":"igual","hash":hashlib.sha256(b"antes").hexdigest(),
                                      "texto":"antes","cambios":[],"url":fuente["url"]}}
-        with patch.object(vigilar_fuentes, "permitido", return_value=True), \\
-             patch.object(vigilar_fuentes, "obtener", return_value="después"):
+        with patch.object(vigilar_fuentes, "permitido", return_value=True), patch.object(vigilar_fuentes, "obtener", return_value="después"):
             sid, actual, mensaje = vigilar_fuentes.procesar_fuente(fuente, anterior, "2026-10-22")
         self.assertEqual(sid, "fuente-prueba")
         self.assertEqual(actual["estado"], "cambio")
@@ -125,8 +124,7 @@ class TestVigilanciaFuentes(unittest.TestCase):
         huella = hashlib.sha256(texto.encode("utf-8")).hexdigest()
         fuente = {"id":"fuente-prueba","url":"https://example.test/ayudas"}
         anterior = {"fuente-prueba":{"estado":"cambio","hash":huella,"texto":texto,"cambios":[{"fecha":"2026-10-21"}]}}
-        with patch.object(vigilar_fuentes, "permitido", return_value=True), \\
-             patch.object(vigilar_fuentes, "obtener", return_value=texto):
+        with patch.object(vigilar_fuentes, "permitido", return_value=True), patch.object(vigilar_fuentes, "obtener", return_value=texto):
             _, actual, _ = vigilar_fuentes.procesar_fuente(fuente, anterior, "2026-10-22")
         self.assertEqual(actual["estado"], "cambio")
         self.assertEqual(len(actual["cambios"]), 1)
