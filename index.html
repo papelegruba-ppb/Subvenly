@@ -175,7 +175,27 @@ var QUESTIONS={
   lleida:"¿Tu local a pie de calle está en la ciudad de Lleida?",
   ponent:"¿Tu empresa está en la provincia de Lleida, fuera del Segrià?",
   bcn:"¿Esa persona está empadronada en la ciudad de Barcelona?",
-  joven:"¿Esa persona tiene menos de 30 años y está inscrita en Garantía Juvenil?"
+  joven:"¿Esa persona tiene menos de 30 años y está inscrita en Garantía Juvenil?",
+  situacionPersonal:"¿Qué situación describe mejor lo que necesitas?",
+  familiaEvento:"¿Qué situación familiar se aplica?",
+  empleoSituacion:"¿Cuál es tu situación laboral actual?",
+  retorno:"¿Has regresado a España después de vivir en el extranjero?",
+  nacionalidad:"¿Cuál es tu situación de nacionalidad?",
+  residenciaLegal:"¿Tienes residencia legal o una autorización que te permita residir en España?",
+  demandaEmpleo:"¿Estás inscrito como demandante de empleo en tu comunidad autónoma?",
+  finTrabajo:"¿En qué fecha terminó tu último trabajo?",
+  motivoFin:"¿Cómo terminó tu último trabajo?",
+  cotizados:"¿Cuántos días has cotizado por desempleo en los últimos 6 años, aproximadamente?",
+  paroPrevio:"¿Has cobrado o agotado anteriormente una prestación contributiva por desempleo?",
+  fechaAgotamiento:"¿En qué fecha agotaste el paro, si lo agotaste?",
+  cargasFamiliares:"¿Tienes cónyuge o hijos a cargo?",
+  trabajoExtranjero:"¿Has trabajado en el extranjero antes de regresar?",
+  fechaRetorno:"¿En qué fecha regresaste a España?",
+  ingresosPersonales:"¿Cuáles son aproximadamente tus ingresos mensuales actuales (euros)?",
+  unidadFamiliar:"¿Cuántas personas forman tu unidad de convivencia?",
+  nacimientoTipo:"¿Qué situación familiar se aplica?",
+  cirbeNecesidad:"¿Necesitas obtener un informe de riesgos CIRBE?",
+  tramitar:"¿Quieres que te ayudemos a tramitar las ayudas para las que puedas cumplir los requisitos?"
 };
 var ORDER=["#Sobre ti","alta","sl","sl24","nuevo","jovenyo","paro","desempleado","tarifa","hacienda","#Dónde está tu actividad","ccaa","municipio","amb","lleida","centre","ponent","#Tu empresa y las contrataciones","plantilla","contratar","indefinido","joven","bcn"];
 var DEP={indefinido:"contratar",joven:"contratar",bcn:"contratar",sl24:"sl"};
@@ -235,7 +255,24 @@ function camino(){
   }
   return"";
 }
-function secuencia(){var c=camino(),l=["#Sobre ti","alta"];
+function secuencia(){
+  var c=camino(),l=["#Sobre ti"];
+  if(A.perfil==="particular"){
+    l.push("#Tu situación personal","situacionPersonal");
+    if(A.situacionPersonal==="familia")l=l.concat(["#Familia","familiaEvento","nacimientoFecha","menores"]);
+    if(A.situacionPersonal==="desempleo")l=l.concat(["#Empleo y prestaciones","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paroPrevio","fechaAgotamiento","cargasFamiliares","edad","ingresosPersonales"]);
+    if(A.situacionPersonal==="retorno")l=l.concat(["#Retorno a España","retorno","nacionalidad","residenciaLegal","trabajoExtranjero","fechaRetorno","empleoSituacion","demandaEmpleo","finTrabajo","cotizados","ingresosPersonales"]);
+    if(A.situacionPersonal==="extranjeria")l=l.concat(["#Residencia y situación administrativa","nacionalidad","residenciaLegal","ingresosPersonales","unidadFamiliar"]);
+    if(A.situacionPersonal==="ingresos")l=l.concat(["#Situación económica","residenciaLegal","ingresosPersonales","unidadFamiliar","menores","edad"]);
+    if(A.situacionPersonal==="vivienda")l=l.concat(["#Vivienda y economía","residenciaLegal","ingresosPersonales","unidadFamiliar","menores"]);
+    if(A.situacionPersonal==="discapacidad")l=l.concat(["#Cuidados y apoyos","residenciaLegal","edad","ingresosPersonales","unidadFamiliar"]);
+    if(A.situacionPersonal==="estudios")l=l.concat(["#Estudios y juventud","edad","residenciaLegal","ingresosPersonales"]);
+    if(A.situacionPersonal==="otra")l=l.concat(["#Tu situación","residenciaLegal","edad","ingresosPersonales","unidadFamiliar"]);
+    if(A.situacionPersonal)l=l.concat(["#Dónde resides","ccaa","provincia","municipio","tramitar"]);
+    return l;
+  }
+  if(A.perfil==="ambos")l.push("#Tu situación personal","situacionPersonal");
+  l.push("alta");
   if(A.alta==="no"||A.alta==="nose"){l.push("sl");if(A.sl==="no"||A.sl==="nose")l.push("proyecto")}
   if(!c)return l;
   if(c==="aut")l=l.concat(["#Tu situación como autónomo","nuevo","jovenyo","paro","desempleado","tarifa","hacienda"]);
@@ -243,11 +280,19 @@ function secuencia(){var c=camino(),l=["#Sobre ti","alta"];
   if(c==="nuevo"&&A.perfil==="empresa"){
    l.push("#Preparar la constitución de tu empresa","proyecto");
    if(A.proyecto==="si")l=l.concat(["nuevo","jovenyo","paro","desempleado","hacienda"]);
- }else if(c==="nuevo")l=l.concat(["#Preparar el inicio de actividad","nuevo","jovenyo","paro","desempleado","hacienda"]);
+  }else if(c==="nuevo")l=l.concat(["#Preparar el inicio de actividad","nuevo","jovenyo","paro","desempleado","hacienda"]);
   l=l.concat(["#Dónde está tu actividad","ccaa","provincia","municipio","amb","lleida","centre","ponent"]);
-  if(c==="aut"||c==="sl") {l.push("#Tu equipo y las contrataciones");l.push("plantilla");l.push("contratar","indefinido","joven","bcn")}
-  return l}
+  if(c==="aut"||c==="sl")l.push("#Tu equipo y las contrataciones","plantilla","contratar","indefinido","joven","bcn");
+  return l;
+}
 function mostrar(k){
+  if(A.perfil==="particular"){
+    if(k==="familiaEvento"&&A.situacionPersonal!=="familia")return false;
+    if(k==="fechaAgotamiento"&&A.paroPrevio!=="si")return false;
+    if(k==="trabajoExtranjero"&&A.situacionPersonal!=="retorno")return false;
+    if(k==="fechaRetorno"&&A.retorno!=="si")return false;
+    if(k==="residenciaLegal"&&["familia","desempleo"].indexOf(A.situacionPersonal)>=0)return false;
+  }
   if(DEP[k]&&A[DEP[k]]!=="si")return false;
   if(CATONLY.indexOf(k)>=0&&A.ccaa!=="Cataluña")return false;
   if(k==="provincia"&&!A.ccaa)return false;
@@ -274,25 +319,42 @@ function selCcaa(){var r=el("div","q");r.appendChild(txt("span","¿En qué comun
   s.onchange=function(){A.ccaa=s.value;delete A.provincia;delete A.municipio;
     if(s.value){A.catalunya=s.value==="Cataluña"?"si":"no";A.madrid=s.value==="Comunidad de Madrid"?"si":"no"}else{delete A.catalunya;delete A.madrid}
     save();renderProfile();refrescar()};r.appendChild(s);return r}
-function selProvincia(){var r=el("div","q");r.appendChild(txt("span","¿En qué provincia está tu actividad?"));
+function selProvincia(){var r=el("div","q");r.appendChild(txt("span",A.perfil==="particular"?"¿En qué provincia resides?":"¿En qué provincia está tu actividad?"));
   var s=el("select","fld");s.setAttribute("aria-label","Provincia");s.appendChild(new Option("Elige primero tu comunidad…",""));
   geoData().filter(function(p){return p.c===A.ccaa}).sort(function(a,b){return a.n.localeCompare(b.n,"es")}).forEach(function(p){s.appendChild(new Option(p.n,p.n))});
   s.value=A.provincia||"";s.disabled=!A.ccaa;
   s.onchange=function(){if(s.value)A.provincia=s.value;else delete A.provincia;delete A.municipio;save();renderProfile();refrescar()};r.appendChild(s);return r}
-function selMunicipio(){var r=el("div","q");r.appendChild(txt("span","¿En qué municipio está tu actividad?"));
+function selMunicipio(){var r=el("div","q");r.appendChild(txt("span",A.perfil==="particular"?"¿En qué municipio resides?":"¿En qué municipio está tu actividad?"));
   var s=el("select","fld");s.setAttribute("aria-label","Municipio");s.appendChild(new Option("Elige primero tu provincia…",""));
   var p=geoData().find(function(x){return x.n===A.provincia&&x.c===A.ccaa});
   if(p)p.m.slice().sort(function(a,b){return a.localeCompare(b,"es")}).forEach(function(m){s.appendChild(new Option(m,m))});
   s.value=A.municipio||"";s.disabled=!p;
   s.onchange=function(){if(s.value)A.municipio=s.value;else delete A.municipio;save();renderProfile();refrescar()};r.appendChild(s);return r}
 function controlPregunta(k){
-  var tipos={nacimientoFecha:"date",menores:"number",edad:"number",unidad:"number",ingresos:"number"};
+  var tipos={nacimientoFecha:"date",finTrabajo:"date",fechaAgotamiento:"date",fechaRetorno:"date",menores:"number",edad:"number",unidad:"number",ingresos:"number",ingresosPersonales:"number",unidadFamiliar:"number",cotizados:"number"};
   if(!tipos[k])return null;
   var input=el("input","fld");input.type=tipos[k];input.setAttribute("aria-label",QUESTIONS[k]||k);
   input.value=A[k]===undefined?"":A[k];
-  if(tipos[k]==="number"){input.min="0";input.step=k==="ingresos"?"0.01":"1";if(k==="edad")input.max="120";if(k==="menores"||k==="unidad")input.max="30"}
+  if(tipos[k]==="number"){input.min="0";input.step=(k==="ingresos"||k==="ingresosPersonales")?"0.01":"1";if(k==="edad")input.max="120";if(["menores","unidad","unidadFamiliar"].indexOf(k)>=0)input.max="30";if(k==="cotizados")input.max="2190"}
   input.onchange=function(){if(input.value==="")delete A[k];else A[k]=input.value;save();renderProfile();refrescar()};
   return input;
+}
+function opcionesPregunta(k){
+  var opts={
+    situacionPersonal:[["familia","Nacimiento, adopción o crianza"],["desempleo","Estoy en paro o he agotado el paro"],["ingresos","Tengo ingresos bajos o dificultades económicas"],["retorno","He regresado del extranjero o quiero volver"],["extranjeria","Mi situación es de extranjería o residencia"],["vivienda","Vivienda, alquiler o suministros"],["discapacidad","Discapacidad, dependencia o cuidados"],["estudios","Estudios, formación o juventud"],["otra","Otra situación personal"]],
+    familiaEvento:[["primer_hijo","Acabo de tener mi primer hijo"],["otro_hijo","He tenido otro hijo o una adopción"],["embarazo","Estoy embarazada o espero una adopción"],["crianza","Tengo hijos y busco ayudas para criarlos"]],
+    empleoSituacion:[["asalariado","He perdido un empleo por cuenta ajena"],["agotado","He agotado el paro"],["insuficiente","He cotizado menos de un año"],["autonomo","Soy autónomo o he cesado mi actividad"],["sin_trabajo","Busco empleo y no he trabajado recientemente"],["retornado","He regresado del extranjero"]],
+    motivoFin:[["despido","Despido"],["fin_contrato","Fin de contrato"],["ere","ERE/ERTE u otra suspensión"],["baja_voluntaria","Baja voluntaria"],["cese_autonomo","Cese de actividad como autónomo"],["otro","Otra situación"]],
+    nacionalidad:[["espanola","Nacionalidad española"],["ue","Nacionalidad UE/EEE/Suiza"],["extracomunitaria","Nacionalidad de fuera de la UE"],["otra","Otra situación"]],
+    retorno:[["si","Sí, ya he regresado"],["no","Todavía no he regresado"]],
+    tramitar:[["si","Sí, quiero que me ayudéis a tramitarla"],["no","No, solo quiero información"]]
+  };
+  return opts[k]||null;
+}
+function selectPregunta(k,opts){
+  var s=el("select","fld");s.setAttribute("aria-label",QUESTIONS[k]||k);s.appendChild(new Option("Elige una opción…",""));
+  opts.forEach(function(o){s.appendChild(new Option(o[1],o[0]))});s.value=A[k]||"";
+  s.onchange=function(){if(s.value)A[k]=s.value;else delete A[k];save();renderProfile();refrescar()};return s;
 }
 function renderProfile(){var p=document.getElementById("profile");p.innerHTML="";
   secuencia().forEach(function(k){if(k[0]==="#"){p.appendChild(el("h3","gh",k.slice(1)));return}
@@ -301,7 +363,19 @@ function renderProfile(){var p=document.getElementById("profile");p.innerHTML=""
     if(k==="provincia"){p.appendChild(selProvincia());return}
     if(k==="municipio"){p.appendChild(selMunicipio());return}
     var r=el("div","q");r.appendChild(txt("span",QUESTIONS[k]||k));
-    var control=controlPregunta(k);r.appendChild(control||seg(k,function(){renderProfile();refrescar()}));p.appendChild(r)})}
+    var opts=opcionesPregunta(k),control=opts?selectPregunta(k,opts):controlPregunta(k);
+    r.appendChild(control||seg(k,function(){renderProfile();refrescar()}));p.appendChild(r)
+  });
+  if(A.perfil==="particular"&&A.situacionPersonal==="desempleo"&&A.demandaEmpleo==="no"){
+    var aviso=el("div","miss m");aviso.appendChild(txt("strong","Antes de solicitar una prestación del SEPE, inscríbete como demandante de empleo."));
+    aviso.appendChild(txt("p","La inscripción se realiza en el servicio autonómico de empleo. Selecciona tu comunidad y provincia para localizar el canal oficial."));
+    var link=el("a","btn alt","Buscar servicio de empleo de mi comunidad");link.href="https://www.sistemanacionalempleo.es/HomeSne";link.target="_blank";link.rel="noopener";aviso.appendChild(link);p.appendChild(aviso);
+  }
+  if(A.perfil==="particular"&&A.situacionPersonal==="desempleo"){
+    var sepe=el("p","notice");sepe.appendChild(txt("strong","Simulador oficial del SEPE: "));
+    var a=el("a","","calcular prestaciones y subsidios");a.href="https://sede.sepe.gob.es/dgsimulador/introSimulador.do";a.target="_blank";a.rel="noopener";sepe.appendChild(a);p.appendChild(sepe);
+  }
+}
 function chips(id,arr,get,set){var f=document.getElementById(id);f.innerHTML="";
   arr.forEach(function(t){var b=el("button","chip",t);b.type="button";b.setAttribute("aria-pressed",get()===t);
     b.onclick=function(){set(t);renderFilters();renderList()};f.appendChild(b)})}
