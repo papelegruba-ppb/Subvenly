@@ -319,7 +319,7 @@ function selCcaa(){var r=el("div","q");r.appendChild(txt("span","¿En qué comun
   s.onchange=function(){A.ccaa=s.value;delete A.provincia;delete A.municipio;
     if(s.value){A.catalunya=s.value==="Cataluña"?"si":"no";A.madrid=s.value==="Comunidad de Madrid"?"si":"no"}else{delete A.catalunya;delete A.madrid}
     save();renderProfile();refrescar()};r.appendChild(s);return r}
-function selProvincia(){var r=el("div","q");r.appendChild(txt("span",["particular","ambos"].indexOf(A.perfil)>=0?"¿En qué provincia resides?":"¿En qué provincia está tu actividad?"));
+function selProvincia(){var r=el("div","q");r.appendChild(txt("span",A.perfil==="particular"?"¿En qué provincia resides?":"¿En qué provincia está tu actividad?"));
   var s=el("select","fld");s.setAttribute("aria-label","Provincia");s.appendChild(new Option("Elige primero tu comunidad…",""));
   geoData().filter(function(p){return p.c===A.ccaa}).sort(function(a,b){return a.n.localeCompare(b.n,"es")}).forEach(function(p){s.appendChild(new Option(p.n,p.n))});
   s.value=A.provincia||"";s.disabled=!A.ccaa;
@@ -655,7 +655,10 @@ Object.assign(QUESTIONS,{
  emergencias:"¿Has sufrido daños por una DANA, inundación, incendio u otra catástrofe?",
  transporte:"¿Tu actividad pertenece al transporte o a un sector con ayudas específicas por carburante?",
  municipioBarcelona:"¿Resides en Barcelona ciudad?",
- municipioMadrid:"¿Resides en Madrid ciudad?"
+ municipioMadrid:"¿Resides en Madrid ciudad?",
+ ccaaResidencia:"Comunidad autónoma de residencia:",
+ provinciaResidencia:"Provincia de residencia:",
+ municipioResidencia:"Municipio de residencia:"
 });
 Object.assign(DEP,{nacimientoFecha:"familia",menores:"familia",contratoAlquiler:"alquiler",empadronamiento:"alquiler",familiaMonoparental:"familia",familiaNumerosa:"familia"});
 delete DEP.familiaMonoparental;delete DEP.familiaNumerosa;
@@ -664,7 +667,15 @@ Object.assign(FALTA,{
  familia:"tener una situación familiar contemplada en las bases",nacimientoFecha:"cumplir el plazo correspondiente a la fecha del nacimiento/adopción",menores:"tener menores a cargo según las condiciones",alquiler:"tener gastos de alquiler subvencionables",edad:"cumplir el tramo de edad de la convocatoria",unidad:"cumplir los requisitos de la unidad de convivencia",ingresos:"cumplir los límites de ingresos",contratoAlquiler:"disponer del contrato exigido",empadronamiento:"cumplir el requisito de empadronamiento si lo exige la convocatoria",residenciaLegal:"cumplir los requisitos de residencia",familiaMonoparental:"tener reconocida la condición si se solicita ese supuesto",familiaNumerosa:"tener reconocida la condición si se solicita ese supuesto",social:"cumplir los requisitos de la prestación concreta",fiscal:"cumplir los requisitos fiscales del beneficio concreto",emergencias:"estar dentro del ámbito territorial y acreditar los daños o circunstancias de la catástrofe",transporte:"pertenecer al sector y cumplir las condiciones de la medida de combustible"
 });
 FALTA.bases="comprobar las bases oficiales completas, los requisitos que faltan y el estado vigente de la convocatoria";
-function evalAid(a){var bad=[],unk=[];var reqs=a.reqs||{};Object.keys(reqs).forEach(function(k){var v=eff(k);if(!v||v==="nose")unk.push(k);else if(v!==reqs[k])bad.push(k)});if(!Object.keys(reqs).length)unk.push("bases");if(a.pend||a.estadoManual||a.verificacionPendiente)unk.push("bases");unk=Array.from(new Set(unk));return{s:bad.length?"no":unk.length?"mid":"si",bad:bad,unk:unk}}
+function valorAid(k,a){
+ if(a.perfil==="personal"&&["autonomo","ambos"].indexOf(A.perfil)>=0){
+  if(k==="ccaa")return A.ccaaResidencia;
+  if(k==="municipioBarcelona")return A.municipioResidencia?nrm(A.municipioResidencia)==="barcelona"?"si":"no":undefined;
+  if(k==="municipioMadrid")return A.municipioResidencia?(A.ccaaResidencia==="Comunidad de Madrid"&&nrm(A.municipioResidencia)==="madrid"?"si":"no"):undefined;
+ }
+ return eff(k);
+}
+function evalAid(a){var bad=[],unk=[];var reqs=a.reqs||{};Object.keys(reqs).forEach(function(k){var v=valorAid(k,a);if(!v||v==="nose")unk.push(k);else if(v!==reqs[k])bad.push(k)});if(!Object.keys(reqs).length)unk.push("bases");if(a.pend||a.estadoManual||a.verificacionPendiente)unk.push("bases");unk=Array.from(new Set(unk));return{s:bad.length?"no":unk.length?"mid":"si",bad:bad,unk:unk}}
 function camino(){
  if(!A.perfil)return "";
  if(A.perfil==="particular")return "particular";
@@ -698,7 +709,7 @@ function secuencia(){
  l=l.concat(["#Dónde resides o desarrollas la actividad","ccaa","provincia","municipio","amb","lleida","centre","ponent"]);
  if(c==="aut"||c==="sl"||c==="empresaotra")l=l.concat(["#Tu equipo y las contrataciones","plantilla","contratar","indefinido","joven","bcn","#Otras ayudas de actividad","transporte","emergencias"]);
  if(A.perfil==="autonomo"||A.perfil==="ambos"){
-  l=l.concat(["#Ayudas personales y familiares","situacionPersonal","familia","nacimientoFecha","menores","alquiler","edad","unidad","ingresos","contratoAlquiler","empadronamiento","residenciaLegal","familiaMonoparental","familiaNumerosa","social","fiscal"]);
+  l=l.concat(["#Dónde resides","ccaaResidencia","provinciaResidencia","municipioResidencia","#Ayudas personales y familiares","situacionPersonal","familia","nacimientoFecha","menores","alquiler","edad","unidad","ingresos","contratoAlquiler","empadronamiento","residenciaLegal","familiaMonoparental","familiaNumerosa","social","fiscal"]);
   if(A.situacionPersonal==="familia")l=l.concat(["#Nacimiento, adopción y crianza","familiaEvento","tramitar"]);
   if(A.situacionPersonal==="desempleo")l=l.concat(["#Empleo y prestaciones","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cargasFamiliares","ingresosPersonales","tramitar"]);
   if(A.situacionPersonal==="retorno")l=l.concat(["#Retorno a España","retorno","nacionalidad","trabajoExtranjero","fechaRetorno","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","ingresosPersonales","cirbeNecesidad","tramitar"]);
@@ -717,6 +728,8 @@ function mostrar(k){
  if(k==="forma"&&A.perfil!=="empresa")return false;
  if(k==="provincia"&&!A.ccaa)return false;
  if(k==="municipio"&&!A.provincia)return false;
+ if(k==="provinciaResidencia"&&!A.ccaaResidencia)return false;
+ if(k==="municipioResidencia"&&!A.provinciaResidencia)return false;
  if(k==="amb"&&A.provincia!=="Barcelona")return false;
  if(["lleida","centre","ponent"].indexOf(k)>=0&&A.provincia!=="Lleida")return false;
  if(k==="familiaEvento"&&A.situacionPersonal!=="familia")return false;
@@ -733,6 +746,8 @@ function mostrar(k){
  if(["empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cargasFamiliares"].indexOf(k)>=0&&["desempleo","retorno"].indexOf(A.situacionPersonal)<0)return false;
  if(["ingresosPersonales","unidadFamiliar"].indexOf(k)>=0&&["ingresos","retorno","extranjeria","vivienda","discapacidad","estudios","otra","desempleo"].indexOf(A.situacionPersonal)<0)return false;
  if(["nacionalidad","residenciaLegal"].indexOf(k)>=0&&["retorno","extranjeria","familia","ingresos","vivienda","discapacidad","estudios","otra","desempleo"].indexOf(A.situacionPersonal)<0&&A.social!=="si")return false;
+ if(["empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cargasFamiliares","trabajoExtranjero","fechaRetorno","cirbeNecesidad"].indexOf(k)>=0&&["desempleo","retorno"].indexOf(A.situacionPersonal)<0)return false;
+ if(["ingresosPersonales","unidadFamiliar"].indexOf(k)>=0&&["ingresos","retorno","extranjeria","vivienda","discapacidad","estudios","otra","desempleo"].indexOf(A.situacionPersonal)<0)return false;
  if(k==="tramitar"&&!A.situacionPersonal)return false;
  return true;
 }
@@ -764,9 +779,33 @@ function selForma(){
  s.value=A.forma||"";s.onchange=function(){A.forma=s.value;A.sl=s.value==="sl"?"si":"no";save();renderProfile();refrescar()};r.appendChild(s);return r;
 }
 function selCcaa(){
- var r=el("div","q");r.appendChild(txt("span",A.perfil==="particular"||A.perfil==="ambos"?"¿En qué comunidad autónoma resides?":"¿En qué comunidad autónoma está tu actividad?"));
+ var r=el("div","q");r.appendChild(txt("span",A.perfil==="particular"?"¿En qué comunidad autónoma resides?":"¿En qué comunidad autónoma está tu actividad?"));
  var s=el("select","fld");s.setAttribute("aria-label","Comunidad autónoma");s.appendChild(new Option("Elige…",""));CCAA.forEach(function(c){s.appendChild(new Option(c[0],c[0]))});s.value=A.ccaa||"";
  s.onchange=function(){A.ccaa=s.value;delete A.provincia;delete A.municipio;if(s.value){A.catalunya=s.value==="Cataluña"?"si":"no";A.madrid=s.value==="Comunidad de Madrid"?"si":"no"}else{delete A.catalunya;delete A.madrid}save();renderProfile();refrescar()};r.appendChild(s);return r;
+}
+function selCcaaResidencia(){
+ var r=el("div","q");r.appendChild(txt("span","¿En qué comunidad autónoma resides?"));
+ var s=el("select","fld");s.setAttribute("aria-label","Comunidad autónoma de residencia");s.appendChild(new Option("Elige…",""));
+ CCAA.forEach(function(c){s.appendChild(new Option(c[0],c[0]))});s.value=A.ccaaResidencia||"";
+ s.onchange=function(){A.ccaaResidencia=s.value;delete A.provinciaResidencia;delete A.municipioResidencia;save();renderProfile();refrescar()};
+ r.appendChild(s);return r;
+}
+function selProvinciaResidencia(){
+ var r=el("div","q");r.appendChild(txt("span","¿En qué provincia resides?"));
+ var s=el("select","fld");s.setAttribute("aria-label","Provincia de residencia");s.appendChild(new Option("Elige primero tu comunidad…",""));
+ geoData().filter(function(p){return p.c===A.ccaaResidencia}).sort(function(a,b){return a.n.localeCompare(b.n,"es")}).forEach(function(p){s.appendChild(new Option(p.n,p.n))});
+ s.value=A.provinciaResidencia||"";s.disabled=!A.ccaaResidencia;
+ s.onchange=function(){A.provinciaResidencia=s.value;delete A.municipioResidencia;save();renderProfile();refrescar()};
+ r.appendChild(s);return r;
+}
+function selMunicipioResidencia(){
+ var r=el("div","q");r.appendChild(txt("span","¿En qué municipio resides?"));
+ var s=el("select","fld");s.setAttribute("aria-label","Municipio de residencia");s.appendChild(new Option("Elige primero tu provincia…",""));
+ var p=geoData().find(function(x){return x.n===A.provinciaResidencia&&x.c===A.ccaaResidencia});
+ if(p)p.m.slice().sort(function(a,b){return a.localeCompare(b,"es")}).forEach(function(m){s.appendChild(new Option(m,m))});
+ s.value=A.municipioResidencia||"";s.disabled=!p;
+ s.onchange=function(){A.municipioResidencia=s.value;save();renderProfile();refrescar()};
+ r.appendChild(s);return r;
 }
 function renderProfile(){
  var p=document.getElementById("profile");p.innerHTML="";
