@@ -157,7 +157,7 @@ assert(context.aplicaPerfil({perfil:"negocio"}) && !context.aplicaPerfil({perfil
 q = sequence();
 assert(q.includes("plantilla") && q.includes("direccionIgual"),
   "La ruta de autónomo debe conservar las preguntas de actividad y preguntar si la dirección fiscal coincide.");
-assert(!q.includes("situacionPersonal") && !q.includes("social") && !q.includes("fiscal") && !q.includes("emergencias"),
+assert(!q.includes("situacionPersonal") && !q.includes("social") && !q.includes("fiscal") && !q.includes("emergencias") && q.includes("emergenciasActividad"),
   "La ruta de autónomo no debe repetir el cuestionario personal.");
 setAnswers({perfil:"autonomo",alta:"si",direccionIgual:"si",ccaa:"Cataluña",municipio:"Lleida"});
 q = sequence();
