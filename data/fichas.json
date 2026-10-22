@@ -1779,5 +1779,46 @@
     "consultado": "2026-10-22",
     "cierre": "2026-10-30",
     "cierreFechaHora": "2026-10-30T14:00:00+01:00"
+  },
+  {
+    "id": 51,
+    "perfil": "personal",
+    "tipo": "Beca",
+    "titulo": "Becas generales para estudios postobligatorios",
+    "organo": "Ministerio de Educación y administraciones autonómicas",
+    "ambito": "Estatal y autonómico",
+    "plazo": "Convocatoria 2026/27 cerrada; próxima edición pendiente de publicación",
+    "estadoManual": "Convocatoria 2026/27 fuera de plazo; consultar la próxima edición oficial",
+    "pend": true,
+    "importe": "Depende de la convocatoria, estudios, renta familiar, residencia y rendimiento académico",
+    "resumen": "Becas para estudios universitarios, bachillerato, formación profesional y otras enseñanzas postobligatorias. La administración competente depende del domicilio familiar y del tipo de estudios; para el curso 2026/27, las convocatorias generales para familias con domicilio en Cataluña se tramitan a través de la Generalitat.",
+    "requisitos": [
+      "Estar matriculado o reunir las condiciones académicas para los estudios incluidos en la convocatoria correspondiente.",
+      "La beca puede depender de los requisitos generales, académicos, económicos y de residencia fijados para el curso.",
+      "La convocatoria estatal indica que las familias con domicilio en Cataluña deben consultar las becas de la Generalitat para el curso 2026/27.",
+      "Las convocatorias tienen plazos anuales: no presentar la edición 2026/27 como abierta tras el cierre de su plazo."
+    ],
+    "docs": [
+      "Identificación de la persona solicitante y datos de la unidad familiar.",
+      "Información académica y de matrícula.",
+      "Datos económicos y fiscales que requiera la convocatoria del curso correspondiente."
+    ],
+    "eval": "Ficha de orientación para localizar la administración competente y preparar la próxima edición. El test no confirma la concesión ni sustituye la comprobación de requisitos del curso.",
+    "links": [
+      [
+        "Becas y ayudas · Ministerio de Educación",
+        "https://www.becaseducacion.gob.es/portada.html"
+      ],
+      [
+        "Beca general universitaria de Cataluña · Generalitat",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/Beca-general-de-la-Generalitat-GRAL"
+      ],
+      [
+        "Becas para estudios no universitarios · Generalitat",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/beques-estudis-no-universitaris"
+      ]
+    ],
+    "categoria": "Educación y juventud",
+    "consultado": "2026-10-22"
   }
 ]
