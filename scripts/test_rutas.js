@@ -51,6 +51,12 @@ q = sequence();
 assert(q.includes("alta") && q.includes("ccaa") && q.includes("situacionPersonal") && q.includes("empleoSituacion"),
   "El perfil mixto debe conservar la ruta de negocio y mostrar la ruta personal aunque falte forma jurídica.");
 
+setAnswers({perfil:"particular",situacionPersonal:"retorno",retorno:"si",cirbeNecesidad:"si"});
+q = sequence();
+assert(q.includes("trabajoExtranjero") && q.includes("cirbeNecesidad"),
+  "La ruta de retorno debe ofrecer preguntas de trabajo exterior y necesidad de CIRBE.");
+assert(context.mostrar("fechaRetorno"), "Debe mostrar la fecha de retorno si ya regresó.");
+
 setAnswers({perfil:"autonomo",alta:"si",situacionPersonal:"ingresos"});
 q = sequence();
 assert(q.includes("plantilla") && q.includes("social") && q.includes("ingresosPersonales"),
