@@ -77,6 +77,22 @@ const localUnknownBeneficiary = context.encajeNov({
 assert(localUnknownBeneficiary.s === "mid",
   "Una novedad local sin beneficiarios identificados no debe descartarse si coincide con la residencia aunque la actividad esté en otra comunidad: " + JSON.stringify(localUnknownBeneficiary));
 
+setAnswers({perfil:"particular",situacionPersonal:"familia",ccaa:"",municipio:"",ccaaResidencia:"Cataluña",provinciaResidencia:"Barcelona",municipioResidencia:"Barcelona"});
+const pfParticular = context.perfilNov();
+const personalOnlyRegional = context.encajeNov({
+  n1:"regional", n2:"Cataluña", n3:"Generalitat de Catalunya",
+  organo:"Generalitat de Catalunya", titulo:"Ayuda para familias",
+  beneficiarios:"personas físicas y familias"
+}, pfParticular);
+const personalOnlyLocal = context.encajeNov({
+  n1:"local", n2:"Cataluña", n3:"Ajuntament de Barcelona",
+  organo:"Ajuntament de Barcelona", titulo:"Ayuda municipal para familias",
+  beneficiarios:"personas físicas y familias"
+}, pfParticular);
+assert(personalOnlyRegional.s === "si" && personalOnlyLocal.s === "si",
+  "El perfil particular debe evaluar las novedades autonómicas y locales con su residencia, aunque no tenga ubicación de actividad: " +
+  JSON.stringify({pfParticular,personalOnlyRegional,personalOnlyLocal}));
+
 setAnswers({perfil:"particular",situacionPersonal:"retorno",retorno:"si",cirbeNecesidad:"si"});
 q = sequence();
 assert(q.includes("trabajoExtranjero") && q.includes("cirbeNecesidad"),
