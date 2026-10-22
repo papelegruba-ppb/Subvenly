@@ -26,11 +26,22 @@ const context = {
   ccaaDe: value => value
 };
 vm.createContext(context);
-vm.runInContext(["camino","anadirRutaPersonal","secuencia","mostrar","estado","valorAid","evalAid","perfilNov","tiposBen","encajeNov"].map(activeFunction).join("\n"), context);
+vm.runInContext(["camino","anadirRutaPersonal","secuencia","mostrar","estado","valorAid","evalAid","perfilNov","tiposBen","encajeNov","fuenteNov","estadoNov"].map(activeFunction).join("\n"), context);
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
 }
+
+assert(context.fuenteNov({id:"934562",link:"https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/934562"}) === "Fuente: BDNS",
+  "Las novedades BDNS deben mostrar su fuente aunque el registro antiguo no tenga el campo fuente.");
+assert(context.fuenteNov({id:"cido-21573898",link:"https://cido.diba.cat/subvencions/21573898/ajuts"}) === "Fuente: CIDO · Diputació de Barcelona",
+  "Las novedades CIDO deben conservar la atribución de origen.");
+assert(context.fuenteNov({id:"UE-HORIZON-TEST",link:"https://ec.europa.eu/info/funding-tenders/topic-details/test"}) === "Fuente: Comisión Europea",
+  "Las novedades de la UE deben identificar la fuente europea.");
+assert(context.fuenteNov({id:"otro",organo:"Organismo local"}) === "Organismo: Organismo local · fuente por identificar",
+  "No se debe inventar la fuente cuando no puede identificarse con seguridad.");
+assert(context.estadoNov({}) === "por verificar" && context.estadoNov({estadoConvocatoria:"en plazo"}) === "en plazo",
+  "Las novedades sin estado confirmado deben quedar marcadas por verificar sin sobrescribir estados conocidos.");
 function setAnswers(values) { context.A = values; }
 function sequence() { return Array.from(context.secuencia()); }
 
