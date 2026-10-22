@@ -133,6 +133,8 @@ def main():
     filtros_ui = ultima_funcion("renderFilters")
     exigir("est===\"Por verificar\"" in render_list and "\"Por verificar\"" in filtros_ui,
            "El filtro Por verificar debe existir en las funciones efectivas de la interfaz")
+    for token in ("busquedaAyuda", "categoriaAyuda", "ambitoAyuda", "organoAyuda", "compatAyuda", "aplicaPerfil(a)", "mkCard(it,gr[0],true)"):
+        exigir(token in render_list, "El render de resultados ha perdido un filtro o las fichas agrupadas: " + token)
     equitat = next((f for f in fichas if f.get("id") == 50), {})
     exigir(equitat.get("cierre") == "2026-10-30" and
            equitat.get("cierreFechaHora") == "2026-10-30T14:00:00+01:00" and
