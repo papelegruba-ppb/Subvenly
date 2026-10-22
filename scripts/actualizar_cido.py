@@ -21,6 +21,10 @@ import xml.etree.ElementTree as ET
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, "..", "data")
 FEED = "https://cido.diba.cat/rss/subvencions/subvencions-ens-locals"
+FEEDS = [
+    ("subvencions-ens-locals", FEED, "Local"),
+    ("beques", "https://cido.diba.cat/rss/subvencions/beques", "Otros"),
+]
 RETENCION_DIAS = 90
 NUEVA_DIAS = 7
 USER_AGENT = "Subvenly/1.0 (+https://papelegruba-ppb.github.io/Subvenly/; ayuda pública y reutilización de datos)"
@@ -70,7 +74,32 @@ def referencia(link, titulo):
     return "cido-" + hashlib.sha256((link + "|" + titulo).encode("utf-8")).hexdigest()[:20]
 
 
-def parsear_rss(contenido, hoy=None):
+def nivel_entidad(organo, defecto="Otros"):
+    """Clasificación prudente por nombre del organismo, sin inferir elegibilidad."""
+    k = limpiar(organo).casefold()
+    if any(x in k for x in ("ajuntament", "ayuntamiento", "diputació", "diputacion",
+                            "consell comarcal", "mancomunitat", "ens local", "entidad local")):
+        return "Local"
+    if any(x in k for x in ("generalitat", "agaur", "govern de la generalitat", "governo autonómico")):
+        return "Autonómica"
+    if any(x in k for x in ("ministerio", "ministeri", "sepe", "imserso", "administración general del estado")):
+        return "Estatal"
+    if any(x in k for x in ("unión europea", "union europea", "comisión europea", "comision europea", "european commission")):
+        return "Unión Europea"
+    return defecto
+
+
+def territorio_entidad(nivel):
+    if nivel in ("Local", "Autonómica"):
+        return "Cataluña"
+    if nivel == "Estatal":
+        return "España"
+    if nivel == "Unión Europea":
+        return "Unión Europea"
+    return "Cataluña"
+
+
+def parsear_rss(contenido, hoy=None, feed=FEED, nivel_defecto="Local"):
     """Convierte RSS/Atom en registros normalizados; no hace peticiones de red."""
     hoy = hoy or dt.date.today()
     root = ET.fromstring(contenido)
@@ -85,7 +114,7 @@ def parsear_rss(contenido, hoy=None):
                     link = limpiar(hijo.attrib.get("href", ""))
                     if link:
                         break
-        link = urllib.parse.urljoin(FEED, link)
+        link = urllib.parse.urljoin(feed, link)
         if not link.startswith("https://cido.diba.cat/subvencions/"):
             continue
         descripcion = limpiar(campo(item, "description") or campo(item, "encoded") or campo(item, "summary") or campo(item, "content"))
@@ -115,18 +144,21 @@ def parsear_rss(contenido, hoy=None):
         resumen = re.sub(r"Ens\s*:\s*.+?(?=\s+Número de referència\s*:|$)", " ", resumen, flags=re.I)
         resumen = re.sub(r"(?:Número de referència|Numero de referencia)\s*:\s*[\w.-]+", " ", resumen, flags=re.I)
         resumen = limpiar(resumen)
+        nivel = nivel_entidad(org, nivel_defecto)
+        territorio = territorio_entidad(nivel)
         salida.append({
             "id": ident,
             "fuente": "CIDO",
-            "fuenteUrl": FEED,
+            "fuenteUrl": feed,
+            "categoriaFuente": "becas" if feed.endswith("/beques") else "subvenciones locales",
             "referenciaFuente": ref,
             "titulo": titulo[:300],
             "organo": org or "Entidad local de Cataluña",
-            "n1": "Local",
-            "n2": "Cataluña",
+            "n1": nivel,
+            "n2": territorio,
             "n3": org,
-            "ambito": "Local",
-            "territorio": "Cataluña",
+            "ambito": nivel,
+            "territorio": territorio,
             "fecha": fecha_iso(pub, hoy),
             "fechaTipo": "publicada",
             "link": link,
@@ -189,34 +221,41 @@ def combinar(datos, nuevos, hoy=None):
 
 def main():
     hoy = dt.date.today()
-    diagnostico = {"fecha": hoy.isoformat(), "fuente": FEED, "estado": "error"}
-    try:
-        request = urllib.request.Request(FEED, headers={"User-Agent": USER_AGENT, "Accept": "application/rss+xml, application/xml, text/xml"})
-        with urllib.request.urlopen(request, timeout=35) as response:
-            contenido = response.read(8 * 1024 * 1024 + 1)
-        if len(contenido) > 8 * 1024 * 1024:
-            raise ValueError("El RSS supera el límite de 8 MiB.")
-        nuevos = parsear_rss(contenido, hoy)
-        if not nuevos:
-            raise ValueError("El RSS no devolvió registros reconocibles; se conservan los datos anteriores.")
-        datos = leer_json("novedades.json", {"items": []})
-        combinado, resumen = combinar(datos, nuevos, hoy)
-        escribir_json("novedades.json", combinado)
-        diagnostico.update(resumen)
-        diagnostico["estado"] = "correcta"
-        diagnostico["muestra"] = [{"id": x["id"], "titulo": x["titulo"], "link": x["link"]} for x in nuevos[:3]]
-        escribir_json("_diagnostico_cido.json", diagnostico)
-        print("CIDO RSS: {} recibidas, {} nuevas, {} conservadas.".format(resumen["recibidas"], resumen["nuevas"], resumen["conservadasCIDO"]))
-        return 0
-    except Exception as exc:
-        diagnostico["error"] = str(exc)[:1000]
+    diagnostico = {"fecha": hoy.isoformat(), "fuentes": [x[0] for x in FEEDS], "estado": "error"}
+    nuevos, errores, por_fuente = [], [], {}
+    for nombre, url, nivel_defecto in FEEDS:
         try:
-            escribir_json("_diagnostico_cido.json", diagnostico)
-        except Exception:
-            pass
-        print("ERROR CIDO RSS:", exc, file=sys.stderr)
-        return 1
-
+            request = urllib.request.Request(
+                url,
+                headers={"User-Agent": USER_AGENT, "Accept": "application/rss+xml, application/xml, text/xml"},
+            )
+            with urllib.request.urlopen(request, timeout=35) as response:
+                contenido = response.read(8 * 1024 * 1024 + 1)
+            if len(contenido) > 8 * 1024 * 1024:
+                raise ValueError("El RSS supera el límite de 8 MiB.")
+            registros = parsear_rss(contenido, hoy, feed=url, nivel_defecto=nivel_defecto)
+            if not registros:
+                raise ValueError("El RSS no devolvió registros reconocibles.")
+            nuevos.extend(registros)
+            por_fuente[nombre] = len(registros)
+        except Exception as exc:
+            errores.append("{}: {}".format(nombre, str(exc)[:400]))
+    if not nuevos:
+        raise RuntimeError("Ningún RSS del CIDO devolvió registros. " + "; ".join(errores))
+    datos = leer_json("novedades.json", {"items": []})
+    combinado, resumen = combinar(datos, nuevos, hoy)
+    escribir_json("novedades.json", combinado)
+    diagnostico.update(resumen)
+    diagnostico["porFuente"] = por_fuente
+    diagnostico["errores"] = errores
+    diagnostico["estado"] = "parcial" if errores else "correcta"
+    diagnostico["muestra"] = [{"id": x["id"], "titulo": x["titulo"], "link": x["link"], "fuenteUrl": x["fuenteUrl"]} for x in nuevos[:5]]
+    escribir_json("_diagnostico_cido.json", diagnostico)
+    print("CIDO RSS: {} recibidas, {} nuevas, {} conservadas.".format(resumen["recibidas"], resumen["nuevas"], resumen["conservadasCIDO"]))
+    if errores:
+        print("Aviso CIDO: algunas fuentes fallaron: " + "; ".join(errores), file=sys.stderr)
+        return 2
+    return 0
 
 if __name__ == "__main__":
     sys.exit(main())
