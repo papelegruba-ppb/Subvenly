@@ -1625,7 +1625,9 @@
       ]
     ],
     "categoria": "Prestaciones sociales y familia",
-    "consultado": "2026-10-22"
+    "consultado": "2026-10-22",
+    "perm": true,
+    "permTxt": "Solicitud continua sujeta a los requisitos vigentes de la RGC"
   },
   {
     "id": 47,
