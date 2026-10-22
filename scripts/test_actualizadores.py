@@ -101,6 +101,14 @@ class TestLicitaciones(unittest.TestCase):
         self.assertIsNone(actualizar_licitaciones.entrada(self.make_entry(status="PRE"), hoy))
         self.assertIsNone(actualizar_licitaciones.entrada(self.make_entry(deadline="2026-10-01"), hoy))
 
+    def test_recorrer_fixture_atom_sin_red(self):
+        entry = ET.tostring(self.make_entry(), encoding="utf-8")
+        atom = b'<feed xmlns="http://www.w3.org/2005/Atom">' + entry + b'</feed>'
+        rows, pages = actualizar_licitaciones.recorrer("fixture", "2026-10-01", dt.date(2026, 10, 22), raiz_local=atom)
+        self.assertEqual(pages, 1)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["id"], "EXP-123")
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
