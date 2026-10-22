@@ -181,7 +181,7 @@ var QUESTIONS={
   empleoSituacion:"¿Cuál es tu situación laboral actual?",
   retorno:"¿Has regresado a España después de vivir en el extranjero?",
   nacionalidad:"¿Cuál es tu situación de nacionalidad?",
-  residenciaLegal:"¿Tienes residencia legal o una autorización que te permita residir en España?",
+  residenciaLegal:"Si eres extranjero, ¿cuál es tu situación de residencia o autorización para residir/trabajar en España?",
   demandaEmpleo:"¿Estás inscrito como demandante de empleo en tu comunidad autónoma?",
   finTrabajo:"¿En qué fecha terminó tu último trabajo?",
   motivoFin:"¿Cómo terminó tu último trabajo?",
@@ -259,8 +259,8 @@ function secuencia(){
   var c=camino(),l=["#Sobre ti"];
   if(A.perfil==="particular"){
     l.push("#Tu situación personal","situacionPersonal");
-    if(A.situacionPersonal==="familia")l=l.concat(["#Familia","familiaEvento","nacimientoFecha","menores"]);
-    if(A.situacionPersonal==="desempleo")l=l.concat(["#Empleo y prestaciones","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paroPrevio","fechaAgotamiento","cargasFamiliares","edad","ingresosPersonales"]);
+    if(A.situacionPersonal==="familia")l=l.concat(["#Familia","familiaEvento","nacimientoFecha","menores","residenciaLegal"]);
+    if(A.situacionPersonal==="desempleo")l=l.concat(["#Empleo y prestaciones","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paroPrevio","fechaAgotamiento","cargasFamiliares","edad","ingresosPersonales","residenciaLegal"]);
     if(A.situacionPersonal==="retorno")l=l.concat(["#Retorno a España","retorno","nacionalidad","residenciaLegal","trabajoExtranjero","fechaRetorno","empleoSituacion","demandaEmpleo","finTrabajo","cotizados","ingresosPersonales"]);
     if(A.situacionPersonal==="extranjeria")l=l.concat(["#Residencia y situación administrativa","nacionalidad","residenciaLegal","ingresosPersonales","unidadFamiliar"]);
     if(A.situacionPersonal==="ingresos")l=l.concat(["#Situación económica","residenciaLegal","ingresosPersonales","unidadFamiliar","menores","edad"]);
@@ -366,12 +366,12 @@ function renderProfile(){var p=document.getElementById("profile");p.innerHTML=""
     var opts=opcionesPregunta(k),control=opts?selectPregunta(k,opts):controlPregunta(k);
     r.appendChild(control||seg(k,function(){renderProfile();refrescar()}));p.appendChild(r)
   });
-  if(A.perfil==="particular"&&A.situacionPersonal==="desempleo"&&A.demandaEmpleo==="no"){
+  if(A.perfil==="particular"&&["desempleo","retorno"].indexOf(A.situacionPersonal)>=0&&A.demandaEmpleo==="no"){
     var aviso=el("div","miss m");aviso.appendChild(txt("strong","Antes de solicitar una prestación del SEPE, inscríbete como demandante de empleo."));
     aviso.appendChild(txt("p","La inscripción se realiza en el servicio autonómico de empleo. Selecciona tu comunidad y provincia para localizar el canal oficial."));
     var link=el("a","btn alt","Buscar servicio de empleo de mi comunidad");link.href="https://www.sistemanacionalempleo.es/HomeSne";link.target="_blank";link.rel="noopener";aviso.appendChild(link);p.appendChild(aviso);
   }
-  if(A.perfil==="particular"&&A.situacionPersonal==="desempleo"){
+  if(A.perfil==="particular"&&["desempleo","retorno"].indexOf(A.situacionPersonal)>=0){
     var sepe=el("p","notice");sepe.appendChild(txt("strong","Simulador oficial del SEPE: "));
     var a=el("a","","calcular prestaciones y subsidios");a.href="https://sede.sepe.gob.es/dgsimulador/introSimulador.do";a.target="_blank";a.rel="noopener";sepe.appendChild(a);p.appendChild(sepe);
   }
