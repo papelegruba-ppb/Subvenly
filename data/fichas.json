@@ -1103,7 +1103,7 @@
     "importe": "5.000 € por autónomo, según la medida histórica",
     "resumen": "Ayuda directa extraordinaria para trabajadores autónomos afectados por la DANA de 2024. La ubicación fiscal y el ámbito territorial de la medida eran esenciales.",
     "reqs": {
-      "emergencias": "si"
+      "emergenciasActividad": "si"
     },
     "requisitos": [
       "Convocatoria histórica cerrada",
@@ -1135,7 +1135,7 @@
     "importe": "Entre 10.000 € y 150.000 € según la facturación, conforme a la medida histórica",
     "resumen": "Ayudas directas extraordinarias a empresas y pymes afectadas por la DANA. La cuantía dependía del volumen de operaciones y de las condiciones de la convocatoria.",
     "reqs": {
-      "emergencias": "si"
+      "emergenciasActividad": "si"
     },
     "requisitos": [
       "Convocatoria histórica cerrada",
