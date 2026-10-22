@@ -449,7 +449,7 @@ function aplicaPerfil(a){
   if(!A.perfil)return true;
   if(A.perfil==="particular")return a.perfil==="personal";
   if(A.perfil==="empresa")return a.perfil!=="personal";
-  if(A.perfil==="autonomo")return true;
+  if(A.perfil==="autonomo")return a.perfil!=="personal";
   if(A.perfil==="ambos")return true;
   return true;
 }
