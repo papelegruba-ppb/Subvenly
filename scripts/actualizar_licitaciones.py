@@ -25,7 +25,7 @@ FEEDS = [
 # ---------- AJUSTES ----------
 DIAS_PRIMERA_VEZ = 7     # cuántos días atrás mira la primera vez
 MARGEN_DIAS = 1
-MAX_FICHEROS = 4        # tope de ficheros de 500 entradas por fuente y ejecución
+MAX_FICHEROS = 8        # tope de ficheros de 500 entradas por fuente y ejecución
 MAX_ITEMS = 4000
 SIN_PLAZO_DIAS = 30      # si una licitación no indica fecha límite, se conserva este tiempo
 TIPOS = {"1": "Suministros", "2": "Servicios", "3": "Obras", "21": "Gestión de servicios públicos",
@@ -98,7 +98,7 @@ def entrada(e, hoy):
 def recorrer(url, corte, hoy, raiz_local=None):
     """Sigue los enlaces rel="next" hasta llegar a entradas anteriores a 'corte'."""
     out, n = [], 0
-    while url and n < MAX_FICHEROS:
+    while url:
         print(f"  fichero {n+1}")
         raiz = ET.fromstring(raiz_local if raiz_local is not None else leer_url(url))
         entradas = [x for x in raiz if local(x.tag) == "entry"]
@@ -109,8 +109,10 @@ def recorrer(url, corte, hoy, raiz_local=None):
         ultima = iso(txt(hijo(entradas[-1], "updated"))) if entradas else ""
         sig = next((c.get("href") for c in raiz if local(c.tag) == "link" and c.get("rel") == "next"), "")
         n += 1
-        if raiz_local is not None or not entradas or (ultima and ultima < corte):
+        if raiz_local is not None or not entradas or (ultima and ultima < corte) or not sig:
             break
+        if n >= MAX_FICHEROS:
+            raise RuntimeError("Se alcanzó el límite de ficheros antes de llegar a la fecha de corte; se reintentará sin avanzar el cursor.")
         url = sig
     return out, n
 
