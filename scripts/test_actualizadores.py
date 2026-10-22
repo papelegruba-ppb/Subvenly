@@ -17,6 +17,8 @@ class TestCoberturaBDNS(unittest.TestCase):
     def test_incluye_ayudas_personales_y_sectoriales(self):
         casos = [
             {"descripcion": "Becas para estudios universitarios 2026"},
+            {"descripcion": "Subvención nominativa para una asociación local"},
+            {"descripcion": "Ayuda extraordinaria para gastos de sepelio"},
             {"descripcion": "Subvención para clubes deportivos de base"},
             {"descripcion": "Ayudas a la modernización de explotaciones ganaderas"},
             {"descripcion": "Programa de accesibilidad y cuidados a personas mayores"},
