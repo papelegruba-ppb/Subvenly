@@ -103,6 +103,10 @@ def main():
     exigir("id: buscar_cido" in workflow and "CIDO_OUTCOME" in workflow and
            "def es_bdns(item)" in bdns_script and "if not es_bdns(item):" in bdns_script,
            "El flujo debe ejecutar CIDO y evitar consultar sus IDs como si fueran de BDNS")
+    monitor_script = (ROOT / "scripts" / "vigilar_fuentes.py").read_text(encoding="utf-8")
+    exigir("ThreadPoolExecutor" in monitor_script and "MAX_WORKERS = 8" in monitor_script and
+           "TIMEOUT_ROBOTS = 6" in monitor_script and "TIMEOUT_PAGINA = 12" in monitor_script,
+           "La vigilancia de fuentes debe ejecutarse con concurrencia limitada y tiempos de espera acotados")
     provincias = geo.get("provinces", [])
     exigir(len(provincias) >= 50, "El catálogo geográfico no contiene todas las provincias")
     municipios = sum(len(p.get("m", [])) for p in provincias)
