@@ -66,10 +66,10 @@ def main():
     # Las funciones se declaran más de una vez en index.html; JavaScript usa la última.
     # Comprobar las definiciones efectivas evita falsos positivos por código antiguo sobrescrito.
     def ultima_funcion(nombre):
-        coincidencias = list(re.finditer(r"function " + re.escape(nombre) + r"\\s*\\([^)]*\\)\\s*\\{", html))
+        coincidencias = list(re.finditer(r"function " + re.escape(nombre) + r"\s*\([^)]*\)\s*\{", html))
         exigir(coincidencias, "Falta la función de interfaz: " + nombre)
         inicio = coincidencias[-1].end()
-        fin = html.find("\\nfunction ", inicio)
+        fin = html.find("\nfunction ", inicio)
         return html[inicio:fin if fin >= 0 else len(html)]
 
     ruta = ultima_funcion("secuencia")
@@ -89,8 +89,8 @@ def main():
            "Una fecha provisional no debe cerrar automáticamente una convocatoria pendiente")
 
     # Cada requisito usado por las fichas debe tener una pregunta visible en el test.
-    question_blocks = re.findall(r"var QUESTIONS\\s*=\\s*\\{([\\s\\S]*?)\\n\\};", html)
-    question_blocks += re.findall(r"Object\\.assign\\(QUESTIONS,\\s*\\{([\\s\\S]*?)\\}\\);", html)
+    question_blocks = re.findall(r"var QUESTIONS\s*=\s*\{([\s\S]*?)\n\};", html)
+    question_blocks += re.findall(r"Object\.assign\(QUESTIONS,\s*\{([\s\S]*?)\}\);", html)
     question_keys = set()
     for block in question_blocks:
         question_keys.update(re.findall(r"^\s*([A-Za-z_$][\w$]*):", block, flags=re.M))
