@@ -32,13 +32,13 @@ A partir de ahí se ejecuta solo cada noche, a las 03:17 UTC, y también cada ve
 - Las ayudas personales, beneficios fiscales, subvenciones empresariales, financiación y licitaciones se deben mantener como categorías distintas. Las licitaciones siguen en sección separada.
 
 ## Si una fuente falla
-Abre la ejecución de GitHub Actions y consulta el resumen final. Los diagnósticos `data/_diagnostico.json`, `data/_diagnostico_ue.json` y `data/_diagnostico_licitaciones.json` muestran la fecha, los resultados y los errores conocidos. La web puede seguir publicándose con datos previos o parciales, pero la interfaz debe indicarlo; un fallo de fuente no se interpreta como cierre de la convocatoria.
+Abre la ejecución de GitHub Actions y consulta el resumen final. Los diagnósticos `data/_diagnostico.json`, `data/_diagnostico_ue.json`, `data/_diagnostico_cido.json` y `data/_diagnostico_licitaciones.json` muestran la fecha, los resultados y los errores conocidos. La web puede seguir publicándose con datos previos o parciales, pero la interfaz debe indicarlo; un fallo de fuente no se interpreta como cierre de la convocatoria.
 
 ## Cosas a saber
 - Para ver la web en tu ordenador, no abras `index.html` con doble clic (el navegador bloquea la carga de los datos). Ejecuta `python -m http.server` dentro de la carpeta y abre `http://localhost:8000`.
 - En repositorios públicos, GitHub pausa las tareas programadas si pasan 60 días sin actividad. Si ocurre, actívalas de nuevo en la pestaña Actions.
 - **No necesitas instalar ni lanzar Python.** Los scripts se ejecutan solos en los servidores de GitHub cada noche. Python solo hace falta si quieres probarlos en tu ordenador.
-- Se automatizan las **subvenciones** (BDNS), las **convocatorias de la UE** y las **licitaciones abiertas**. Los **créditos** (ICF, ICO, Enisa) no tienen ninguna fuente automática: siguen siendo fichas manuales, pero se vigilan sus páginas oficiales y la web avisa cuando algo cambia.
+- Se automatizan las **subvenciones** (BDNS), las **novedades locales de Cataluña** desde el RSS público del CIDO, las **convocatorias de la UE** y las **licitaciones abiertas**. Los registros CIDO se etiquetan como «por verificar»: su publicación en el RSS no demuestra que el plazo siga abierto. Se conserva la atribución CC BY al CIDO/Diputación de Barcelona. Los **créditos** (ICF, ICO, Enisa) no tienen ninguna fuente automática: siguen siendo fichas manuales, pero se vigilan sus páginas oficiales y la web avisa cuando algo cambia.
 - El test cruza lo que responde la persona (comunidad autónoma, municipio, autónomo o sociedad) con las novedades: muestra primero las de «posible encaje» y oculta las que claramente no encajan. Es un filtro por territorio y tipo de beneficiario, no una garantía: los requisitos concretos (edad, inversión mínima, contratación…) solo están en las fichas que tú validas.
 - Las licitaciones no se pueden comprobar contra el test (la solvencia depende de cada pliego): se filtran por sector, importe y zona.
 - Los contratos menores no se incluyen: se publican una vez adjudicados, así que ya no se puede concurrir.
