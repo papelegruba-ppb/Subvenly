@@ -652,6 +652,16 @@
       "monitor": false,
       "oficial": true,
       "nota": "Herramienta orientativa de cálculo; no sustituye la resolución del SEPE."
+    },
+    {
+      "id": "gencat-rgc",
+      "nombre": "Generalitat de Catalunya · Renta Garantizada de Ciudadanía",
+      "ambito": "Cataluña",
+      "categoria": "Prestaciones sociales",
+      "url": "https://tramits.gencat.cat/es/tramits/tramits-temes/rgc-i-complement-activables",
+      "monitor": true,
+      "oficial": true,
+      "nota": "Prestación personal con modalidades activables/no activables. Verificar solicitud previa del IMV, residencia, situación laboral y umbrales económicos vigentes."
     }
   ],
   "coberturaTerritorial": [
