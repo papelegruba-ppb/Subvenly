@@ -43,6 +43,18 @@ def main():
            "subsidio para personas trabajadoras mayores de 52 años" in titulos_personales and
            "emigrantes españolas retornadas" in titulos_personales,
            "Faltan prestaciones SEPE importantes en la ruta de particulares")
+    for titulo in ("Bono social eléctrico y bono social térmico",
+                   "Pensiones no contributivas de jubilación e incapacidad",
+                   "Reconocimiento de dependencia y prestaciones del SAAD"):
+        exigir(titulo.lower() in titulos_personales,
+               "Falta una ficha importante de prestaciones personales: " + titulo)
+    exigir(all(any("miteco.gob.es" in str(link[1]) for link in (f.get("links") or []))
+               for f in personales if f.get("titulo") == "Bono social eléctrico y bono social térmico"),
+           "El bono social debe enlazar a la fuente oficial del MITECO")
+    exigir(all(any("imserso.es" in str(link[1]) for link in (f.get("links") or []))
+               for f in personales if f.get("titulo") in ("Pensiones no contributivas de jubilación e incapacidad",
+                                                          "Reconocimiento de dependencia y prestaciones del SAAD")),
+           "Las fichas de PNC y dependencia deben enlazar a fuentes oficiales del IMSERSO")
     exigir(isinstance(fuentes_doc.get("fuentes"), list) and fuentes_doc["fuentes"], "No hay registro de fuentes")
     fuentes = fuentes_doc["fuentes"]
     territorios = fuentes_doc.get("coberturaTerritorial", [])
