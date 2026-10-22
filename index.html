@@ -181,7 +181,7 @@ var QUESTIONS={
   empleoSituacion:"¿Cuál es tu situación laboral actual?",
   retorno:"¿Has regresado a España después de vivir en el extranjero?",
   nacionalidad:"¿Cuál es tu situación de nacionalidad?",
-  residenciaLegal:"Si eres extranjero, ¿cuál es tu situación de residencia o autorización para residir/trabajar en España?",
+  residenciaLegal:"Si eres extranjero, ¿tienes residencia legal o una autorización que te permita residir/trabajar en España?",
   demandaEmpleo:"¿Estás inscrito como demandante de empleo en tu comunidad autónoma?",
   finTrabajo:"¿En qué fecha terminó tu último trabajo?",
   motivoFin:"¿Cómo terminó tu último trabajo?",
@@ -392,7 +392,7 @@ function renderProfile(){var p=document.getElementById("profile");p.innerHTML=""
     };
     var servicio=serviciosEmpleo[A.ccaa]||["Sistema Nacional de Empleo","https://www.sistemanacionalempleo.es/HomeSne"];
     aviso.appendChild(txt("p","Servicio correspondiente a "+(A.ccaa||"tu comunidad autónoma")+(A.provincia?", provincia de "+A.provincia:"")+". Comprueba el trámite de inscripción inicial o reactivación de la demanda."));
-    var link=el("a","btn alt","Inscribirme en "+servicio[0]);link.href=servicio[1];link.target="_blank";link.rel="noopener";aviso.appendChild(link);p.appendChild(aviso);
+    var link=el("a","btn alt","Abrir portal oficial de "+servicio[0]);link.href=servicio[1];link.target="_blank";link.rel="noopener";aviso.appendChild(link);p.appendChild(aviso);
   }
   if(A.perfil==="particular"&&["desempleo","retorno"].indexOf(A.situacionPersonal)>=0){
     var sepe=el("p","notice");sepe.appendChild(txt("strong","Simulador oficial del SEPE: "));
