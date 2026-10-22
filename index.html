@@ -677,10 +677,15 @@ Object.assign(FALTA,{
 });
 FALTA.bases="comprobar las bases oficiales completas, los requisitos que faltan y el estado vigente de la convocatoria";
 function valorAid(k,a){
- if(a.perfil==="personal"&&["autonomo","ambos"].indexOf(A.perfil)>=0){
-  if(k==="ccaa")return A.ccaaResidencia;
-  if(k==="municipioBarcelona")return A.municipioResidencia?nrm(A.municipioResidencia)==="barcelona"?"si":"no":undefined;
-  if(k==="municipioMadrid")return A.municipioResidencia?(A.ccaaResidencia==="Comunidad de Madrid"&&nrm(A.municipioResidencia)==="madrid"?"si":"no"):undefined;
+ if(a.perfil==="personal"&&["particular","autonomo","ambos"].indexOf(A.perfil)>=0){
+  // Si la persona ha elegido otra ruta, no se dejan ayudas de familia o alquiler como "por confirmar".
+  if(k==="familia"&&A.situacionPersonal!=="familia")return "no";
+  if(k==="alquiler"&&A.situacionPersonal!=="vivienda")return "no";
+  if(["autonomo","ambos"].indexOf(A.perfil)>=0){
+   if(k==="ccaa")return A.ccaaResidencia;
+   if(k==="municipioBarcelona")return A.municipioResidencia?nrm(A.municipioResidencia)==="barcelona"?"si":"no":undefined;
+   if(k==="municipioMadrid")return A.municipioResidencia?(A.ccaaResidencia==="Comunidad de Madrid"&&nrm(A.municipioResidencia)==="madrid"?"si":"no"):undefined;
+  }
  }
  return eff(k);
 }
