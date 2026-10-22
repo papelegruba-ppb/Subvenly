@@ -111,6 +111,8 @@ def main():
            "El flujo debe ejecutar CIDO y evitar consultar sus IDs como si fueran de BDNS")
     exigir('"fuente": "Comisión Europea"' in ue_script and '"estadoConvocatoria": estado_convocatoria' in ue_script,
            "El importador europeo debe identificar la fuente y conservar el estado de la convocatoria")
+    exigir("def normalizar_fuente(item)" in bdns_script and '"fuente")' in bdns_script,
+           "La importación BDNS debe recuperar la procedencia de registros antiguos sin inventar fuentes")
     monitor_script = (ROOT / "scripts" / "vigilar_fuentes.py").read_text(encoding="utf-8")
     exigir("ThreadPoolExecutor" in monitor_script and "MAX_WORKERS = 8" in monitor_script and
            "TIMEOUT_ROBOTS = 6" in monitor_script and "TIMEOUT_PAGINA = 12" in monitor_script,
