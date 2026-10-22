@@ -672,6 +672,56 @@
       "monitor": true,
       "oficial": true,
       "nota": "Requisitos generales: situación legal de desempleo, al menos 360 días cotizados por desempleo en los seis años anteriores y demanda de empleo. Confirmar el plazo individual."
+    },
+    {
+      "id": "clm-ayudas-transversales",
+      "nombre": "Junta de Castilla-La Mancha · Ayudas y subvenciones de reto demográfico",
+      "ambito": "Castilla-La Mancha",
+      "categoria": "Ayudas generales",
+      "url": "https://retodemografico.castillalamancha.es/ayudas-y-subvenciones",
+      "monitor": true,
+      "nota": "Buscador oficial con convocatorias de distintas áreas vinculadas al reto demográfico. No representa por sí solo todas las ayudas de Castilla-La Mancha.",
+      "oficial": true
+    },
+    {
+      "id": "clm-vivienda",
+      "nombre": "Junta de Castilla-La Mancha · Ayudas de vivienda",
+      "ambito": "Castilla-La Mancha",
+      "categoria": "Alquiler y vivienda",
+      "url": "https://vivienda.castillalamancha.es/ayudas-y-subvenciones",
+      "monitor": true,
+      "nota": "Listado oficial de líneas de vivienda; comprobar convocatoria, plazo y requisitos de cada programa.",
+      "oficial": true
+    },
+    {
+      "id": "clm-educacion",
+      "nombre": "Junta de Castilla-La Mancha · Becas y ayudas educativas",
+      "ambito": "Castilla-La Mancha",
+      "categoria": "Educación y familia",
+      "url": "https://educacion.castillalamancha.es/alumnado-y-familias/becas-y-ayudas",
+      "monitor": true,
+      "nota": "Directorio oficial de becas y ayudas educativas; no sustituye la comprobación del trámite individual.",
+      "oficial": true
+    },
+    {
+      "id": "ceuta-ayudas-sede",
+      "nombre": "Ciudad Autónoma de Ceuta · Sede de becas, ayudas y subvenciones",
+      "ambito": "Ceuta",
+      "categoria": "Ayudas generales",
+      "url": "https://sede.ceuta.es/controlador/controlador?cmd=tramites&modulo=tramites&tema=ayu",
+      "monitor": true,
+      "nota": "Catálogo oficial de trámites de ayudas, becas y subvenciones. La apertura de solicitudes debe comprobarse en cada trámite.",
+      "oficial": true
+    },
+    {
+      "id": "larioja-oficina-electronica",
+      "nombre": "Gobierno de La Rioja · Oficina electrónica de trámites",
+      "ambito": "La Rioja",
+      "categoria": "Ayudas y trámites",
+      "url": "https://web.larioja.org/oficina-electronica/tramite",
+      "monitor": true,
+      "nota": "Portal oficial de trámites; las convocatorias pueden estar en páginas individuales. La extracción automática de nuevas convocatorias está pendiente.",
+      "oficial": true
     }
   ],
   "coberturaTerritorial": [
@@ -721,7 +771,7 @@
       "nombre": "Castilla-La Mancha",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
+      "estado": "BDNS más buscadores oficiales especializados de ayudas generales, vivienda y educación registrados; extracción automática independiente pendiente"
     },
     {
       "nombre": "Cataluña",
@@ -775,13 +825,13 @@
       "nombre": "La Rioja",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
+      "estado": "BDNS más oficina electrónica oficial de trámites registrada; buscador especializado y extracción automática pendientes"
     },
     {
       "nombre": "Ceuta",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
+      "estado": "BDNS más catálogo oficial de ayudas y subvenciones de la sede electrónica registrado; extracción automática independiente pendiente"
     },
     {
       "nombre": "Melilla",
