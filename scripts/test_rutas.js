@@ -26,7 +26,7 @@ const context = {
   ccaaDe: value => value
 };
 vm.createContext(context);
-vm.runInContext(["camino","anadirRutaPersonal","secuencia","mostrar","estado","valorAid","evalAid","perfilNov","tiposBen","encajeNov","fuenteNov","estadoNov"].map(activeFunction).join("\n"), context);
+vm.runInContext(["camino","anadirRutaPersonal","secuencia","mostrar","aplicaPerfil","estado","valorAid","evalAid","perfilNov","tiposBen","encajeNov","fuenteNov","estadoNov"].map(activeFunction).join("\n"), context);
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -62,12 +62,12 @@ assert(q.includes("familiaEvento") && !q.includes("empleoSituacion"),
   "La ruta familiar debe evitar preguntas de desempleo.");
 assert(!context.mostrar("empleoSituacion"), "No debe mostrar preguntas de empleo en la ruta familiar.");
 
-setAnswers({perfil:"ambos",situacionPersonal:"desempleo",familia:"si"});
+setAnswers({perfil:"ambos",situacionPersonal:"desempleo",familia:"si",direccionIgual:"no"});
 q = sequence();
 assert(q.includes("alta") && q.includes("ccaa") && q.includes("situacionPersonal") && q.includes("empleoSituacion"),
   "El perfil mixto debe conservar la ruta de negocio y mostrar la ruta personal aunque falte forma jurídica.");
 
-setAnswers({perfil:"ambos",ccaa:"Comunidad de Madrid",provincia:"Madrid",municipio:"Madrid",ccaaResidencia:"Cataluña",provinciaResidencia:"Barcelona",municipioResidencia:"Barcelona"});
+setAnswers({perfil:"ambos",direccionIgual:"no",ccaa:"Comunidad de Madrid",provincia:"Madrid",municipio:"Madrid",ccaaResidencia:"Cataluña",provinciaResidencia:"Barcelona",municipioResidencia:"Barcelona"});
 q = sequence();
 assert(q.includes("ccaa") && q.includes("ccaaResidencia") && q.includes("municipioResidencia"),
   "El perfil mixto debe recoger por separado la ubicación de actividad y la residencia.");
@@ -151,10 +151,28 @@ setAnswers({perfil:"particular",situacionPersonal:"desempleo",cotizados:"420",em
 const voluntaryQuit = context.evalAid({perfil:"personal",reqs:{motivoFin:{oneOf:["despido","fin_contrato","ere","otro"]}}});
 assert(voluntaryQuit.s === "no", "La evaluación por opciones debe descartar la baja voluntaria cuando el requisito es desempleo legal.");
 
-setAnswers({perfil:"autonomo",alta:"si",situacionPersonal:"ingresos"});
+setAnswers({perfil:"autonomo",alta:"si"});
+assert(context.aplicaPerfil({perfil:"negocio"}) && !context.aplicaPerfil({perfil:"personal"}),
+  "El perfil autónomo debe priorizar ayudas de actividad; las ayudas personales se incluyen al elegir el perfil mixto.");
 q = sequence();
-assert(q.includes("plantilla") && q.includes("social") && q.includes("ingresosPersonales"),
-  "La ruta de autónomo debe mantener las preguntas de empresa y ayudas personales.");
+assert(q.includes("plantilla") && q.includes("direccionIgual"),
+  "La ruta de autónomo debe conservar las preguntas de actividad y preguntar si la dirección fiscal coincide.");
+assert(!q.includes("situacionPersonal") && !q.includes("social") && !q.includes("fiscal") && !q.includes("emergencias") && q.includes("emergenciasActividad"),
+  "La ruta de autónomo no debe repetir el cuestionario personal.");
+setAnswers({perfil:"autonomo",alta:"si",direccionIgual:"si",ccaa:"Cataluña",municipio:"Lleida"});
+q = sequence();
+assert(!q.includes("ccaaResidencia") && !q.includes("provinciaResidencia") && !q.includes("municipioResidencia"),
+  "Si las direcciones coinciden, no debe pedir una segunda ubicación.");
+assert(!context.mostrar("ccaaResidencia") && !context.mostrar("provinciaResidencia") && !context.mostrar("municipioResidencia"),
+  "Los selectores de residencia deben permanecer ocultos cuando las direcciones coinciden.");
+setAnswers({perfil:"autonomo",alta:"si",direccionIgual:"no"});
+q = sequence();
+assert(q.includes("ccaaResidencia") && q.includes("provinciaResidencia") && q.includes("municipioResidencia"),
+  "Si las direcciones son distintas, debe pedir la ubicación de residencia.");
+setAnswers({perfil:"ambos",alta:"si",direccionIgual:"si"});
+q = sequence();
+assert(q.includes("situacionPersonal") && q.includes("social") && !q.includes("ccaaResidencia"),
+  "El perfil mixto mantiene la ruta personal, pero reutiliza la dirección del negocio si coincide.");
 
 const status = context.estado({pend:true,cierre:"2020-01-01",plazo:"Fecha provisional"});
 assert(status.k === "pending", "Una convocatoria pendiente no debe cerrarse por una fecha provisional ya pasada.");

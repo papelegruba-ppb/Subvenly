@@ -449,7 +449,7 @@ function aplicaPerfil(a){
   if(!A.perfil)return true;
   if(A.perfil==="particular")return a.perfil==="personal";
   if(A.perfil==="empresa")return a.perfil!=="personal";
-  if(A.perfil==="autonomo")return true;
+  if(A.perfil==="autonomo")return a.perfil!=="personal";
   if(A.perfil==="ambos")return true;
   return true;
 }
@@ -678,10 +678,12 @@ Object.assign(QUESTIONS,{
  familiaNumerosa:"¿Tienes reconocida la condición de familia numerosa?",
  social:"¿Quieres comprobar prestaciones sociales, incluido el ingreso mínimo vital?",
  fiscal:"¿Quieres comprobar deducciones y beneficios fiscales personales?",
- emergencias:"¿Has sufrido daños por una DANA, inundación, incendio u otra catástrofe?",
+ emergencias:"¿Has sufrido daños personales o en tu vivienda por una DANA, inundación, incendio u otra catástrofe?",
+ emergenciasActividad:"¿Tu negocio o centro de actividad ha sufrido daños por una DANA, inundación, incendio u otra catástrofe?",
  transporte:"¿Tu actividad pertenece al transporte o a un sector con ayudas específicas por carburante?",
  municipioBarcelona:"¿Resides en Barcelona ciudad?",
  municipioMadrid:"¿Resides en Madrid ciudad?",
+ direccionIgual:"¿La dirección fiscal y la del negocio/actividad es la misma?",
  ccaaResidencia:"Comunidad autónoma de residencia:",
  provinciaResidencia:"Provincia de residencia:",
  municipioResidencia:"Municipio de residencia:"
@@ -690,7 +692,7 @@ Object.assign(DEP,{nacimientoFecha:"familia",menores:"familia",contratoAlquiler:
 delete DEP.familiaMonoparental;delete DEP.familiaNumerosa;
 Object.assign(FALTA,{
  ccaa:"residir o desarrollar la actividad en la comunidad autónoma indicada",municipioBarcelona:"residir en Barcelona ciudad si la convocatoria lo exige",municipioMadrid:"residir en Madrid ciudad si la convocatoria lo exige",
- familia:"tener una situación familiar contemplada en las bases",nacimientoFecha:"cumplir el plazo correspondiente a la fecha del nacimiento/adopción",menores:"tener menores a cargo según las condiciones",alquiler:"tener gastos de alquiler subvencionables",edad:"cumplir el tramo de edad de la convocatoria",unidad:"cumplir los requisitos de la unidad de convivencia",ingresos:"cumplir los límites de ingresos",contratoAlquiler:"disponer del contrato exigido",empadronamiento:"cumplir el requisito de empadronamiento si lo exige la convocatoria",residenciaLegal:"cumplir los requisitos de residencia",familiaMonoparental:"tener reconocida la condición si se solicita ese supuesto",familiaNumerosa:"tener reconocida la condición si se solicita ese supuesto",social:"cumplir los requisitos de la prestación concreta",fiscal:"cumplir los requisitos fiscales del beneficio concreto",emergencias:"estar dentro del ámbito territorial y acreditar los daños o circunstancias de la catástrofe",transporte:"pertenecer al sector y cumplir las condiciones de la medida de combustible"
+ familia:"tener una situación familiar contemplada en las bases",nacimientoFecha:"cumplir el plazo correspondiente a la fecha del nacimiento/adopción",menores:"tener menores a cargo según las condiciones",alquiler:"tener gastos de alquiler subvencionables",edad:"cumplir el tramo de edad de la convocatoria",unidad:"cumplir los requisitos de la unidad de convivencia",ingresos:"cumplir los límites de ingresos",contratoAlquiler:"disponer del contrato exigido",empadronamiento:"cumplir el requisito de empadronamiento si lo exige la convocatoria",residenciaLegal:"cumplir los requisitos de residencia",familiaMonoparental:"tener reconocida la condición si se solicita ese supuesto",familiaNumerosa:"tener reconocida la condición si se solicita ese supuesto",social:"cumplir los requisitos de la prestación concreta",fiscal:"cumplir los requisitos fiscales del beneficio concreto",emergencias:"estar dentro del ámbito territorial y acreditar los daños personales o en la vivienda",emergenciasActividad:"estar dentro del ámbito territorial y acreditar los daños sufridos por el negocio o centro de actividad",transporte:"pertenecer al sector y cumplir las condiciones de la medida de combustible"
 });
 FALTA.bases="comprobar las bases oficiales completas, los requisitos que faltan y el estado vigente de la convocatoria";
 function valorAid(k,a){
@@ -699,9 +701,11 @@ function valorAid(k,a){
   if(k==="familia"&&A.situacionPersonal!=="familia")return "no";
   if(k==="alquiler"&&A.situacionPersonal!=="vivienda")return "no";
   if(["autonomo","ambos"].indexOf(A.perfil)>=0){
-   if(k==="ccaa")return A.ccaaResidencia;
-   if(k==="municipioBarcelona")return A.municipioResidencia?nrm(A.municipioResidencia)==="barcelona"?"si":"no":undefined;
-   if(k==="municipioMadrid")return A.municipioResidencia?(A.ccaaResidencia==="Comunidad de Madrid"&&nrm(A.municipioResidencia)==="madrid"?"si":"no"):undefined;
+   var ccaaRes=A.direccionIgual==="si"?A.ccaa:A.ccaaResidencia;
+   var municipioRes=A.direccionIgual==="si"?A.municipio:A.municipioResidencia;
+   if(k==="ccaa")return ccaaRes;
+   if(k==="municipioBarcelona")return municipioRes?nrm(municipioRes)==="barcelona"?"si":"no":undefined;
+   if(k==="municipioMadrid")return municipioRes?(ccaaRes==="Comunidad de Madrid"&&nrm(municipioRes)==="madrid"?"si":"no"):undefined;
   }
  }
  return eff(k);
@@ -762,10 +766,11 @@ function secuencia(){
  if(c==="empresaotra")l=l.concat(["#Tu empresa o entidad","hacienda"]);
  if(c==="nuevo"&&A.perfil==="empresa")l=l.concat(["#Preparar la constitución de tu empresa"]);else if(c==="nuevo")l=l.concat(["#Preparar el inicio de actividad","nuevo","jovenyo","paro","desempleado","hacienda"]);
  l=l.concat(["#Dónde resides o desarrollas la actividad","ccaa","provincia","municipio","amb","lleida","centre","ponent"]);
- if(c==="aut"||c==="sl"||c==="empresaotra")l=l.concat(["#Tu equipo y las contrataciones","plantilla","contratar","indefinido","joven","bcn","#Otras ayudas de actividad","transporte","emergencias"]);
+ if(c==="aut"||c==="sl"||c==="empresaotra")l=l.concat(["#Tu equipo y las contrataciones","plantilla","contratar","indefinido","joven","bcn","#Otras ayudas de actividad","transporte","emergenciasActividad"]);
  if(A.perfil==="autonomo"||A.perfil==="ambos"){
-  l=l.concat(["#Dónde resides","ccaaResidencia","provinciaResidencia","municipioResidencia"]);
-  l=anadirRutaPersonal(l);
+  l=l.concat(["#Dirección fiscal y residencia","direccionIgual"]);
+  if(A.direccionIgual==="no")l=l.concat(["#Dónde resides","ccaaResidencia","provinciaResidencia","municipioResidencia"]);
+  if(A.perfil==="ambos")l=anadirRutaPersonal(l);
  }
  return Array.from(new Set(l));
 }
@@ -774,6 +779,8 @@ function mostrar(k){
  if(k==="forma"&&A.perfil!=="empresa")return false;
  if(k==="provincia"&&!A.ccaa)return false;
  if(k==="municipio"&&!A.provincia)return false;
+ if(k==="direccionIgual"&&["autonomo","ambos"].indexOf(A.perfil)<0)return false;
+ if(["ccaaResidencia","provinciaResidencia","municipioResidencia"].indexOf(k)>=0&&A.direccionIgual!=="no")return false;
  if(k==="provinciaResidencia"&&!A.ccaaResidencia)return false;
  if(k==="municipioResidencia"&&!A.provinciaResidencia)return false;
  if(k==="amb"&&A.provincia!=="Barcelona")return false;
@@ -822,7 +829,7 @@ function impl(k){
 function eff(k){var i=impl(k);if(i!==undefined)return i;if(["perfil","forma","alta","sl","proyecto","ccaa","provincia","municipio","catalunya","madrid"].indexOf(k)>=0)return A[k];return secuencia().indexOf(k)>=0&&mostrar(k)?A[k]:undefined}
 function selPerfil(){
  var r=el("div","q");r.appendChild(txt("span",QUESTIONS.perfil));var s=el("select","fld");s.setAttribute("aria-label","Perfil de búsqueda");
- [["","Elige…"],["particular","Particular o familia"],["autonomo","Autónomo (incluye ayudas personales que puedan corresponderte)"],["empresa","Empresa o sociedad (SL u otra forma jurídica)"],["ambos","Para mí y para mi negocio"]].forEach(function(o){s.appendChild(new Option(o[1],o[0]))});
+ [["","Elige…"],["particular","Particular o familia"],["autonomo","Autónomo/a (ayudas para tu actividad)"],["empresa","Empresa o sociedad (SL u otra forma jurídica)"],["ambos","Para mí y para mi negocio"]].forEach(function(o){s.appendChild(new Option(o[1],o[0]))});
  s.value=A.perfil||"";s.onchange=function(){A={perfil:s.value};save();renderProfile();refrescar()};r.appendChild(s);return r;
 }
 function selForma(){
@@ -958,8 +965,8 @@ function renderList(){
  });
 }
 function perfilNov(){
- var c=camino(),aut=A.perfil==="autonomo"||A.perfil==="ambos"||c==="aut"||c==="nuevo",soc=A.perfil==="empresa"||c==="sl"||c==="empresaotra";
- return{ccaa:A.ccaa||"",muni:nrm(A.municipio||"").trim(),ccaaResidencia:A.ccaaResidencia||"",muniResidencia:nrm(A.municipioResidencia||"").trim(),aut:aut,soc:soc,particular:["particular","autonomo","ambos"].indexOf(A.perfil)>=0,perfil:A.perfil||"",activo:!!(A.perfil||A.ccaa||A.ccaaResidencia||aut||soc)};
+ var c=camino(),aut=A.perfil==="autonomo"||A.perfil==="ambos"||c==="aut"||c==="nuevo",soc=A.perfil==="empresa"||c==="sl"||c==="empresaotra",misma=A.direccionIgual==="si";
+ return{ccaa:A.ccaa||"",muni:nrm(A.municipio||"").trim(),ccaaResidencia:(misma?A.ccaa:A.ccaaResidencia)||"",muniResidencia:nrm((misma?A.municipio:A.municipioResidencia)||"").trim(),aut:aut,soc:soc,particular:["particular","ambos"].indexOf(A.perfil)>=0,perfil:A.perfil||"",activo:!!(A.perfil||A.ccaa||A.ccaaResidencia||aut||soc)};
 }
 function tiposBen(b){var t=nrm(b);if(!t)return null;var c={};c.aut=(t.indexOf("fisica")>=0&&t.indexOf("actividad economica")>=0&&t.indexOf("no desarrolla")<0)||t.indexOf("autonom")>=0;c.pyme=t.indexOf("pyme")>=0||t.indexOf("pequena")>=0||t.indexOf("microempresa")>=0||t.indexOf("mediana")>=0;c.soc=c.pyme||(t.indexOf("juridica")>=0&&t.indexOf("actividad economica")>=0&&t.indexOf("no desarrolla")<0)||(t.indexOf("empresa")>=0&&t.indexOf("gran empresa")<0);c.persona=/persona fisica|familia|unidad de convivencia|personas beneficiarias|ciudadania|arrendatari|nacimiento|adopcion|hijos|hogar|vulnerabilidad|alquiler/.test(t);return c}
 function encajeNov(n,pf){
