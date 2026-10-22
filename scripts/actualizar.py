@@ -225,7 +225,7 @@ def main():
         if not isinstance(item, dict):
             continue
         ident = str(pick(item, "numeroConvocatoria", "codigoBDNS", "id") or "")
-        if ident:
+        if ident and ident not in unicos:
             unicos[ident] = item
     raw = list(unicos.values())
     filtradas = [it for it in raw if relevante(it)]
