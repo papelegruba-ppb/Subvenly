@@ -565,8 +565,11 @@ function renderNovedades(){var c=document.getElementById("nov-list");c.innerHTML
   var g=el("div","grid");
   all.slice(0,NOV_MAX).forEach(function(n){var card=el("article","card nov"),t=el("div","top");
     var lt=el("div","","<h3></h3><div class='meta'></div>");lt.querySelector("h3").textContent=n.titulo;
-    lt.querySelector(".meta").textContent=[n.organo,tit(n.n1?n1lab(n.n1):""),n.fecha?"Publicada el "+fmt(n.fecha):""].filter(Boolean).join(" · ");t.appendChild(lt);
+    lt.querySelector(".meta").textContent=[n.organo,tit(n.n1?n1lab(n.n1):""),n.fecha?(n.fechaTipo==="detectada"?"Detectada el ":"Publicada el ")+fmt(n.fecha):""].filter(Boolean).join(" · ");t.appendChild(lt);
     if(n._e)t.appendChild(el("span","badge "+(n._e.s==="si"?"b-si":n._e.s==="mid"?"b-mid":"b-no"),n._e.s==="si"?"Posible encaje":n._e.s==="mid"?"Por confirmar":"No encaja"));
+    if(n.estadoConvocatoria==="próxima")t.appendChild(el("span","st st-soon","Próxima apertura"));
+    else if(n.estadoConvocatoria==="en plazo")t.appendChild(el("span","st st-open","En plazo · portal UE"));
+    else if(n.estadoConvocatoria==="por verificar")t.appendChild(el("span","st st-pending","Estado por verificar"));
     if(n.nueva)t.appendChild(el("span","badge nuevo","Nuevo"));card.appendChild(t);
     if(n._e&&n._e.s==="mid"&&n._e.why.length)card.appendChild(txt("p","Para confirmar: "+n._e.why.join("; ")+".")).className="meta";
     var d=[];
