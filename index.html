@@ -884,18 +884,22 @@ function renderList(){
   var g=el("div","grid");grp.forEach(function(it){g.appendChild(mkCard(it,gr[0],true))});l.appendChild(g);
  });
 }
-function perfilNov(){var c=camino(),aut=A.perfil==="autonomo"||A.perfil==="ambos"||c==="aut"||c==="nuevo",soc=A.perfil==="empresa"||c==="sl"||c==="empresaotra";return{ccaa:A.ccaa||"",muni:nrm(A.municipio||"").trim(),aut:aut,soc:soc,particular:["particular","autonomo","ambos"].indexOf(A.perfil)>=0,perfil:A.perfil||"",activo:!!(A.perfil||A.ccaa||aut||soc)}}
+function perfilNov(){
+ var c=camino(),aut=A.perfil==="autonomo"||A.perfil==="ambos"||c==="aut"||c==="nuevo",soc=A.perfil==="empresa"||c==="sl"||c==="empresaotra";
+ return{ccaa:A.ccaa||"",muni:nrm(A.municipio||"").trim(),ccaaResidencia:A.ccaaResidencia||"",muniResidencia:nrm(A.municipioResidencia||"").trim(),aut:aut,soc:soc,particular:["particular","autonomo","ambos"].indexOf(A.perfil)>=0,perfil:A.perfil||"",activo:!!(A.perfil||A.ccaa||A.ccaaResidencia||aut||soc)};
+}
 function tiposBen(b){var t=nrm(b);if(!t)return null;var c={};c.aut=(t.indexOf("fisica")>=0&&t.indexOf("actividad economica")>=0&&t.indexOf("no desarrolla")<0)||t.indexOf("autonom")>=0;c.pyme=t.indexOf("pyme")>=0||t.indexOf("pequena")>=0||t.indexOf("microempresa")>=0||t.indexOf("mediana")>=0;c.soc=c.pyme||(t.indexOf("juridica")>=0&&t.indexOf("actividad economica")>=0&&t.indexOf("no desarrolla")<0)||(t.indexOf("empresa")>=0&&t.indexOf("gran empresa")<0);c.persona=/persona fisica|familia|unidad de convivencia|personas beneficiarias|ciudadania|arrendatari|nacimiento|adopcion|hijos|hogar|vulnerabilidad|alquiler/.test(t);return c}
 function encajeNov(n,pf){
- var why=[],bad=false,unk=false,amb=n1lab(n.n1),de=ccaaDe(n.n2);
- if(amb==="Autonómica"){if(!pf.ccaa){unk=true;why.push("indica tu comunidad autónoma")}else if(de&&de!==pf.ccaa)bad=true;else if(!de){unk=true;why.push("comprueba el territorio")}}
- else if(amb==="Local"){if(pf.muni){if(nrm([n.n3,n.titulo,n.organo].join(" ")).indexOf(pf.muni)<0)bad=true}else if(pf.ccaa&&de&&de!==pf.ccaa)bad=true;else{unk=true;why.push("indica tu municipio")}}
- var c=tiposBen(n.beneficiarios);
+ var why=[],bad=false,unk=false,amb=n1lab(n.n1),de=ccaaDe(n.n2),c=tiposBen(n.beneficiarios);
+ var usaResidencia=!!(c&&c.persona&&pf.particular&&["autonomo","ambos"].indexOf(pf.perfil)>=0);
+ var ccaaPerfil=usaResidencia?pf.ccaaResidencia:pf.ccaa;
+ var muniPerfil=usaResidencia?pf.muniResidencia:pf.muni;
+ if(amb==="Autonómica"){if(!ccaaPerfil){unk=true;why.push("indica tu comunidad autónoma")}else if(de&&de!==ccaaPerfil)bad=true;else if(!de){unk=true;why.push("comprueba el territorio")}}
+ else if(amb==="Local"){if(muniPerfil){if(nrm([n.n3,n.titulo,n.organo].join(" ")).indexOf(muniPerfil)<0)bad=true}else if(ccaaPerfil&&de&&de!==ccaaPerfil)bad=true;else{unk=true;why.push("indica tu municipio")}}
  if(c===null){unk=true;why.push("comprueba a quién va dirigida")}
  else {var coincide=(pf.aut&&c.aut)||(pf.soc&&c.soc)||(pf.particular&&c.persona);if(!coincide){if(pf.perfil==="particular"&&!c.persona)unk=true;else if(pf.aut||pf.soc)bad=true;else unk=true;why.push("comprueba los beneficiarios exactos")}}
  return{s:bad?"no":unk?"mid":"si",why:why};
 }
-
 function renderFilters(){var tipos=["Todas"].concat(Array.from(new Set(AIDS.map(function(a){return a.tipo}).filter(Boolean))).sort());chips("filters",tipos,function(){return tipo},function(t){tipo=t});chips("estf",["Todas","Abiertas","Pendientes","Cerradas"],function(){return est},function(t){est=t})}
 function mailBody(){var o=[],labels={si:"Sí",no:"No",nose:"No sé"};secuencia().forEach(function(k){if(k[0]==="#"||A[k]===undefined||A[k]===""||!mostrar(k))return;var v=Object.prototype.hasOwnProperty.call(labels,A[k])?labels[A[k]]:String(A[k]);o.push((QUESTIONS[k]||k)+" "+v)});return o.length?"\n\nMis respuestas del test:\n"+o.join("\n"):""}
 function renderSourceChanges(){
