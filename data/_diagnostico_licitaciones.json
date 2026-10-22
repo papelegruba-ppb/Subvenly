@@ -1,8 +1,8 @@
 {
  "fecha": "2026-10-22",
  "ficheros": 2,
- "encontradas": 187,
- "guardadas": 1628,
+ "encontradas": 145,
+ "guardadas": 1761,
  "fuentes_correctas": [],
  "fuentes_parciales": [
   "perfiles",
@@ -11,16 +11,16 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "138849X/2026",
-  "titulo": "Prestación de servicios analíticos para la determinación, evaluación y caracterización de los parámetros de calidad del agua fijados en el Real Decreto 3/2023, contemplando específicamente el análisis tipo completo, el control de radiactividad, el seguimiento de la lista de observación y la caracter",
-  "organo": "Consejo de Administración de la Empresa Municipal de Aguas de Gijón SA",
-  "territorio": "Asturias",
-  "nuts": "ES120",
-  "tipo": "Servicios",
-  "cpv": "71620000",
-  "presupuesto": 45345,
+  "id": "3067704A",
+  "titulo": "Suministro de cubos domésticos de recogida PaP para el servicio mancomunado de recogida de fracción resto.",
+  "organo": "Presidencia de la Mancomunitat de Municipis La Costera - Canal",
+  "territorio": "Valencia/València",
+  "nuts": "ES523",
+  "tipo": "Suministros",
+  "cpv": "34928480",
+  "presupuesto": 24775,
   "cierre": "2026-11-04",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=qlrNzng0yBE%2Bk2oCbDosIw%3D%3D",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6pOBu6AgvTYQyBAnWzHfCg%3D%3D",
   "visto": "2026-10-22",
   "actualizada": "2026-10-21"
  }
