@@ -28,3 +28,5 @@ jobs:
         run: python -m compileall -q scripts
       - name: Validar catálogos y JavaScript
         run: python scripts/validar_datos.py
+      - name: Ejecutar pruebas de importadores sin red
+        run: python scripts/test_actualizadores.py
