@@ -151,10 +151,24 @@ setAnswers({perfil:"particular",situacionPersonal:"desempleo",cotizados:"420",em
 const voluntaryQuit = context.evalAid({perfil:"personal",reqs:{motivoFin:{oneOf:["despido","fin_contrato","ere","otro"]}}});
 assert(voluntaryQuit.s === "no", "La evaluación por opciones debe descartar la baja voluntaria cuando el requisito es desempleo legal.");
 
-setAnswers({perfil:"autonomo",alta:"si",situacionPersonal:"ingresos"});
+setAnswers({perfil:"autonomo",alta:"si"});
 q = sequence();
-assert(q.includes("plantilla") && q.includes("social") && q.includes("ingresosPersonales"),
-  "La ruta de autónomo debe mantener las preguntas de empresa y ayudas personales.");
+assert(q.includes("plantilla") && q.includes("direccionIgual"),
+  "La ruta de autónomo debe conservar las preguntas de actividad y preguntar si la dirección fiscal coincide.");
+assert(!q.includes("situacionPersonal") && !q.includes("social") && !q.includes("fiscal") && !q.includes("emergencias"),
+  "La ruta de autónomo no debe repetir el cuestionario personal.");
+setAnswers({perfil:"autonomo",alta:"si",direccionIgual:"si",ccaa:"Cataluña",municipio:"Lleida"});
+q = sequence();
+assert(!q.includes("ccaaResidencia") && !q.includes("provinciaResidencia") && !q.includes("municipioResidencia"),
+  "Si las direcciones coinciden, no debe pedir una segunda ubicación.");
+setAnswers({perfil:"autonomo",alta:"si",direccionIgual:"no"});
+q = sequence();
+assert(q.includes("ccaaResidencia") && q.includes("provinciaResidencia") && q.includes("municipioResidencia"),
+  "Si las direcciones son distintas, debe pedir la ubicación de residencia.");
+setAnswers({perfil:"ambos",alta:"si",direccionIgual:"si"});
+q = sequence();
+assert(q.includes("situacionPersonal") && q.includes("social") && !q.includes("ccaaResidencia"),
+  "El perfil mixto mantiene la ruta personal, pero reutiliza la dirección del negocio si coincide.");
 
 const status = context.estado({pend:true,cierre:"2020-01-01",plazo:"Fecha provisional"});
 assert(status.k === "pending", "Una convocatoria pendiente no debe cerrarse por una fecha provisional ya pasada.");
