@@ -684,7 +684,7 @@ function valorAid(k,a){
  }
  return eff(k);
 }
-function evalAid(a){var bad=[],unk=[];var reqs=a.reqs||{};Object.keys(reqs).forEach(function(k){var v=valorAid(k,a);if(!v||v==="nose")unk.push(k);else if(v!==reqs[k])bad.push(k)});if(!Object.keys(reqs).length)unk.push("bases");if(a.pend||a.estadoManual||a.verificacionPendiente)unk.push("bases");unk=Array.from(new Set(unk));return{s:bad.length?"no":unk.length?"mid":"si",bad:bad,unk:unk}}
+function evalAid(a){var bad=[],unk=[];var reqs=a.reqs||{};Object.keys(reqs).forEach(function(k){var v=valorAid(k,a),esperado=reqs[k];if(v===undefined||v===null||v===""||v==="nose"){unk.push(k);return}if(esperado&&typeof esperado==="object"&&!Array.isArray(esperado)){if(Array.isArray(esperado.oneOf)&&esperado.oneOf.indexOf(v)<0){bad.push(k);return}if(esperado.min!==undefined||esperado.max!==undefined){var n=Number(v);if(!Number.isFinite(n)){unk.push(k);return}if((esperado.min!==undefined&&n<esperado.min)||(esperado.max!==undefined&&n>esperado.max))bad.push(k);return}unk.push(k);return}if(v!==esperado)bad.push(k)});if(!Object.keys(reqs).length)unk.push("bases");if(a.pend||a.estadoManual||a.verificacionPendiente)unk.push("bases");unk=Array.from(new Set(unk));return{s:bad.length?"no":unk.length?"mid":"si",bad:bad,unk:unk}}
 function camino(){
  if(!A.perfil)return "";
  if(A.perfil==="particular")return "particular";
