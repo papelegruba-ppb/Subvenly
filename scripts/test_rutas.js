@@ -1,0 +1,62 @@
+#!/usr/bin/env node
+"use strict";
+const fs = require("node:fs");
+const vm = require("node:vm");
+const html = fs.readFileSync("index.html", "utf8");
+
+function activeFunction(name) {
+  const start = html.lastIndexOf("function " + name + "(");
+  if (start < 0) throw new Error("No se encuentra la función activa " + name);
+  const end = html.indexOf("\nfunction ", start + 1);
+  return html.slice(start, end < 0 ? html.length : end);
+}
+
+const context = {
+  A: {},
+  DEP: {indefinido:"contratar", joven:"contratar", bcn:"contratar", sl24:"sl"},
+  CATONLY: ["amb", "lleida", "centre", "ponent"],
+  IMPLICITO: {sl:{nuevo:"no",tarifa:"no",jovenyo:"no",paro:"no",desempleado:"no"},aut:{sl:"no",sl24:"no"}},
+  fmt: value => value,
+  Date,
+  Math,
+  Array
+};
+vm.createContext(context);
+vm.runInContext(["camino","secuencia","mostrar","estado"].map(activeFunction).join("\n"), context);
+
+function assert(condition, message) {
+  if (!condition) throw new Error(message);
+}
+function setAnswers(values) { context.A = values; }
+function sequence() { return Array.from(context.secuencia()); }
+
+setAnswers({perfil:"particular",situacionPersonal:"desempleo",familia:"si",social:"si",ccaa:"Cataluña",provincia:"Barcelona",paroPrevio:"si",demandaEmpleo:"no"});
+let q = sequence();
+assert(q.includes("situacionPersonal") && q.includes("empleoSituacion") && q.includes("cotizados") && q.includes("tramitar"),
+  "La ruta de desempleo no incluye las preguntas específicas.");
+assert(context.mostrar("fechaAgotamiento"), "Debe pedir fecha de agotamiento cuando se confirma paro previo.");
+context.A.paroPrevio = "no";
+assert(!context.mostrar("fechaAgotamiento"), "No debe pedir fecha de agotamiento si no se agotó el paro.");
+context.A.paroPrevio = "si";
+assert(!context.mostrar("fechaRetorno"), "No debe mostrar la fecha de retorno en la ruta de desempleo.");
+
+setAnswers({perfil:"particular",situacionPersonal:"familia",familia:"si"});
+q = sequence();
+assert(q.includes("familiaEvento") && !q.includes("empleoSituacion"),
+  "La ruta familiar debe evitar preguntas de desempleo.");
+assert(!context.mostrar("empleoSituacion"), "No debe mostrar preguntas de empleo en la ruta familiar.");
+
+setAnswers({perfil:"ambos",situacionPersonal:"desempleo",familia:"si"});
+q = sequence();
+assert(q.includes("alta") && q.includes("ccaa") && q.includes("situacionPersonal") && q.includes("empleoSituacion"),
+  "El perfil mixto debe conservar la ruta de negocio y mostrar la ruta personal aunque falte forma jurídica.");
+
+setAnswers({perfil:"autonomo",alta:"si",situacionPersonal:"ingresos"});
+q = sequence();
+assert(q.includes("plantilla") && q.includes("social") && q.includes("ingresosPersonales"),
+  "La ruta de autónomo debe mantener las preguntas de empresa y ayudas personales.");
+
+const status = context.estado({pend:true,cierre:"2020-01-01",plazo:"Fecha provisional"});
+assert(status.k === "pending", "Una convocatoria pendiente no debe cerrarse por una fecha provisional ya pasada.");
+
+console.log("OK: rutas de particulares, desempleo, familia, perfil mixto, autónomo y estado pendiente.");
