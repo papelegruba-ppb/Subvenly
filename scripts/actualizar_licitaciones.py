@@ -25,7 +25,7 @@ FEEDS = [
 # ---------- AJUSTES ----------
 DIAS_PRIMERA_VEZ = 7     # cuántos días atrás mira la primera vez
 MARGEN_DIAS = 1
-MAX_FICHEROS = 4        # tope por fuente y ejecución; la URL siguiente se guarda para continuar otro día
+MAX_FICHEROS = 1        # una página por fuente y ejecución; la URL siguiente se guarda para continuar otro día
 MAX_ITEMS = 4000
 SIN_PLAZO_DIAS = 30      # si una licitación no indica fecha límite, se conserva este tiempo
 TIPOS = {"1": "Suministros", "2": "Servicios", "3": "Obras", "21": "Gestión de servicios públicos",
@@ -133,6 +133,11 @@ def main():
         for nombre, url_base in FEEDS:
             previo = cursores_anteriores.get(nombre, {})
             corte = previo.get("corte") or corte_base
+            if previo.get("completo"):
+                fuentes_ok.append(nombre)
+                cursores_nuevos[nombre] = previo
+                print(f"Fuente '{nombre}': lote histórico ya completo, esperando a las demás fuentes")
+                continue
             url = previo.get("next") or url_base
             print(f"Fuente '{nombre}' desde {corte}; continuación: {'sí' if previo.get('next') else 'no'}")
             try:
@@ -140,8 +145,8 @@ def main():
                 nuevas += r; ficheros += n
                 if completo:
                     fuentes_ok.append(nombre)
-                    cursores_nuevos.pop(nombre, None)
-                    print(f"  {nombre}: completa ({n} ficheros, {len(r)} licitaciones)")
+                    cursores_nuevos[nombre] = {"corte": corte, "completo": True}
+                    print(f"  {nombre}: lote completo ({n} ficheros, {len(r)} licitaciones)")
                 else:
                     fuentes_parciales.append(nombre)
                     cursores_nuevos[nombre] = {"corte": corte, "next": siguiente}
@@ -178,7 +183,8 @@ def main():
     if not errores and not fuentes_parciales:
         escribir("estado_licitaciones.json", {"ultima": hoy.isoformat(), "fuentes": fuentes_ok, "feeds": {}})
     else:
-        escribir("estado_licitaciones.json", {"ultima": ultima or "", "fuentes": fuentes_ok, "feeds": cursores_nuevos})
+        # La fecha incremental avanza porque cada lote pendiente conserva su propio corte y cursor.
+        escribir("estado_licitaciones.json", {"ultima": hoy.isoformat(), "fuentes": fuentes_ok, "feeds": cursores_nuevos})
     print(f"Guardadas {min(len(items), MAX_ITEMS)} licitaciones abiertas; estado de actualización: {estado_actualizacion}.")
     return 2 if errores or fuentes_parciales else 0
 

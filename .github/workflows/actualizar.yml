@@ -14,7 +14,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: ${{ github.actor != 'github-actions[bot]' }}
 
 jobs:
   actualizar:
@@ -45,8 +45,8 @@ jobs:
       - name: Buscar licitaciones abiertas
         id: buscar_lic
         continue-on-error: true
-        timeout-minutes: 8
-        run: python scripts/actualizar_licitaciones.py
+        timeout-minutes: 4
+        run: timeout --kill-after=10s 180s python scripts/actualizar_licitaciones.py
 
       - name: Vigilar las fuentes oficiales registradas
         id: vigilar_fuentes
