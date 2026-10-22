@@ -152,7 +152,7 @@ def main():
     exigir("opcionesPregunta(k)" in perfil_ui and "function selCcaaResidencia()" in html and "ccaaResidencia" in perfil_ui and "dgsimulador/introSimulador.do" in perfil_ui and
            "idAmb=100404&idProc=133655" in perfil_ui and "solicitud-informes-riesgos-cirbe-p58.html" in perfil_ui,
            "La interfaz efectiva no presenta los selectores nuevos o el simulador SEPE")
-    exigir("CIDO" in novedades_top_ui and "Fuente: CIDO" in novedades_cards_ui,
+    exigir("CIDO" in novedades_top_ui and "fuenteNov(n)" in novedades_cards_ui and "Fuente: CIDO" in html,
            "La interfaz debe identificar las fuentes CIDO y describir la cobertura automática real")
     exigir("usaResidencia" in novedades_ui and "ubicacionIndeterminada" in novedades_ui and
            "candidatosMunicipio" in novedades_ui and "ccaaResidencia" in perfil_novedades,
