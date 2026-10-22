@@ -894,15 +894,14 @@ function renderProfile(){
 }
 function estado(a){
  if(a.cerrada)return{k:"closed",t:"Cerrada"};
+ if(a.pend)return{k:"pending",t:a.plazo||a.estadoManual||"Próxima convocatoria anunciada · fecha pendiente de publicación"};
  if(a.cierre){
   var fin=a.cierreFechaHora?new Date(a.cierreFechaHora):new Date(a.cierre+"T23:59:59");
   var ahora=new Date(),d=Math.ceil((fin-ahora)/864e5);
   if(fin<ahora)return{k:"closed",t:"Cerrada"};
-  if(a.pend)return{k:"pending",t:a.plazo||a.estadoManual||"Próxima convocatoria anunciada · pendiente de confirmar"};
   if(d<=14)return{k:"soon",t:"Cierra el "+fmt(a.cierre)+(a.cierreFechaHora?" a las "+String(a.cierreFechaHora).slice(11,16):"")};
   return{k:"open",t:"Abierta hasta el "+fmt(a.cierre)+(a.cierreFechaHora?" a las "+String(a.cierreFechaHora).slice(11,16):"")};
  }
- if(a.pend)return{k:"pending",t:a.plazo||a.estadoManual||"Próxima convocatoria anunciada · fecha pendiente de publicación"};
  if(a.estadoManual){
   var m=nrm(a.estadoManual);
   if(/proxima convocatoria|nueva edicion|fecha pendiente|pendiente de publicacion/.test(m))return{k:"pending",t:a.estadoManual};
