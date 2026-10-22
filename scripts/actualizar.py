@@ -268,7 +268,7 @@ def main():
                                    "ejemplo": raw[0]})
     limite = (hoy - dt.timedelta(days=RETENCION_DIAS)).isoformat()
     nueva_lim = (hoy - dt.timedelta(days=NUEVA_DIAS)).isoformat()
-    items = [i for i in previo.values() if i["fecha"] >= limite]
+    items = [i for i in previo.values() if i["fecha"] >= limite or (i.get("plazo_fin") and i["plazo_fin"] >= hoy.isoformat())]
     for i in items:
         i["nueva"] = i["visto"] >= nueva_lim
     items.sort(key=lambda i: (i["fecha"], i["id"]), reverse=True)
