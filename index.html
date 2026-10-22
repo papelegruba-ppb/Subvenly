@@ -682,6 +682,7 @@ Object.assign(QUESTIONS,{
  transporte:"¿Tu actividad pertenece al transporte o a un sector con ayudas específicas por carburante?",
  municipioBarcelona:"¿Resides en Barcelona ciudad?",
  municipioMadrid:"¿Resides en Madrid ciudad?",
+ direccionIgual:"¿La dirección fiscal y la del negocio/actividad es la misma?",
  ccaaResidencia:"Comunidad autónoma de residencia:",
  provinciaResidencia:"Provincia de residencia:",
  municipioResidencia:"Municipio de residencia:"
@@ -699,9 +700,11 @@ function valorAid(k,a){
   if(k==="familia"&&A.situacionPersonal!=="familia")return "no";
   if(k==="alquiler"&&A.situacionPersonal!=="vivienda")return "no";
   if(["autonomo","ambos"].indexOf(A.perfil)>=0){
-   if(k==="ccaa")return A.ccaaResidencia;
-   if(k==="municipioBarcelona")return A.municipioResidencia?nrm(A.municipioResidencia)==="barcelona"?"si":"no":undefined;
-   if(k==="municipioMadrid")return A.municipioResidencia?(A.ccaaResidencia==="Comunidad de Madrid"&&nrm(A.municipioResidencia)==="madrid"?"si":"no"):undefined;
+   var ccaaRes=A.direccionIgual==="si"?A.ccaa:A.ccaaResidencia;
+   var municipioRes=A.direccionIgual==="si"?A.municipio:A.municipioResidencia;
+   if(k==="ccaa")return ccaaRes;
+   if(k==="municipioBarcelona")return municipioRes?nrm(municipioRes)==="barcelona"?"si":"no":undefined;
+   if(k==="municipioMadrid")return municipioRes?(ccaaRes==="Comunidad de Madrid"&&nrm(municipioRes)==="madrid"?"si":"no"):undefined;
   }
  }
  return eff(k);
@@ -764,8 +767,9 @@ function secuencia(){
  l=l.concat(["#Dónde resides o desarrollas la actividad","ccaa","provincia","municipio","amb","lleida","centre","ponent"]);
  if(c==="aut"||c==="sl"||c==="empresaotra")l=l.concat(["#Tu equipo y las contrataciones","plantilla","contratar","indefinido","joven","bcn","#Otras ayudas de actividad","transporte","emergencias"]);
  if(A.perfil==="autonomo"||A.perfil==="ambos"){
-  l=l.concat(["#Dónde resides","ccaaResidencia","provinciaResidencia","municipioResidencia"]);
-  l=anadirRutaPersonal(l);
+  l=l.concat(["#Dirección fiscal y residencia","direccionIgual"]);
+  if(A.direccionIgual==="no")l=l.concat(["#Dónde resides","ccaaResidencia","provinciaResidencia","municipioResidencia"]);
+  if(A.perfil==="ambos")l=anadirRutaPersonal(l);
  }
  return Array.from(new Set(l));
 }
@@ -774,6 +778,8 @@ function mostrar(k){
  if(k==="forma"&&A.perfil!=="empresa")return false;
  if(k==="provincia"&&!A.ccaa)return false;
  if(k==="municipio"&&!A.provincia)return false;
+ if(k==="direccionIgual"&&["autonomo","ambos"].indexOf(A.perfil)<0)return false;
+ if(["ccaaResidencia","provinciaResidencia","municipioResidencia"].indexOf(k)>=0&&A.direccionIgual!=="no")return false;
  if(k==="provinciaResidencia"&&!A.ccaaResidencia)return false;
  if(k==="municipioResidencia"&&!A.provinciaResidencia)return false;
  if(k==="amb"&&A.provincia!=="Barcelona")return false;
@@ -958,8 +964,8 @@ function renderList(){
  });
 }
 function perfilNov(){
- var c=camino(),aut=A.perfil==="autonomo"||A.perfil==="ambos"||c==="aut"||c==="nuevo",soc=A.perfil==="empresa"||c==="sl"||c==="empresaotra";
- return{ccaa:A.ccaa||"",muni:nrm(A.municipio||"").trim(),ccaaResidencia:A.ccaaResidencia||"",muniResidencia:nrm(A.municipioResidencia||"").trim(),aut:aut,soc:soc,particular:["particular","autonomo","ambos"].indexOf(A.perfil)>=0,perfil:A.perfil||"",activo:!!(A.perfil||A.ccaa||A.ccaaResidencia||aut||soc)};
+ var c=camino(),aut=A.perfil==="autonomo"||A.perfil==="ambos"||c==="aut"||c==="nuevo",soc=A.perfil==="empresa"||c==="sl"||c==="empresaotra",misma=A.direccionIgual==="si";
+ return{ccaa:A.ccaa||"",muni:nrm(A.municipio||"").trim(),ccaaResidencia:(misma?A.ccaa:A.ccaaResidencia)||"",muniResidencia:nrm((misma?A.municipio:A.municipioResidencia)||"").trim(),aut:aut,soc:soc,particular:["particular","ambos"].indexOf(A.perfil)>=0,perfil:A.perfil||"",activo:!!(A.perfil||A.ccaa||A.ccaaResidencia||aut||soc)};
 }
 function tiposBen(b){var t=nrm(b);if(!t)return null;var c={};c.aut=(t.indexOf("fisica")>=0&&t.indexOf("actividad economica")>=0&&t.indexOf("no desarrolla")<0)||t.indexOf("autonom")>=0;c.pyme=t.indexOf("pyme")>=0||t.indexOf("pequena")>=0||t.indexOf("microempresa")>=0||t.indexOf("mediana")>=0;c.soc=c.pyme||(t.indexOf("juridica")>=0&&t.indexOf("actividad economica")>=0&&t.indexOf("no desarrolla")<0)||(t.indexOf("empresa")>=0&&t.indexOf("gran empresa")<0);c.persona=/persona fisica|familia|unidad de convivencia|personas beneficiarias|ciudadania|arrendatari|nacimiento|adopcion|hijos|hogar|vulnerabilidad|alquiler/.test(t);return c}
 function encajeNov(n,pf){
