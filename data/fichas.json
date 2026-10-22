@@ -207,7 +207,8 @@
     "eval": "La Comunidad notifica de forma individual si se concede o no. Importes adicionales: 500 € si la persona contratada es mujer, 500 € por hijos menores de 16 o dependientes a cargo, y 1.000 € si eres una startup.",
     "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayuda-incentivos-contratacion-indefinida",
     "cierre": "2022-06-17",
-    "categoria": "Contratación"
+    "categoria": "Contratación",
+    "cerrada": true
   },
   {
     "id": 8,
