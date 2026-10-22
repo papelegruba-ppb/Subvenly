@@ -120,7 +120,7 @@ def descargar(desde, hasta):
 def relevante(it):
     n1, n2, n3 = (pick(it, k) for k in ("nivel1", "nivel2", "nivel3"))
     territorio = norm(" ".join([str(n1), str(n2), str(n3)]))
-    texto = norm(pick(it, "descripcion", "descripcionLeng"))
+    texto = norm(" ".join(str(it.get(k) or "") for k in ("descripcion", "descripcionLeng")))
     estatal = "estado" in norm(n1) or "estatal" in norm(n1)
     if TERRITORIOS and not (estatal or any(t in territorio for t in TERRITORIOS)):
         return False
