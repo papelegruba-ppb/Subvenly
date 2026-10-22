@@ -118,6 +118,8 @@ def descargar(desde, hasta):
         if isinstance(r, dict) and r.get("last"):
             break
         time.sleep(0.2)  # el límite oficial es de 10 peticiones por segundo
+    else:
+        raise RuntimeError("Se alcanzó el límite de páginas BDNS sin completar el intervalo; no se avanzará el cursor.")
     return items
 
 def relevante(it):
