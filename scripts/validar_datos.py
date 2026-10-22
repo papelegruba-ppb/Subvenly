@@ -124,9 +124,19 @@ def main():
            "La interfaz efectiva no presenta los selectores nuevos o el simulador SEPE")
     exigir("usaResidencia" in novedades_ui and "ccaaResidencia" in perfil_novedades,
            "Las novedades no distinguen territorio personal y empresarial")
-    exigir(estado_ui.find("if(a.pend)return") >= 0 and
-           estado_ui.find("if(a.pend)return") < estado_ui.find("var d="),
-           "Una fecha provisional no debe cerrar automáticamente una convocatoria pendiente")
+    exigir("cierreFechaHora" in estado_ui and "k:\"verify\"" in estado_ui and
+           estado_ui.find("if(fin<ahora)return") >= 0 and
+           estado_ui.find("if(fin<ahora)return") < estado_ui.find("if(a.pend)return"),
+           "El estado debe comprobar primero el vencimiento real y separar pendientes de verificación")
+    render_list = ultima_funcion("renderList")
+    filtros_ui = ultima_funcion("renderFilters")
+    exigir("est===\"Por verificar\"" in render_list and "\"Por verificar\"" in filtros_ui,
+           "El filtro Por verificar debe existir en las funciones efectivas de la interfaz")
+    equitat = next((f for f in fichas if f.get("id") == 50), {})
+    exigir(equitat.get("cierre") == "2026-10-30" and
+           equitat.get("cierreFechaHora") == "2026-10-30T14:00:00+01:00" and
+           not equitat.get("estadoManual"),
+           "La Beca Equitat debe usar fecha y hora de cierre estructuradas, no un estado manual permanente")
 
     # Cada requisito usado por las fichas debe tener una pregunta visible en el test.
     question_blocks = re.findall(r"var QUESTIONS\s*=\s*\{([\s\S]*?)\n\};", html)
