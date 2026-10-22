@@ -1729,5 +1729,41 @@
     ],
     "categoria": "Prestaciones sociales y cuidados",
     "consultado": "2026-10-22"
+  },
+  {
+    "id": 50,
+    "perfil": "personal",
+    "tipo": "Beca / bonificación de matrícula",
+    "titulo": "Beca Equitat de Cataluña para estudios universitarios 2026/27",
+    "organo": "AGAUR · Generalitat de Catalunya",
+    "ambito": "Cataluña",
+    "plazo": "Del 15/09/2026 al 30/10/2026 a las 14:00 (hora de Barcelona), según la página oficial consultada",
+    "estadoManual": "En plazo a 22/10/2026; verificar posibles cambios antes de presentar",
+    "importe": "Reducción de hasta el 80 % del precio de matrícula, según tramo de renta y estudios",
+    "resumen": "Ayuda para reducir el precio de los créditos matriculados por primera vez en estudios universitarios oficiales de grado o máster habilitante en las universidades públicas de Cataluña, la UOC y los centros adscritos participantes. La reducción depende del tramo de renta familiar y de los estudios.",
+    "requisitos": [
+      "Tener domicilio familiar en Cataluña y cursar estudios universitarios oficiales de grado o máster habilitante en una universidad o centro participante.",
+      "La minoración depende del tramo de renta familiar y de los estudios; la convocatoria determina las condiciones exactas.",
+      "La acreditación del tramo de renta es informativa y no genera por sí sola el derecho a la beca.",
+      "Es una ayuda distinta de la beca general; comprobar compatibilidades y condiciones en la convocatoria oficial."
+    ],
+    "docs": [
+      "Identificación y datos de la persona solicitante.",
+      "Datos de renta y composición de la unidad familiar que requiera AGAUR.",
+      "Matrícula y documentación académica indicada en el trámite oficial."
+    ],
+    "eval": "Oportunidad territorial y temporal concreta. El test no puede confirmar el tramo de renta, los estudios elegibles ni la matrícula; revisar la convocatoria antes de tramitar. El plazo publicado finaliza el 30/10/2026 a las 14:00.",
+    "links": [
+      [
+        "Trámite oficial de la Beca Equitat 2026/27 · AGAUR",
+        "https://agaur.gencat.cat/es/beques-i-ajuts/pagines-especials/beques-i-ajuts-per-estudis-universitaris1/acreditacio-economica-i-beques-equitat/index.html"
+      ],
+      [
+        "Beca general de la Generalitat · información oficial",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/Beca-general-de-la-Generalitat-GRAL"
+      ]
+    ],
+    "categoria": "Educación y juventud",
+    "consultado": "2026-10-22"
   }
 ]
