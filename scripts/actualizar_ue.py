@@ -16,7 +16,13 @@ from actualizar import leer, escribir, iso, RETENCION_DIAS, NUEVA_DIAS, MAX_ITEM
 API = "https://api.tech.ec.europa.eu/search-api/prod/rest/search"
 TOPIC = "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/{}"
 # ---------- AJUSTES ----------
-BUSQUEDAS = ["SME", "small and medium-sized enterprises", "start-up", "entrepreneur", "self-employed", "digitalisation SMEs"]
+BUSQUEDAS = [
+    "SME", "small and medium-sized enterprises", "start-up", "entrepreneur", "self-employed",
+    "digitalisation SMEs", "research and innovation", "education and training", "culture and creative industries",
+    "environment and climate", "renewable energy", "agriculture and rural development", "social inclusion",
+    "youth", "civil society organisations", "non-profit organisations", "health", "transport and mobility",
+    "biodiversity", "women and equality", "sport", "public authorities", "citizens"
+]
 PAGINAS = 3          # páginas de 50 resultados por búsqueda
 ESTADOS = ["31094501", "31094502"]   # próximas y abiertas
 TIPOS = ["1", "2", "8"]              # subvenciones, premios y financiación en cascada
@@ -54,10 +60,29 @@ def convertir(r, hoy):
     titulo = " ".join(str(primero(m.get("title")) or r.get("title") or r.get("summary") or "").split())
     if not ident or not titulo:
         return None
+    apertura = iso(primero(m.get("startDate")))
+    cierre = iso(primero(m.get("deadlineDate")))
+    estado = str(primero(m.get("status")) or "")
+    if not estado:
+        acciones = primero(m.get("actions"))
+        if isinstance(acciones, str):
+            try:
+                acciones = json.loads(acciones)
+            except json.JSONDecodeError:
+                acciones = []
+        if isinstance(acciones, list) and acciones:
+            estado = str(((acciones[0].get("status") or {}).get("id")) or "")
+    if estado == "31094501":
+        estado_convocatoria = "próxima"
+    elif estado == "31094502":
+        estado_convocatoria = "en plazo"
+    else:
+        estado_convocatoria = "por verificar"
     return {"id": "UE-" + ident, "titulo": titulo[:300], "organo": "Comisión Europea", "ambito": "Unión Europea",
-            "territorio": "Unión Europea", "n1": "UNIÓN EUROPEA", "n2": "UNIÓN EUROPEA", "n3": "COMISIÓN EUROPEA", "fecha": iso(primero(m.get("startDate"))) or hoy.isoformat(),
-            "cierre": iso(primero(m.get("deadlineDate"))), "plazo_fin": iso(primero(m.get("deadlineDate"))), "link": TOPIC.format(ident.lower()) if ident else r.get("url", ""),
-            "visto": hoy.isoformat()}
+            "territorio": "Unión Europea", "n1": "UNIÓN EUROPEA", "n2": "UNIÓN EUROPEA", "n3": "COMISIÓN EUROPEA",
+            "fecha": hoy.isoformat(), "fechaTipo": "detectada", "plazo_inicio": apertura,
+            "cierre": cierre, "plazo_fin": cierre, "estadoConvocatoria": estado_convocatoria,
+            "link": TOPIC.format(ident.lower()) if ident else r.get("url", ""), "visto": hoy.isoformat()}
 
 def main():
     hoy = dt.date.today()
@@ -84,11 +109,18 @@ def main():
     previo = {i["id"]: i for i in leer("novedades.json", {"items": []}).get("items", [])}
     for r in raw:
         n = convertir(r, hoy)
-        if n and n["id"] not in previo:
+        if not n:
+            continue
+        if n["id"] not in previo:
             previo[n["id"]] = n
+        else:
+            # Actualizar plazos y estado del portal sin reiniciar la fecha en que se detectó.
+            visto = previo[n["id"]].get("visto") or n["visto"]
+            previo[n["id"]].update(n)
+            previo[n["id"]]["visto"] = visto
     limite = (hoy - dt.timedelta(days=RETENCION_DIAS)).isoformat()
     nueva_lim = (hoy - dt.timedelta(days=NUEVA_DIAS)).isoformat()
-    items = [i for i in previo.values() if i["fecha"] >= limite and not (i.get("cierre") and i["cierre"] < hoy.isoformat())]
+    items = [i for i in previo.values() if (i["fecha"] >= limite or (i.get("plazo_fin") and i["plazo_fin"] >= hoy.isoformat())) and not (i.get("cierre") and i["cierre"] < hoy.isoformat())]
     for i in items:
         i["nueva"] = i["visto"] >= nueva_lim
     items.sort(key=lambda i: (i["fecha"], i["id"]), reverse=True)
