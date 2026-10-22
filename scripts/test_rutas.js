@@ -163,6 +163,8 @@ setAnswers({perfil:"autonomo",alta:"si",direccionIgual:"si",ccaa:"Cataluña",mun
 q = sequence();
 assert(!q.includes("ccaaResidencia") && !q.includes("provinciaResidencia") && !q.includes("municipioResidencia"),
   "Si las direcciones coinciden, no debe pedir una segunda ubicación.");
+assert(!context.mostrar("ccaaResidencia") && !context.mostrar("provinciaResidencia") && !context.mostrar("municipioResidencia"),
+  "Los selectores de residencia deben permanecer ocultos cuando las direcciones coinciden.");
 setAnswers({perfil:"autonomo",alta:"si",direccionIgual:"no"});
 q = sequence();
 assert(q.includes("ccaaResidencia") && q.includes("provinciaResidencia") && q.includes("municipioResidencia"),
