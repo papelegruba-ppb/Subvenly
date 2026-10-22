@@ -124,5 +124,7 @@ assert(q.includes("plantilla") && q.includes("social") && q.includes("ingresosPe
 
 const status = context.estado({pend:true,cierre:"2020-01-01",plazo:"Fecha provisional"});
 assert(status.k === "pending", "Una convocatoria pendiente no debe cerrarse por una fecha provisional ya pasada.");
+const ongoing = context.estado({perm:true,estadoManual:"Requisitos sujetos a comprobación oficial"});
+assert(ongoing.k === "perm", "Una prestación de solicitud continua no debe etiquetarse como pendiente de convocatoria.");
 
 console.log("OK: rutas de particulares, desempleo, familia, perfil mixto, autónomo y estado pendiente.");
