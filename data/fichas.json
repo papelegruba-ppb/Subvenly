@@ -681,7 +681,9 @@
         "https://tramits.gencat.cat/ca/tramits/tramits-temes/ingres-minim-vital"
       ]
     ],
-    "categoria": "Prestaciones sociales"
+    "categoria": "Prestaciones sociales",
+    "perm": true,
+    "permTxt": "Solicitud según requisitos vigentes; comprobar condiciones en la fuente oficial"
   },
   {
     "id": 23,
@@ -834,7 +836,7 @@
     "titulo": "Ayudas al alquiler para jóvenes (Comunidad de Madrid)",
     "organo": "Comunidad de Madrid",
     "ambito": "Comunidad de Madrid",
-    "plazo": "Convocatoria 2025: del 04/11/2025 al 15/12/2025 (cerrada); próxima edición sin fecha confirmada",
+    "plazo": "Convocatoria 2025 cerrada; nueva edición sin fecha confirmada",
     "estadoManual": "Convocatoria 2025 cerrada; nueva edición sin fecha confirmada",
     "importe": "Según la convocatoria vigente",
     "resumen": "Ayudas de alquiler dirigidas a jóvenes, sujetas a edad, residencia, ingresos, contrato y condiciones de la convocatoria.",
@@ -861,7 +863,8 @@
         "https://sede.comunidad.madrid/ayudas-becas-subvenciones-0"
       ]
     ],
-    "categoria": "Vivienda y alquiler"
+    "categoria": "Vivienda y alquiler",
+    "pend": true
   },
   {
     "id": 28,
@@ -1187,7 +1190,9 @@
         "https://www.seg-social.es/wps/portal/wss/internet/FAQ/044f87eb-644b-41e1-a888-9c2cfafa78b8/42b9f3e8-8eea-4106-864e-2b5d5e"
       ]
     ],
-    "categoria": "Prestaciones sociales y familia"
+    "categoria": "Prestaciones sociales y familia",
+    "perm": true,
+    "permTxt": "Solicitud según requisitos vigentes; comprobar condiciones en la fuente oficial"
   },
   {
     "id": 38,
@@ -1620,6 +1625,200 @@
       ]
     ],
     "categoria": "Prestaciones sociales y familia",
+    "consultado": "2026-10-22",
+    "perm": true,
+    "permTxt": "Solicitud continua sujeta a los requisitos vigentes de la RGC"
+  },
+  {
+    "id": 47,
+    "perfil": "personal",
+    "tipo": "Descuento y ayuda energética",
+    "titulo": "Bono social eléctrico y bono social térmico",
+    "organo": "Ministerio para la Transición Ecológica y el Reto Demográfico",
+    "ambito": "Estatal",
+    "plazo": "El bono eléctrico se solicita a la comercializadora de referencia si se cumplen las condiciones; el bono térmico se asigna conforme a las reglas y datos de beneficiarios del bono eléctrico",
+    "estadoManual": "Consultar condiciones vigentes; los descuentos extraordinarios de 2026 tienen vigencia temporal hasta el 31/12/2026",
+    "importe": "Descuento en la factura eléctrica y ayuda térmica anual; cuantía según vulnerabilidad, consumo y zona climática",
+    "resumen": "El bono social eléctrico reduce la factura de electricidad para consumidores vulnerables que cumplan los requisitos y estén acogidos al PVPC con comercializadora de referencia. El bono social térmico es una ayuda anual vinculada a la condición de beneficiario del bono eléctrico en la fecha de referencia prevista por la normativa.",
+    "requisitos": [
+      "Ser titular del contrato de electricidad de la vivienda habitual y cumplir las condiciones de contratación del PVPC con una comercializadora de referencia.",
+      "Acreditar los requisitos económicos o la circunstancia familiar/social aplicable según la normativa vigente.",
+      "El bono social térmico no se solicita como una convocatoria ordinaria independiente: se determina con arreglo a los datos de las personas beneficiarias del bono eléctrico y la normativa aplicable.",
+      "Los porcentajes, umbrales y medidas excepcionales pueden cambiar; comprobar la página oficial antes de recomendarlo."
+    ],
+    "docs": [
+      "Factura o contrato de electricidad y datos del punto de suministro.",
+      "Documentación de identidad y unidad de convivencia que solicite la comercializadora de referencia.",
+      "Documentación acreditativa de familia numerosa, discapacidad, dependencia u otras circunstancias cuando corresponda."
+    ],
+    "eval": "La preevaluación no confirma el derecho: deben comprobarse la titularidad del contrato, la modalidad PVPC, los ingresos y las circunstancias de la unidad de convivencia. No aplicar automáticamente los porcentajes temporales de 2026 a ejercicios posteriores.",
+    "links": [
+      [
+        "Preguntas frecuentes oficiales sobre el bono social eléctrico",
+        "https://www.miteco.gob.es/es/energia/pobreza-energetica/pe-001/preguntas-frecuentes-bono-social.html"
+      ],
+      [
+        "Información oficial del bono social térmico",
+        "https://sede.miteco.gob.es/portal/site/seMITECO/ficha-procedimiento?procedure_id=489&procedure_suborg_responsable=196"
+      ]
+    ],
+    "categoria": "Prestaciones sociales y familia",
+    "consultado": "2026-10-22",
+    "perm": true,
+    "permTxt": "Solicitud del bono eléctrico según requisitos; el bono térmico sigue su régimen anual"
+  },
+  {
+    "id": 48,
+    "perfil": "personal",
+    "tipo": "Prestación",
+    "titulo": "Pensiones no contributivas de jubilación e incapacidad",
+    "organo": "IMSERSO y órganos gestores autonómicos",
+    "ambito": "Estatal; gestión autonómica y direcciones territoriales en Ceuta/Melilla",
+    "plazo": "Solicitud según requisitos vigentes; no es una convocatoria competitiva con plazo anual",
+    "estadoManual": "Requisitos personales, de residencia, edad o discapacidad e ingresos sujetos a comprobación oficial",
+    "importe": "Cuantía anual sujeta a la normativa del ejercicio, ingresos y convivencia; consultar importe oficial vigente",
+    "resumen": "Prestaciones para personas que cumplen las condiciones legales de edad o incapacidad, residencia e insuficiencia de recursos y no reúnen los requisitos de una pensión contributiva suficiente. Jubilación e incapacidad tienen requisitos distintos.",
+    "requisitos": [
+      "Jubilación no contributiva: comprobar edad mínima, residencia legal y continuada exigida e ingresos personales y de la unidad económica de convivencia.",
+      "Incapacidad no contributiva: comprobar edad, grado de discapacidad exigido, residencia e ingresos personales y de la unidad económica de convivencia.",
+      "La comunidad autónoma suele gestionar la solicitud; el IMSERSO gestiona las direcciones territoriales de Ceuta y Melilla.",
+      "No se puede determinar compatibilidad únicamente con la edad o los ingresos aproximados: revisar los requisitos oficiales y posibles incompatibilidades."
+    ],
+    "docs": [
+      "Documento de identidad y acreditación de residencia cuando proceda.",
+      "Documentación de ingresos personales y de la unidad económica de convivencia.",
+      "Para la modalidad de incapacidad, resolución o acreditación oficial del grado de discapacidad exigido."
+    ],
+    "eval": "Ficha de orientación para identificar una posible prestación. El test no sustituye el cálculo legal de rentas, residencia, discapacidad ni las reglas de compatibilidad.",
+    "links": [
+      [
+        "PNC de jubilación · IMSERSO",
+        "https://imserso.es/es/web/imserso/pnc-prestaciones-subvenciones/pnc-jubilacion"
+      ],
+      [
+        "PNC de incapacidad · sede electrónica del IMSERSO",
+        "https://www.imserso.es/web/sede-electronica/procedimiento-servicios/detalle/-/asset_publisher/Clv43EZRrpqn/content/pnc-de-incapacidad/20123"
+      ]
+    ],
+    "categoria": "Prestaciones sociales",
+    "consultado": "2026-10-22",
+    "perm": true,
+    "permTxt": "Solicitud según requisitos vigentes; comprobar condiciones en la fuente oficial"
+  },
+  {
+    "id": 49,
+    "perfil": "personal",
+    "tipo": "Servicios y prestaciones",
+    "titulo": "Reconocimiento de dependencia y prestaciones del SAAD",
+    "organo": "Comunidad autónoma de residencia / IMSERSO en Ceuta y Melilla",
+    "ambito": "Estatal con tramitación territorial",
+    "plazo": "Se puede iniciar a instancia de la persona interesada en cualquier momento, según el procedimiento de su territorio",
+    "estadoManual": "Debe valorarse el grado de dependencia y revisar el procedimiento vigente en la comunidad autónoma de residencia",
+    "importe": "Depende del grado reconocido, el programa individual de atención y los servicios o prestaciones asignados",
+    "resumen": "Procedimiento para reconocer una situación de dependencia y acceder, cuando corresponda, a servicios o prestaciones del Sistema para la Autonomía y Atención a la Dependencia. La solicitud se presenta ante el órgano gestor del territorio de residencia.",
+    "requisitos": [
+      "Acreditar una situación de dependencia susceptible de valoración conforme a la normativa.",
+      "Comprobar los requisitos de residencia y las reglas aplicables a la nacionalidad o situación administrativa.",
+      "La prestación concreta depende de la valoración, el grado reconocido y el programa individual de atención; no existe una cuantía única aplicable a todas las personas.",
+      "El órgano competente es el de la comunidad autónoma de residencia o la dirección territorial del IMSERSO en Ceuta/Melilla."
+    ],
+    "docs": [
+      "Identificación y documentación de residencia que corresponda.",
+      "Informes médicos y sociales u otros documentos requeridos por el órgano gestor.",
+      "Solicitud y documentación específica de la comunidad autónoma de residencia."
+    ],
+    "eval": "No equivale a una ayuda económica automática: el reconocimiento puede dar acceso a servicios y/o prestaciones, según valoración y programa individual. Subvenly debe derivar al procedimiento territorial correcto.",
+    "links": [
+      [
+        "Personas beneficiarias del sistema · IMSERSO",
+        "https://imserso.es/es/autonomia-personal-dependencia/sistema-autonomia-atencion-dependencia-saad/preguntas-frecuentes/personas-beneficiarias-sistema-autonomia-atencion-dependencia"
+      ],
+      [
+        "Cómo se solicita y tramita · IMSERSO",
+        "https://imserso.es/es/autonomia-personal-dependencia/sistema-autonomia-atencion-dependencia-saad/preguntas-frecuentes/tramitacion-reconocimiento-situacion-dependencia-derecho-prestaciones-sistema"
+      ]
+    ],
+    "categoria": "Prestaciones sociales y cuidados",
+    "consultado": "2026-10-22",
+    "perm": true,
+    "permTxt": "Solicitud según requisitos vigentes; comprobar condiciones en la fuente oficial"
+  },
+  {
+    "id": 50,
+    "perfil": "personal",
+    "tipo": "Beca / bonificación de matrícula",
+    "titulo": "Beca Equitat de Cataluña para estudios universitarios 2026/27",
+    "organo": "AGAUR · Generalitat de Catalunya",
+    "ambito": "Cataluña",
+    "plazo": "Hasta el 30/10/2026 a las 14:00 (hora de Barcelona), según la página oficial consultada",
+    "importe": "Reducción de hasta el 80 % del precio de matrícula, según tramo de renta y estudios",
+    "resumen": "Ayuda para reducir el precio de los créditos matriculados por primera vez en estudios universitarios oficiales de grado o máster habilitante en las universidades públicas de Cataluña, la UOC y los centros adscritos participantes. La reducción depende del tramo de renta familiar y de los estudios.",
+    "requisitos": [
+      "Tener domicilio familiar en Cataluña y cursar estudios universitarios oficiales de grado o máster habilitante en una universidad o centro participante.",
+      "La minoración depende del tramo de renta familiar y de los estudios; la convocatoria determina las condiciones exactas.",
+      "La acreditación del tramo de renta es informativa y no genera por sí sola el derecho a la beca.",
+      "Es una ayuda distinta de la beca general; comprobar compatibilidades y condiciones en la convocatoria oficial."
+    ],
+    "docs": [
+      "Identificación y datos de la persona solicitante.",
+      "Datos de renta y composición de la unidad familiar que requiera AGAUR.",
+      "Matrícula y documentación académica indicada en el trámite oficial."
+    ],
+    "eval": "Oportunidad territorial y temporal concreta. El test no puede confirmar el tramo de renta, los estudios elegibles ni la matrícula; revisar la convocatoria antes de tramitar. El plazo publicado finaliza el 30/10/2026 a las 14:00.",
+    "links": [
+      [
+        "Trámite oficial de la Beca Equitat 2026/27 · AGAUR",
+        "https://agaur.gencat.cat/es/beques-i-ajuts/pagines-especials/beques-i-ajuts-per-estudis-universitaris1/acreditacio-economica-i-beques-equitat/index.html"
+      ],
+      [
+        "Beca general de la Generalitat · información oficial",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/Beca-general-de-la-Generalitat-GRAL"
+      ]
+    ],
+    "categoria": "Educación y juventud",
+    "consultado": "2026-10-22",
+    "cierre": "2026-10-30",
+    "cierreFechaHora": "2026-10-30T14:00:00+01:00"
+  },
+  {
+    "id": 51,
+    "perfil": "personal",
+    "tipo": "Beca",
+    "titulo": "Becas generales para estudios postobligatorios",
+    "organo": "Ministerio de Educación y administraciones autonómicas",
+    "ambito": "Estatal y autonómico",
+    "plazo": "Convocatoria 2026/27 cerrada; próxima edición pendiente de publicación",
+    "estadoManual": "Convocatoria 2026/27 fuera de plazo; consultar la próxima edición oficial",
+    "pend": true,
+    "importe": "Depende de la convocatoria, estudios, renta familiar, residencia y rendimiento académico",
+    "resumen": "Becas para estudios universitarios, bachillerato, formación profesional y otras enseñanzas postobligatorias. La administración competente depende del domicilio familiar y del tipo de estudios; para el curso 2026/27, las convocatorias generales para familias con domicilio en Cataluña se tramitan a través de la Generalitat.",
+    "requisitos": [
+      "Estar matriculado o reunir las condiciones académicas para los estudios incluidos en la convocatoria correspondiente.",
+      "La beca puede depender de los requisitos generales, académicos, económicos y de residencia fijados para el curso.",
+      "La convocatoria estatal indica que las familias con domicilio en Cataluña deben consultar las becas de la Generalitat para el curso 2026/27.",
+      "Las convocatorias tienen plazos anuales: no presentar la edición 2026/27 como abierta tras el cierre de su plazo."
+    ],
+    "docs": [
+      "Identificación de la persona solicitante y datos de la unidad familiar.",
+      "Información académica y de matrícula.",
+      "Datos económicos y fiscales que requiera la convocatoria del curso correspondiente."
+    ],
+    "eval": "Ficha de orientación para localizar la administración competente y preparar la próxima edición. El test no confirma la concesión ni sustituye la comprobación de requisitos del curso.",
+    "links": [
+      [
+        "Becas y ayudas · Ministerio de Educación",
+        "https://www.becaseducacion.gob.es/portada.html"
+      ],
+      [
+        "Beca general universitaria de Cataluña · Generalitat",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/Beca-general-de-la-Generalitat-GRAL"
+      ],
+      [
+        "Becas para estudios no universitarios · Generalitat",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/beques-estudis-no-universitaris"
+      ]
+    ],
+    "categoria": "Educación y juventud",
     "consultado": "2026-10-22"
   }
 ]

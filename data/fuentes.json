@@ -672,6 +672,136 @@
       "monitor": true,
       "oficial": true,
       "nota": "Requisitos generales: situación legal de desempleo, al menos 360 días cotizados por desempleo en los seis años anteriores y demanda de empleo. Confirmar el plazo individual."
+    },
+    {
+      "id": "clm-ayudas-transversales",
+      "nombre": "Junta de Castilla-La Mancha · Ayudas y subvenciones de reto demográfico",
+      "ambito": "Castilla-La Mancha",
+      "categoria": "Ayudas generales",
+      "url": "https://retodemografico.castillalamancha.es/ayudas-y-subvenciones",
+      "monitor": true,
+      "nota": "Buscador oficial con convocatorias de distintas áreas vinculadas al reto demográfico. No representa por sí solo todas las ayudas de Castilla-La Mancha.",
+      "oficial": true
+    },
+    {
+      "id": "clm-vivienda",
+      "nombre": "Junta de Castilla-La Mancha · Ayudas de vivienda",
+      "ambito": "Castilla-La Mancha",
+      "categoria": "Alquiler y vivienda",
+      "url": "https://vivienda.castillalamancha.es/ayudas-y-subvenciones",
+      "monitor": true,
+      "nota": "Listado oficial de líneas de vivienda; comprobar convocatoria, plazo y requisitos de cada programa.",
+      "oficial": true
+    },
+    {
+      "id": "clm-educacion",
+      "nombre": "Junta de Castilla-La Mancha · Becas y ayudas educativas",
+      "ambito": "Castilla-La Mancha",
+      "categoria": "Educación y familia",
+      "url": "https://educacion.castillalamancha.es/alumnado-y-familias/becas-y-ayudas",
+      "monitor": true,
+      "nota": "Directorio oficial de becas y ayudas educativas; no sustituye la comprobación del trámite individual.",
+      "oficial": true
+    },
+    {
+      "id": "ceuta-ayudas-sede",
+      "nombre": "Ciudad Autónoma de Ceuta · Sede de becas, ayudas y subvenciones",
+      "ambito": "Ceuta",
+      "categoria": "Ayudas generales",
+      "url": "https://sede.ceuta.es/controlador/controlador?cmd=tramites&modulo=tramites&tema=ayu",
+      "monitor": true,
+      "nota": "Catálogo oficial de trámites de ayudas, becas y subvenciones. La apertura de solicitudes debe comprobarse en cada trámite.",
+      "oficial": true
+    },
+    {
+      "id": "larioja-oficina-electronica",
+      "nombre": "Gobierno de La Rioja · Oficina electrónica de trámites",
+      "ambito": "La Rioja",
+      "categoria": "Ayudas y trámites",
+      "url": "https://web.larioja.org/oficina-electronica/tramite",
+      "monitor": true,
+      "nota": "Portal oficial de trámites; las convocatorias pueden estar en páginas individuales. La extracción automática de nuevas convocatorias está pendiente.",
+      "oficial": true
+    },
+    {
+      "id": "miteco-bono-social",
+      "nombre": "MITECO · Bono social eléctrico y térmico",
+      "ambito": "Estatal",
+      "categoria": "Pobreza energética y prestaciones",
+      "url": "https://www.miteco.gob.es/es/energia/pobreza-energetica/pe-001/preguntas-frecuentes-bono-social.html",
+      "monitor": true,
+      "nota": "Información oficial sobre requisitos del bono eléctrico y funcionamiento del bono térmico. Revisar porcentajes y medidas temporales por ejercicio.",
+      "oficial": true
+    },
+    {
+      "id": "imserso-pnc-jubilacion",
+      "nombre": "IMSERSO · Pensión no contributiva de jubilación",
+      "ambito": "Estatal / gestión autonómica y territorial",
+      "categoria": "Pensiones y prestaciones sociales",
+      "url": "https://imserso.es/es/web/imserso/pnc-prestaciones-subvenciones/pnc-jubilacion",
+      "monitor": true,
+      "nota": "La solicitud se tramita por el órgano gestor competente; requisitos de edad, residencia e ingresos sujetos a normativa vigente.",
+      "oficial": true
+    },
+    {
+      "id": "imserso-pnc-incapacidad",
+      "nombre": "IMSERSO · Pensión no contributiva de incapacidad",
+      "ambito": "Estatal / gestión autonómica y territorial",
+      "categoria": "Discapacidad y prestaciones sociales",
+      "url": "https://www.imserso.es/web/sede-electronica/procedimiento-servicios/detalle/-/asset_publisher/Clv43EZRrpqn/content/pnc-de-incapacidad/20123",
+      "monitor": true,
+      "nota": "Requisitos específicos de edad, residencia, discapacidad e ingresos; comprobar el órgano gestor y los umbrales vigentes.",
+      "oficial": true
+    },
+    {
+      "id": "imserso-dependencia",
+      "nombre": "IMSERSO · Sistema de autonomía personal y atención a la dependencia",
+      "ambito": "Estatal / solicitud ante la comunidad autónoma o dirección territorial",
+      "categoria": "Dependencia y cuidados",
+      "url": "https://imserso.es/es/autonomia-personal-dependencia/sistema-autonomia-atencion-dependencia-saad/preguntas-frecuentes/tramitacion-reconocimiento-situacion-dependencia-derecho-prestaciones-sistema",
+      "monitor": true,
+      "nota": "El reconocimiento y las prestaciones se tramitan ante la comunidad autónoma de residencia o el IMSERSO en Ceuta/Melilla.",
+      "oficial": true
+    },
+    {
+      "id": "educacion-becas",
+      "nombre": "Ministerio de Educación · Becas y ayudas al estudio",
+      "ambito": "Estatal, con gestión transferida en Cataluña para convocatorias indicadas",
+      "categoria": "Educación y juventud",
+      "url": "https://www.becaseducacion.gob.es/portada.html",
+      "monitor": true,
+      "nota": "Comprobar convocatoria y curso. Para el curso 2026/27, el portal indica que las familias con domicilio en Cataluña deben solicitar la convocatoria correspondiente a la Generalitat.",
+      "oficial": true
+    },
+    {
+      "id": "agaur-beca-equitat",
+      "nombre": "AGAUR · Beca Equitat 2026/27",
+      "ambito": "Cataluña",
+      "categoria": "Educación y juventud",
+      "url": "https://agaur.gencat.cat/es/beques-i-ajuts/pagines-especials/beques-i-ajuts-per-estudis-universitaris1/acreditacio-economica-i-beques-equitat/index.html",
+      "monitor": true,
+      "nota": "La convocatoria 2026/27 figura en plazo del 15/09/2026 al 30/10/2026 a las 14:00. Verificar fecha y condiciones en la página oficial antes de orientar la solicitud.",
+      "oficial": true
+    },
+    {
+      "id": "agaur-beca-general",
+      "nombre": "AGAUR · Beca general universitaria de Cataluña",
+      "ambito": "Cataluña",
+      "categoria": "Educación y juventud",
+      "url": "https://tramits.gencat.cat/es/tramits/tramits-temes/Beca-general-de-la-Generalitat-GRAL",
+      "monitor": true,
+      "nota": "Convocatoria 2026/27 fuera de plazo a 22/10/2026; comprobar próximas ediciones y modificaciones.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-becas-no-universitarias",
+      "nombre": "Generalitat · Becas para estudios no universitarios",
+      "ambito": "Cataluña",
+      "categoria": "Educación y juventud",
+      "url": "https://tramits.gencat.cat/es/tramits/tramits-temes/beques-estudis-no-universitaris",
+      "monitor": true,
+      "nota": "Becas de bachillerato, FP y otros estudios postobligatorios. Consultar el plazo y los requisitos de cada curso.",
+      "oficial": true
     }
   ],
   "coberturaTerritorial": [
@@ -721,7 +851,7 @@
       "nombre": "Castilla-La Mancha",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
+      "estado": "BDNS más buscadores oficiales especializados de ayudas generales, vivienda y educación registrados; extracción automática independiente pendiente"
     },
     {
       "nombre": "Cataluña",
@@ -775,13 +905,13 @@
       "nombre": "La Rioja",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
+      "estado": "BDNS más oficina electrónica oficial de trámites registrada; buscador especializado y extracción automática pendientes"
     },
     {
       "nombre": "Ceuta",
       "fuenteGeneral": "bdns",
       "directorioOficial": "directorio-ccaa",
-      "estado": "portal oficial de entrada registrado; buscador especializado pendiente de localizar y verificar"
+      "estado": "BDNS más catálogo oficial de ayudas y subvenciones de la sede electrónica registrado; extracción automática independiente pendiente"
     },
     {
       "nombre": "Melilla",

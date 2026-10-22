@@ -43,6 +43,23 @@ def main():
            "subsidio para personas trabajadoras mayores de 52 años" in titulos_personales and
            "emigrantes españolas retornadas" in titulos_personales,
            "Faltan prestaciones SEPE importantes en la ruta de particulares")
+    for titulo in ("Bono social eléctrico y bono social térmico",
+                   "Pensiones no contributivas de jubilación e incapacidad",
+                   "Reconocimiento de dependencia y prestaciones del SAAD"):
+        exigir(titulo.lower() in titulos_personales,
+               "Falta una ficha importante de prestaciones personales: " + titulo)
+    exigir("becas generales para estudios postobligatorios" in titulos_personales,
+           "Falta la ficha de becas generales y sus convocatorias anuales")
+    becas = next((f for f in fichas if f.get("id") == 51), {})
+    exigir(becas.get("pend") is True and "fuera de plazo" in str(becas.get("estadoManual", "")).lower(),
+           "La beca general 2026/27 debe quedar como edición cerrada y próxima edición pendiente")
+    exigir(all(any("miteco.gob.es" in str(link[1]) for link in (f.get("links") or []))
+               for f in personales if f.get("titulo") == "Bono social eléctrico y bono social térmico"),
+           "El bono social debe enlazar a la fuente oficial del MITECO")
+    exigir(all(any("imserso.es" in str(link[1]) for link in (f.get("links") or []))
+               for f in personales if f.get("titulo") in ("Pensiones no contributivas de jubilación e incapacidad",
+                                                          "Reconocimiento de dependencia y prestaciones del SAAD")),
+           "Las fichas de PNC y dependencia deben enlazar a fuentes oficiales del IMSERSO")
     exigir(isinstance(fuentes_doc.get("fuentes"), list) and fuentes_doc["fuentes"], "No hay registro de fuentes")
     fuentes = fuentes_doc["fuentes"]
     territorios = fuentes_doc.get("coberturaTerritorial", [])
@@ -56,6 +73,22 @@ def main():
     for x in fuentes:
         exigir(x.get("id") and x.get("nombre") and x.get("categoria"), "Fuente incompleta: " + str(x.get("id")))
         exigir(str(x.get("url", "")).startswith("https://"), "Fuente sin URL HTTPS: " + str(x.get("id")))
+    fuentes_por_id = {x.get("id"): x for x in fuentes}
+    fuentes_territoriales_nuevas = {
+        "clm-ayudas-transversales": "https://retodemografico.castillalamancha.es/ayudas-y-subvenciones",
+        "clm-vivienda": "https://vivienda.castillalamancha.es/ayudas-y-subvenciones",
+        "clm-educacion": "https://educacion.castillalamancha.es/alumnado-y-familias/becas-y-ayudas",
+        "ceuta-ayudas-sede": "https://sede.ceuta.es/controlador/controlador?cmd=tramites&modulo=tramites&tema=ayu",
+        "larioja-oficina-electronica": "https://web.larioja.org/oficina-electronica/tramite",
+    }
+    for sid, url in fuentes_territoriales_nuevas.items():
+        exigir(sid in fuentes_por_id and fuentes_por_id[sid].get("url") == url and
+               fuentes_por_id[sid].get("oficial") is True and fuentes_por_id[sid].get("monitor") is True,
+               "Falta una fuente territorial oficial monitorizada o su URL ha cambiado: " + sid)
+    for nombre in ("Castilla-La Mancha", "Ceuta", "La Rioja"):
+        registro = next((x for x in territorios if x.get("nombre") == nombre), {})
+        exigir("pendiente" in registro.get("estado", "").lower() or "registrado" in registro.get("estado", "").lower(),
+               "La cobertura territorial debe describir honestamente su estado: " + nombre)
     provincias = geo.get("provinces", [])
     exigir(len(provincias) >= 50, "El catálogo geográfico no contiene todas las provincias")
     municipios = sum(len(p.get("m", [])) for p in provincias)
@@ -96,9 +129,22 @@ def main():
            "La interfaz efectiva no presenta los selectores nuevos o el simulador SEPE")
     exigir("usaResidencia" in novedades_ui and "ccaaResidencia" in perfil_novedades,
            "Las novedades no distinguen territorio personal y empresarial")
-    exigir(estado_ui.find("if(a.pend)return") >= 0 and
-           estado_ui.find("if(a.pend)return") < estado_ui.find("var d="),
-           "Una fecha provisional no debe cerrar automáticamente una convocatoria pendiente")
+    exigir("cierreFechaHora" in estado_ui and "k:\"verify\"" in estado_ui and
+           estado_ui.find("if(a.pend)return") >= 0 and
+           estado_ui.find("if(a.pend)return") < estado_ui.find("if(a.cierre){") and
+           estado_ui.find("if(fin<ahora)return") > estado_ui.find("if(a.cierre){"),
+           "El estado debe respetar fechas provisionales y cerrar automáticamente las convocatorias verificadas")
+    render_list = ultima_funcion("renderList")
+    filtros_ui = ultima_funcion("renderFilters")
+    exigir("est===\"Por verificar\"" in render_list and "\"Por verificar\"" in filtros_ui,
+           "El filtro Por verificar debe existir en las funciones efectivas de la interfaz")
+    for token in ("busquedaAyuda", "categoriaAyuda", "ambitoAyuda", "organoAyuda", "compatAyuda", "aplicaPerfil(a)", "mkCard(it,gr[0],true)"):
+        exigir(token in render_list, "El render de resultados ha perdido un filtro o las fichas agrupadas: " + token)
+    equitat = next((f for f in fichas if f.get("id") == 50), {})
+    exigir(equitat.get("cierre") == "2026-10-30" and
+           equitat.get("cierreFechaHora") == "2026-10-30T14:00:00+01:00" and
+           not equitat.get("estadoManual"),
+           "La Beca Equitat debe usar fecha y hora de cierre estructuradas, no un estado manual permanente")
 
     # Cada requisito usado por las fichas debe tener una pregunta visible en el test.
     question_blocks = re.findall(r"var QUESTIONS\s*=\s*\{([\s\S]*?)\n\};", html)
