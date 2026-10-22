@@ -148,8 +148,8 @@ def main():
                     print(f"  {nombre}: parcial ({n} ficheros); continuará desde la siguiente página")
             except Exception as exc:
                 errores.append({"fuente": nombre, "error": str(exc)[:500]})
-                cursores_nuevos[nombre] = {"corte": corte, "next": url}
-                print(f"  {nombre}: ERROR: {exc}; se reintentará desde la misma página")
+                cursores_nuevos[nombre] = {"corte": corte, "next": url_base}
+                print(f"  {nombre}: ERROR: {exc}; se reintentará desde el inicio del lote para evitar quedar bloqueado por un cursor caducado")
     print(f"Ficheros leídos: {ficheros} · fuentes completas: {len(fuentes_ok)} · parciales: {len(fuentes_parciales)} · errores: {len(errores)} · licitaciones encontradas: {len(nuevas)}")
     if not ficheros:
         escribir("_diagnostico_licitaciones.json", {"fecha": hoy.isoformat(), "ficheros": 0, "encontradas": 0,
