@@ -22,7 +22,7 @@ const context = {
   Array,
   nrm: value => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(),
   eff: key => context.A[key],
-  n1lab: () => "Autonómica",
+  n1lab: value => String(value || "").toLowerCase().includes("local") ? "Local" : "Autonómica",
   ccaaDe: value => value
 };
 vm.createContext(context);
@@ -70,6 +70,12 @@ const personalNovelty = context.encajeNov({n1:"regional",n2:"Cataluña",benefici
 const businessNovelty = context.encajeNov({n1:"regional",n2:"Comunidad de Madrid",beneficiarios:"autónomos y pymes"},pf);
 assert(personalNovelty.s === "si" && businessNovelty.s === "si",
   "Las novedades personales y empresariales deben comparar su territorio correspondiente: " + JSON.stringify({pf,personalNovelty,businessNovelty}));
+const localUnknownBeneficiary = context.encajeNov({
+  n1:"local", n2:"Cataluña", n3:"Ajuntament de Barcelona",
+  organo:"Ajuntament de Barcelona", titulo:"Ayuda local", beneficiarios:""
+},pf);
+assert(localUnknownBeneficiary.s === "mid",
+  "Una novedad local sin beneficiarios identificados no debe descartarse si coincide con la residencia aunque la actividad esté en otra comunidad: " + JSON.stringify(localUnknownBeneficiary));
 
 setAnswers({perfil:"particular",situacionPersonal:"retorno",retorno:"si",cirbeNecesidad:"si"});
 q = sequence();

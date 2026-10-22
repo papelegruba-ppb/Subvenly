@@ -94,10 +94,15 @@ def main():
            cido.get("oficial") is True and cido.get("monitor") is True and
            "CC BY" in cido.get("licencia", ""),
            "El RSS CIDO debe estar registrado como fuente oficial, monitorizada y atribuida")
+    cido_becas = fuentes_por_id.get("cido-rss-becas", {})
+    exigir(cido_becas.get("url") == "https://cido.diba.cat/rss/subvencions/beques" and
+           cido_becas.get("oficial") is True and cido_becas.get("monitor") is True and
+           "CC BY" in cido_becas.get("licencia", ""),
+           "El RSS CIDO de becas debe estar registrado como fuente oficial y atribuida")
     cido_script = (ROOT / "scripts" / "actualizar_cido.py").read_text(encoding="utf-8")
     bdns_script = (ROOT / "scripts" / "actualizar.py").read_text(encoding="utf-8")
     workflow = (ROOT / ".github" / "workflows" / "actualizar.yml").read_text(encoding="utf-8")
-    exigir("def parsear_rss(" in cido_script and '"estadoConvocatoria": "por verificar"' in cido_script and
+    exigir("def parsear_rss(" in cido_script and "https://cido.diba.cat/rss/subvencions/beques" in cido_script and '"estadoConvocatoria": "por verificar"' in cido_script and
            "licenciaDatos" in cido_script and "def combinar(" in cido_script,
            "El importador CIDO debe normalizar, deduplicar y marcar el estado por verificar")
     exigir("id: buscar_cido" in workflow and "CIDO_OUTCOME" in workflow and
@@ -145,8 +150,9 @@ def main():
     exigir("opcionesPregunta(k)" in perfil_ui and "function selCcaaResidencia()" in html and "ccaaResidencia" in perfil_ui and "dgsimulador/introSimulador.do" in perfil_ui and
            "idAmb=100404&idProc=133655" in perfil_ui and "solicitud-informes-riesgos-cirbe-p58.html" in perfil_ui,
            "La interfaz efectiva no presenta los selectores nuevos o el simulador SEPE")
-    exigir("usaResidencia" in novedades_ui and "ccaaResidencia" in perfil_novedades,
-           "Las novedades no distinguen territorio personal y empresarial")
+    exigir("usaResidencia" in novedades_ui and "ubicacionIndeterminada" in novedades_ui and
+           "candidatosMunicipio" in novedades_ui and "ccaaResidencia" in perfil_novedades,
+           "Las novedades no distinguen residencia, actividad y beneficiarios aún desconocidos")
     exigir("cierreFechaHora" in estado_ui and "k:\"verify\"" in estado_ui and
            estado_ui.find("if(a.pend)return") >= 0 and
            estado_ui.find("if(a.pend)return") < estado_ui.find("if(a.cierre){") and

@@ -813,6 +813,17 @@
       "oficial": true,
       "licencia": "Creative Commons Attribution (CC BY)",
       "nota": "RSS público de novedades locales. Subvenly lo importa como descubrimiento; el estado y el plazo se muestran como por verificar hasta comprobar la ficha del CIDO y la convocatoria oficial."
+    },
+    {
+      "id": "cido-rss-becas",
+      "nombre": "CIDO · RSS de becas y ayudas al estudio",
+      "ambito": "Cataluña y convocatorias publicadas por CIDO",
+      "categoria": "Educación y juventud",
+      "url": "https://cido.diba.cat/rss/subvencions/beques",
+      "monitor": true,
+      "oficial": true,
+      "licencia": "Creative Commons Attribution (CC BY)",
+      "nota": "RSS público de becas. Se importa como descubrimiento; nivel territorial clasificado solo cuando el organismo está identificado y el estado queda por verificar."
     }
   ],
   "coberturaTerritorial": [
