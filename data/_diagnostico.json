@@ -1,9 +1,13 @@
 {
  "fecha": "2026-10-22",
- "recibidas": 985,
- "relevantes": 195,
- "detalles_pedidos": 71,
+ "recibidas": 2181,
+ "relevantes": 1621,
+ "detalles_pedidos": 100,
  "detalle_funciona": true,
+ "estado": "correcta",
+ "retroceso_desde": "2026-10-13",
+ "retroceso_hasta": "2026-10-19",
+ "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
   "descripcion",

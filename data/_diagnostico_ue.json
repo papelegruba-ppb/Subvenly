@@ -1,6 +1,8 @@
 {
  "fecha": "2026-10-22",
- "recibidas": 300,
+ "recibidas": 184,
+ "consultas_fallidas": 0,
+ "estado": "correcta",
  "ejemplo": {
   "apiVersion": "2.157.1",
   "reference": "50149768TOPICSen",

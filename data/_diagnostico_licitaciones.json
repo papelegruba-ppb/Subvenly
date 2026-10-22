@@ -1,20 +1,27 @@
 {
- "fecha": "2026-10-21",
- "ficheros": 12,
- "encontradas": 1108,
- "guardadas": 1174,
+ "fecha": "2026-10-22",
+ "ficheros": 2,
+ "encontradas": 153,
+ "guardadas": 1297,
+ "fuentes_correctas": [],
+ "fuentes_parciales": [
+  "perfiles",
+  "agregadas"
+ ],
+ "errores": [],
+ "estado": "parcial",
  "ejemplo": {
-  "id": "CSP.021/2026",
-  "titulo": "Concesión del servicio de cafetería Comedor en la Escuela Politécnica de la Universidad de Extremadura",
-  "organo": "Rectorado de la Universidad de Extremadura",
-  "territorio": "Badajoz",
-  "nuts": "ES431",
-  "tipo": "Concesión de servicios",
-  "cpv": "55330000",
-  "presupuesto": 1000,
-  "cierre": "2026-11-16",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=NdD4GVJvg2zjHF5qKI4aaw%3D%3D",
-  "visto": "2026-10-20",
-  "actualizada": "2026-10-19"
+  "id": "04101/2026/131-SER",
+  "titulo": "El objeto del contrato consiste en la prestación de los servicios de diseño y ejecución de un programa con perspectiva de género dirigido a mujeres de 60 años o más de la ciudad de València, orientado al fomento de su empoderamiento y de su participación activa en asociaciones y organizaciones de la",
+  "organo": "Concejalía Delegada de Contratación del Ajuntament de València",
+  "territorio": "Valencia/València",
+  "nuts": "ES523",
+  "tipo": "Servicios",
+  "cpv": "80000000",
+  "presupuesto": 70560,
+  "cierre": "2026-11-05",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=p04ZkKVvCwnLIx6q1oPaMg%3D%3D",
+  "visto": "2026-10-22",
+  "actualizada": "2026-10-21"
  }
 }
