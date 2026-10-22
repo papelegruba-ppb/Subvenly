@@ -13,6 +13,8 @@ import actualizar
 import actualizar_licitaciones
 import actualizar_ue
 import actualizar_cido
+import vigilar_fuentes
+import hashlib
 
 
 class TestCoberturaBDNS(unittest.TestCase):
@@ -103,6 +105,31 @@ class TestCIDO(unittest.TestCase):
         self.assertTrue(actualizar.es_bdns({"id":"123456"}))
         self.assertFalse(actualizar.es_bdns({"id":"cido-123456","fuente":"CIDO"}))
         self.assertFalse(actualizar.es_bdns({"id":"ABC-123"}))
+
+
+class TestVigilanciaFuentes(unittest.TestCase):
+    def test_detecta_cambios_sin_red(self):
+        fuente = {"id":"fuente-prueba","url":"https://example.test/ayudas"}
+        anterior = {"fuente-prueba":{"estado":"igual","hash":hashlib.sha256(b"antes").hexdigest(),
+                                     "texto":"antes","cambios":[],"url":fuente["url"]}}
+        with patch.object(vigilar_fuentes, "permitido", return_value=True), \\
+             patch.object(vigilar_fuentes, "obtener", return_value="después"):
+            sid, actual, mensaje = vigilar_fuentes.procesar_fuente(fuente, anterior, "2026-10-22")
+        self.assertEqual(sid, "fuente-prueba")
+        self.assertEqual(actual["estado"], "cambio")
+        self.assertEqual(actual["cambios"][0]["antes"], "antes")
+        self.assertIn("cambio", mensaje)
+
+    def test_mantiene_aviso_hasta_revision(self):
+        texto = "contenido"
+        huella = hashlib.sha256(texto.encode("utf-8")).hexdigest()
+        fuente = {"id":"fuente-prueba","url":"https://example.test/ayudas"}
+        anterior = {"fuente-prueba":{"estado":"cambio","hash":huella,"texto":texto,"cambios":[{"fecha":"2026-10-21"}]}}
+        with patch.object(vigilar_fuentes, "permitido", return_value=True), \\
+             patch.object(vigilar_fuentes, "obtener", return_value=texto):
+            _, actual, _ = vigilar_fuentes.procesar_fuente(fuente, anterior, "2026-10-22")
+        self.assertEqual(actual["estado"], "cambio")
+        self.assertEqual(len(actual["cambios"]), 1)
 
 
 class TestConvocatoriasUE(unittest.TestCase):
