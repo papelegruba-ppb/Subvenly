@@ -106,7 +106,9 @@ def main():
         print("El portal no devolvió nada: no se modifica ningún dato.")
         return 1
     escribir("_diagnostico_ue.json", {"fecha": hoy.isoformat(), "recibidas": len(raw), "ejemplo": raw[0]})
-    previo = {i["id"]: i for i in leer("novedades.json", {"items": []}).get("items", [])}
+    previo_doc = leer("novedades.json", {"items": []})
+    estado_actualizacion = previo_doc.get("estadoActualizacion", "desconocida")
+    previo = {i["id"]: i for i in previo_doc.get("items", [])}
     for r in raw:
         n = convertir(r, hoy)
         if not n:
@@ -124,7 +126,7 @@ def main():
     for i in items:
         i["nueva"] = i["visto"] >= nueva_lim
     items.sort(key=lambda i: (i["fecha"], i["id"]), reverse=True)
-    escribir("novedades.json", {"actualizado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "items": items[:MAX_ITEMS]}, compacto=True)
+    escribir("novedades.json", {"actualizado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "estadoActualizacion": estado_actualizacion, "items": items[:MAX_ITEMS]}, compacto=True)
     print(f"Guardadas {min(len(items), MAX_ITEMS)} novedades en total.")
     return 0
 
