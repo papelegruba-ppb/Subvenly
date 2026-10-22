@@ -22,6 +22,8 @@ PAGINA = 200
 MAX_PAGINAS = 40
 MAX_ITEMS = 2000
 MAX_DETALLES = 100        # presupuesto prudente de detalles nuevos y revisiones por ejecución
+DIAS_RETROCESO = 90       # cobertura histórica progresiva dentro de la ventana retenida
+BLOQUE_RETROCESO = 7      # días por lote histórico para no disparar el tiempo de ejecución
 DETALLE = "https://www.infosubvenciones.es/bdnstrans/api/convocatorias?numConv={}&vpd=GE"
 # Territorios que se conservan (sin tildes, en minúsculas). Lista vacía = TODA España:
 # estatales, de todas las comunidades autónomas y locales (ayuntamientos, diputaciones...).
@@ -186,16 +188,50 @@ def main():
     estado = leer("estado.json", {})
     ultima = iso(estado.get("ultima"))
     desde = (dt.date.fromisoformat(ultima) - dt.timedelta(days=MARGEN_DIAS)) if ultima else hoy - dt.timedelta(days=DIAS_PRIMERA_VEZ)
-    if "--fixture" in sys.argv:
+    fixture = "--fixture" in sys.argv
+    error_retroceso = ""
+    retroceso_hasta_siguiente = estado.get("retrocesoHasta", "")
+    if fixture:
         raw = json.load(open(sys.argv[sys.argv.index("--fixture") + 1], encoding="utf-8"))
         raw = raw.get("content", raw)
     else:
         print(f"Consultando la BDNS desde {desde} hasta {hoy}")
         raw = descargar(desde, hoy)
+        # Segunda pasada: recorre progresivamente los últimos 90 días para completar categorías
+        # que antes no se detectaban por las palabras clave. Se hace en bloques de siete días.
+        limite_retroceso = hoy - dt.timedelta(days=DIAS_RETROCESO)
+        try:
+            cursor = dt.date.fromisoformat(estado.get("retrocesoHasta", "")) if estado.get("retrocesoHasta") else hoy - dt.timedelta(days=3)
+        except ValueError:
+            cursor = hoy - dt.timedelta(days=3)
+        if cursor < limite_retroceso or cursor > hoy:
+            cursor = hoy - dt.timedelta(days=3)
+        retroceso_desde = max(limite_retroceso, cursor - dt.timedelta(days=BLOQUE_RETROCESO - 1))
+        print(f"Repaso histórico BDNS: {retroceso_desde} a {cursor}")
+        try:
+            historico = descargar(retroceso_desde, cursor)
+            raw.extend(historico)
+            if retroceso_desde <= limite_retroceso:
+                retroceso_hasta_siguiente = (hoy - dt.timedelta(days=3)).isoformat()
+            else:
+                retroceso_hasta_siguiente = (retroceso_desde - dt.timedelta(days=1)).isoformat()
+        except Exception as exc:
+            error_retroceso = str(exc)[:500]
+            retroceso_hasta_siguiente = cursor.isoformat()
+            print("AVISO: el repaso histórico no se completó; se conserva el cursor para reintentarlo:", error_retroceso)
+    # Una convocatoria puede aparecer en las dos ventanas. Deduplicar antes de filtrar y enriquecer.
+    unicos = {}
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        ident = str(pick(item, "numeroConvocatoria", "codigoBDNS", "id") or "")
+        if ident:
+            unicos[ident] = item
+    raw = list(unicos.values())
     filtradas = [it for it in raw if relevante(it)]
     print(f"Recibidas: {len(raw)} · relevantes: {len(filtradas)}")
-    if not raw:
-        print("La BDNS no devolvió nada: no se modifica ningún dato.")
+    if fixture and not raw:
+        print("El fixture está vacío: no se modifica ningún dato.")
         return 1
     detalles, det_ok = 0, True
     previo = {str(i["id"]): i for i in leer("novedades.json", {"items": []}).get("items", [])}
@@ -215,11 +251,12 @@ def main():
                     anterior[campo] = n[campo]
             anterior["ultimaVezDetectada"] = hoy.isoformat()
         actual = previo[ident]
-        # Enriquecer las nuevas primero, pero sin bloquear el catálogo si falla un detalle.
         if not actual.get("detalleRevisado") and det_ok and detalles < MAX_DETALLES:
             try:
-                actual.update(campos_detalle(get(DETALLE.format(ident), intentos=1)))
-                actual["detalleActualizado"] = hoy.isoformat()
+                detalle = campos_detalle(get(DETALLE.format(ident), intentos=1))
+                if detalle:
+                    actual.update(detalle)
+                    actual["detalleActualizado"] = hoy.isoformat()
                 actual["detalleRevisado"] = hoy.isoformat()
                 detalles += 1
                 time.sleep(0.15)
@@ -228,7 +265,6 @@ def main():
                 print("  detalle no disponible, se sigue sin él:", e)
                 det_ok = False
     # Revisar periódicamente detalles antiguos para detectar cambios en plazos, bases o importes.
-    # Prioridad: convocatorias con plazo futuro próximo, después sin fecha de cierre, y al final vencidas.
     hoy_iso = hoy.isoformat()
     def prioridad_detalle(item):
         fin = item.get("plazo_fin") or item.get("cierre") or ""
@@ -262,20 +298,24 @@ def main():
             item["detalleRevisado"] = hoy.isoformat()
             print("  revisión de detalle no disponible para", item["id"], ":", e)
             det_ok = False
-    # Diagnóstico (se escribe al final para incluir los contadores): sirve para comprobar los nombres de campo reales
-    escribir("_diagnostico.json", {"fecha": hoy.isoformat(), "recibidas": len(raw), "relevantes": len(filtradas), "detalles_pedidos": detalles, "detalle_funciona": det_ok,
-                                   "claves_primer_elemento": sorted(raw[0].keys()) if isinstance(raw[0], dict) else [],
-                                   "ejemplo": raw[0]})
     limite = (hoy - dt.timedelta(days=RETENCION_DIAS)).isoformat()
     nueva_lim = (hoy - dt.timedelta(days=NUEVA_DIAS)).isoformat()
     items = [i for i in previo.values() if i["fecha"] >= limite or (i.get("plazo_fin") and i["plazo_fin"] >= hoy.isoformat())]
     for i in items:
         i["nueva"] = i["visto"] >= nueva_lim
     items.sort(key=lambda i: (i["fecha"], i["id"]), reverse=True)
-    escribir("novedades.json", {"actualizado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "items": items[:MAX_ITEMS]}, compacto=True)
-    escribir("estado.json", {"ultima": hoy.isoformat()})
-    print(f"Guardadas {min(len(items), MAX_ITEMS)} novedades.")
-    return 0
+    estado_actualizacion = "parcial" if error_retroceso else "correcta"
+    escribir("_diagnostico.json", {"fecha": hoy.isoformat(), "recibidas": len(raw), "relevantes": len(filtradas),
+        "detalles_pedidos": detalles, "detalle_funciona": det_ok, "estado": estado_actualizacion,
+        "retroceso_desde": (retroceso_desde.isoformat() if not fixture else None),
+        "retroceso_hasta": (cursor.isoformat() if not fixture else None),
+        "error_retroceso": error_retroceso,
+        "claves_primer_elemento": sorted(raw[0].keys()) if raw else [], "ejemplo": raw[0] if raw else None})
+    escribir("novedades.json", {"actualizado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+        "estadoActualizacion": estado_actualizacion, "items": items[:MAX_ITEMS]}, compacto=True)
+    escribir("estado.json", {"ultima": hoy.isoformat(), "retrocesoHasta": retroceso_hasta_siguiente})
+    print(f"Guardadas {min(len(items), MAX_ITEMS)} novedades; actualización {estado_actualizacion}.")
+    return 2 if error_retroceso else 0
 
 if __name__ == "__main__":
     try:
