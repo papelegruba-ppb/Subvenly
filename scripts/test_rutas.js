@@ -40,8 +40,9 @@ assert(context.fuenteNov({id:"UE-HORIZON-TEST",link:"https://ec.europa.eu/info/f
   "Las novedades de la UE deben identificar la fuente europea.");
 assert(context.fuenteNov({id:"otro",organo:"Organismo local"}) === "Organismo: Organismo local · fuente por identificar",
   "No se debe inventar la fuente cuando no puede identificarse con seguridad.");
-assert(context.estadoNov({}) === "por verificar" && context.estadoNov({estadoConvocatoria:"en plazo"}) === "en plazo",
-  "Las novedades sin estado confirmado deben quedar marcadas por verificar sin sobrescribir estados conocidos.");
+assert(context.estadoNov({}) === "por verificar" && context.estadoNov({estadoConvocatoria:"en plazo"}) === "en plazo" &&
+  context.estadoNov({estadoConvocatoria:"cerrada"}) === "cerrada",
+  "Las novedades sin estado confirmado deben quedar marcadas por verificar y conservar los estados conocidos.");
 function setAnswers(values) { context.A = values; }
 function sequence() { return Array.from(context.secuencia()); }
 
