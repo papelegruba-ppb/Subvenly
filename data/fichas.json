@@ -681,7 +681,9 @@
         "https://tramits.gencat.cat/ca/tramits/tramits-temes/ingres-minim-vital"
       ]
     ],
-    "categoria": "Prestaciones sociales"
+    "categoria": "Prestaciones sociales",
+    "perm": true,
+    "permTxt": "Solicitud según requisitos vigentes; comprobar condiciones en la fuente oficial"
   },
   {
     "id": 23,
@@ -1188,7 +1190,9 @@
         "https://www.seg-social.es/wps/portal/wss/internet/FAQ/044f87eb-644b-41e1-a888-9c2cfafa78b8/42b9f3e8-8eea-4106-864e-2b5d5e"
       ]
     ],
-    "categoria": "Prestaciones sociales y familia"
+    "categoria": "Prestaciones sociales y familia",
+    "perm": true,
+    "permTxt": "Solicitud según requisitos vigentes; comprobar condiciones en la fuente oficial"
   },
   {
     "id": 38,
@@ -1657,7 +1661,9 @@
       ]
     ],
     "categoria": "Prestaciones sociales y familia",
-    "consultado": "2026-10-22"
+    "consultado": "2026-10-22",
+    "perm": true,
+    "permTxt": "Solicitud del bono eléctrico según requisitos; el bono térmico sigue su régimen anual"
   },
   {
     "id": 48,
@@ -1693,7 +1699,9 @@
       ]
     ],
     "categoria": "Prestaciones sociales",
-    "consultado": "2026-10-22"
+    "consultado": "2026-10-22",
+    "perm": true,
+    "permTxt": "Solicitud según requisitos vigentes; comprobar condiciones en la fuente oficial"
   },
   {
     "id": 49,
@@ -1729,7 +1737,9 @@
       ]
     ],
     "categoria": "Prestaciones sociales y cuidados",
-    "consultado": "2026-10-22"
+    "consultado": "2026-10-22",
+    "perm": true,
+    "permTxt": "Solicitud según requisitos vigentes; comprobar condiciones en la fuente oficial"
   },
   {
     "id": 50,
