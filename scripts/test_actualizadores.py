@@ -56,7 +56,7 @@ class TestCoberturaBDNS(unittest.TestCase):
 
 class TestCIDO(unittest.TestCase):
     def fixture_rss(self):
-        return b"""<?xml version="1.0" encoding="UTF-8"?>
+        return """<?xml version="1.0" encoding="UTF-8"?>
         <rss version="2.0"><channel>
           <item>
             <title>Ajuts per a la digitalització de negocis locals 2026</title>
@@ -71,7 +71,7 @@ class TestCIDO(unittest.TestCase):
             <pubDate>Thu, 22 Oct 2026 09:00:00 +0200</pubDate>
             <description><![CDATA[Ens: Ajuntament de Balaguer Número de referència: 20261022S2]]></description>
           </item>
-        </channel></rss>"""
+        </channel></rss>""".encode("utf-8")
 
     def test_parsea_rss_como_descubrimiento_no_confirmacion_de_plazo(self):
         items = actualizar_cido.parsear_rss(self.fixture_rss(), dt.date(2026, 10, 22))
