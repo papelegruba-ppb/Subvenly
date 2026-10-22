@@ -26,7 +26,7 @@ const context = {
   ccaaDe: value => value
 };
 vm.createContext(context);
-vm.runInContext(["camino","secuencia","mostrar","estado","valorAid","evalAid","perfilNov","tiposBen","encajeNov"].map(activeFunction).join("\n"), context);
+vm.runInContext(["camino","anadirRutaPersonal","secuencia","mostrar","estado","valorAid","evalAid","perfilNov","tiposBen","encajeNov"].map(activeFunction).join("\n"), context);
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -76,6 +76,37 @@ q = sequence();
 assert(q.includes("trabajoExtranjero") && q.includes("cirbeNecesidad"),
   "La ruta de retorno debe ofrecer preguntas de trabajo exterior y necesidad de CIRBE.");
 assert(context.mostrar("fechaRetorno"), "Debe mostrar la fecha de retorno si ya regresó.");
+
+setAnswers({perfil:"particular",situacionPersonal:"familia",familia:"si",familiaEvento:"crianza"});
+q = sequence();
+assert(q.includes("familiaEvento") && q.includes("menores") && !q.includes("nacimientoFecha") && !q.includes("alquiler"),
+  "La ruta de crianza debe preguntar por menores, sin pedir una fecha de nacimiento ni alquiler.");
+setAnswers({perfil:"particular",situacionPersonal:"familia",familia:"si",familiaEvento:"primer_hijo"});
+q = sequence();
+assert(q.includes("nacimientoFecha") && !q.includes("menores"),
+  "La ruta de primer hijo debe pedir la fecha, no un recuento de menores a cargo.");
+setAnswers({perfil:"particular",situacionPersonal:"vivienda",alquiler:"si",nacionalidad:"espanola"});
+q = sequence();
+assert(q.indexOf("alquiler") < q.indexOf("contratoAlquiler") && q.indexOf("contratoAlquiler") < q.indexOf("empadronamiento"),
+  "Las preguntas de alquiler deben aparecer antes de contrato y empadronamiento.");
+assert(!context.mostrar("residenciaLegal"), "No debe pedir autorización de residencia a una persona con nacionalidad española.");
+setAnswers({perfil:"particular",situacionPersonal:"retorno",retorno:"no",nacionalidad:"espanola"});
+q = sequence();
+assert(!q.includes("paisProcedencia") && !q.includes("cotizadosAntesEmigrar") && !q.includes("empleoSituacion"),
+  "Si todavía no ha regresado, no debe mostrar el bloque de prestaciones posteriores al retorno.");
+setAnswers({perfil:"particular",situacionPersonal:"retorno",retorno:"si",trabajoExtranjero:"si",nacionalidad:"espanola"});
+q = sequence();
+assert(q.includes("paisProcedencia") && q.includes("mesesTrabajoExtranjero") && q.includes("cotizadosAntesEmigrar"),
+  "Tras confirmar el retorno y el trabajo en el extranjero, deben aparecer las preguntas necesarias para SEPE.");
+setAnswers({perfil:"particular",situacionPersonal:"desempleo",edad:"53"});
+q = sequence();
+assert(q.includes("cotizacionDesempleo6"), "La pregunta de seis años cotizados solo debe aparecer al llegar a los 52 años.");
+setAnswers({perfil:"particular",situacionPersonal:"desempleo",cotizados:"300",empleoSituacion:"asalariado",motivoFin:"despido"});
+const insufficientDays = context.evalAid({perfil:"personal",reqs:{situacionPersonal:"desempleo",cotizados:{min:360}}});
+assert(insufficientDays.s === "no", "La evaluación numérica debe descartar cotizaciones inferiores al mínimo requerido.");
+setAnswers({perfil:"particular",situacionPersonal:"desempleo",cotizados:"420",empleoSituacion:"asalariado",motivoFin:"baja_voluntaria"});
+const voluntaryQuit = context.evalAid({perfil:"personal",reqs:{motivoFin:{oneOf:["despido","fin_contrato","ere","otro"]}}});
+assert(voluntaryQuit.s === "no", "La evaluación por opciones debe descartar la baja voluntaria cuando el requisito es desempleo legal.");
 
 setAnswers({perfil:"autonomo",alta:"si",situacionPersonal:"ingresos"});
 q = sequence();
