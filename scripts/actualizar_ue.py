@@ -24,6 +24,7 @@ BUSQUEDAS = [
     "biodiversity", "women and equality", "sport", "public authorities", "citizens"
 ]
 PAGINAS = 1          # una página por tema para mantener la ejecución acotada
+ERRORES_CONSULTA = 0
 ESTADOS = ["31094501", "31094502"]   # próximas y abiertas
 TIPOS = ["1", "2", "8"]              # subvenciones, premios y financiación en cascada
 # -----------------------------
