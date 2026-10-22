@@ -111,6 +111,11 @@ def main():
             exigir(r.returncode == 0, "Error de sintaxis JS en bloque " + str(i) + ": " + r.stderr)
         finally:
             pathlib.Path(ruta).unlink(missing_ok=True)
+    prueba_rutas = subprocess.run(["node", str(ROOT / "scripts" / "test_rutas.js")],
+                                  capture_output=True, text=True, cwd=ROOT)
+    exigir(prueba_rutas.returncode == 0,
+           "Fallaron las pruebas de rutas del test: " + (prueba_rutas.stdout + prueba_rutas.stderr).strip())
+    print(prueba_rutas.stdout.strip())
     print("OK: {} fichas ({} personales), {} fuentes, {} territorios, {} provincias, {} municipios; {} bloques JS válidos.".format(
         len(fichas), len(personales), len(fuentes), len(territorios), len(provincias), municipios, len(inline)))
     return 0
