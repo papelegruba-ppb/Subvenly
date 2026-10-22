@@ -912,20 +912,23 @@ function estado(a){
 }
 function renderList(){
  var l=document.getElementById("list");l.innerHTML="";
+ var qAyuda=nrm(busquedaAyuda);
  var items=AIDS.filter(function(a){
-  var k=estado(a).k,p=A.perfil||"";
-  if(p==="particular"&&a.perfil!=="personal")return false;
-  if(p==="empresa"&&a.perfil==="personal")return false;
-  if(p==="autonomo"&&a.perfil==="empresa")return false;
-  if(est==="Abiertas"&&["open","perm","soon"].indexOf(k)<0)return false;
-  if(est==="Pendientes"&&k!=="pending")return false;
-  if(est==="Por verificar"&&k!=="verify")return false;
-  if(est==="Cerradas"&&k!=="closed")return false;
-  return tipo==="Todas"||a.tipo===tipo;
+  var k=estado(a).k;
+  var pasaEstado=est==="Todas"||(est==="Cerradas"&&k==="closed")||(est==="Abiertas"&&(k==="open"||k==="perm"||k==="soon"))||(est==="Pendientes"&&k==="pending")||(est==="Por verificar"&&k==="verify");
+  var texto=nrm([a.titulo,a.organo,a.ambito,a.tipo,a.categoria,a.resumen,a.importe,(a.requisitos||[]).join(" ")].join(" "));
+  var pasaTexto=!qAyuda||texto.indexOf(qAyuda)>=0;
+  var pasaCompat=!compatAyuda||evalAid(a).s===compatAyuda;
+  return aplicaPerfil(a)&&(tipo==="Todas"||a.tipo===tipo)&&pasaEstado&&pasaTexto&&
+   (!categoriaAyuda||a.categoria===categoriaAyuda)&&(!ambitoAyuda||a.ambito===ambitoAyuda)&&
+   (!organoAyuda||a.organo===organoAyuda)&&pasaCompat;
  }).map(function(a){return{a:a,e:evalAid(a)}});
  items.sort(function(x,y){
-  var order={open:0,soon:1,perm:2,pending:3,verify:4,closed:5};
-  return (order[estado(x.a).k]||0)-(order[estado(y.a).k]||0);
+  var order={si:0,mid:1,no:2};
+  var c=(order[x.e.s]||0)-(order[y.e.s]||0);
+  if(c)return c;
+  var stateOrder={open:0,soon:1,perm:2,pending:3,verify:4,closed:5};
+  return (stateOrder[estado(x.a).k]||0)-(stateOrder[estado(y.a).k]||0);
  });
  if(!items.length){l.appendChild(el("div","empty","No hay fichas con estos filtros."));return}
  var answered=!!A.perfil;
