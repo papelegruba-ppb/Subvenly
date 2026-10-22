@@ -36,6 +36,12 @@ jobs:
         timeout-minutes: 8
         run: python scripts/actualizar.py
 
+      - name: Importar novedades locales del CIDO (RSS oficial)
+        id: buscar_cido
+        continue-on-error: true
+        timeout-minutes: 3
+        run: python scripts/actualizar_cido.py
+
       - name: Buscar convocatorias de la Unión Europea
         id: buscar_ue
         continue-on-error: true
@@ -68,6 +74,7 @@ jobs:
         env:
           BDNS_OUTCOME: ${{ steps.buscar.outcome }}
           UE_OUTCOME: ${{ steps.buscar_ue.outcome }}
+          CIDO_OUTCOME: ${{ steps.buscar_cido.outcome }}
           LIC_OUTCOME: ${{ steps.buscar_lic.outcome }}
         run: |
           python - <<'PY'
@@ -75,13 +82,13 @@ jobs:
           from pathlib import Path
           hoy = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
           errores = []
-          for variable, nombre in (("BDNS_OUTCOME", "BDNS"), ("UE_OUTCOME", "Unión Europea"), ("LIC_OUTCOME", "licitaciones")):
+          for variable, nombre in (("BDNS_OUTCOME", "BDNS"), ("UE_OUTCOME", "Unión Europea"), ("CIDO_OUTCOME", "CIDO"), ("LIC_OUTCOME", "licitaciones")):
               if os.environ.get(variable) != "success":
                   errores.append(nombre)
           if not errores:
               raise SystemExit(0)
           p = Path("data/novedades.json")
-          if p.exists() and any(x in errores for x in ("BDNS", "Unión Europea")):
+          if p.exists() and any(x in errores for x in ("BDNS", "Unión Europea", "CIDO")):
               data = json.loads(p.read_text(encoding="utf-8"))
               data["estadoActualizacion"] = "parcial"
               data["erroresActualizacion"] = errores
@@ -125,11 +132,12 @@ jobs:
             echo "- Publicación web: **${{ steps.deploy.outcome }}**"
             echo "- BDNS: **${{ steps.buscar.outcome }}**"
             echo "- Unión Europea: **${{ steps.buscar_ue.outcome }}**"
+            echo "- CIDO (convocatorias locales de Cataluña): **${{ steps.buscar_cido.outcome }}**"
             echo "- Licitaciones: **${{ steps.buscar_lic.outcome }}**"
             echo "- Vigilancia de fuentes: **${{ steps.vigilar_fuentes.outcome }}**"
             echo "- Vigilancia de fichas: **${{ steps.vigilar.outcome }}**"
             echo ""
-            if [[ "${{ steps.buscar.outcome }}" != "success" || "${{ steps.buscar_ue.outcome }}" != "success" || "${{ steps.buscar_lic.outcome }}" != "success" ]]; then
+            if [[ "${{ steps.buscar.outcome }}" != "success" || "${{ steps.buscar_ue.outcome }}" != "success" || "${{ steps.buscar_cido.outcome }}" != "success" || "${{ steps.buscar_lic.outcome }}" != "success" ]]; then
               echo "> **Aviso:** una o más fuentes automáticas no se han actualizado. La web puede seguir publicada con los datos anteriores o con una actualización parcial. Consulta los diagnósticos de `data/_diagnostico*.json`."
               echo "::warning::Una o más fuentes de Subvenly no se han actualizado."
             else

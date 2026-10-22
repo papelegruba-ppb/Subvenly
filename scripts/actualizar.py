@@ -173,9 +173,14 @@ def convertir(it, hoy):
     if len(titulo) > 300:
         titulo = titulo[:297].rstrip() + "…"
     ambito, territorio = clasificar(n1, n2)
-    return {"id": num, "titulo": titulo, "organo": " · ".join(x for x in (n3, n2) if x),
+    return {"id": num, "fuente": "BDNS", "titulo": titulo, "organo": " · ".join(x for x in (n3, n2) if x),
             "n1": n1, "n2": n2, "n3": n3, "ambito": ambito, "territorio": territorio, "fecha": iso(pick(it, "fechaRecepcion")) or hoy.isoformat(),
             "link": FICHA.format(num), "visto": hoy.isoformat()}
+
+def es_bdns(item):
+    """Solo las convocatorias de la BDNS tienen detalle en el endpoint numConv."""
+    return item.get("fuente") != "CIDO" and str(item.get("id", "")).isdigit()
+
 
 def leer(nombre, defecto):
     try:
@@ -280,6 +285,8 @@ def main():
         return (2, fin, item.get("detalleRevisado", ""))
     revisables = []
     for item in previo.values():
+        if not es_bdns(item):
+            continue
         revisado = item.get("detalleRevisado", "")
         try:
             viejo = not revisado or (hoy - dt.date.fromisoformat(revisado[:10])).days >= 7

@@ -802,6 +802,17 @@
       "monitor": true,
       "nota": "Becas de bachillerato, FP y otros estudios postobligatorios. Consultar el plazo y los requisitos de cada curso.",
       "oficial": true
+    },
+    {
+      "id": "cido-rss-local",
+      "nombre": "CIDO · RSS de convocatorias de subvenciones locales",
+      "ambito": "Cataluña (convocatorias locales)",
+      "categoria": "Ayudas y subvenciones",
+      "url": "https://cido.diba.cat/rss/subvencions/subvencions-ens-locals",
+      "monitor": true,
+      "oficial": true,
+      "licencia": "Creative Commons Attribution (CC BY)",
+      "nota": "RSS público de novedades locales. Subvenly lo importa como descubrimiento; el estado y el plazo se muestran como por verificar hasta comprobar la ficha del CIDO y la convocatoria oficial."
     }
   ],
   "coberturaTerritorial": [
