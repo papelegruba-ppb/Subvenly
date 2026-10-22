@@ -553,7 +553,7 @@ function novItems(){var q=nrm(novQ),hoy=new Date().toISOString().slice(0,10),pf=
 function buildNovTop(){var c=document.getElementById("nov-top");c.innerHTML="";var it=(NOV&&NOV.items)||[];if(!it.length)return;
   c.appendChild(el("h2","gh","Novedades detectadas <small>· convocatorias sin revisar</small>"));
   var estadoNota=NOV.estadoActualizacion==="parcial"?" Aviso: la última actualización fue parcial; algunos detalles o el repaso histórico no se pudieron completar.":NOV.estadoActualizacion==="desconocida"?" Estado de actualización pendiente de verificar.":"";
-  c.appendChild(txt("p","Se buscan solas cada noche: subvenciones de toda España y convocatorias de la Unión Europea. Son novedades detectadas, no un catálogo exhaustivo de ayudas abiertas; comprueba los requisitos y el plazo en la fuente oficial."+(NOV.actualizado?" Última actualización: "+fmt(NOV.actualizado.slice(0,10))+".":"")+estadoNota)).className="nov-note";
+  c.appendChild(txt("p","Se buscan cada noche: convocatorias de la BDNS en toda España, novedades locales y becas del CIDO en Cataluña y convocatorias de la Unión Europea. Son descubrimientos automáticos, no un catálogo exhaustivo ni una confirmación de plazo; comprueba la ficha, los requisitos y el estado en la fuente oficial."+(NOV.actualizado?" Última actualización: "+fmt(NOV.actualizado.slice(0,10))+".":"")+estadoNota)).className="nov-note";
   var f=el("div","filters"),q=el("input","fld");q.type="search";q.placeholder="Buscar: autónomos, Lleida, comercio…";q.setAttribute("aria-label","Buscar novedades");
   q.oninput=function(){novQ=q.value;NOV_MAX=15;renderNovedades()};f.appendChild(q);
   var sel=el("select","fld");sel.setAttribute("aria-label","Territorio");sel.appendChild(new Option("Todos los territorios","Todos"));
@@ -572,7 +572,7 @@ function renderNovedades(){var c=document.getElementById("nov-list");c.innerHTML
   var g=el("div","grid");
   all.slice(0,NOV_MAX).forEach(function(n){var card=el("article","card nov"),t=el("div","top");
     var lt=el("div","","<h3></h3><div class='meta'></div>");lt.querySelector("h3").textContent=n.titulo;
-    lt.querySelector(".meta").textContent=[n.organo,tit(n.n1?n1lab(n.n1):""),n.fecha?(n.fechaTipo==="detectada"?"Detectada el ":"Publicada el ")+fmt(n.fecha):""].filter(Boolean).join(" · ");t.appendChild(lt);
+    lt.querySelector(".meta").textContent=[n.fuente==="CIDO"?"Fuente: CIDO · Diputació de Barcelona":"",n.organo,tit(n.n1?n1lab(n.n1):""),n.fecha?(n.fechaTipo==="detectada"?"Detectada el ":"Publicada el ")+fmt(n.fecha):""].filter(Boolean).join(" · ");t.appendChild(lt);
     if(n._e)t.appendChild(el("span","badge "+(n._e.s==="si"?"b-si":n._e.s==="mid"?"b-mid":"b-no"),n._e.s==="si"?"Posible encaje":n._e.s==="mid"?"Por confirmar":"No encaja"));
     if(n.estadoConvocatoria==="próxima")t.appendChild(el("span","st st-soon","Próxima apertura"));
     else if(n.estadoConvocatoria==="en plazo")t.appendChild(el("span","st st-open","En plazo · portal UE"));
