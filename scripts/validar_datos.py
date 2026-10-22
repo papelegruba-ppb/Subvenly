@@ -125,9 +125,10 @@ def main():
     exigir("usaResidencia" in novedades_ui and "ccaaResidencia" in perfil_novedades,
            "Las novedades no distinguen territorio personal y empresarial")
     exigir("cierreFechaHora" in estado_ui and "k:\"verify\"" in estado_ui and
-           estado_ui.find("if(fin<ahora)return") >= 0 and
-           estado_ui.find("if(fin<ahora)return") < estado_ui.find("if(a.pend)return"),
-           "El estado debe comprobar primero el vencimiento real y separar pendientes de verificación")
+           estado_ui.find("if(a.pend)return") >= 0 and
+           estado_ui.find("if(a.pend)return") < estado_ui.find("if(a.cierre){") and
+           estado_ui.find("if(fin<ahora)return") > estado_ui.find("if(a.cierre){"),
+           "El estado debe respetar fechas provisionales y cerrar automáticamente las convocatorias verificadas")
     render_list = ultima_funcion("renderList")
     filtros_ui = ultima_funcion("renderFilters")
     exigir("est===\"Por verificar\"" in render_list and "\"Por verificar\"" in filtros_ui,
