@@ -23,7 +23,8 @@ BUSQUEDAS = [
     "youth", "civil society organisations", "non-profit organisations", "health", "transport and mobility",
     "biodiversity", "women and equality", "sport", "public authorities", "citizens"
 ]
-PAGINAS = 2          # páginas de 50 resultados por búsqueda para repartir consultas entre más temas
+PAGINAS = 1          # una página por tema para mantener la ejecución acotada
+ERRORES_CONSULTA = 0
 ESTADOS = ["31094501", "31094502"]   # próximas y abiertas
 TIPOS = ["1", "2", "8"]              # subvenciones, premios y financiación en cascada
 # -----------------------------
@@ -45,14 +46,14 @@ def consultar(texto, pagina):
     url = API + "?" + urllib.parse.urlencode({"apiKey": "SEDIA", "text": texto, "pageSize": 50, "pageNumber": pagina})
     req = urllib.request.Request(url, data=cuerpo, method="POST", headers={
         "Content-Type": f"multipart/form-data; boundary={limite}", "User-Agent": "Subvenly/1.0", "Accept": "application/json"})
-    for i in range(2):
-        try:
-            with urllib.request.urlopen(req, timeout=20) as r:
-                return json.load(r)
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
-            print(f"  intento {i+1}/3 fallido: {e}")
-            time.sleep(1 * (i + 1))
-    raise RuntimeError("No se pudo consultar el portal de la UE")
+    global ERRORES_CONSULTA
+    try:
+        with urllib.request.urlopen(req, timeout=12) as r:
+            return json.load(r)
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, OSError) as e:
+        ERRORES_CONSULTA += 1
+        print(f"  consulta omitida por error temporal: {e}")
+        return None
 
 def convertir(r, hoy):
     m = r.get("metadata") or {}
@@ -85,6 +86,8 @@ def convertir(r, hoy):
             "link": TOPIC.format(ident.lower()) if ident else r.get("url", ""), "visto": hoy.isoformat()}
 
 def main():
+    global ERRORES_CONSULTA
+    ERRORES_CONSULTA = 0
     hoy = dt.date.today()
     if "--fixture" in sys.argv:
         raw = json.load(open(sys.argv[sys.argv.index("--fixture") + 1], encoding="utf-8")).get("results", [])
@@ -92,7 +95,10 @@ def main():
         raw, vistos = [], set()
         for t in BUSQUEDAS:
             for p in range(1, PAGINAS + 1):
-                res = consultar(t, p).get("results") or []
+                respuesta = consultar(t, p)
+                if not respuesta:
+                    break
+                res = respuesta.get("results") or []
                 print(f"  '{t}' página {p}: {len(res)} resultados")
                 for r in res:
                     k = str(primero((r.get("metadata") or {}).get("identifier")) or r.get("reference"))
@@ -103,9 +109,10 @@ def main():
                 time.sleep(0.5)
     print(f"Recibidas {len(raw)} convocatorias de la UE")
     if not raw:
+        escribir("_diagnostico_ue.json", {"fecha": hoy.isoformat(), "recibidas": 0, "consultas_fallidas": ERRORES_CONSULTA, "estado": "fallida", "ejemplo": None})
         print("El portal no devolvió nada: no se modifica ningún dato.")
         return 1
-    escribir("_diagnostico_ue.json", {"fecha": hoy.isoformat(), "recibidas": len(raw), "ejemplo": raw[0]})
+    escribir("_diagnostico_ue.json", {"fecha": hoy.isoformat(), "recibidas": len(raw), "consultas_fallidas": ERRORES_CONSULTA, "estado": "parcial" if ERRORES_CONSULTA else "correcta", "ejemplo": raw[0]})
     previo_doc = leer("novedades.json", {"items": []})
     estado_actualizacion = previo_doc.get("estadoActualizacion", "desconocida")
     previo = {i["id"]: i for i in previo_doc.get("items", [])}
@@ -126,7 +133,18 @@ def main():
     for i in items:
         i["nueva"] = i["visto"] >= nueva_lim
     items.sort(key=lambda i: (i["fecha"], i["id"]), reverse=True)
-    escribir("novedades.json", {"actualizado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "estadoActualizacion": estado_actualizacion, "items": items[:MAX_ITEMS]}, compacto=True)
+    if ERRORES_CONSULTA:
+        estado_actualizacion = "parcial"
+        errores_previos = previo_doc.get("erroresActualizacion", [])
+        errores_previos = errores_previos if isinstance(errores_previos, list) else []
+        errores_actualizacion = list(dict.fromkeys(errores_previos + [f"Unión Europea: {ERRORES_CONSULTA} consulta(s) fallida(s)"]))
+    else:
+        errores_actualizacion = previo_doc.get("erroresActualizacion", [])
+    salida = {"actualizado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+        "estadoActualizacion": estado_actualizacion, "items": items[:MAX_ITEMS]}
+    if errores_actualizacion:
+        salida["erroresActualizacion"] = errores_actualizacion
+    escribir("novedades.json", salida, compacto=True)
     print(f"Guardadas {min(len(items), MAX_ITEMS)} novedades en total.")
     return 0
 
