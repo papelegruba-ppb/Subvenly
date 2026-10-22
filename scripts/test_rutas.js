@@ -21,10 +21,12 @@ const context = {
   Math,
   Array,
   nrm: value => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(),
-  eff: key => context.A[key]
+  eff: key => context.A[key],
+  n1lab: () => "Autonómica",
+  ccaaDe: n => n.n2
 };
 vm.createContext(context);
-vm.runInContext(["camino","secuencia","mostrar","estado","valorAid","evalAid"].map(activeFunction).join("\n"), context);
+vm.runInContext(["camino","secuencia","mostrar","estado","valorAid","evalAid","perfilNov","tiposBen","encajeNov"].map(activeFunction).join("\n"), context);
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -61,6 +63,13 @@ const personalAid = context.evalAid({perfil:"personal",reqs:{ccaa:"Cataluña"}})
 const businessAid = context.evalAid({perfil:"negocio",reqs:{ccaa:"Comunidad de Madrid"}});
 assert(personalAid.s === "si" && businessAid.s === "si",
   "Las ayudas personales deben evaluarse con la residencia y las empresariales con el centro de actividad.");
+
+setAnswers({perfil:"ambos",alta:"si",ccaa:"Comunidad de Madrid",provincia:"Madrid",municipio:"Madrid",ccaaResidencia:"Cataluña",provinciaResidencia:"Barcelona",municipioResidencia:"Barcelona"});
+const pf = context.perfilNov();
+const personalNovelty = context.encajeNov({n1:"regional",n2:"Cataluña",beneficiarios:"personas físicas y familias"},pf);
+const businessNovelty = context.encajeNov({n1:"regional",n2:"Comunidad de Madrid",beneficiarios:"autónomos y pymes"},pf);
+assert(personalNovelty.s === "si" && businessNovelty.s === "si",
+  "Las novedades personales y empresariales deben comparar su territorio correspondiente.");
 
 setAnswers({perfil:"particular",situacionPersonal:"retorno",retorno:"si",cirbeNecesidad:"si"});
 q = sequence();
