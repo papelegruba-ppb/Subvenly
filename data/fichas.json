@@ -1507,5 +1507,54 @@
     ],
     "categoria": "Desempleo y prestaciones",
     "consultado": "2026-10-22"
+  },
+  {
+    "id": 46,
+    "perfil": "personal",
+    "tipo": "Prestación",
+    "titulo": "Renta Garantizada de Ciudadanía (RGC) · Cataluña",
+    "organo": "Generalitat de Catalunya · Departament de Drets Socials i Inclusió",
+    "ambito": "Cataluña",
+    "plazo": "Se puede solicitar en cualquier momento, si se cumplen los requisitos; consultar el trámite vigente",
+    "estadoManual": "Prestación sujeta a requisitos personales, de residencia, laborales y económicos; verificar en la ficha oficial",
+    "importe": "Depende de la composición de la unidad familiar y de los ingresos; consultar los importes oficiales vigentes",
+    "resumen": "Prestación económica para personas y unidades familiares con recursos insuficientes para cubrir necesidades básicas. Hay modalidades para personas activables y no activables, y puede existir una prestación complementaria a prestaciones estatales. No es una ayuda empresarial ni para sociedades.",
+    "reqs": {
+      "ccaa": "Cataluña",
+      "social": "si"
+    },
+    "requisitos": [
+      "Haber solicitado previamente el Ingreso Mínimo Vital, salvo que la modalidad aplicable indique otra condición",
+      "Cumplir el requisito de edad: con carácter general, más de 23 años, con excepciones desde los 18 años",
+      "Estar empadronado en Cataluña y acreditar, con carácter general, residencia continuada y efectiva durante los dos años anteriores; existen excepciones",
+      "Cumplir los límites de ingresos y patrimonio de la unidad familiar vigentes en el momento de la solicitud",
+      "La situación laboral y familiar debe encajar en una modalidad prevista por la normativa; existen excepciones al requisito general de no trabajar",
+      "Aportar la documentación personal, familiar, bancaria y económica que corresponda"
+    ],
+    "docs": [
+      "DNI o NIE y documentación de residencia",
+      "Justificante de solicitud del IMV",
+      "Empadronamiento y pruebas de residencia cuando se requieran",
+      "Extractos bancarios de los últimos dos meses de la unidad familiar",
+      "Documentación de ingresos, patrimonio, convivencia y situación laboral"
+    ],
+    "eval": "No afirmar compatibilidad solo por residir en Cataluña o tener ingresos bajos. Hay modalidades y excepciones; revisar el trámite oficial de personas activables o no activables. Los umbrales e importes cambian y deben comprobarse en la fuente oficial.",
+    "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/rgc-i-complement-activables",
+    "links": [
+      [
+        "RGC y prestación complementaria · personas activables",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/rgc-i-complement-activables"
+      ],
+      [
+        "RGC y prestación complementaria · personas no activables",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/rgc-i-complement-no-activables"
+      ],
+      [
+        "Información oficial sobre IMV y RGC",
+        "https://dretssocials.gencat.cat/ca/ambits_tematics/pobresa_i_inclusio_social/imv-rgc/"
+      ]
+    ],
+    "categoria": "Prestaciones sociales y familia",
+    "consultado": "2026-10-22"
   }
 ]
