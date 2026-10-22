@@ -75,6 +75,15 @@ class TestCIDO(unittest.TestCase):
           </item>
         </channel></rss>""".encode("utf-8")
 
+    def test_reintenta_descarga_rss_tras_error_temporal(self):
+        respuesta = self.fixture_rss()
+        with patch.object(actualizar_cido.urllib.request, "urlopen",
+                           side_effect=[OSError("conexión rechazada"), __import__("io").BytesIO(respuesta)]), \
+             patch.object(actualizar_cido.time, "sleep") as dormir:
+            contenido = actualizar_cido.descargar_rss("https://cido.diba.cat/rss/subvencions/subvencions-ens-locals")
+        self.assertEqual(contenido, respuesta)
+        dormir.assert_called_once_with(2)
+
     def test_parsea_rss_como_descubrimiento_no_confirmacion_de_plazo(self):
         items = actualizar_cido.parsear_rss(self.fixture_rss(), dt.date(2026, 10, 22))
         self.assertEqual(len(items), 2)
