@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import actualizar
 import actualizar_licitaciones
 import actualizar_ue
+import actualizar_cido
 
 
 class TestCoberturaBDNS(unittest.TestCase):
@@ -51,6 +52,57 @@ class TestCoberturaBDNS(unittest.TestCase):
         self.assertEqual(result["plazo_inicio"], "2026-10-01")
         self.assertEqual(result["plazo_fin"], "2026-10-29")
         self.assertEqual(result["beneficiarios"], "Empresas y profesionales")
+
+
+class TestCIDO(unittest.TestCase):
+    def fixture_rss(self):
+        return b"""<?xml version="1.0" encoding="UTF-8"?>
+        <rss version="2.0"><channel>
+          <item>
+            <title>Ajuts per a la digitalització de negocis locals 2026</title>
+            <link>https://cido.diba.cat/subvencions/21573898/ajuts-digitals</link>
+            <guid>https://cido.diba.cat/subvencions/21573898/ajuts-digitals</guid>
+            <pubDate>Wed, 21 Oct 2026 18:02:51 +0200</pubDate>
+            <description><![CDATA[Data de publicació: 21/10/2026 18:02:51 Ens: Ajuntament de Lleida Número de referència: 20261021S1]]></description>
+          </item>
+          <item>
+            <title>Ajuts socials per a famílies 2026</title>
+            <link>https://cido.diba.cat/subvencions/21573899/ajuts-socials</link>
+            <pubDate>Thu, 22 Oct 2026 09:00:00 +0200</pubDate>
+            <description><![CDATA[Ens: Ajuntament de Balaguer Número de referència: 20261022S2]]></description>
+          </item>
+        </channel></rss>"""
+
+    def test_parsea_rss_como_descubrimiento_no_confirmacion_de_plazo(self):
+        items = actualizar_cido.parsear_rss(self.fixture_rss(), dt.date(2026, 10, 22))
+        self.assertEqual(len(items), 2)
+        self.assertEqual(items[0]["id"], "cido-21573898")
+        self.assertEqual(items[0]["n1"], "Local")
+        self.assertEqual(items[0]["n2"], "Cataluña")
+        self.assertEqual(items[0]["organo"], "Ajuntament de Lleida")
+        self.assertEqual(items[0]["fecha"], "2026-10-21")
+        self.assertEqual(items[0]["estadoConvocatoria"], "por verificar")
+        self.assertTrue(items[0]["link"].startswith("https://cido.diba.cat/subvencions/"))
+
+    def test_merge_preserva_bdns_y_deduplica_cido(self):
+        nuevos = actualizar_cido.parsear_rss(self.fixture_rss(), dt.date(2026, 10, 22))
+        previo = {"actualizado":"2026-10-21", "items":[
+            {"id":"12345","titulo":"BDNS existente","fecha":"2026-10-21","visto":"2026-10-21"},
+            {"id":"cido-21573898","titulo":"Versión anterior","fecha":"2026-10-20","visto":"2026-10-20"}
+        ]}
+        combinado, resumen = actualizar_cido.combinar(previo, nuevos, dt.date(2026, 10, 22))
+        ids = [x["id"] for x in combinado["items"]]
+        self.assertEqual(ids.count("cido-21573898"), 1)
+        self.assertIn("12345", ids)
+        actualizado = next(x for x in combinado["items"] if x["id"] == "cido-21573898")
+        self.assertEqual(actualizado["titulo"], "Ajuts per a la digitalització de negocis locals 2026")
+        self.assertEqual(actualizado["visto"], "2026-10-20")
+        self.assertEqual(resumen["nuevas"], 1)
+
+    def test_bdns_no_consulta_el_endpoint_de_detalle_para_cido(self):
+        self.assertTrue(actualizar.es_bdns({"id":"123456"}))
+        self.assertFalse(actualizar.es_bdns({"id":"cido-123456","fuente":"CIDO"}))
+        self.assertFalse(actualizar.es_bdns({"id":"ABC-123"}))
 
 
 class TestConvocatoriasUE(unittest.TestCase):
