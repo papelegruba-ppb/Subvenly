@@ -157,6 +157,9 @@ def main():
     exigir("usaResidencia" in novedades_ui and "ubicacionIndeterminada" in novedades_ui and
            "candidatosMunicipio" in novedades_ui and "ccaaResidencia" in perfil_novedades,
            "Las novedades no distinguen residencia, actividad y beneficiarios aún desconocidos")
+    exigir("function fuenteNov(" in html and "function estadoNov(" in html and
+           "Fuente por identificar" in html and "Estado por verificar" in html,
+           "Las novedades deben identificar la procedencia cuando sea posible y mostrar el estado desconocido sin ocultarlo")
     exigir("cierreFechaHora" in estado_ui and "k:\"verify\"" in estado_ui and
            estado_ui.find("if(a.pend)return") >= 0 and
            estado_ui.find("if(a.pend)return") < estado_ui.find("if(a.cierre){") and
