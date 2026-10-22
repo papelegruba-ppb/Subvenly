@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 import actualizar
 import actualizar_licitaciones
+import actualizar_ue
 
 
 class TestCoberturaBDNS(unittest.TestCase):
@@ -41,6 +42,26 @@ class TestCoberturaBDNS(unittest.TestCase):
         self.assertEqual(result["plazo_inicio"], "2026-10-01")
         self.assertEqual(result["plazo_fin"], "2026-10-29")
         self.assertEqual(result["beneficiarios"], "Empresas y profesionales")
+
+
+class TestConvocatoriasUE(unittest.TestCase):
+    def test_separa_fecha_detectada_apertura_y_estado(self):
+        raw = {
+            "metadata": {
+                "identifier": ["HORIZON-TEST-01"],
+                "title": ["Open call for small businesses"],
+                "startDate": ["2027-02-01T00:00:00.000+0000"],
+                "deadlineDate": ["2027-05-30T00:00:00.000+0000"],
+                "status": ["31094501"],
+            },
+            "url": "https://example.test/topic",
+        }
+        item = actualizar_ue.convertir(raw, dt.date(2026, 10, 22))
+        self.assertEqual(item["fecha"], "2026-10-22")
+        self.assertEqual(item["fechaTipo"], "detectada")
+        self.assertEqual(item["plazo_inicio"], "2027-02-01")
+        self.assertEqual(item["plazo_fin"], "2027-05-30")
+        self.assertEqual(item["estadoConvocatoria"], "próxima")
 
 
 class TestLicitaciones(unittest.TestCase):
