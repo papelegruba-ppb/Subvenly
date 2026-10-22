@@ -115,7 +115,7 @@ class TestLicitaciones(unittest.TestCase):
         self.assertEqual(rows[0]["id"], "EXP-123")
 
     def test_recorrer_guarda_cursor_si_alcanza_limite_de_paginas(self):
-        atom = b'''<feed xmlns="http://www.w3.org/2005/Atom">
+        atom = '''<feed xmlns="http://www.w3.org/2005/Atom">
           <entry><id>urn:uuid:test</id><updated>2026-10-20</updated>
             <title>Servicio de prueba</title><link href="https://example.test/licitacion"/>
             <ContractFolderID>EXP-123</ContractFolderID><ContractFolderStatusCode>PUB</ContractFolderStatusCode>
@@ -127,7 +127,7 @@ class TestLicitaciones(unittest.TestCase):
             <TenderSubmissionDeadlinePeriod><EndDate>2026-11-16</EndDate></TenderSubmissionDeadlinePeriod>
           </entry>
           <link rel="next" href="https://example.test/page2"/>
-        </feed>'''
+        </feed>'''.encode("utf-8")
         with patch.object(actualizar_licitaciones, "MAX_FICHEROS", 1), patch.object(actualizar_licitaciones, "leer_url", return_value=atom):
             rows, pages, next_url, complete = actualizar_licitaciones.recorrer("https://example.test/page1", "2026-10-01", dt.date(2026, 10, 22))
         self.assertEqual(pages, 1)
