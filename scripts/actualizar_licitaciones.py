@@ -25,7 +25,7 @@ FEEDS = [
 # ---------- AJUSTES ----------
 DIAS_PRIMERA_VEZ = 7     # cuántos días atrás mira la primera vez
 MARGEN_DIAS = 1
-MAX_FICHEROS = 8        # tope de ficheros de 500 entradas por fuente y ejecución
+MAX_FICHEROS = 4        # tope por fuente y ejecución; la URL siguiente se guarda para continuar otro día
 MAX_ITEMS = 4000
 SIN_PLAZO_DIAS = 30      # si una licitación no indica fecha límite, se conserva este tiempo
 TIPOS = {"1": "Suministros", "2": "Servicios", "3": "Obras", "21": "Gestión de servicios públicos",
@@ -96,7 +96,7 @@ def entrada(e, hoy):
             "cierre": cierre, "link": enlace, "visto": hoy.isoformat(), "actualizada": iso(txt(hijo(e, "updated")))}
 
 def recorrer(url, corte, hoy, raiz_local=None):
-    """Sigue los enlaces rel="next" hasta llegar a entradas anteriores a 'corte'."""
+    """Lee un lote y devuelve (registros, páginas, siguiente URL, completo)."""
     out, n = [], 0
     while url:
         print(f"  fichero {n+1}")
@@ -110,60 +110,77 @@ def recorrer(url, corte, hoy, raiz_local=None):
         sig = next((c.get("href") for c in raiz if local(c.tag) == "link" and c.get("rel") == "next"), "")
         n += 1
         if raiz_local is not None or not entradas or (ultima and ultima < corte) or not sig:
-            break
+            return out, n, "", True
         if n >= MAX_FICHEROS:
-            raise RuntimeError("Se alcanzó el límite de ficheros antes de llegar a la fecha de corte; se reintentará sin avanzar el cursor.")
+            return out, n, sig, False
         url = sig
         time.sleep(0.25)
-    return out, n
+    return out, n, "", True
 
 def main():
     hoy = dt.date.today()
     estado = leer("estado_licitaciones.json", {})
     ultima = iso(estado.get("ultima"))
-    corte = ((dt.date.fromisoformat(ultima) - dt.timedelta(days=MARGEN_DIAS)) if ultima else hoy - dt.timedelta(days=DIAS_PRIMERA_VEZ)).isoformat()
-    nuevas, ficheros, fuentes_ok, errores = [], 0, [], []
+    corte_base = ((dt.date.fromisoformat(ultima) - dt.timedelta(days=MARGEN_DIAS)) if ultima else hoy - dt.timedelta(days=DIAS_PRIMERA_VEZ)).isoformat()
+    nuevas, ficheros, fuentes_ok, fuentes_parciales, errores = [], 0, [], [], []
+    cursores_anteriores = estado.get("feeds", {}) if isinstance(estado.get("feeds", {}), dict) else {}
+    cursores_nuevos = dict(cursores_anteriores)
     if "--fixture" in sys.argv:
         datos = open(sys.argv[sys.argv.index("--fixture") + 1], "rb").read()
-        r, n = recorrer("fixture", corte, hoy, raiz_local=datos)
+        r, n, _, completo = recorrer("fixture", corte_base, hoy, raiz_local=datos)
         nuevas += r; ficheros += n; fuentes_ok.append("fixture")
     else:
-        for nombre, url in FEEDS:
-            print(f"Fuente '{nombre}' desde {corte}")
+        for nombre, url_base in FEEDS:
+            previo = cursores_anteriores.get(nombre, {})
+            corte = previo.get("corte") or corte_base
+            url = previo.get("next") or url_base
+            print(f"Fuente '{nombre}' desde {corte}; continuación: {'sí' if previo.get('next') else 'no'}")
             try:
-                r, n = recorrer(url, corte, hoy)
-                nuevas += r; ficheros += n; fuentes_ok.append(nombre)
-                print(f"  {nombre}: correcta ({n} ficheros, {len(r)} licitaciones)")
+                r, n, siguiente, completo = recorrer(url, corte, hoy)
+                nuevas += r; ficheros += n
+                if completo:
+                    fuentes_ok.append(nombre)
+                    cursores_nuevos.pop(nombre, None)
+                    print(f"  {nombre}: completa ({n} ficheros, {len(r)} licitaciones)")
+                else:
+                    fuentes_parciales.append(nombre)
+                    cursores_nuevos[nombre] = {"corte": corte, "next": siguiente}
+                    print(f"  {nombre}: parcial ({n} ficheros); continuará desde la siguiente página")
             except Exception as exc:
                 errores.append({"fuente": nombre, "error": str(exc)[:500]})
-                print(f"  {nombre}: ERROR: {exc}")
-    print(f"Ficheros leídos: {ficheros} · fuentes correctas: {len(fuentes_ok)} · errores: {len(errores)} · licitaciones encontradas: {len(nuevas)}")
+                cursores_nuevos[nombre] = {"corte": corte, "next": url_base}
+                print(f"  {nombre}: ERROR: {exc}; se reintentará desde el inicio del lote para evitar quedar bloqueado por un cursor caducado")
+    print(f"Ficheros leídos: {ficheros} · fuentes completas: {len(fuentes_ok)} · parciales: {len(fuentes_parciales)} · errores: {len(errores)} · licitaciones encontradas: {len(nuevas)}")
     if not ficheros:
         escribir("_diagnostico_licitaciones.json", {"fecha": hoy.isoformat(), "ficheros": 0, "encontradas": 0,
             "guardadas": len(leer("licitaciones.json", {"items": []}).get("items", [])), "fuentes_correctas": fuentes_ok,
-            "errores": errores, "estado": "fallida", "ejemplo": None})
+            "fuentes_parciales": fuentes_parciales, "errores": errores, "estado": "fallida", "ejemplo": None})
+        if "--fixture" not in sys.argv:
+            escribir("estado_licitaciones.json", {"ultima": ultima or "", "fuentes": fuentes_ok, "feeds": cursores_nuevos})
         return 1
     previo_doc = leer("licitaciones.json", {"items": []})
     previo = {i["id"]: i for i in previo_doc.get("items", [])}
-    for r in nuevas:                       # las entradas vienen de la más reciente a la más antigua
+    for r in nuevas:
         if r["id"] not in previo or (r["actualizada"] or "") >= (previo[r["id"]].get("actualizada") or ""):
             r["visto"] = previo.get(r["id"], r).get("visto", r["visto"])
             previo[r["id"]] = r
     lim_sin_plazo = (hoy - dt.timedelta(days=SIN_PLAZO_DIAS)).isoformat()
     items = [i for i in previo.values() if (i["cierre"] and i["cierre"] >= hoy.isoformat()) or (not i["cierre"] and i["visto"] >= lim_sin_plazo)]
     items.sort(key=lambda i: (i["cierre"] or "9999", i["id"]))
-    estado_actualizacion = "completa" if not errores else "parcial"
+    estado_actualizacion = "completa" if not errores and not fuentes_parciales else "parcial"
+    fuentes_error = [e["fuente"] for e in errores] + fuentes_parciales
     escribir("_diagnostico_licitaciones.json", {"fecha": hoy.isoformat(), "ficheros": ficheros, "encontradas": len(nuevas),
-        "guardadas": min(len(items), MAX_ITEMS), "fuentes_correctas": fuentes_ok, "errores": errores,
-        "estado": estado_actualizacion, "ejemplo": nuevas[0] if nuevas else None})
+        "guardadas": min(len(items), MAX_ITEMS), "fuentes_correctas": fuentes_ok, "fuentes_parciales": fuentes_parciales,
+        "errores": errores, "estado": estado_actualizacion, "ejemplo": nuevas[0] if nuevas else None})
     escribir("licitaciones.json", {"actualizado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
-        "estadoActualizacion": estado_actualizacion, "fuentesConError": [e["fuente"] for e in errores],
+        "estadoActualizacion": estado_actualizacion, "fuentesConError": fuentes_error,
         "items": items[:MAX_ITEMS]}, compacto=True)
-    # No avanzar el punto de control si alguna fuente falló: el siguiente ciclo vuelve a cubrir el periodo.
-    if not errores:
-        escribir("estado_licitaciones.json", {"ultima": hoy.isoformat(), "fuentes": fuentes_ok})
+    if not errores and not fuentes_parciales:
+        escribir("estado_licitaciones.json", {"ultima": hoy.isoformat(), "fuentes": fuentes_ok, "feeds": {}})
+    else:
+        escribir("estado_licitaciones.json", {"ultima": ultima or "", "fuentes": fuentes_ok, "feeds": cursores_nuevos})
     print(f"Guardadas {min(len(items), MAX_ITEMS)} licitaciones abiertas; estado de actualización: {estado_actualizacion}.")
-    return 2 if errores else 0
+    return 2 if errores or fuentes_parciales else 0
 
 if __name__ == "__main__":
     try:

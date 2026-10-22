@@ -101,6 +101,15 @@ assert(q.includes("paisProcedencia") && q.includes("mesesTrabajoExtranjero") && 
 setAnswers({perfil:"particular",situacionPersonal:"desempleo",edad:"53"});
 q = sequence();
 assert(q.includes("cotizacionDesempleo6"), "La pregunta de seis años cotizados solo debe aparecer al llegar a los 52 años.");
+setAnswers({perfil:"particular",situacionPersonal:"desempleo",social:"si",familia:"si",alquiler:"si"});
+const familyAidWrongRoute = context.evalAid({perfil:"personal",reqs:{familia:"si"}});
+const housingAidWrongRoute = context.evalAid({perfil:"personal",reqs:{alquiler:"si"}});
+assert(familyAidWrongRoute.s === "no" && housingAidWrongRoute.s === "no",
+  "Las ayudas de familia y alquiler deben descartarse cuando la persona ha elegido otra ruta.");
+setAnswers({perfil:"particular",situacionPersonal:"familia",familia:"si",familiaEvento:"crianza"});
+const birthAidWrongEvent = context.evalAid({perfil:"personal",reqs:{familia:"si",familiaEvento:{oneOf:["primer_hijo","otro_hijo"]}}});
+assert(birthAidWrongEvent.s === "no", "Una ayuda por nacimiento no debe encajar automáticamente si solo busca ayudas de crianza.");
+
 setAnswers({perfil:"particular",situacionPersonal:"desempleo",cotizados:"300",empleoSituacion:"asalariado",motivoFin:"despido"});
 const insufficientDays = context.evalAid({perfil:"personal",reqs:{situacionPersonal:"desempleo",cotizados:{min:360}}});
 assert(insufficientDays.s === "no", "La evaluación numérica debe descartar cotizaciones inferiores al mínimo requerido.");

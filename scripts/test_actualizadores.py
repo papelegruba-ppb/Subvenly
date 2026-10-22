@@ -3,6 +3,7 @@
 import datetime as dt
 import sys
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
@@ -106,10 +107,33 @@ class TestLicitaciones(unittest.TestCase):
     def test_recorrer_fixture_atom_sin_red(self):
         entry = ET.tostring(self.make_entry(), encoding="utf-8")
         atom = b'<feed xmlns="http://www.w3.org/2005/Atom">' + entry + b'</feed>'
-        rows, pages = actualizar_licitaciones.recorrer("fixture", "2026-10-01", dt.date(2026, 10, 22), raiz_local=atom)
+        rows, pages, next_url, complete = actualizar_licitaciones.recorrer("fixture", "2026-10-01", dt.date(2026, 10, 22), raiz_local=atom)
         self.assertEqual(pages, 1)
+        self.assertEqual(next_url, "")
+        self.assertTrue(complete)
         self.assertEqual(len(rows), 1)
         self.assertEqual(rows[0]["id"], "EXP-123")
+
+    def test_recorrer_guarda_cursor_si_alcanza_limite_de_paginas(self):
+        atom = '''<feed xmlns="http://www.w3.org/2005/Atom">
+          <entry><id>urn:uuid:test</id><updated>2026-10-20</updated>
+            <title>Servicio de prueba</title><link href="https://example.test/licitacion"/>
+            <ContractFolderID>EXP-123</ContractFolderID><ContractFolderStatusCode>PUB</ContractFolderStatusCode>
+            <ProcurementProject><Name>Servicio de prueba</Name><TypeCode>2</TypeCode>
+              <RealizedLocation><CountrySubentity>Badajoz</CountrySubentity><CountrySubentityCode>ES431</CountrySubentityCode></RealizedLocation>
+              <BudgetAmount><TaxExclusiveAmount>1000</TaxExclusiveAmount></BudgetAmount>
+            </ProcurementProject>
+            <LocatedContractingParty><PartyName><Name>Órgano de prueba</Name></PartyName></LocatedContractingParty>
+            <TenderSubmissionDeadlinePeriod><EndDate>2026-11-16</EndDate></TenderSubmissionDeadlinePeriod>
+          </entry>
+          <link rel="next" href="https://example.test/page2"/>
+        </feed>'''.encode("utf-8")
+        with patch.object(actualizar_licitaciones, "MAX_FICHEROS", 1), patch.object(actualizar_licitaciones, "leer_url", return_value=atom):
+            rows, pages, next_url, complete = actualizar_licitaciones.recorrer("https://example.test/page1", "2026-10-01", dt.date(2026, 10, 22))
+        self.assertEqual(pages, 1)
+        self.assertEqual(next_url, "https://example.test/page2")
+        self.assertFalse(complete)
+        self.assertEqual(len(rows), 1)
 
 
 if __name__ == "__main__":

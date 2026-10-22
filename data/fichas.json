@@ -696,7 +696,13 @@
     "resumen": "Prestación de la Generalitat para familias que han tenido un hijo por nacimiento, adopción, tutela o acogimiento y no superan el límite de ingresos. Es una ayuda para personas y familias, no para sociedades.",
     "reqs": {
       "familia": "si",
-      "ccaa": "Cataluña"
+      "ccaa": "Cataluña",
+      "familiaEvento": {
+        "oneOf": [
+          "primer_hijo",
+          "otro_hijo"
+        ]
+      }
     },
     "requisitos": [
       "Dirigida a personas y familias; no a sociedades mercantiles",
@@ -730,7 +736,13 @@
     "importe": "Según la base reguladora y la situación laboral",
     "resumen": "Prestación estatal vinculada al nacimiento, adopción, guarda con fines de adopción o acogimiento, sujeta a los requisitos de Seguridad Social.",
     "reqs": {
-      "familia": "si"
+      "familia": "si",
+      "familiaEvento": {
+        "oneOf": [
+          "primer_hijo",
+          "otro_hijo"
+        ]
+      }
     },
     "requisitos": [
       "Las condiciones pueden depender de la situación laboral y de cotización",
@@ -926,7 +938,13 @@
     "resumen": "Ayuda municipal por nacimiento o adopción. La ficha queda en seguimiento hasta que se publiquen las fechas y las bases de la próxima convocatoria.",
     "reqs": {
       "familia": "si",
-      "municipioMadrid": "si"
+      "municipioMadrid": "si",
+      "familiaEvento": {
+        "oneOf": [
+          "primer_hijo",
+          "otro_hijo"
+        ]
+      }
     },
     "requisitos": [
       "La próxima convocatoria debe confirmar beneficiarios, fechas, importes y documentación",
@@ -1224,7 +1242,13 @@
     "importe": "No se usa como filtro; consultar la fuente oficial",
     "resumen": "Prestación estatal de pago único por nacimiento o adopción en determinados supuestos, como familias numerosas o monoparentales y progenitores con discapacidad reconocida, sujeta a límites de ingresos. Es distinta de la prestación por nacimiento y cuidado de menor y está dirigida a personas físicas.",
     "reqs": {
-      "familia": "si"
+      "familia": "si",
+      "familiaEvento": {
+        "oneOf": [
+          "primer_hijo",
+          "otro_hijo"
+        ]
+      }
     },
     "requisitos": [
       "Nacimiento o adopción que cumpla los supuestos establecidos por la Seguridad Social",
