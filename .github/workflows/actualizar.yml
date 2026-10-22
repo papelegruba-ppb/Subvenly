@@ -86,14 +86,14 @@ jobs:
               data["estadoActualizacion"] = "parcial"
               data["erroresActualizacion"] = errores
               data["errorActualizacionFecha"] = hoy
-              p.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\\n", encoding="utf-8")
+              p.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
           p = Path("data/licitaciones.json")
           if p.exists() and "licitaciones" in errores:
               data = json.loads(p.read_text(encoding="utf-8"))
               data["estadoActualizacion"] = "parcial"
               data["fuentesConError"] = list(set(data.get("fuentesConError", []) + ["La ejecución automática no terminó correctamente"]))
               data["errorActualizacionFecha"] = hoy
-              p.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\\n", encoding="utf-8")
+              p.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
           print("Estado de cobertura marcado como parcial para: " + ", ".join(errores))
           PY
 
