@@ -69,7 +69,7 @@ const pf = context.perfilNov();
 const personalNovelty = context.encajeNov({n1:"regional",n2:"Cataluña",beneficiarios:"personas físicas y familias"},pf);
 const businessNovelty = context.encajeNov({n1:"regional",n2:"Comunidad de Madrid",beneficiarios:"autónomos y pymes"},pf);
 assert(personalNovelty.s === "si" && businessNovelty.s === "si",
-  "Las novedades personales y empresariales deben comparar su territorio correspondiente.");
+  "Las novedades personales y empresariales deben comparar su territorio correspondiente: " + JSON.stringify({pf,personalNovelty,businessNovelty}));
 
 setAnswers({perfil:"particular",situacionPersonal:"retorno",retorno:"si",cirbeNecesidad:"si"});
 q = sequence();
