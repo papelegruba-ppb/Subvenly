@@ -56,6 +56,22 @@ def main():
     for x in fuentes:
         exigir(x.get("id") and x.get("nombre") and x.get("categoria"), "Fuente incompleta: " + str(x.get("id")))
         exigir(str(x.get("url", "")).startswith("https://"), "Fuente sin URL HTTPS: " + str(x.get("id")))
+    fuentes_por_id = {x.get("id"): x for x in fuentes}
+    fuentes_territoriales_nuevas = {
+        "clm-ayudas-transversales": "https://retodemografico.castillalamancha.es/ayudas-y-subvenciones",
+        "clm-vivienda": "https://vivienda.castillalamancha.es/ayudas-y-subvenciones",
+        "clm-educacion": "https://educacion.castillalamancha.es/alumnado-y-familias/becas-y-ayudas",
+        "ceuta-ayudas-sede": "https://sede.ceuta.es/controlador/controlador?cmd=tramites&modulo=tramites&tema=ayu",
+        "larioja-oficina-electronica": "https://web.larioja.org/oficina-electronica/tramite",
+    }
+    for sid, url in fuentes_territoriales_nuevas.items():
+        exigir(sid in fuentes_por_id and fuentes_por_id[sid].get("url") == url and
+               fuentes_por_id[sid].get("oficial") is True and fuentes_por_id[sid].get("monitor") is True,
+               "Falta una fuente territorial oficial monitorizada o su URL ha cambiado: " + sid)
+    for nombre in ("Castilla-La Mancha", "Ceuta", "La Rioja"):
+        registro = next((x for x in territorios if x.get("nombre") == nombre), {})
+        exigir("pendiente" in registro.get("estado", "").lower() or "registrado" in registro.get("estado", "").lower(),
+               "La cobertura territorial debe describir honestamente su estado: " + nombre)
     provincias = geo.get("provinces", [])
     exigir(len(provincias) >= 50, "El catálogo geográfico no contiene todas las provincias")
     municipios = sum(len(p.get("m", [])) for p in provincias)
