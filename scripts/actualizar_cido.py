@@ -201,7 +201,6 @@ def main():
             raise ValueError("El RSS no devolvió registros reconocibles; se conservan los datos anteriores.")
         datos = leer_json("novedades.json", {"items": []})
         combinado, resumen = combinar(datos, nuevos, hoy)
-        combinado["fuentesAdicionales"] = sorted(set(combinado.get("fuentesAdicionales", []) + ["CIDO RSS · convocatorias locales de Cataluña"]))
         escribir_json("novedades.json", combinado)
         diagnostico.update(resumen)
         diagnostico["estado"] = "correcta"
