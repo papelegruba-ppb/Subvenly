@@ -48,6 +48,11 @@ def main():
                    "Reconocimiento de dependencia y prestaciones del SAAD"):
         exigir(titulo.lower() in titulos_personales,
                "Falta una ficha importante de prestaciones personales: " + titulo)
+    exigir("becas generales para estudios postobligatorios" in titulos_personales,
+           "Falta la ficha de becas generales y sus convocatorias anuales")
+    becas = next((f for f in fichas if f.get("id") == 51), {})
+    exigir(becas.get("pend") is True and "fuera de plazo" in str(becas.get("estadoManual", "")).lower(),
+           "La beca general 2026/27 debe quedar como edición cerrada y próxima edición pendiente")
     exigir(all(any("miteco.gob.es" in str(link[1]) for link in (f.get("links") or []))
                for f in personales if f.get("titulo") == "Bono social eléctrico y bono social térmico"),
            "El bono social debe enlazar a la fuente oficial del MITECO")
