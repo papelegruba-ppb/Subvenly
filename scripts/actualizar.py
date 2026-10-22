@@ -21,7 +21,7 @@ NUEVA_DIAS = 7             # durante cuántos días lleva la etiqueta "Nuevo"
 PAGINA = 200
 MAX_PAGINAS = 40
 MAX_ITEMS = 2000
-MAX_DETALLES = 300        # máximo de convocatorias cuyo detalle se pide en cada ejecución
+MAX_DETALLES = 100        # presupuesto prudente de detalles nuevos y revisiones por ejecución
 DETALLE = "https://www.infosubvenciones.es/bdnstrans/api/convocatorias?numConv={}&vpd=GE"
 # Territorios que se conservan (sin tildes, en minúsculas). Lista vacía = TODA España:
 # estatales, de todas las comunidades autónomas y locales (ayuntamientos, diputaciones...).
@@ -29,25 +29,43 @@ DETALLE = "https://www.infosubvenciones.es/bdnstrans/api/convocatorias?numConv={
 TERRITORIOS = []
 # La convocatoria debe mencionar alguno de estos temas...
 INCLUIR = [
-    # Empresa, autónomos, empleo e innovación
+    # Autónomos, empresas, empleo y actividad económica
     "autonom", "emprend", "pyme", "microempres", "pequena empresa", "empresa", "comerc",
     "contratacion", "contractacio", "empleo", "ocupacio", "digitaliz", "inversion", "inversio",
     "innovacion", "innovacio", "formacion", "formacio", "establecimiento", "negocio", "turis",
     "rural", "industri", "internacionaliz", "eficiencia energ", "autoocupacio", "cuota cero",
-    "tarifa cero", "bonificacion", "bonificacio", "ayuda al empleo",
+    "tarifa cero", "bonificacion", "bonificacio", "ayuda al empleo", "exportacion", "exportacio",
+    "financiacion", "financament", "economia social", "cooperativa", "artesania", "artesania",
+    "startup", "empresa emergente", "propiedad industrial", "propietat industrial", "marca",
     # Personas, familias, vivienda y prestaciones
     "ingreso minimo vital", "ingres minim vital", "renta garantizada", "renda garantida",
     "nacimiento", "naixement", "adopcion", "adopcio", "familia", "families", "infancia",
-    "infancia", "hijos a cargo", "crianza", "maternidad", "maternitat", "alquiler", "lloguer",
-    "vivienda", "habitatge", "arrendamiento", "jovenes", "joves", "discapacidad", "discapacitat",
-    "dependencia", "dependencia", "pobreza", "vulnerabilidad", "emergencia social",
-    # Emergencias, energía, combustible y medidas extraordinarias
-    "dana", "catastrofe", "catastrofe", "emergencia", "combustible", "gasoleo", "gasoil",
-    "carburante", "energia", "anticrisis", "pago unico", "pagament unic", "200 euros",
-    "200 €", "marcas", "marques", "propiedad industrial", "propietat industrial"
+    "hijos a cargo", "crianza", "maternidad", "maternitat", "alquiler", "lloguer", "vivienda",
+    "habitatge", "arrendamiento", "jovenes", "joves", "discapacidad", "discapacitat",
+    "dependencia", "pobreza", "vulnerabilidad", "emergencia social", "mayores", "tercera edad",
+    "salud", "sanidad", "sanitari", "enfermedad", "cuidados", "conciliacion", "conciliacio",
+    "igualdad", "igualtat", "mujer", "dona", "violencia", "victimas", "victimes", "exclusion social",
+    "emigrante retornado", "emigrants retornats", "retorno", "retorn", "desempleo", "atur",
+    "renta", "familia monoparental", "familia numerosa", "beca", "becas", "estudios", "estudi",
+    "educacion", "educacio", "libros", "llibres", "comedor escolar", "transport escolar",
+    "matricula", "matrícula", "universidad", "universitat", "juventud", "joventut",
+    # Cultura, deporte, investigación, agricultura, medio ambiente y territorio
+    "cultura", "cultural", "patrimonio", "patrimoni", "museo", "cinematograf", "audiovisual",
+    "artes escenicas", "arts esceniques", "deporte", "deportiv", "esport", "club deportivo",
+    "investigacion", "investigacio", "ciencia", "cientific", "agricultura", "agricola",
+    "ganaderia", "ramaderia", "pesca", "acuicultura", "forestal", "explotacion agraria",
+    "medio ambiente", "medi ambient", "biodiversidad", "biodiversitat", "residuos", "residus",
+    "agua", "sequía", "sequia", "incendio", "incendis", "inundacion", "inundacio", "catastrofe",
+    "catastrofe", "dana", "emergencia", "combustible", "gasoleo", "gasoil", "carburante",
+    "energia", "energía", "anticrisis", "pago unico", "pagament unic", "rehabilitacion",
+    "rehabilitacio", "accesibilidad", "accessibilitat", "eficiencia energetica", "movilidad",
+    "mobilitat", "transporte", "transport", "comunidad de propietarios", "comunitat de propietaris",
+    "asociaciones", "associacions", "entidad sin animo de lucro", "entitats sense afany de lucre",
+    "ong", "voluntariado", "voluntariat", "premio", "premios", "premi", "200 euros", "200 €"
 ]
-# Exclusiones de bajo valor; no excluir becas o ayudas educativas de forma global.
-EXCLUIR = ["deportiv", "esportiv", "festejo", "bienestar animal"]
+# No se excluyen categorías completas (deporte, cultura, asociaciones, bienestar animal, etc.):
+# pueden contener ayudas públicas legítimas. La relevancia se decide por términos positivos.
+EXCLUIR = []
 # -----------------------------------------------------------------
 
 def norm(t):
@@ -180,19 +198,70 @@ def main():
         print("La BDNS no devolvió nada: no se modifica ningún dato.")
         return 1
     detalles, det_ok = 0, True
-    previo = {i["id"]: i for i in leer("novedades.json", {"items": []}).get("items", [])}
+    previo = {str(i["id"]): i for i in leer("novedades.json", {"items": []}).get("items", [])}
+    campos_lista = ("titulo", "organo", "n1", "n2", "n3", "ambito", "territorio", "fecha", "link")
     for it in filtradas:
         n = convertir(it, hoy)
-        if n["id"] and n["id"] not in previo:
-            if det_ok and detalles < MAX_DETALLES:
-                try:
-                    n.update(campos_detalle(get(DETALLE.format(n["id"]), intentos=1)))
-                    detalles += 1
-                    time.sleep(0.15)
-                except Exception as e:
-                    print("  detalle no disponible, se sigue sin él:", e)
-                    det_ok = False
-            previo[n["id"]] = n
+        ident = str(n.get("id") or "")
+        if not ident:
+            continue
+        if ident not in previo:
+            n["visto"] = hoy.isoformat()
+            previo[ident] = n
+        else:
+            anterior = previo[ident]
+            for campo in campos_lista:
+                if n.get(campo) not in ("", None):
+                    anterior[campo] = n[campo]
+            anterior["ultimaVezDetectada"] = hoy.isoformat()
+        actual = previo[ident]
+        # Enriquecer las nuevas primero, pero sin bloquear el catálogo si falla un detalle.
+        if not actual.get("detalleRevisado") and det_ok and detalles < MAX_DETALLES:
+            try:
+                actual.update(campos_detalle(get(DETALLE.format(ident), intentos=1)))
+                actual["detalleActualizado"] = hoy.isoformat()
+                actual["detalleRevisado"] = hoy.isoformat()
+                detalles += 1
+                time.sleep(0.15)
+            except Exception as e:
+                actual["detalleRevisado"] = hoy.isoformat()
+                print("  detalle no disponible, se sigue sin él:", e)
+                det_ok = False
+    # Revisar periódicamente detalles antiguos para detectar cambios en plazos, bases o importes.
+    # Prioridad: convocatorias con plazo futuro próximo, después sin fecha de cierre, y al final vencidas.
+    hoy_iso = hoy.isoformat()
+    def prioridad_detalle(item):
+        fin = item.get("plazo_fin") or item.get("cierre") or ""
+        if fin and fin >= hoy_iso:
+            return (0, fin, item.get("detalleRevisado", ""))
+        if not fin:
+            return (1, "9999-12-31", item.get("detalleRevisado", ""))
+        return (2, fin, item.get("detalleRevisado", ""))
+    revisables = []
+    for item in previo.values():
+        revisado = item.get("detalleRevisado", "")
+        try:
+            viejo = not revisado or (hoy - dt.date.fromisoformat(revisado[:10])).days >= 7
+        except ValueError:
+            viejo = True
+        if viejo:
+            revisables.append(item)
+    revisables.sort(key=prioridad_detalle)
+    for item in revisables:
+        if not det_ok or detalles >= MAX_DETALLES:
+            break
+        try:
+            detalle = campos_detalle(get(DETALLE.format(item["id"]), intentos=1))
+            if detalle:
+                item.update(detalle)
+                item["detalleActualizado"] = hoy.isoformat()
+            item["detalleRevisado"] = hoy.isoformat()
+            detalles += 1
+            time.sleep(0.15)
+        except Exception as e:
+            item["detalleRevisado"] = hoy.isoformat()
+            print("  revisión de detalle no disponible para", item["id"], ":", e)
+            det_ok = False
     # Diagnóstico (se escribe al final para incluir los contadores): sirve para comprobar los nombres de campo reales
     escribir("_diagnostico.json", {"fecha": hoy.isoformat(), "recibidas": len(raw), "relevantes": len(filtradas), "detalles_pedidos": detalles, "detalle_funciona": det_ok,
                                    "claves_primer_elemento": sorted(raw[0].keys()) if isinstance(raw[0], dict) else [],
