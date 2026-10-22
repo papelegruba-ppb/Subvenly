@@ -1621,5 +1621,113 @@
     ],
     "categoria": "Prestaciones sociales y familia",
     "consultado": "2026-10-22"
+  },
+  {
+    "id": 47,
+    "perfil": "personal",
+    "tipo": "Descuento y ayuda energética",
+    "titulo": "Bono social eléctrico y bono social térmico",
+    "organo": "Ministerio para la Transición Ecológica y el Reto Demográfico",
+    "ambito": "Estatal",
+    "plazo": "El bono eléctrico se solicita a la comercializadora de referencia si se cumplen las condiciones; el bono térmico se asigna conforme a las reglas y datos de beneficiarios del bono eléctrico",
+    "estadoManual": "Consultar condiciones vigentes; los descuentos extraordinarios de 2026 tienen vigencia temporal hasta el 31/12/2026",
+    "importe": "Descuento en la factura eléctrica y ayuda térmica anual; cuantía según vulnerabilidad, consumo y zona climática",
+    "resumen": "El bono social eléctrico reduce la factura de electricidad para consumidores vulnerables que cumplan los requisitos y estén acogidos al PVPC con comercializadora de referencia. El bono social térmico es una ayuda anual vinculada a la condición de beneficiario del bono eléctrico en la fecha de referencia prevista por la normativa.",
+    "requisitos": [
+      "Ser titular del contrato de electricidad de la vivienda habitual y cumplir las condiciones de contratación del PVPC con una comercializadora de referencia.",
+      "Acreditar los requisitos económicos o la circunstancia familiar/social aplicable según la normativa vigente.",
+      "El bono social térmico no se solicita como una convocatoria ordinaria independiente: se determina con arreglo a los datos de las personas beneficiarias del bono eléctrico y la normativa aplicable.",
+      "Los porcentajes, umbrales y medidas excepcionales pueden cambiar; comprobar la página oficial antes de recomendarlo."
+    ],
+    "docs": [
+      "Factura o contrato de electricidad y datos del punto de suministro.",
+      "Documentación de identidad y unidad de convivencia que solicite la comercializadora de referencia.",
+      "Documentación acreditativa de familia numerosa, discapacidad, dependencia u otras circunstancias cuando corresponda."
+    ],
+    "eval": "La preevaluación no confirma el derecho: deben comprobarse la titularidad del contrato, la modalidad PVPC, los ingresos y las circunstancias de la unidad de convivencia. No aplicar automáticamente los porcentajes temporales de 2026 a ejercicios posteriores.",
+    "links": [
+      [
+        "Preguntas frecuentes oficiales sobre el bono social eléctrico",
+        "https://www.miteco.gob.es/es/energia/pobreza-energetica/pe-001/preguntas-frecuentes-bono-social.html"
+      ],
+      [
+        "Información oficial del bono social térmico",
+        "https://sede.miteco.gob.es/portal/site/seMITECO/ficha-procedimiento?procedure_id=489&procedure_suborg_responsable=196"
+      ]
+    ],
+    "categoria": "Prestaciones sociales y familia",
+    "consultado": "2026-10-22"
+  },
+  {
+    "id": 48,
+    "perfil": "personal",
+    "tipo": "Prestación",
+    "titulo": "Pensiones no contributivas de jubilación e incapacidad",
+    "organo": "IMSERSO y órganos gestores autonómicos",
+    "ambito": "Estatal; gestión autonómica y direcciones territoriales en Ceuta/Melilla",
+    "plazo": "Solicitud según requisitos vigentes; no es una convocatoria competitiva con plazo anual",
+    "estadoManual": "Requisitos personales, de residencia, edad o discapacidad e ingresos sujetos a comprobación oficial",
+    "importe": "Cuantía anual sujeta a la normativa del ejercicio, ingresos y convivencia; consultar importe oficial vigente",
+    "resumen": "Prestaciones para personas que cumplen las condiciones legales de edad o incapacidad, residencia e insuficiencia de recursos y no reúnen los requisitos de una pensión contributiva suficiente. Jubilación e incapacidad tienen requisitos distintos.",
+    "requisitos": [
+      "Jubilación no contributiva: comprobar edad mínima, residencia legal y continuada exigida e ingresos personales y de la unidad económica de convivencia.",
+      "Incapacidad no contributiva: comprobar edad, grado de discapacidad exigido, residencia e ingresos personales y de la unidad económica de convivencia.",
+      "La comunidad autónoma suele gestionar la solicitud; el IMSERSO gestiona las direcciones territoriales de Ceuta y Melilla.",
+      "No se puede determinar compatibilidad únicamente con la edad o los ingresos aproximados: revisar los requisitos oficiales y posibles incompatibilidades."
+    ],
+    "docs": [
+      "Documento de identidad y acreditación de residencia cuando proceda.",
+      "Documentación de ingresos personales y de la unidad económica de convivencia.",
+      "Para la modalidad de incapacidad, resolución o acreditación oficial del grado de discapacidad exigido."
+    ],
+    "eval": "Ficha de orientación para identificar una posible prestación. El test no sustituye el cálculo legal de rentas, residencia, discapacidad ni las reglas de compatibilidad.",
+    "links": [
+      [
+        "PNC de jubilación · IMSERSO",
+        "https://imserso.es/es/web/imserso/pnc-prestaciones-subvenciones/pnc-jubilacion"
+      ],
+      [
+        "PNC de incapacidad · sede electrónica del IMSERSO",
+        "https://www.imserso.es/web/sede-electronica/procedimiento-servicios/detalle/-/asset_publisher/Clv43EZRrpqn/content/pnc-de-incapacidad/20123"
+      ]
+    ],
+    "categoria": "Prestaciones sociales",
+    "consultado": "2026-10-22"
+  },
+  {
+    "id": 49,
+    "perfil": "personal",
+    "tipo": "Servicios y prestaciones",
+    "titulo": "Reconocimiento de dependencia y prestaciones del SAAD",
+    "organo": "Comunidad autónoma de residencia / IMSERSO en Ceuta y Melilla",
+    "ambito": "Estatal con tramitación territorial",
+    "plazo": "Se puede iniciar a instancia de la persona interesada en cualquier momento, según el procedimiento de su territorio",
+    "estadoManual": "Debe valorarse el grado de dependencia y revisar el procedimiento vigente en la comunidad autónoma de residencia",
+    "importe": "Depende del grado reconocido, el programa individual de atención y los servicios o prestaciones asignados",
+    "resumen": "Procedimiento para reconocer una situación de dependencia y acceder, cuando corresponda, a servicios o prestaciones del Sistema para la Autonomía y Atención a la Dependencia. La solicitud se presenta ante el órgano gestor del territorio de residencia.",
+    "requisitos": [
+      "Acreditar una situación de dependencia susceptible de valoración conforme a la normativa.",
+      "Comprobar los requisitos de residencia y las reglas aplicables a la nacionalidad o situación administrativa.",
+      "La prestación concreta depende de la valoración, el grado reconocido y el programa individual de atención; no existe una cuantía única aplicable a todas las personas.",
+      "El órgano competente es el de la comunidad autónoma de residencia o la dirección territorial del IMSERSO en Ceuta/Melilla."
+    ],
+    "docs": [
+      "Identificación y documentación de residencia que corresponda.",
+      "Informes médicos y sociales u otros documentos requeridos por el órgano gestor.",
+      "Solicitud y documentación específica de la comunidad autónoma de residencia."
+    ],
+    "eval": "No equivale a una ayuda económica automática: el reconocimiento puede dar acceso a servicios y/o prestaciones, según valoración y programa individual. Subvenly debe derivar al procedimiento territorial correcto.",
+    "links": [
+      [
+        "Personas beneficiarias del sistema · IMSERSO",
+        "https://imserso.es/es/autonomia-personal-dependencia/sistema-autonomia-atencion-dependencia-saad/preguntas-frecuentes/personas-beneficiarias-sistema-autonomia-atencion-dependencia"
+      ],
+      [
+        "Cómo se solicita y tramita · IMSERSO",
+        "https://imserso.es/es/autonomia-personal-dependencia/sistema-autonomia-atencion-dependencia-saad/preguntas-frecuentes/tramitacion-reconocimiento-situacion-dependencia-derecho-prestaciones-sistema"
+      ]
+    ],
+    "categoria": "Prestaciones sociales y cuidados",
+    "consultado": "2026-10-22"
   }
 ]
