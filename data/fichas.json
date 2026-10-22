@@ -143,7 +143,10 @@
     ],
     "eval": "La entidad no elige libremente: la oficina de Trabajo gestiona la oferta y envía candidatos que cumplan los requisitos. Las condiciones del contrato no pueden cambiar durante el periodo subvencionable.",
     "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/Subvencions-per-a-la-contractacio-laboral-de-persones-en-situacio-de-major-vulnerabilitat?category=",
-    "categoria": "Contratación"
+    "categoria": "Contratación",
+    "cerrada": true,
+    "permTxt": "Cerrada",
+    "estadoManual": "Convocatoria 2026 cerrada; no se debe presentar como abierta."
   },
   {
     "id": 6,
@@ -170,7 +173,10 @@
     ],
     "eval": "Consulta en las bases cómo se valoran y reparten las ayudas.",
     "link": "https://tramits.gencat.cat/ca/tramits/tramits-temes/24691-subvencions-programes-formacio-mida-empreses?category=",
-    "categoria": "Formación"
+    "categoria": "Formación",
+    "cerrada": true,
+    "permTxt": "Cerrada",
+    "estadoManual": "Convocatoria 2026 cerrada; no se debe presentar como abierta."
   },
   {
     "id": 7,
@@ -199,7 +205,7 @@
       "Documentación exacta: consúltala en el trámite (normalmente contrato, alta en la Seguridad Social y acreditación de desempleo)"
     ],
     "eval": "La Comunidad notifica de forma individual si se concede o no. Importes adicionales: 500 € si la persona contratada es mujer, 500 € por hijos menores de 16 o dependientes a cargo, y 1.000 € si eres una startup.",
-    "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-contratos-indefinidos",
+    "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayuda-incentivos-contratacion-indefinida",
     "cierre": "2022-06-17",
     "categoria": "Contratación"
   },
@@ -295,7 +301,10 @@
     ],
     "eval": "Importe según el perfil: 6.000 a 8.000 € (primera ocupación, paro de larga duración, mayores de 45 o personas vulnerables); 12.000 a 15.000 € (perfiles de mayor cualificación: doctorado, investigación o entidades de impacto social); unos 5.000 € en la línea de FP dual. Inscripción en el SOC: en paro de larga duración, mínimo 12 meses dentro de los últimos 18 antes del contrato; mayores de 45 y personas vulnerables, inscritas de forma activa justo antes de la contratación; jóvenes en su primer empleo, inscritos en desempleo justo antes de formalizar el contrato. Los importes de 12.000 a 15.000 € incluyen también al personal cualificado que impulsa la modernización del sector de los cuidados. La resolución se publica en el BOPB.",
     "link": "https://empreses.barcelonactiva.cat/es/creafeina2026",
-    "categoria": "Contratación"
+    "categoria": "Contratación",
+    "cerrada": true,
+    "permTxt": "Cerrada",
+    "estadoManual": "Convocatoria 2026 cerrada; no se debe presentar como abierta."
   },
   {
     "id": 12,
@@ -328,7 +337,10 @@
         "https://seu.paeria.cat/ajutsPublic/cercadorCategoria/180"
       ]
     ],
-    "categoria": "Comercio, inversión y digitalización"
+    "categoria": "Comercio, inversión y digitalización",
+    "cerrada": true,
+    "permTxt": "Cerrada",
+    "estadoManual": "Convocatoria 2026 cerrada; no se debe presentar como abierta."
   },
   {
     "id": 13,
@@ -358,7 +370,10 @@
     ],
     "eval": "Cobro en dos pagos: 80 % tras la concesión y 20 % tras revisar la justificación. Obligaciones: formación obligatoria, publicidad del programa FSE+ y justificación a los 18 meses. Línea 1: domicilio fiscal en un micropueblo de Cataluña (menos de 500 habitantes). Línea 2: resto de Cataluña.",
     "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/Subvencions-per-afavorir-lautoocupacio-de-joves-en-el-marc-del-Programa-FSE?category=&moda=1",
-    "categoria": "Inicio de actividad"
+    "categoria": "Inicio de actividad",
+    "cerrada": true,
+    "permTxt": "Cerrada",
+    "estadoManual": "Convocatoria 2026 cerrada; no se debe presentar como abierta."
   },
   {
     "id": 14,
@@ -399,7 +414,10 @@
         "https://www.leaderponent.cat/linia-dajuts-leader/"
       ]
     ],
-    "categoria": "Inversión y desarrollo rural"
+    "categoria": "Inversión y desarrollo rural",
+    "cerrada": true,
+    "permTxt": "Cerrada",
+    "estadoManual": "Convocatoria 2026 cerrada; no se debe presentar como abierta."
   },
   {
     "id": 15,
@@ -495,7 +513,10 @@
         "https://tramits.paeria.cat/Ciutadania/DetallTramit.aspx?IdTema=51&IdTramit=1606"
       ]
     ],
-    "categoria": "Comercio"
+    "categoria": "Comercio",
+    "cerrada": true,
+    "permTxt": "Cerrada",
+    "estadoManual": "Convocatoria 2026 cerrada; no se debe presentar como abierta."
   },
   {
     "id": 18,
@@ -527,7 +548,12 @@
       "Declaraciones responsables y facturas o pagos, si procede"
     ],
     "eval": "Las solicitudes se resuelven por orden de llegada, hasta agotar el crédito. Resolución en un máximo de 3 meses desde la presentación. Sí se subvenciona: reforma y adecuación del local (rehabilitación, eficiencia energética, accesibilidad, licencias de actividad), compras para el inicio (mobiliario, equipos informáticos, maquinaria y bienes de equipamiento), gastos del local (alquiler o compra para la apertura), viabilidad del negocio (estudios de marketing y ventas) y digitalización. No se subvenciona: IVA e impuestos sobre la renta, existencias y stocks iniciales, intereses, recargos y sanciones, procedimientos judiciales, amortizaciones, dietas y desplazamientos. Actividades excluidas: juegos de azar y apuestas, manicura y pedicura exclusiva, bares musicales, discotecas, salas de baile, de fiestas y de conciertos, karaokes, cafés teatro y concierto, tatuajes y piercings, y venta o reparación de accesorios de telefonía móvil.",
-    "links": [["Consultar ayudas oficiales de la Paeria", "https://seu.paeria.cat/ajutsPublic/cercadorCategoria/180"]],
+    "links": [
+      [
+        "Consultar ayudas oficiales de la Paeria",
+        "https://seu.paeria.cat/ajutsPublic/cercadorCategoria/180"
+      ]
+    ],
     "link": "#",
     "categoria": "Inicio de actividad y comercio"
   },
@@ -814,12 +840,12 @@
     "eval": "La elegibilidad requiere comprobar las bases de la convocatoria concreta.",
     "links": [
       [
-        "Sede oficial · Ayudas al alquiler de vivienda para jóvenes y sectores de escasos recursos (2025)",
-        "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-alquiler-jovenes-0"
+        "Sede oficial · Ayudas al alquiler para jóvenes",
+        "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-alquiler-jovenes"
       ],
       [
-        "Buscador oficial de ayudas de alquiler de la Comunidad de Madrid",
-        "https://sede.comunidad.madrid/buscador?t=ayudas+alquiler+vivienda"
+        "Buscador oficial de ayudas de la Comunidad de Madrid",
+        "https://sede.comunidad.madrid/ayudas-becas-subvenciones-0"
       ]
     ],
     "categoria": "Vivienda y alquiler"
