@@ -76,15 +76,19 @@ def main():
     mostrar = ultima_funcion("mostrar")
     perfil_ui = ultima_funcion("renderProfile")
     estado_ui = ultima_funcion("estado")
+    novedades_ui = ultima_funcion("encajeNov")
+    perfil_novedades = ultima_funcion("perfilNov")
     exigir('A.perfil==="particular"' in ruta and 'A.perfil==="ambos"' in ruta,
            "Las rutas efectivas deben contemplar particulares y perfil mixto")
-    exigir("situacionPersonal" in ruta and "empleoSituacion" in ruta and "tramitar" in ruta,
+    exigir("situacionPersonal" in ruta and "empleoSituacion" in ruta and "tramitar" in ruta and "ccaaResidencia" in ruta,
            "La ruta efectiva no incorpora situación personal, empleo y tramitación")
     exigir("fechaAgotamiento" in mostrar and "fechaRetorno" in mostrar,
            "Faltan condiciones para mostrar fechas de desempleo/retorno solo cuando correspondan")
-    exigir("opcionesPregunta(k)" in perfil_ui and "dgsimulador/introSimulador.do" in perfil_ui and
+    exigir("opcionesPregunta(k)" in perfil_ui and "function selCcaaResidencia()" in html and "ccaaResidencia" in perfil_ui and "dgsimulador/introSimulador.do" in perfil_ui and
            "idAmb=100404&idProc=133655" in perfil_ui and "solicitud-informes-riesgos-cirbe-p58.html" in perfil_ui,
            "La interfaz efectiva no presenta los selectores nuevos o el simulador SEPE")
+    exigir("usaResidencia" in novedades_ui and "ccaaResidencia" in perfil_novedades,
+           "Las novedades no distinguen territorio personal y empresarial")
     exigir(estado_ui.find("if(a.pend)return") >= 0 and
            estado_ui.find("if(a.pend)return") < estado_ui.find("var d="),
            "Una fecha provisional no debe cerrar automáticamente una convocatoria pendiente")

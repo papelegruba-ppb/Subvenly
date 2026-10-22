@@ -19,10 +19,14 @@ const context = {
   fmt: value => value,
   Date,
   Math,
-  Array
+  Array,
+  nrm: value => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(),
+  eff: key => context.A[key],
+  n1lab: () => "Autonómica",
+  ccaaDe: value => value
 };
 vm.createContext(context);
-vm.runInContext(["camino","secuencia","mostrar","estado"].map(activeFunction).join("\n"), context);
+vm.runInContext(["camino","secuencia","mostrar","estado","valorAid","evalAid","perfilNov","tiposBen","encajeNov"].map(activeFunction).join("\n"), context);
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -50,6 +54,22 @@ setAnswers({perfil:"ambos",situacionPersonal:"desempleo",familia:"si"});
 q = sequence();
 assert(q.includes("alta") && q.includes("ccaa") && q.includes("situacionPersonal") && q.includes("empleoSituacion"),
   "El perfil mixto debe conservar la ruta de negocio y mostrar la ruta personal aunque falte forma jurídica.");
+
+setAnswers({perfil:"ambos",ccaa:"Comunidad de Madrid",provincia:"Madrid",municipio:"Madrid",ccaaResidencia:"Cataluña",provinciaResidencia:"Barcelona",municipioResidencia:"Barcelona"});
+q = sequence();
+assert(q.includes("ccaa") && q.includes("ccaaResidencia") && q.includes("municipioResidencia"),
+  "El perfil mixto debe recoger por separado la ubicación de actividad y la residencia.");
+const personalAid = context.evalAid({perfil:"personal",reqs:{ccaa:"Cataluña"}});
+const businessAid = context.evalAid({perfil:"negocio",reqs:{ccaa:"Comunidad de Madrid"}});
+assert(personalAid.s === "si" && businessAid.s === "si",
+  "Las ayudas personales deben evaluarse con la residencia y las empresariales con el centro de actividad.");
+
+setAnswers({perfil:"ambos",alta:"si",ccaa:"Comunidad de Madrid",provincia:"Madrid",municipio:"Madrid",ccaaResidencia:"Cataluña",provinciaResidencia:"Barcelona",municipioResidencia:"Barcelona"});
+const pf = context.perfilNov();
+const personalNovelty = context.encajeNov({n1:"regional",n2:"Cataluña",beneficiarios:"personas físicas y familias"},pf);
+const businessNovelty = context.encajeNov({n1:"regional",n2:"Comunidad de Madrid",beneficiarios:"autónomos y pymes"},pf);
+assert(personalNovelty.s === "si" && businessNovelty.s === "si",
+  "Las novedades personales y empresariales deben comparar su territorio correspondiente: " + JSON.stringify({pf,personalNovelty,businessNovelty}));
 
 setAnswers({perfil:"particular",situacionPersonal:"retorno",retorno:"si",cirbeNecesidad:"si"});
 q = sequence();
