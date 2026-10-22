@@ -37,6 +37,12 @@ def main():
     personales = [f for f in fichas if f.get("perfil") == "personal"]
     exigir(len(personales) >= 5, "Faltan fichas personales/familiares")
     exigir(all(f.get("estadoManual") or f.get("cerrada") or f.get("cierre") for f in personales), "Ficha personal sin estado o plazo explícito")
+    titulos_personales = " ".join(str(f.get("titulo", "")).lower() for f in personales)
+    exigir("prestación contributiva por desempleo" in titulos_personales and
+           "subsidio por cotizaciones insuficientes" in titulos_personales and
+           "subsidio para personas trabajadoras mayores de 52 años" in titulos_personales and
+           "emigrantes españolas retornadas" in titulos_personales,
+           "Faltan prestaciones SEPE importantes en la ruta de particulares")
     exigir(isinstance(fuentes_doc.get("fuentes"), list) and fuentes_doc["fuentes"], "No hay registro de fuentes")
     fuentes = fuentes_doc["fuentes"]
     territorios = fuentes_doc.get("coberturaTerritorial", [])
