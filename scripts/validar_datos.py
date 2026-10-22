@@ -63,6 +63,32 @@ def main():
                   'Todos los ámbitos', 'Todos los organismos', 'Todos los objetivos', 'categoriaAyuda', 'Pendientes', 'Por verificar',
                   'nacimientoFecha:"date"', 'menores:"number"', 'compatAyuda'):
         exigir(token in html, "Falta función o control de test/filtros: " + token)
+    # Las funciones se declaran más de una vez en index.html; JavaScript usa la última.
+    # Comprobar las definiciones efectivas evita falsos positivos por código antiguo sobrescrito.
+    def ultima_funcion(nombre):
+        inicio_nombre = html.rfind("function " + nombre + "(")
+        exigir(inicio_nombre >= 0, "Falta la función de interfaz: " + nombre)
+        inicio = html.find("{", inicio_nombre) + 1
+        fin = html.find("\nfunction ", inicio)
+        return html[inicio:fin if fin >= 0 else len(html)]
+
+    ruta = ultima_funcion("secuencia")
+    mostrar = ultima_funcion("mostrar")
+    perfil_ui = ultima_funcion("renderProfile")
+    estado_ui = ultima_funcion("estado")
+    exigir('A.perfil==="particular"' in ruta and 'A.perfil==="ambos"' in ruta,
+           "Las rutas efectivas deben contemplar particulares y perfil mixto")
+    exigir("situacionPersonal" in ruta and "empleoSituacion" in ruta and "tramitar" in ruta,
+           "La ruta efectiva no incorpora situación personal, empleo y tramitación")
+    exigir("fechaAgotamiento" in mostrar and "fechaRetorno" in mostrar,
+           "Faltan condiciones para mostrar fechas de desempleo/retorno solo cuando correspondan")
+    exigir("opcionesPregunta(k)" in perfil_ui and "dgsimulador/introSimulador.do" in perfil_ui and
+           "idAmb=100404&idProc=133655" in perfil_ui and "solicitud-informes-riesgos-cirbe-p58.html" in perfil_ui,
+           "La interfaz efectiva no presenta los selectores nuevos o el simulador SEPE")
+    exigir(estado_ui.find("if(a.pend)return") >= 0 and
+           estado_ui.find("if(a.pend)return") < estado_ui.find("var d="),
+           "Una fecha provisional no debe cerrar automáticamente una convocatoria pendiente")
+
     # Cada requisito usado por las fichas debe tener una pregunta visible en el test.
     question_blocks = re.findall(r"var QUESTIONS\s*=\s*\{([\s\S]*?)\n\};", html)
     question_blocks += re.findall(r"Object\.assign\(QUESTIONS,\s*\{([\s\S]*?)\}\);", html)
@@ -86,6 +112,11 @@ def main():
             exigir(r.returncode == 0, "Error de sintaxis JS en bloque " + str(i) + ": " + r.stderr)
         finally:
             pathlib.Path(ruta).unlink(missing_ok=True)
+    prueba_rutas = subprocess.run(["node", str(ROOT / "scripts" / "test_rutas.js")],
+                                  capture_output=True, text=True, cwd=ROOT)
+    exigir(prueba_rutas.returncode == 0,
+           "Fallaron las pruebas de rutas del test: " + (prueba_rutas.stdout + prueba_rutas.stderr).strip())
+    print(prueba_rutas.stdout.strip())
     print("OK: {} fichas ({} personales), {} fuentes, {} territorios, {} provincias, {} municipios; {} bloques JS válidos.".format(
         len(fichas), len(personales), len(fuentes), len(territorios), len(provincias), municipios, len(inline)))
     return 0
