@@ -79,6 +79,7 @@ def main():
         return html[inicio:fin if fin >= 0 else len(html)]
 
     ruta = ultima_funcion("secuencia")
+    ruta_personal = ultima_funcion("anadirRutaPersonal")
     mostrar = ultima_funcion("mostrar")
     perfil_ui = ultima_funcion("renderProfile")
     estado_ui = ultima_funcion("estado")
@@ -86,7 +87,7 @@ def main():
     perfil_novedades = ultima_funcion("perfilNov")
     exigir('A.perfil==="particular"' in ruta and 'A.perfil==="ambos"' in ruta,
            "Las rutas efectivas deben contemplar particulares y perfil mixto")
-    exigir("situacionPersonal" in ruta and "empleoSituacion" in ruta and "tramitar" in ruta and "ccaaResidencia" in ruta,
+    exigir("situacionPersonal" in ruta_personal and "empleoSituacion" in ruta_personal and "tramitar" in ruta_personal and "ccaaResidencia" in ruta,
            "La ruta efectiva no incorpora situación personal, empleo y tramitación")
     exigir("fechaAgotamiento" in mostrar and "fechaRetorno" in mostrar,
            "Faltan condiciones para mostrar fechas de desempleo/retorno solo cuando correspondan")
