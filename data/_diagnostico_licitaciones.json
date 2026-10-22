@@ -1,8 +1,8 @@
 {
  "fecha": "2026-10-22",
  "ficheros": 2,
- "encontradas": 189,
- "guardadas": 1467,
+ "encontradas": 187,
+ "guardadas": 1628,
  "fuentes_correctas": [],
  "fuentes_parciales": [
   "perfiles",
@@ -11,16 +11,16 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "212/26",
-  "titulo": "Suministro por lotes de proyectores para cambio a iluminación Led en las Instalaciones Deportivas Municipales dependientes de la Fundación Municipal de Deportes de Badajoz.",
-  "organo": "Presidencia de la Fundación Municipal de Deporte - FMD del Ayuntamiento de Badajoz",
-  "territorio": "Badajoz",
-  "nuts": "ES431",
-  "tipo": "Suministros",
-  "cpv": "31510000",
-  "presupuesto": 51589,
-  "cierre": "2026-11-05",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=nRl%2Bzz3mcdMmMOlAXxDEjw%3D%3D",
+  "id": "138849X/2026",
+  "titulo": "Prestación de servicios analíticos para la determinación, evaluación y caracterización de los parámetros de calidad del agua fijados en el Real Decreto 3/2023, contemplando específicamente el análisis tipo completo, el control de radiactividad, el seguimiento de la lista de observación y la caracter",
+  "organo": "Consejo de Administración de la Empresa Municipal de Aguas de Gijón SA",
+  "territorio": "Asturias",
+  "nuts": "ES120",
+  "tipo": "Servicios",
+  "cpv": "71620000",
+  "presupuesto": 45345,
+  "cierre": "2026-11-04",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=qlrNzng0yBE%2Bk2oCbDosIw%3D%3D",
   "visto": "2026-10-22",
   "actualizada": "2026-10-21"
  }

@@ -1,12 +1,12 @@
 {
  "fecha": "2026-10-22",
- "recibidas": 1778,
- "relevantes": 1308,
+ "recibidas": 2419,
+ "relevantes": 1901,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-10-06",
- "retroceso_hasta": "2026-10-12",
+ "retroceso_desde": "2026-09-29",
+ "retroceso_hasta": "2026-10-05",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1138582,
+  "id": 1138906,
   "mrr": false,
-  "numeroConvocatoria": "937021",
-  "descripcion": "SUBVENCIÓN NOMINATIVA A LA CÁMARA OFICIAL DE COMERCIO, INDUSTRIA, SERVICIOS Y NAVEGACIÓN DE MENORCA PARA EL DESARROLLO DE ACTUACIONES DE FOMENTO DEL EMPRENDIMIENTO Y LA INTERNACIONALIZACIÓN DURANTE EL EJERCICIO 2026",
-  "descripcionLeng": "SUBVENCIÓ NOMINATIVA A LA CAMBRA OFICIAL DE COMERÇ, INDUSTRIA, SERVEIS I NAVEGACIÓ DE MENORCA PER AL DESENVOLUPAMENT D'ACTUACIONS DE FOMENT DE L'EMPRENEDORIA I LA INTERNACINALITZACIÓ DURANT L'EXERCICI 2026",
+  "numeroConvocatoria": "937345",
+  "descripcion": "Subvención excepcional Fundación Esclerosi Múltiple",
+  "descripcionLeng": "Subvenció excepcional Fundació Esclerosi Múltiple",
   "fechaRecepcion": "2026-10-22",
-  "nivel1": "AUTONOMICA",
-  "nivel2": "ILLES BALEARS",
-  "nivel3": "DIRECCIÓN GENERAL DE COMERCIO Y EMPRESA",
+  "nivel1": "LOCAL",
+  "nivel2": "ESCALA, L'",
+  "nivel3": "AYUNTAMIENTO DE L'ESCALA",
   "codigoInvente": null
  }
 }
