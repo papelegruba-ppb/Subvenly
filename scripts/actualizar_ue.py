@@ -85,6 +85,8 @@ def convertir(r, hoy):
             "link": TOPIC.format(ident.lower()) if ident else r.get("url", ""), "visto": hoy.isoformat()}
 
 def main():
+    global ERRORES_CONSULTA
+    ERRORES_CONSULTA = 0
     hoy = dt.date.today()
     if "--fixture" in sys.argv:
         raw = json.load(open(sys.argv[sys.argv.index("--fixture") + 1], encoding="utf-8")).get("results", [])
@@ -92,7 +94,10 @@ def main():
         raw, vistos = [], set()
         for t in BUSQUEDAS:
             for p in range(1, PAGINAS + 1):
-                res = consultar(t, p).get("results") or []
+                respuesta = consultar(t, p)
+                if not respuesta:
+                    break
+                res = respuesta.get("results") or []
                 print(f"  '{t}' página {p}: {len(res)} resultados")
                 for r in res:
                     k = str(primero((r.get("metadata") or {}).get("identifier")) or r.get("reference"))
@@ -103,9 +108,10 @@ def main():
                 time.sleep(0.5)
     print(f"Recibidas {len(raw)} convocatorias de la UE")
     if not raw:
+        escribir("_diagnostico_ue.json", {"fecha": hoy.isoformat(), "recibidas": 0, "consultas_fallidas": ERRORES_CONSULTA, "estado": "fallida", "ejemplo": None})
         print("El portal no devolvió nada: no se modifica ningún dato.")
         return 1
-    escribir("_diagnostico_ue.json", {"fecha": hoy.isoformat(), "recibidas": len(raw), "ejemplo": raw[0]})
+    escribir("_diagnostico_ue.json", {"fecha": hoy.isoformat(), "recibidas": len(raw), "consultas_fallidas": ERRORES_CONSULTA, "estado": "parcial" if ERRORES_CONSULTA else "correcta", "ejemplo": raw[0]})
     previo_doc = leer("novedades.json", {"items": []})
     estado_actualizacion = previo_doc.get("estadoActualizacion", "desconocida")
     previo = {i["id"]: i for i in previo_doc.get("items", [])}
