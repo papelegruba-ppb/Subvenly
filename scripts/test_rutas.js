@@ -26,7 +26,7 @@ const context = {
   ccaaDe: value => value
 };
 vm.createContext(context);
-vm.runInContext(["camino","anadirRutaPersonal","secuencia","mostrar","estado","valorAid","evalAid","perfilNov","tiposBen","encajeNov","fuenteNov","estadoNov"].map(activeFunction).join("\n"), context);
+vm.runInContext(["camino","anadirRutaPersonal","secuencia","mostrar","aplicaPerfil","estado","valorAid","evalAid","perfilNov","tiposBen","encajeNov","fuenteNov","estadoNov"].map(activeFunction).join("\n"), context);
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -152,6 +152,8 @@ const voluntaryQuit = context.evalAid({perfil:"personal",reqs:{motivoFin:{oneOf:
 assert(voluntaryQuit.s === "no", "La evaluación por opciones debe descartar la baja voluntaria cuando el requisito es desempleo legal.");
 
 setAnswers({perfil:"autonomo",alta:"si"});
+assert(context.aplicaPerfil({perfil:"negocio"}) && !context.aplicaPerfil({perfil:"personal"}),
+  "El perfil autónomo debe priorizar ayudas de actividad; las ayudas personales se incluyen al elegir el perfil mixto.");
 q = sequence();
 assert(q.includes("plantilla") && q.includes("direccionIgual"),
   "La ruta de autónomo debe conservar las preguntas de actividad y preguntar si la dirección fiscal coincide.");
