@@ -662,6 +662,16 @@
       "monitor": true,
       "oficial": true,
       "nota": "Prestación personal con modalidades activables/no activables. Verificar solicitud previa del IMV, residencia, situación laboral y umbrales económicos vigentes."
+    },
+    {
+      "id": "sepe-prestacion-contributiva",
+      "nombre": "SEPE · Prestación contributiva por desempleo",
+      "ambito": "Estatal",
+      "categoria": "Prestaciones por desempleo",
+      "url": "https://www.sepe.es/HomeSepe/es/prestaciones-desempleo/prestacion-contributiva/prestacion-contributiva-mas-de-un-anyo.html",
+      "monitor": true,
+      "oficial": true,
+      "nota": "Requisitos generales: situación legal de desempleo, al menos 360 días cotizados por desempleo en los seis años anteriores y demanda de empleo. Confirmar el plazo individual."
     }
   ],
   "coberturaTerritorial": [
