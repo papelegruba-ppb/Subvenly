@@ -86,6 +86,18 @@ class TestCIDO(unittest.TestCase):
         self.assertEqual(items[0]["estadoConvocatoria"], "por verificar")
         self.assertTrue(items[0]["link"].startswith("https://cido.diba.cat/subvencions/"))
 
+    def test_clasifica_el_feed_de_becas_segun_el_organismo(self):
+        xml = self.fixture_rss().replace(b"Ajuntament de Lleida", b"Generalitat de Catalunya")
+        items = actualizar_cido.parsear_rss(
+            xml, dt.date(2026, 10, 22),
+            feed="https://cido.diba.cat/rss/subvencions/beques",
+            nivel_defecto="Otros",
+        )
+        self.assertEqual(items[0]["n1"], "Autonómica")
+        self.assertEqual(items[0]["n2"], "Cataluña")
+        self.assertEqual(items[0]["categoriaFuente"], "becas")
+        self.assertEqual(items[0]["estadoConvocatoria"], "por verificar")
+
     def test_merge_preserva_bdns_y_deduplica_cido(self):
         nuevos = actualizar_cido.parsear_rss(self.fixture_rss(), dt.date(2026, 10, 22))
         previo = {"actualizado":"2026-10-21", "items":[
