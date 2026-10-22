@@ -1263,7 +1263,19 @@
     "importe": "Según las bases de cotización y la situación familiar; consultar cuantías oficiales",
     "resumen": "Prestación contributiva para personas que han perdido el empleo de forma involuntaria y reúnen cotizaciones suficientes. Como regla general, se requieren al menos 360 días cotizados por desempleo dentro de los seis años anteriores, no utilizados para un derecho anterior.",
     "reqs": {
-      "situacionPersonal": "desempleo"
+      "situacionPersonal": "desempleo",
+      "empleoSituacion": "asalariado",
+      "cotizados": {
+        "min": 360
+      },
+      "motivoFin": {
+        "oneOf": [
+          "despido",
+          "fin_contrato",
+          "ere",
+          "otro"
+        ]
+      }
     },
     "requisitos": [
       "Estar en situación legal de desempleo; una baja voluntaria ordinaria no da derecho por sí sola",
@@ -1304,7 +1316,9 @@
     "importe": "Según el porcentaje del IPREM aplicable en cada periodo; consultar cuantías oficiales",
     "resumen": "Subsidio asistencial para personas desempleadas que han agotado la prestación contributiva y cumplen los requisitos de rentas y, cuando proceda, responsabilidades familiares. El régimen aplicable depende, entre otros aspectos, de cuándo se agotó la prestación.",
     "reqs": {
-      "situacionPersonal": "desempleo"
+      "situacionPersonal": "desempleo",
+      "empleoSituacion": "agotado",
+      "paroPrevio": "si"
     },
     "requisitos": [
       "Haber agotado la prestación contributiva en una fecha que permita acceder al régimen vigente",
@@ -1347,7 +1361,20 @@
     "importe": "Según el porcentaje del IPREM aplicable en cada periodo; consultar cuantías oficiales",
     "resumen": "Subsidio para personas en situación legal de desempleo que no llegan a los 360 días necesarios para la prestación contributiva y han cotizado al menos 90 días, siempre que cumplan los demás requisitos.",
     "reqs": {
-      "situacionPersonal": "desempleo"
+      "situacionPersonal": "desempleo",
+      "empleoSituacion": "insuficiente",
+      "cotizados": {
+        "min": 90,
+        "max": 359
+      },
+      "motivoFin": {
+        "oneOf": [
+          "despido",
+          "fin_contrato",
+          "ere",
+          "otro"
+        ]
+      }
     },
     "requisitos": [
       "Encontrarse en situación legal de desempleo",
@@ -1390,7 +1417,11 @@
     "importe": "80 % del IPREM mensual vigente, sujeto a la normativa aplicable; consultar cuantía oficial actualizada",
     "resumen": "Subsidio asistencial para personas de 52 años o más que reúnen requisitos específicos de desempleo, rentas y cotización para jubilación, incluidos al menos seis años cotizados por desempleo en España a lo largo de la vida laboral.",
     "reqs": {
-      "situacionPersonal": "desempleo"
+      "situacionPersonal": "desempleo",
+      "edad": {
+        "min": 52
+      },
+      "cotizacionDesempleo6": "si"
     },
     "requisitos": [
       "Tener 52 años en el hecho causante aplicable",
@@ -1434,7 +1465,13 @@
     "resumen": "Subsidio para personas españolas que regresan a España tras trabajar en determinados países fuera del Espacio Económico Europeo o sin convenio de protección por desempleo y cumplen las condiciones del SEPE. No es aplicable automáticamente a cualquier retorno.",
     "reqs": {
       "situacionPersonal": "retorno",
-      "nacionalidad": "espanola"
+      "retorno": "si",
+      "nacionalidad": "espanola",
+      "trabajoExtranjero": "si",
+      "paisProcedencia": "sin_convenio",
+      "mesesTrabajoExtranjero": {
+        "min": 12
+      }
     },
     "requisitos": [
       "Tener nacionalidad española y regresar para fijar residencia permanente en España",
@@ -1479,7 +1516,11 @@
     "resumen": "Prestación contributiva para personas emigrantes retornadas que cotizaron por desempleo en España antes de emigrar y cumplen los requisitos específicos de cotización, desempleo legal e inscripción.",
     "reqs": {
       "situacionPersonal": "retorno",
-      "nacionalidad": "espanola"
+      "retorno": "si",
+      "nacionalidad": "espanola",
+      "cotizadosAntesEmigrar": {
+        "min": 360
+      }
     },
     "requisitos": [
       "Ser español o española y encontrarse en situación legal de desempleo",
