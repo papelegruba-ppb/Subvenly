@@ -782,6 +782,26 @@
       "monitor": true,
       "nota": "La convocatoria 2026/27 figura en plazo del 15/09/2026 al 30/10/2026 a las 14:00. Verificar fecha y condiciones en la página oficial antes de orientar la solicitud.",
       "oficial": true
+    },
+    {
+      "id": "agaur-beca-general",
+      "nombre": "AGAUR · Beca general universitaria de Cataluña",
+      "ambito": "Cataluña",
+      "categoria": "Educación y juventud",
+      "url": "https://tramits.gencat.cat/es/tramits/tramits-temes/Beca-general-de-la-Generalitat-GRAL",
+      "monitor": true,
+      "nota": "Convocatoria 2026/27 fuera de plazo a 22/10/2026; comprobar próximas ediciones y modificaciones.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-becas-no-universitarias",
+      "nombre": "Generalitat · Becas para estudios no universitarios",
+      "ambito": "Cataluña",
+      "categoria": "Educación y juventud",
+      "url": "https://tramits.gencat.cat/es/tramits/tramits-temes/beques-estudis-no-universitaris",
+      "monitor": true,
+      "nota": "Becas de bachillerato, FP y otros estudios postobligatorios. Consultar el plazo y los requisitos de cada curso.",
+      "oficial": true
     }
   ],
   "coberturaTerritorial": [
