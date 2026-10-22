@@ -140,6 +140,8 @@ def main():
     perfil_ui = ultima_funcion("renderProfile")
     estado_ui = ultima_funcion("estado")
     novedades_ui = ultima_funcion("encajeNov")
+    novedades_top_ui = ultima_funcion("buildNovTop")
+    novedades_cards_ui = ultima_funcion("renderNovedades")
     perfil_novedades = ultima_funcion("perfilNov")
     exigir('A.perfil==="particular"' in ruta and 'A.perfil==="ambos"' in ruta,
            "Las rutas efectivas deben contemplar particulares y perfil mixto")
@@ -150,6 +152,8 @@ def main():
     exigir("opcionesPregunta(k)" in perfil_ui and "function selCcaaResidencia()" in html and "ccaaResidencia" in perfil_ui and "dgsimulador/introSimulador.do" in perfil_ui and
            "idAmb=100404&idProc=133655" in perfil_ui and "solicitud-informes-riesgos-cirbe-p58.html" in perfil_ui,
            "La interfaz efectiva no presenta los selectores nuevos o el simulador SEPE")
+    exigir("CIDO" in novedades_top_ui and "Fuente: CIDO" in novedades_cards_ui,
+           "La interfaz debe identificar las fuentes CIDO y describir la cobertura automática real")
     exigir("usaResidencia" in novedades_ui and "ubicacionIndeterminada" in novedades_ui and
            "candidatosMunicipio" in novedades_ui and "ccaaResidencia" in perfil_novedades,
            "Las novedades no distinguen residencia, actividad y beneficiarios aún desconocidos")
