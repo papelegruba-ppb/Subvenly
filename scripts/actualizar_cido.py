@@ -13,6 +13,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -28,6 +29,27 @@ FEEDS = [
 RETENCION_DIAS = 90
 NUEVA_DIAS = 7
 USER_AGENT = "Subvenly/1.0 (+https://papelegruba-ppb.github.io/Subvenly/; ayuda pública y reutilización de datos)"
+
+
+def descargar_rss(url, intentos=3):
+    """Descarga el RSS con reintentos breves ante fallos de red transitorios."""
+    ultimo_error = None
+    for intento in range(intentos):
+        request = urllib.request.Request(
+            url,
+            headers={"User-Agent": USER_AGENT, "Accept": "application/rss+xml, application/xml, text/xml"},
+        )
+        try:
+            with urllib.request.urlopen(request, timeout=35) as response:
+                contenido = response.read(8 * 1024 * 1024 + 1)
+            if len(contenido) > 8 * 1024 * 1024:
+                raise ValueError("El RSS supera el límite de 8 MiB.")
+            return contenido
+        except (urllib.error.URLError, TimeoutError, OSError) as exc:
+            ultimo_error = exc
+            if intento + 1 < intentos:
+                time.sleep(2 * (intento + 1))
+    raise RuntimeError("No se pudo descargar el RSS tras {} intentos: {}".format(intentos, ultimo_error))
 
 
 def limpiar(valor):
@@ -225,14 +247,7 @@ def main():
     nuevos, errores, por_fuente = [], [], {}
     for nombre, url, nivel_defecto in FEEDS:
         try:
-            request = urllib.request.Request(
-                url,
-                headers={"User-Agent": USER_AGENT, "Accept": "application/rss+xml, application/xml, text/xml"},
-            )
-            with urllib.request.urlopen(request, timeout=35) as response:
-                contenido = response.read(8 * 1024 * 1024 + 1)
-            if len(contenido) > 8 * 1024 * 1024:
-                raise ValueError("El RSS supera el límite de 8 MiB.")
+            contenido = descargar_rss(url)
             registros = parsear_rss(contenido, hoy, feed=url, nivel_defecto=nivel_defecto)
             if not registros:
                 raise ValueError("El RSS no devolvió registros reconocibles.")
