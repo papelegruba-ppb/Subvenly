@@ -1,12 +1,12 @@
 {
  "fecha": "2026-10-22",
- "recibidas": 2296,
- "relevantes": 1757,
+ "recibidas": 2382,
+ "relevantes": 1843,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-09-22",
- "retroceso_hasta": "2026-09-28",
+ "retroceso_desde": "2026-09-15",
+ "retroceso_hasta": "2026-09-21",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",

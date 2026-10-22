@@ -1,8 +1,8 @@
 {
  "fecha": "2026-10-22",
  "ficheros": 2,
- "encontradas": 145,
- "guardadas": 1761,
+ "encontradas": 211,
+ "guardadas": 1952,
  "fuentes_correctas": [],
  "fuentes_parciales": [
   "perfiles",
@@ -11,16 +11,16 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "3067704A",
-  "titulo": "Suministro de cubos domésticos de recogida PaP para el servicio mancomunado de recogida de fracción resto.",
-  "organo": "Presidencia de la Mancomunitat de Municipis La Costera - Canal",
-  "territorio": "Valencia/València",
-  "nuts": "ES523",
-  "tipo": "Suministros",
-  "cpv": "34928480",
-  "presupuesto": 24775,
-  "cierre": "2026-11-04",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6pOBu6AgvTYQyBAnWzHfCg%3D%3D",
+  "id": "OBR/ABR/2026000116",
+  "titulo": "Abatimientos de bionda adaptados la nueva normativa. Zona sur, nº. 40/16/2026 - Provincia de Ourense",
+  "organo": "Presidencia de la Diputación Provincial de Ourense",
+  "territorio": "",
+  "nuts": "ES113",
+  "tipo": "Obras",
+  "cpv": "45220000",
+  "presupuesto": 189702,
+  "cierre": "2026-11-17",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=QuT0%2F1kzKwT5Rey58Yagpg%3D%3D",
   "visto": "2026-10-22",
   "actualizada": "2026-10-21"
  }
