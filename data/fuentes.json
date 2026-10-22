@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "actualizado": "2026-10-20",
+  "actualizado": "2026-10-22",
   "nota": "Registro de fuentes oficiales o portales de referencia. Una fuente no equivale a una convocatoria. La BDNS cubre convocatorias estatales, autonómicas y locales; se registran portales especializados donde ya están localizados y la cobertura directa pendiente se identifica explícitamente.",
   "fuentes": [
     {
@@ -158,9 +158,9 @@
       "nombre": "Comunidad de Madrid · Ayudas alquiler jóvenes",
       "ambito": "Comunidad de Madrid",
       "categoria": "Alquiler y vivienda",
-      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-alquiler-jovenes-0",
+      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-alquiler-jovenes",
       "monitor": true,
-      "nota": "No presentar como abierta sin fechas oficiales vigentes.",
+      "nota": "Ficha oficial general; comprobar si existe convocatoria vigente y su plazo antes de presentar como abierta.",
       "oficial": true
     },
     {
@@ -348,9 +348,9 @@
       "nombre": "Comunidad de Madrid · Buscador de ayudas y subvenciones",
       "ambito": "Comunidad de Madrid",
       "categoria": "Ayudas generales",
-      "url": "https://sede.comunidad.madrid/buscador?t=ayudas+y+subvenciones&tipo=All",
+      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones-0",
       "monitor": true,
-      "nota": "Buscador oficial con estados y plazos de las fichas.",
+      "nota": "Buscador oficial de ayudas y subvenciones de la Comunidad de Madrid; fuente de descubrimiento, no convocatoria individual.",
       "oficial": true
     },
     {
