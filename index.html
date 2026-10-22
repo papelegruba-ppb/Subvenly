@@ -604,7 +604,7 @@ function licItems(){var q=nrm(licQ),hoy=new Date().toISOString().slice(0,10);
     if(licMax&&(l.presupuesto==null||l.presupuesto>licMax))return false;
     if(licMia&&A.ccaa&&NUTS[(l.nuts||"").slice(0,4)]!==A.ccaa)return false;
     return !q||nrm([l.titulo,l.organo,l.territorio].join(" ")).indexOf(q)>=0})}
-function renderLic(){var c=document.getElementById("lic-list");c.innerHTML="";if(!((LIC&&LIC.items)||[]).length)return;
+function renderLic(){var c=document.getElementById("lic-list");c.innerHTML="";if(LIC&&LIC.estadoActualizacion==="parcial"){var warn=el("div","miss m");warn.appendChild(txt("strong","Actualización parcial de licitaciones"));warn.appendChild(txt("p","No se pudieron consultar todas las fuentes de contratación en la última actualización ("+((LIC.fuentesConError||[]).join(", ")||"fuente no identificada")+"). Los resultados disponibles pueden estar incompletos."));c.appendChild(warn)}else if(LIC&&LIC.estadoActualizacion==="desconocida"){var warn2=el("div","miss m");warn2.appendChild(txt("strong","Actualización pendiente de verificar"));warn2.appendChild(txt("p","La última consulta no pudo confirmar la cobertura de todas las fuentes. Revisa la fecha de actualización y los pliegos oficiales."));c.appendChild(warn2)}if(!((LIC&&LIC.items)||[]).length){c.appendChild(el("div","empty","No hay licitaciones disponibles con la última actualización registrada."));return}
   var m=document.getElementById("lic-mia");if(m)m.style.display=A.ccaa?"":"none";
   var all=licItems();c.appendChild(txt("p",all.length+(all.length===1?" licitación":" licitaciones"))).className="nov-note";
   if(!all.length){c.appendChild(el("div","empty","No hay licitaciones con estos filtros."));return}
