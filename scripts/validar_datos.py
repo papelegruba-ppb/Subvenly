@@ -69,7 +69,7 @@ def main():
         inicio_nombre = html.rfind("function " + nombre + "(")
         exigir(inicio_nombre >= 0, "Falta la función de interfaz: " + nombre)
         inicio = html.find("{", inicio_nombre) + 1
-        fin = html.find("\\nfunction ", inicio)
+        fin = html.find("\nfunction ", inicio)
         return html[inicio:fin if fin >= 0 else len(html)]
 
     ruta = ultima_funcion("secuencia")
