@@ -541,15 +541,15 @@ function encajeNov(n,pf){var why=[],bad=false,unk=false,amb=n1lab(n.n1),de=ccaaD
 var novTodas=false,NOV_OCULTAS=0;
 function fuenteNov(n){
   var id=String(n&&n.id||"").toLowerCase(),link=String(n&&n.link||"").toLowerCase();
-  if(n&&n.fuente==="CIDO"||id.indexOf("cido-")===0||link.indexOf("cido.diba.cat/")>=0)return "Fuente: CIDO · Diputació de Barcelona";
-  if(n&&n.fuente==="BDNS"||/^\\d+$/.test(id)||link.indexOf("infosubvenciones.es/bdnstrans/")>=0)return "Fuente: BDNS";
+  if((n&&n.fuente==="CIDO")||id.indexOf("cido-")===0||link.indexOf("cido.diba.cat/")>=0)return "Fuente: CIDO · Diputació de Barcelona";
+  if((n&&n.fuente==="BDNS")||/^\d+$/.test(id)||link.indexOf("infosubvenciones.es/bdnstrans/")>=0)return "Fuente: BDNS";
   if(id.indexOf("ue-")===0||link.indexOf("ec.europa.eu/info/funding-tenders/")>=0)return "Fuente: Comisión Europea";
   if(n&&n.organo)return "Organismo: "+n.organo+" · fuente por identificar";
   return "Fuente por identificar";
 }
 function estadoNov(n){
   var e=String(n&&n.estadoConvocatoria||"").toLowerCase();
-  if(e==="por verificar"||e==="próxima"||e==="en plazo")return e;
+  if(e==="por verificar"||e==="próxima"||e==="en plazo"||e==="cerrada"||e==="pendiente")return e;
   return "por verificar";
 }
 function novItems(){var q=nrm(novQ),hoy=new Date().toISOString().slice(0,10),pf=perfilNov();
@@ -590,6 +590,8 @@ function renderNovedades(){var c=document.getElementById("nov-list");c.innerHTML
     var estadoN=estadoNov(n);
     if(estadoN==="próxima")t.appendChild(el("span","st st-soon","Próxima apertura"));
     else if(estadoN==="en plazo")t.appendChild(el("span","st st-open","En plazo · portal UE"));
+    else if(estadoN==="cerrada")t.appendChild(el("span","st st-closed","Cerrada"));
+    else if(estadoN==="pendiente")t.appendChild(el("span","st st-pending","Pendiente de publicación"));
     else t.appendChild(el("span","st st-pending","Estado por verificar"));
     if(n.nueva)t.appendChild(el("span","badge nuevo","Nuevo"));card.appendChild(t);
     if(n._e&&n._e.s==="mid"&&n._e.why.length)card.appendChild(txt("p","Para confirmar: "+n._e.why.join("; ")+".")).className="meta";
