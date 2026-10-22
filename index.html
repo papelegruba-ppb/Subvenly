@@ -496,7 +496,7 @@ function drawDlg(){var a=cur,tabs=document.getElementById("tabs"),pane=document.
   }else{
     pane.appendChild(txt("h4","Comprueba tu encaje"));
     Object.keys(a.reqs).forEach(function(k){var r=el("div","q");r.appendChild(txt("span",QUESTIONS[k]));
-      var im=impl(k);if(im!==undefined){r.appendChild(el("span","meta","→ "+(im==="si"?"Sí":"No")+" (según tus respuestas)"))}else r.appendChild(seg(k,function(){renderProfile();refrescar();drawDlg()}));pane.appendChild(r)});
+      var im=impl(k),separaResidencia=a.perfil==="personal"&&["autonomo","ambos"].indexOf(A.perfil)>=0&&["ccaa","municipioBarcelona","municipioMadrid"].indexOf(k)>=0;if(separaResidencia){var v=valorAid(k,a);r.appendChild(el("span","meta",v===undefined?"Indica la ubicación de residencia en el test.":"→ "+(v==="si"?"Sí":"No")+" según tu residencia"))}else if(im!==undefined){r.appendChild(el("span","meta","→ "+(im==="si"?"Sí":"No")+" (según tus respuestas)"))}else r.appendChild(seg(k,function(){renderProfile();refrescar();drawDlg()}));pane.appendChild(r)});
     var e=evalAid(a),box=el("div","res "+LBL[e.s][1]);
     var m=!Object.keys(a.reqs).length?"Esta línea no tiene requisitos de perfil en el test: la decide la entidad de crédito según tu proyecto y tu solvencia.":e.s==="si"?"Con tus respuestas, cumples los requisitos que hemos comprobado."
       :e.s==="mid"?"Todavía no podemos decirlo. Falta confirmar: "+e.unk.map(function(k){return falta(k,a)}).join("; ")+"."
