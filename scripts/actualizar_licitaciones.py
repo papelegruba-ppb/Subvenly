@@ -114,6 +114,7 @@ def recorrer(url, corte, hoy, raiz_local=None):
         if n >= MAX_FICHEROS:
             raise RuntimeError("Se alcanzó el límite de ficheros antes de llegar a la fecha de corte; se reintentará sin avanzar el cursor.")
         url = sig
+        time.sleep(0.25)
     return out, n
 
 def main():
