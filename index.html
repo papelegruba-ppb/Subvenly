@@ -828,7 +828,7 @@ function impl(k){
 function eff(k){var i=impl(k);if(i!==undefined)return i;if(["perfil","forma","alta","sl","proyecto","ccaa","provincia","municipio","catalunya","madrid"].indexOf(k)>=0)return A[k];return secuencia().indexOf(k)>=0&&mostrar(k)?A[k]:undefined}
 function selPerfil(){
  var r=el("div","q");r.appendChild(txt("span",QUESTIONS.perfil));var s=el("select","fld");s.setAttribute("aria-label","Perfil de búsqueda");
- [["","Elige…"],["particular","Particular o familia"],["autonomo","Autónomo (incluye ayudas personales que puedan corresponderte)"],["empresa","Empresa o sociedad (SL u otra forma jurídica)"],["ambos","Para mí y para mi negocio"]].forEach(function(o){s.appendChild(new Option(o[1],o[0]))});
+ [["","Elige…"],["particular","Particular o familia"],["autonomo","Autónomo/a (ayudas para tu actividad)"],["empresa","Empresa o sociedad (SL u otra forma jurídica)"],["ambos","Para mí y para mi negocio"]].forEach(function(o){s.appendChild(new Option(o[1],o[0]))});
  s.value=A.perfil||"";s.onchange=function(){A={perfil:s.value};save();renderProfile();refrescar()};r.appendChild(s);return r;
 }
 function selForma(){
