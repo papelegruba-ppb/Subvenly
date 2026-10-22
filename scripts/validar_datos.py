@@ -109,6 +109,8 @@ def main():
     exigir("id: buscar_cido" in workflow and "CIDO_OUTCOME" in workflow and
            "def es_bdns(item)" in bdns_script and "if not es_bdns(item):" in bdns_script,
            "El flujo debe ejecutar CIDO y evitar consultar sus IDs como si fueran de BDNS")
+    exigir("`data/_diagnostico*.json`" not in workflow,
+           "El resumen del flujo no debe ejecutar las rutas de diagnóstico como sustitución de comandos de shell")
     exigir('"fuente": "Comisión Europea"' in ue_script and '"estadoConvocatoria": estado_convocatoria' in ue_script,
            "El importador europeo debe identificar la fuente y conservar el estado de la convocatoria")
     exigir("def normalizar_fuente(item)" in bdns_script and '"fuente")' in bdns_script,

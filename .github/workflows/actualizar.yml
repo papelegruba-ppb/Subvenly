@@ -138,7 +138,7 @@ jobs:
             echo "- Vigilancia de fichas: **${{ steps.vigilar.outcome }}**"
             echo ""
             if [[ "${{ steps.buscar.outcome }}" != "success" || "${{ steps.buscar_ue.outcome }}" != "success" || "${{ steps.buscar_cido.outcome }}" != "success" || "${{ steps.buscar_lic.outcome }}" != "success" ]]; then
-              echo "> **Aviso:** una o más fuentes automáticas no se han actualizado. La web puede seguir publicada con los datos anteriores o con una actualización parcial. Consulta los diagnósticos de `data/_diagnostico*.json`."
+              echo "> **Aviso:** una o más fuentes automáticas no se han actualizado. La web puede seguir publicada con los datos anteriores o con una actualización parcial. Consulta los archivos de diagnóstico data/_diagnostico*.json."
               echo "::warning::Una o más fuentes de Subvenly no se han actualizado."
             else
               echo "Las búsquedas automáticas principales terminaron correctamente. Esto no significa que el catálogo sea exhaustivo ni que cada convocatoria esté verificada individualmente."
