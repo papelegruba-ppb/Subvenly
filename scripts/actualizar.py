@@ -31,6 +31,9 @@ DETALLE = "https://www.infosubvenciones.es/bdnstrans/api/convocatorias?numConv={
 TERRITORIOS = []
 # La convocatoria debe mencionar alguno de estos temas...
 INCLUIR = [
+    # Términos generales de convocatoria: priorizar cobertura amplia y revisar relevancia después
+    "ayuda", "ajut", "subvencion", "prestacion", "prestacio", "subsidio", "pension", "pensio",
+    "beca", "premio", "premi",
     # Autónomos, empresas, empleo y actividad económica
     "autonom", "emprend", "pyme", "microempres", "pequena empresa", "empresa", "comerc",
     "contratacion", "contractacio", "empleo", "ocupacio", "digitaliz", "inversion", "inversio",
