@@ -722,6 +722,56 @@
       "monitor": true,
       "nota": "Portal oficial de trámites; las convocatorias pueden estar en páginas individuales. La extracción automática de nuevas convocatorias está pendiente.",
       "oficial": true
+    },
+    {
+      "id": "miteco-bono-social",
+      "nombre": "MITECO · Bono social eléctrico y térmico",
+      "ambito": "Estatal",
+      "categoria": "Pobreza energética y prestaciones",
+      "url": "https://www.miteco.gob.es/es/energia/pobreza-energetica/pe-001/preguntas-frecuentes-bono-social.html",
+      "monitor": true,
+      "nota": "Información oficial sobre requisitos del bono eléctrico y funcionamiento del bono térmico. Revisar porcentajes y medidas temporales por ejercicio.",
+      "oficial": true
+    },
+    {
+      "id": "imserso-pnc-jubilacion",
+      "nombre": "IMSERSO · Pensión no contributiva de jubilación",
+      "ambito": "Estatal / gestión autonómica y territorial",
+      "categoria": "Pensiones y prestaciones sociales",
+      "url": "https://imserso.es/es/web/imserso/pnc-prestaciones-subvenciones/pnc-jubilacion",
+      "monitor": true,
+      "nota": "La solicitud se tramita por el órgano gestor competente; requisitos de edad, residencia e ingresos sujetos a normativa vigente.",
+      "oficial": true
+    },
+    {
+      "id": "imserso-pnc-incapacidad",
+      "nombre": "IMSERSO · Pensión no contributiva de incapacidad",
+      "ambito": "Estatal / gestión autonómica y territorial",
+      "categoria": "Discapacidad y prestaciones sociales",
+      "url": "https://www.imserso.es/web/sede-electronica/procedimiento-servicios/detalle/-/asset_publisher/Clv43EZRrpqn/content/pnc-de-incapacidad/20123",
+      "monitor": true,
+      "nota": "Requisitos específicos de edad, residencia, discapacidad e ingresos; comprobar el órgano gestor y los umbrales vigentes.",
+      "oficial": true
+    },
+    {
+      "id": "imserso-dependencia",
+      "nombre": "IMSERSO · Sistema de autonomía personal y atención a la dependencia",
+      "ambito": "Estatal / solicitud ante la comunidad autónoma o dirección territorial",
+      "categoria": "Dependencia y cuidados",
+      "url": "https://imserso.es/es/autonomia-personal-dependencia/sistema-autonomia-atencion-dependencia-saad/preguntas-frecuentes/tramitacion-reconocimiento-situacion-dependencia-derecho-prestaciones-sistema",
+      "monitor": true,
+      "nota": "El reconocimiento y las prestaciones se tramitan ante la comunidad autónoma de residencia o el IMSERSO en Ceuta/Melilla.",
+      "oficial": true
+    },
+    {
+      "id": "educacion-becas",
+      "nombre": "Ministerio de Educación · Becas y ayudas al estudio",
+      "ambito": "Estatal, con gestión transferida en Cataluña para convocatorias indicadas",
+      "categoria": "Educación y juventud",
+      "url": "https://www.becaseducacion.gob.es/portada.html",
+      "monitor": true,
+      "nota": "Comprobar convocatoria y curso. Para el curso 2026/27, el portal indica que las familias con domicilio en Cataluña deben solicitar la convocatoria correspondiente a la Generalitat.",
+      "oficial": true
     }
   ],
   "coberturaTerritorial": [
