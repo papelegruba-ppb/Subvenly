@@ -177,6 +177,20 @@ def convertir(it, hoy):
             "n1": n1, "n2": n2, "n3": n3, "ambito": ambito, "territorio": territorio, "fecha": iso(pick(it, "fechaRecepcion")) or hoy.isoformat(),
             "link": FICHA.format(num), "visto": hoy.isoformat()}
 
+def normalizar_fuente(item):
+    """Rellena la procedencia solo cuando el identificador o el enlace son concluyentes."""
+    if not isinstance(item, dict) or item.get("fuente"):
+        return item
+    ident = str(item.get("id") or "").strip().lower()
+    link = str(item.get("link") or "").strip().lower()
+    if ident.startswith("cido-") or "cido.diba.cat/" in link:
+        item["fuente"] = "CIDO"
+    elif ident.startswith("ue-") or "ec.europa.eu/info/funding-tenders/" in link or "api.tech.ec.europa.eu/" in link:
+        item["fuente"] = "Comisión Europea"
+    elif ident.isdigit() or "infosubvenciones.es/bdnstrans/" in link:
+        item["fuente"] = "BDNS"
+    return item
+
 def es_bdns(item):
     """Solo las convocatorias de la BDNS tienen detalle en el endpoint numConv."""
     return item.get("fuente") != "CIDO" and str(item.get("id", "")).isdigit()
@@ -244,8 +258,8 @@ def main():
         print("El fixture está vacío: no se modifica ningún dato.")
         return 1
     detalles, det_ok = 0, True
-    previo = {str(i["id"]): i for i in leer("novedades.json", {"items": []}).get("items", [])}
-    campos_lista = ("titulo", "organo", "n1", "n2", "n3", "ambito", "territorio", "fecha", "link")
+    previo = {str(i["id"]): normalizar_fuente(i) for i in leer("novedades.json", {"items": []}).get("items", []) if isinstance(i, dict) and i.get("id") is not None}
+    campos_lista = ("titulo", "organo", "n1", "n2", "n3", "ambito", "territorio", "fecha", "link", "fuente")
     for it in filtradas:
         n = convertir(it, hoy)
         ident = str(n.get("id") or "")

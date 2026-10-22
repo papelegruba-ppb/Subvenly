@@ -173,6 +173,26 @@ class TestConvocatoriasUE(unittest.TestCase):
         self.assertEqual(item["fuente"], "Comisión Europea")
 
 
+class TestProcedenciaNovedades(unittest.TestCase):
+    def test_infiere_fuente_solo_con_identificador_o_url_concluyentes(self):
+        casos = [
+            ({"id": "934562", "link": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/934562"}, "BDNS"),
+            ({"id": "cido-21573898", "link": "https://cido.diba.cat/subvencions/21573898"}, "CIDO"),
+            ({"id": "UE-HORIZON-TEST", "link": "https://ec.europa.eu/info/funding-tenders/topic-details/test"}, "Comisión Europea"),
+        ]
+        for item, fuente in casos:
+            with self.subTest(fuente=fuente):
+                self.assertEqual(actualizar.normalizar_fuente(item)["fuente"], fuente)
+
+    def test_no_inventa_fuente_y_respeta_la_existente(self):
+        desconocida = {"id": "convocatoria-x", "link": "https://example.org/ayuda"}
+        actualizar.normalizar_fuente(desconocida)
+        self.assertNotIn("fuente", desconocida)
+        existente = {"id": "123", "fuente": "Organismo verificado"}
+        actualizar.normalizar_fuente(existente)
+        self.assertEqual(existente["fuente"], "Organismo verificado")
+
+
 class TestLicitaciones(unittest.TestCase):
     def make_entry(self, status="PUB", deadline="2026-11-16"):
         xml = f'''<entry xmlns="http://www.w3.org/2005/Atom">
