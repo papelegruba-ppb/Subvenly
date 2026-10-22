@@ -23,7 +23,7 @@ const context = {
   nrm: value => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(),
   eff: key => context.A[key],
   n1lab: () => "Autonómica",
-  ccaaDe: n => n.n2
+  ccaaDe: value => value
 };
 vm.createContext(context);
 vm.runInContext(["camino","secuencia","mostrar","estado","valorAid","evalAid","perfilNov","tiposBen","encajeNov"].map(activeFunction).join("\n"), context);
