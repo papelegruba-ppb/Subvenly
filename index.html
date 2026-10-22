@@ -546,7 +546,8 @@ function novItems(){var q=nrm(novQ),hoy=new Date().toISOString().slice(0,10),pf=
   return arr}
 function buildNovTop(){var c=document.getElementById("nov-top");c.innerHTML="";var it=(NOV&&NOV.items)||[];if(!it.length)return;
   c.appendChild(el("h2","gh","Novedades detectadas <small>· convocatorias sin revisar</small>"));
-  c.appendChild(txt("p","Se buscan solas cada noche: subvenciones de toda España y convocatorias de la Unión Europea. Aún no están revisadas: comprueba los requisitos en la convocatoria oficial."+(NOV.actualizado?" Última actualización: "+fmt(NOV.actualizado.slice(0,10))+".":""))).className="nov-note";
+  var estadoNota=NOV.estadoActualizacion==="parcial"?" Aviso: la última actualización fue parcial; algunos detalles o el repaso histórico no se pudieron completar.":NOV.estadoActualizacion==="desconocida"?" Estado de actualización pendiente de verificar.":"";
+  c.appendChild(txt("p","Se buscan solas cada noche: subvenciones de toda España y convocatorias de la Unión Europea. Son novedades detectadas, no un catálogo exhaustivo de ayudas abiertas; comprueba los requisitos y el plazo en la fuente oficial."+(NOV.actualizado?" Última actualización: "+fmt(NOV.actualizado.slice(0,10))+".":"")+estadoNota)).className="nov-note";
   var f=el("div","filters"),q=el("input","fld");q.type="search";q.placeholder="Buscar: autónomos, Lleida, comercio…";q.setAttribute("aria-label","Buscar novedades");
   q.oninput=function(){novQ=q.value;NOV_MAX=15;renderNovedades()};f.appendChild(q);
   var sel=el("select","fld");sel.setAttribute("aria-label","Territorio");sel.appendChild(new Option("Todos los territorios","Todos"));
@@ -565,8 +566,11 @@ function renderNovedades(){var c=document.getElementById("nov-list");c.innerHTML
   var g=el("div","grid");
   all.slice(0,NOV_MAX).forEach(function(n){var card=el("article","card nov"),t=el("div","top");
     var lt=el("div","","<h3></h3><div class='meta'></div>");lt.querySelector("h3").textContent=n.titulo;
-    lt.querySelector(".meta").textContent=[n.organo,tit(n.n1?n1lab(n.n1):""),n.fecha?"Publicada el "+fmt(n.fecha):""].filter(Boolean).join(" · ");t.appendChild(lt);
+    lt.querySelector(".meta").textContent=[n.organo,tit(n.n1?n1lab(n.n1):""),n.fecha?(n.fechaTipo==="detectada"?"Detectada el ":"Publicada el ")+fmt(n.fecha):""].filter(Boolean).join(" · ");t.appendChild(lt);
     if(n._e)t.appendChild(el("span","badge "+(n._e.s==="si"?"b-si":n._e.s==="mid"?"b-mid":"b-no"),n._e.s==="si"?"Posible encaje":n._e.s==="mid"?"Por confirmar":"No encaja"));
+    if(n.estadoConvocatoria==="próxima")t.appendChild(el("span","st st-soon","Próxima apertura"));
+    else if(n.estadoConvocatoria==="en plazo")t.appendChild(el("span","st st-open","En plazo · portal UE"));
+    else if(n.estadoConvocatoria==="por verificar")t.appendChild(el("span","st st-pending","Estado por verificar"));
     if(n.nueva)t.appendChild(el("span","badge nuevo","Nuevo"));card.appendChild(t);
     if(n._e&&n._e.s==="mid"&&n._e.why.length)card.appendChild(txt("p","Para confirmar: "+n._e.why.join("; ")+".")).className="meta";
     var d=[];
@@ -604,7 +608,7 @@ function licItems(){var q=nrm(licQ),hoy=new Date().toISOString().slice(0,10);
     if(licMax&&(l.presupuesto==null||l.presupuesto>licMax))return false;
     if(licMia&&A.ccaa&&NUTS[(l.nuts||"").slice(0,4)]!==A.ccaa)return false;
     return !q||nrm([l.titulo,l.organo,l.territorio].join(" ")).indexOf(q)>=0})}
-function renderLic(){var c=document.getElementById("lic-list");c.innerHTML="";if(!((LIC&&LIC.items)||[]).length)return;
+function renderLic(){var c=document.getElementById("lic-list");c.innerHTML="";if(LIC&&LIC.estadoActualizacion==="parcial"){var warn=el("div","miss m");warn.appendChild(txt("strong","Actualización parcial de licitaciones"));warn.appendChild(txt("p","No se pudieron consultar todas las fuentes de contratación en la última actualización ("+((LIC.fuentesConError||[]).join(", ")||"fuente no identificada")+"). Los resultados disponibles pueden estar incompletos."));c.appendChild(warn)}else if(LIC&&LIC.estadoActualizacion==="desconocida"){var warn2=el("div","miss m");warn2.appendChild(txt("strong","Actualización pendiente de verificar"));warn2.appendChild(txt("p","La última consulta no pudo confirmar la cobertura de todas las fuentes. Revisa la fecha de actualización y los pliegos oficiales."));c.appendChild(warn2)}if(!((LIC&&LIC.items)||[]).length){c.appendChild(el("div","empty","No hay licitaciones disponibles con la última actualización registrada."));return}
   var m=document.getElementById("lic-mia");if(m)m.style.display=A.ccaa?"":"none";
   var all=licItems();c.appendChild(txt("p",all.length+(all.length===1?" licitación":" licitaciones"))).className="nov-note";
   if(!all.length){c.appendChild(el("div","empty","No hay licitaciones con estos filtros."));return}

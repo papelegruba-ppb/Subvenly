@@ -14,10 +14,11 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   actualizar:
+    if: github.event_name != 'push' || github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 55
     environment:
@@ -62,6 +63,40 @@ jobs:
         timeout-minutes: 12
         run: python scripts/vigilar_creditos.py
 
+      - name: Marcar fuentes que no se pudieron actualizar
+        if: always()
+        env:
+          BDNS_OUTCOME: ${{ steps.buscar.outcome }}
+          UE_OUTCOME: ${{ steps.buscar_ue.outcome }}
+          LIC_OUTCOME: ${{ steps.buscar_lic.outcome }}
+        run: |
+          python - <<'PY'
+          import datetime, json, os
+          from pathlib import Path
+          hoy = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
+          errores = []
+          for variable, nombre in (("BDNS_OUTCOME", "BDNS"), ("UE_OUTCOME", "Unión Europea"), ("LIC_OUTCOME", "licitaciones")):
+              if os.environ.get(variable) != "success":
+                  errores.append(nombre)
+          if not errores:
+              raise SystemExit(0)
+          p = Path("data/novedades.json")
+          if p.exists() and any(x in errores for x in ("BDNS", "Unión Europea")):
+              data = json.loads(p.read_text(encoding="utf-8"))
+              data["estadoActualizacion"] = "parcial"
+              data["erroresActualizacion"] = errores
+              data["errorActualizacionFecha"] = hoy
+              p.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+          p = Path("data/licitaciones.json")
+          if p.exists() and "licitaciones" in errores:
+              data = json.loads(p.read_text(encoding="utf-8"))
+              data["estadoActualizacion"] = "parcial"
+              data["fuentesConError"] = list(set(data.get("fuentesConError", []) + ["La ejecución automática no terminó correctamente"]))
+              data["errorActualizacionFecha"] = hoy
+              p.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+          print("Estado de cobertura marcado como parcial para: " + ", ".join(errores))
+          PY
+
       - name: Guardar los datos en el repositorio
         run: |
           git config user.name "Subvenly bot"
@@ -81,8 +116,27 @@ jobs:
       - id: deploy
         uses: actions/deploy-pages@v4
 
-      - name: Avisar si la búsqueda falló
-        if: steps.buscar.outcome == 'failure' || steps.buscar_ue.outcome == 'failure' || steps.buscar_lic.outcome == 'failure' || steps.vigilar.outcome == 'failure' || steps.vigilar_fuentes.outcome == 'failure'
+      - name: Resumen de actualización y cobertura
+        if: always()
         run: |
-          echo "La web se ha publicado con los datos anteriores, pero alguna búsqueda de hoy falló. Revisa los pasos 'Buscar convocatorias'."
-          exit 1
+          {
+            echo "## Actualización de Subvenly"
+            echo ""
+            echo "- Publicación web: **${{ steps.deploy.outcome }}**"
+            echo "- BDNS: **${{ steps.buscar.outcome }}**"
+            echo "- Unión Europea: **${{ steps.buscar_ue.outcome }}**"
+            echo "- Licitaciones: **${{ steps.buscar_lic.outcome }}**"
+            echo "- Vigilancia de fuentes: **${{ steps.vigilar_fuentes.outcome }}**"
+            echo "- Vigilancia de fichas: **${{ steps.vigilar.outcome }}**"
+            echo ""
+            if [[ "${{ steps.buscar.outcome }}" != "success" || "${{ steps.buscar_ue.outcome }}" != "success" || "${{ steps.buscar_lic.outcome }}" != "success" ]]; then
+              echo "> **Aviso:** una o más fuentes automáticas no se han actualizado. La web puede seguir publicada con los datos anteriores o con una actualización parcial. Consulta los diagnósticos de `data/_diagnostico*.json`."
+              echo "::warning::Una o más fuentes de Subvenly no se han actualizado."
+            else
+              echo "Las búsquedas automáticas principales terminaron correctamente. Esto no significa que el catálogo sea exhaustivo ni que cada convocatoria esté verificada individualmente."
+            fi
+            if [[ "${{ steps.vigilar_fuentes.outcome }}" != "success" || "${{ steps.vigilar.outcome }}" != "success" ]]; then
+              echo ""
+              echo "> La vigilancia de una o más páginas oficiales encontró errores o no pudo verificarlas; consulta los diagnósticos antes de cambiar el estado de una ayuda."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

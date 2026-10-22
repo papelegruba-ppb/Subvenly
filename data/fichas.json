@@ -143,7 +143,10 @@
     ],
     "eval": "La entidad no elige libremente: la oficina de Trabajo gestiona la oferta y envía candidatos que cumplan los requisitos. Las condiciones del contrato no pueden cambiar durante el periodo subvencionable.",
     "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/Subvencions-per-a-la-contractacio-laboral-de-persones-en-situacio-de-major-vulnerabilitat?category=",
-    "categoria": "Contratación"
+    "categoria": "Contratación",
+    "cerrada": true,
+    "permTxt": "Cerrada",
+    "estadoManual": "Convocatoria 2026 cerrada; no se debe presentar como abierta."
   },
   {
     "id": 6,
@@ -170,7 +173,10 @@
     ],
     "eval": "Consulta en las bases cómo se valoran y reparten las ayudas.",
     "link": "https://tramits.gencat.cat/ca/tramits/tramits-temes/24691-subvencions-programes-formacio-mida-empreses?category=",
-    "categoria": "Formación"
+    "categoria": "Formación",
+    "cerrada": true,
+    "permTxt": "Cerrada",
+    "estadoManual": "Convocatoria 2026 cerrada; no se debe presentar como abierta."
   },
   {
     "id": 7,
@@ -199,9 +205,10 @@
       "Documentación exacta: consúltala en el trámite (normalmente contrato, alta en la Seguridad Social y acreditación de desempleo)"
     ],
     "eval": "La Comunidad notifica de forma individual si se concede o no. Importes adicionales: 500 € si la persona contratada es mujer, 500 € por hijos menores de 16 o dependientes a cargo, y 1.000 € si eres una startup.",
-    "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-contratos-indefinidos",
+    "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayuda-incentivos-contratacion-indefinida",
     "cierre": "2022-06-17",
-    "categoria": "Contratación"
+    "categoria": "Contratación",
+    "cerrada": true
   },
   {
     "id": 8,
@@ -295,7 +302,10 @@
     ],
     "eval": "Importe según el perfil: 6.000 a 8.000 € (primera ocupación, paro de larga duración, mayores de 45 o personas vulnerables); 12.000 a 15.000 € (perfiles de mayor cualificación: doctorado, investigación o entidades de impacto social); unos 5.000 € en la línea de FP dual. Inscripción en el SOC: en paro de larga duración, mínimo 12 meses dentro de los últimos 18 antes del contrato; mayores de 45 y personas vulnerables, inscritas de forma activa justo antes de la contratación; jóvenes en su primer empleo, inscritos en desempleo justo antes de formalizar el contrato. Los importes de 12.000 a 15.000 € incluyen también al personal cualificado que impulsa la modernización del sector de los cuidados. La resolución se publica en el BOPB.",
     "link": "https://empreses.barcelonactiva.cat/es/creafeina2026",
-    "categoria": "Contratación"
+    "categoria": "Contratación",
+    "cerrada": true,
+    "permTxt": "Cerrada",
+    "estadoManual": "Convocatoria 2026 cerrada; no se debe presentar como abierta."
   },
   {
     "id": 12,
@@ -328,7 +338,10 @@
         "https://seu.paeria.cat/ajutsPublic/cercadorCategoria/180"
       ]
     ],
-    "categoria": "Comercio, inversión y digitalización"
+    "categoria": "Comercio, inversión y digitalización",
+    "cerrada": true,
+    "permTxt": "Cerrada",
+    "estadoManual": "Convocatoria 2026 cerrada; no se debe presentar como abierta."
   },
   {
     "id": 13,
@@ -358,7 +371,10 @@
     ],
     "eval": "Cobro en dos pagos: 80 % tras la concesión y 20 % tras revisar la justificación. Obligaciones: formación obligatoria, publicidad del programa FSE+ y justificación a los 18 meses. Línea 1: domicilio fiscal en un micropueblo de Cataluña (menos de 500 habitantes). Línea 2: resto de Cataluña.",
     "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/Subvencions-per-afavorir-lautoocupacio-de-joves-en-el-marc-del-Programa-FSE?category=&moda=1",
-    "categoria": "Inicio de actividad"
+    "categoria": "Inicio de actividad",
+    "cerrada": true,
+    "permTxt": "Cerrada",
+    "estadoManual": "Convocatoria 2026 cerrada; no se debe presentar como abierta."
   },
   {
     "id": 14,
@@ -399,7 +415,10 @@
         "https://www.leaderponent.cat/linia-dajuts-leader/"
       ]
     ],
-    "categoria": "Inversión y desarrollo rural"
+    "categoria": "Inversión y desarrollo rural",
+    "cerrada": true,
+    "permTxt": "Cerrada",
+    "estadoManual": "Convocatoria 2026 cerrada; no se debe presentar como abierta."
   },
   {
     "id": 15,
@@ -495,7 +514,10 @@
         "https://tramits.paeria.cat/Ciutadania/DetallTramit.aspx?IdTema=51&IdTramit=1606"
       ]
     ],
-    "categoria": "Comercio"
+    "categoria": "Comercio",
+    "cerrada": true,
+    "permTxt": "Cerrada",
+    "estadoManual": "Convocatoria 2026 cerrada; no se debe presentar como abierta."
   },
   {
     "id": 18,
@@ -527,7 +549,12 @@
       "Declaraciones responsables y facturas o pagos, si procede"
     ],
     "eval": "Las solicitudes se resuelven por orden de llegada, hasta agotar el crédito. Resolución en un máximo de 3 meses desde la presentación. Sí se subvenciona: reforma y adecuación del local (rehabilitación, eficiencia energética, accesibilidad, licencias de actividad), compras para el inicio (mobiliario, equipos informáticos, maquinaria y bienes de equipamiento), gastos del local (alquiler o compra para la apertura), viabilidad del negocio (estudios de marketing y ventas) y digitalización. No se subvenciona: IVA e impuestos sobre la renta, existencias y stocks iniciales, intereses, recargos y sanciones, procedimientos judiciales, amortizaciones, dietas y desplazamientos. Actividades excluidas: juegos de azar y apuestas, manicura y pedicura exclusiva, bares musicales, discotecas, salas de baile, de fiestas y de conciertos, karaokes, cafés teatro y concierto, tatuajes y piercings, y venta o reparación de accesorios de telefonía móvil.",
-    "links": [["Consultar ayudas oficiales de la Paeria", "https://seu.paeria.cat/ajutsPublic/cercadorCategoria/180"]],
+    "links": [
+      [
+        "Consultar ayudas oficiales de la Paeria",
+        "https://seu.paeria.cat/ajutsPublic/cercadorCategoria/180"
+      ]
+    ],
     "link": "#",
     "categoria": "Inicio de actividad y comercio"
   },
@@ -814,12 +841,12 @@
     "eval": "La elegibilidad requiere comprobar las bases de la convocatoria concreta.",
     "links": [
       [
-        "Sede oficial · Ayudas al alquiler de vivienda para jóvenes y sectores de escasos recursos (2025)",
-        "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-alquiler-jovenes-0"
+        "Sede oficial · Ayudas al alquiler para jóvenes",
+        "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-alquiler-jovenes"
       ],
       [
-        "Buscador oficial de ayudas de alquiler de la Comunidad de Madrid",
-        "https://sede.comunidad.madrid/buscador?t=ayudas+alquiler+vivienda"
+        "Buscador oficial de ayudas de la Comunidad de Madrid",
+        "https://sede.comunidad.madrid/ayudas-becas-subvenciones-0"
       ]
     ],
     "categoria": "Vivienda y alquiler"
@@ -1222,5 +1249,312 @@
       ]
     ],
     "categoria": "Familia y nacimiento"
+  },
+  {
+    "id": 40,
+    "tipo": "Prestación",
+    "titulo": "Prestación contributiva por desempleo (paro)",
+    "organo": "Servicio Público de Empleo Estatal (SEPE)",
+    "ambito": "Estatal",
+    "perfil": "personal",
+    "plazo": "Plazo individual según la situación legal de desempleo; consultar el plazo de solicitud en el SEPE",
+    "permTxt": "Plazo individual",
+    "estadoManual": "Plazo individual; verificar cotizaciones y fecha límite con el SEPE",
+    "importe": "Según las bases de cotización y la situación familiar; consultar cuantías oficiales",
+    "resumen": "Prestación contributiva para personas que han perdido el empleo de forma involuntaria y reúnen cotizaciones suficientes. Como regla general, se requieren al menos 360 días cotizados por desempleo dentro de los seis años anteriores, no utilizados para un derecho anterior.",
+    "reqs": {
+      "situacionPersonal": "desempleo"
+    },
+    "requisitos": [
+      "Estar en situación legal de desempleo; una baja voluntaria ordinaria no da derecho por sí sola",
+      "Haber cotizado al desempleo al menos 360 días dentro de los seis años anteriores, sin consumir esas cotizaciones en un derecho anterior",
+      "Inscribirse y mantener la inscripción como demandante de empleo",
+      "Solicitar dentro del plazo legal desde la situación de desempleo"
+    ],
+    "docs": [
+      "Documento de identidad en vigor",
+      "Datos de la cuenta bancaria de la que seas titular",
+      "Documentación laboral que solicite el SEPE; el certificado de empresa suele remitirse por la empresa"
+    ],
+    "eval": "La duración y cuantía dependen de las cotizaciones y bases acreditadas. Esta ficha es una orientación inicial; el SEPE determina el derecho y el plazo aplicable.",
+    "link": "https://www.sepe.es/HomeSepe/es/prestaciones-desempleo/prestacion-contributiva/prestacion-contributiva-mas-de-un-anyo.html",
+    "links": [
+      [
+        "Información oficial y requisitos de la prestación contributiva",
+        "https://www.sepe.es/HomeSepe/es/prestaciones-desempleo/prestacion-contributiva/prestacion-contributiva-mas-de-un-anyo.html"
+      ],
+      [
+        "Simulador oficial de prestaciones del SEPE",
+        "https://sede.sepe.gob.es/dgsimulador/introSimulador.do"
+      ]
+    ],
+    "categoria": "Desempleo y prestaciones",
+    "consultado": "2026-10-22"
+  },
+  {
+    "id": 41,
+    "tipo": "Subsidio",
+    "titulo": "Subsidio por agotamiento de la prestación contributiva",
+    "organo": "Servicio Público de Empleo Estatal (SEPE)",
+    "ambito": "Estatal",
+    "perfil": "personal",
+    "plazo": "Solicitud individual; el plazo ordinario de alta inicial es de hasta seis meses desde el agotamiento, con efectos distintos según la fecha de solicitud",
+    "permTxt": "Plazo individual",
+    "estadoManual": "Plazo individual; verificar fecha de agotamiento, rentas y responsabilidades familiares",
+    "importe": "Según el porcentaje del IPREM aplicable en cada periodo; consultar cuantías oficiales",
+    "resumen": "Subsidio asistencial para personas desempleadas que han agotado la prestación contributiva y cumplen los requisitos de rentas y, cuando proceda, responsabilidades familiares. El régimen aplicable depende, entre otros aspectos, de cuándo se agotó la prestación.",
+    "reqs": {
+      "situacionPersonal": "desempleo"
+    },
+    "requisitos": [
+      "Haber agotado la prestación contributiva en una fecha que permita acceder al régimen vigente",
+      "Estar en desempleo total o trabajar a tiempo parcial en los términos admitidos",
+      "Estar inscrito como demandante de empleo y suscribir el acuerdo de actividad",
+      "Cumplir el requisito de carencia de rentas y/o responsabilidades familiares aplicable",
+      "Respetar el plazo de solicitud correspondiente al hecho causante"
+    ],
+    "docs": [
+      "Documento de identidad en vigor",
+      "Declaración responsable de rentas e ingresos",
+      "Datos bancarios",
+      "Documentación de responsabilidades familiares, si corresponde"
+    ],
+    "eval": "El SEPE comprueba el hecho causante, las rentas y la situación familiar. Las condiciones cambiaron para hechos causantes desde el 1 de noviembre de 2024; revisar la ficha oficial.",
+    "link": "https://www.sepe.es/HomeSepe/prestaciones-desempleo/subsidio-desempleo/subsidio-agotamiento-prestacion-contributiva",
+    "links": [
+      [
+        "Requisitos, plazos y solicitud oficial",
+        "https://www.sepe.es/HomeSepe/prestaciones-desempleo/subsidio-desempleo/subsidio-agotamiento-prestacion-contributiva"
+      ],
+      [
+        "Simulador oficial del SEPE",
+        "https://sede.sepe.gob.es/dgsimulador/introSimulador.do"
+      ]
+    ],
+    "categoria": "Desempleo y prestaciones",
+    "consultado": "2026-10-22"
+  },
+  {
+    "id": 42,
+    "tipo": "Subsidio",
+    "titulo": "Subsidio por cotizaciones insuficientes (menos de un año trabajado)",
+    "organo": "Servicio Público de Empleo Estatal (SEPE)",
+    "ambito": "Estatal",
+    "perfil": "personal",
+    "plazo": "Solicitud individual; normalmente dentro de los seis meses siguientes al hecho causante, con efectos según la fecha de solicitud",
+    "permTxt": "Plazo individual",
+    "estadoManual": "Plazo individual; verificar días cotizados, rentas y fecha del cese",
+    "importe": "Según el porcentaje del IPREM aplicable en cada periodo; consultar cuantías oficiales",
+    "resumen": "Subsidio para personas en situación legal de desempleo que no llegan a los 360 días necesarios para la prestación contributiva y han cotizado al menos 90 días, siempre que cumplan los demás requisitos.",
+    "reqs": {
+      "situacionPersonal": "desempleo"
+    },
+    "requisitos": [
+      "Encontrarse en situación legal de desempleo",
+      "Haber cotizado al menos 90 días, sin reunir el mínimo para la prestación contributiva",
+      "Estar inscrito como demandante de empleo y suscribir el acuerdo de actividad",
+      "Cumplir el requisito de carencia de rentas propias y/o responsabilidades familiares",
+      "Solicitar dentro del plazo aplicable al hecho causante"
+    ],
+    "docs": [
+      "Documento de identidad en vigor",
+      "Declaración responsable de rentas e ingresos",
+      "Datos bancarios",
+      "Documentación laboral y familiar que solicite el SEPE"
+    ],
+    "eval": "La duración depende de los días cotizados y de si se acreditan responsabilidades familiares. El SEPE determina el derecho y la cuantía aplicables.",
+    "link": "https://www.sepe.es/HomeSepe/prestaciones-desempleo/subsidio-desempleo/subsidio-cotizaciones-insuficientes-he-trabajado-menos-de-un-anyo.html",
+    "links": [
+      [
+        "Requisitos, plazos y solicitud oficial",
+        "https://www.sepe.es/HomeSepe/prestaciones-desempleo/subsidio-desempleo/subsidio-cotizaciones-insuficientes-he-trabajado-menos-de-un-anyo.html"
+      ],
+      [
+        "Simulador oficial del SEPE",
+        "https://sede.sepe.gob.es/dgsimulador/introSimulador.do"
+      ]
+    ],
+    "categoria": "Desempleo y prestaciones",
+    "consultado": "2026-10-22"
+  },
+  {
+    "id": 43,
+    "tipo": "Subsidio",
+    "titulo": "Subsidio para personas trabajadoras mayores de 52 años",
+    "organo": "Servicio Público de Empleo Estatal (SEPE)",
+    "ambito": "Estatal",
+    "perfil": "personal",
+    "plazo": "Plazo individual según agotamiento de prestación o situación legal de desempleo; revisar el hecho causante",
+    "permTxt": "Plazo individual",
+    "estadoManual": "Plazo individual; verificar edad, rentas y cotizaciones con el SEPE",
+    "importe": "80 % del IPREM mensual vigente, sujeto a la normativa aplicable; consultar cuantía oficial actualizada",
+    "resumen": "Subsidio asistencial para personas de 52 años o más que reúnen requisitos específicos de desempleo, rentas y cotización para jubilación, incluidos al menos seis años cotizados por desempleo en España a lo largo de la vida laboral.",
+    "reqs": {
+      "situacionPersonal": "desempleo"
+    },
+    "requisitos": [
+      "Tener 52 años en el hecho causante aplicable",
+      "Estar desempleado o trabajar a tiempo parcial en los términos admitidos",
+      "Estar inscrito como demandante de empleo y suscribir el acuerdo de actividad",
+      "Cumplir los requisitos de cotización para jubilación salvo la edad y acreditar al menos seis años cotizados por desempleo en España",
+      "Carecer de rentas propias por encima del límite aplicable"
+    ],
+    "docs": [
+      "Documento de identidad en vigor",
+      "Declaración de rentas",
+      "Datos bancarios",
+      "Vida laboral y documentos que acrediten cotizaciones, si el SEPE los requiere"
+    ],
+    "eval": "Es un subsidio específico con cotización para jubilación mientras se percibe, sujeto a los requisitos vigentes. El SEPE confirma el derecho y la duración.",
+    "link": "https://www.sepe.es/HomeSepe/prestaciones-desempleo/subsidio-desempleo/tengo-mas-de-52.html",
+    "links": [
+      [
+        "Requisitos, duración y cuantía oficiales",
+        "https://www.sepe.es/HomeSepe/prestaciones-desempleo/subsidio-desempleo/tengo-mas-de-52.html"
+      ],
+      [
+        "Simulador oficial del SEPE",
+        "https://sede.sepe.gob.es/dgsimulador/introSimulador.do"
+      ]
+    ],
+    "categoria": "Desempleo y prestaciones",
+    "consultado": "2026-10-22"
+  },
+  {
+    "id": 44,
+    "tipo": "Subsidio",
+    "titulo": "Subsidio para personas emigrantes españolas retornadas",
+    "organo": "Servicio Público de Empleo Estatal (SEPE)",
+    "ambito": "Estatal",
+    "perfil": "personal",
+    "plazo": "Solicitud individual; puede existir un plazo de hasta seis meses desde el retorno, según el supuesto",
+    "permTxt": "Plazo individual",
+    "estadoManual": "Plazo individual; verificar país de procedencia, periodo trabajado y certificado CER",
+    "importe": "Según el porcentaje del IPREM aplicable en cada periodo; consultar cuantías oficiales",
+    "resumen": "Subsidio para personas españolas que regresan a España tras trabajar en determinados países fuera del Espacio Económico Europeo o sin convenio de protección por desempleo y cumplen las condiciones del SEPE. No es aplicable automáticamente a cualquier retorno.",
+    "reqs": {
+      "situacionPersonal": "retorno",
+      "nacionalidad": "espanola"
+    },
+    "requisitos": [
+      "Tener nacionalidad española y regresar para fijar residencia permanente en España",
+      "Acreditar la condición de persona emigrante retornada mediante el certificado correspondiente",
+      "Haber trabajado el periodo mínimo exigido en los países contemplados por la normativa",
+      "No tener derecho a la prestación contributiva por desempleo ni cobrar una prestación incompatible",
+      "Estar inscrito como demandante de empleo y cumplir el requisito de rentas",
+      "Presentar la solicitud dentro del plazo aplicable"
+    ],
+    "docs": [
+      "Certificado de Emigrante Retornado (CER), cuando corresponda",
+      "Documento de identidad en vigor",
+      "Acreditación del trabajo y periodo en el extranjero",
+      "Documentación de rentas y datos bancarios"
+    ],
+    "eval": "El país de procedencia, el periodo trabajado y el certificado de retorno son determinantes. La persona solicitante debe comprobar su supuesto concreto con el SEPE y la Delegación/Subdelegación del Gobierno.",
+    "link": "https://www.sepe.es/HomeSepe/es/prestaciones-desempleo/subsidio-desempleo/subsidio-de-emigrante-retornado.html",
+    "links": [
+      [
+        "Requisitos y solicitud oficial del subsidio",
+        "https://www.sepe.es/HomeSepe/es/prestaciones-desempleo/subsidio-desempleo/subsidio-de-emigrante-retornado.html"
+      ],
+      [
+        "Guía oficial del retorno",
+        "https://www.inclusion.gob.es/documents/d/ciudadania/guia-del-retorno.pdf"
+      ]
+    ],
+    "categoria": "Desempleo y prestaciones",
+    "consultado": "2026-10-22"
+  },
+  {
+    "id": 45,
+    "tipo": "Prestación",
+    "titulo": "Prestación por desempleo para personas emigrantes retornadas que cotizaron en España antes de emigrar",
+    "organo": "Servicio Público de Empleo Estatal (SEPE)",
+    "ambito": "Estatal",
+    "perfil": "personal",
+    "plazo": "Plazo individual tras la situación legal de desempleo y la inscripción como demandante; confirmar con el SEPE",
+    "permTxt": "Plazo individual",
+    "estadoManual": "Plazo individual; verificar cotizaciones previas, nacionalidad y fecha de emigración",
+    "importe": "Según las cotizaciones y bases acreditadas; consultar cuantías oficiales",
+    "resumen": "Prestación contributiva para personas emigrantes retornadas que cotizaron por desempleo en España antes de emigrar y cumplen los requisitos específicos de cotización, desempleo legal e inscripción.",
+    "reqs": {
+      "situacionPersonal": "retorno",
+      "nacionalidad": "espanola"
+    },
+    "requisitos": [
+      "Ser español o española y encontrarse en situación legal de desempleo",
+      "Estar inscrito como demandante de empleo y mantener la inscripción durante la prestación",
+      "Haber cotizado por desempleo en España al menos 360 días en los seis años anteriores a la emigración, sin haber utilizado esas cotizaciones para un derecho anterior",
+      "No percibir una prestación por desempleo incompatible de otro Estado"
+    ],
+    "docs": [
+      "Documento de identidad en vigor",
+      "Formulario U1/E-301 o documentación equivalente cuando corresponda",
+      "Documentación que acredite la fecha de retorno",
+      "Certificado de Emigrante Retornado si el supuesto y el país de procedencia lo requieren"
+    ],
+    "eval": "No confundir con el subsidio para emigrantes retornados: esta vía depende de cotizaciones españolas anteriores a la emigración. El SEPE decide el derecho.",
+    "link": "https://www.sepe.es/HomeSepe/prestaciones-desempleo/quiero-cobrar-el-paro/emigrante-retornado-cotizaron-Espana",
+    "links": [
+      [
+        "Requisitos y documentación oficiales",
+        "https://www.sepe.es/HomeSepe/prestaciones-desempleo/quiero-cobrar-el-paro/emigrante-retornado-cotizaron-Espana"
+      ],
+      [
+        "Guía oficial del retorno",
+        "https://www.inclusion.gob.es/documents/d/ciudadania/guia-del-retorno.pdf"
+      ]
+    ],
+    "categoria": "Desempleo y prestaciones",
+    "consultado": "2026-10-22"
+  },
+  {
+    "id": 46,
+    "perfil": "personal",
+    "tipo": "Prestación",
+    "titulo": "Renta Garantizada de Ciudadanía (RGC) · Cataluña",
+    "organo": "Generalitat de Catalunya · Departament de Drets Socials i Inclusió",
+    "ambito": "Cataluña",
+    "plazo": "Se puede solicitar en cualquier momento, si se cumplen los requisitos; consultar el trámite vigente",
+    "estadoManual": "Prestación sujeta a requisitos personales, de residencia, laborales y económicos; verificar en la ficha oficial",
+    "importe": "Depende de la composición de la unidad familiar y de los ingresos; consultar los importes oficiales vigentes",
+    "resumen": "Prestación económica para personas y unidades familiares con recursos insuficientes para cubrir necesidades básicas. Hay modalidades para personas activables y no activables, y puede existir una prestación complementaria a prestaciones estatales. No es una ayuda empresarial ni para sociedades.",
+    "reqs": {
+      "ccaa": "Cataluña",
+      "social": "si"
+    },
+    "requisitos": [
+      "Haber solicitado previamente el Ingreso Mínimo Vital, salvo que la modalidad aplicable indique otra condición",
+      "Cumplir el requisito de edad: con carácter general, más de 23 años, con excepciones desde los 18 años",
+      "Estar empadronado en Cataluña y acreditar, con carácter general, residencia continuada y efectiva durante los dos años anteriores; existen excepciones",
+      "Cumplir los límites de ingresos y patrimonio de la unidad familiar vigentes en el momento de la solicitud",
+      "La situación laboral y familiar debe encajar en una modalidad prevista por la normativa; existen excepciones al requisito general de no trabajar",
+      "Aportar la documentación personal, familiar, bancaria y económica que corresponda"
+    ],
+    "docs": [
+      "DNI o NIE y documentación de residencia",
+      "Justificante de solicitud del IMV",
+      "Empadronamiento y pruebas de residencia cuando se requieran",
+      "Extractos bancarios de los últimos dos meses de la unidad familiar",
+      "Documentación de ingresos, patrimonio, convivencia y situación laboral"
+    ],
+    "eval": "No afirmar compatibilidad solo por residir en Cataluña o tener ingresos bajos. Hay modalidades y excepciones; revisar el trámite oficial de personas activables o no activables. Los umbrales e importes cambian y deben comprobarse en la fuente oficial.",
+    "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/rgc-i-complement-activables",
+    "links": [
+      [
+        "RGC y prestación complementaria · personas activables",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/rgc-i-complement-activables"
+      ],
+      [
+        "RGC y prestación complementaria · personas no activables",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/rgc-i-complement-no-activables"
+      ],
+      [
+        "Información oficial sobre IMV y RGC",
+        "https://dretssocials.gencat.cat/ca/ambits_tematics/pobresa_i_inclusio_social/imv-rgc/"
+      ]
+    ],
+    "categoria": "Prestaciones sociales y familia",
+    "consultado": "2026-10-22"
   }
 ]

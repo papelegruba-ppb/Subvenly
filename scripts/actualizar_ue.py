@@ -16,8 +16,14 @@ from actualizar import leer, escribir, iso, RETENCION_DIAS, NUEVA_DIAS, MAX_ITEM
 API = "https://api.tech.ec.europa.eu/search-api/prod/rest/search"
 TOPIC = "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/{}"
 # ---------- AJUSTES ----------
-BUSQUEDAS = ["SME", "small and medium-sized enterprises", "start-up", "entrepreneur", "self-employed", "digitalisation SMEs"]
-PAGINAS = 3          # páginas de 50 resultados por búsqueda
+BUSQUEDAS = [
+    "SME", "small and medium-sized enterprises", "start-up", "entrepreneur", "self-employed",
+    "digitalisation SMEs", "research and innovation", "education and training", "culture and creative industries",
+    "environment and climate", "renewable energy", "agriculture and rural development", "social inclusion",
+    "youth", "civil society organisations", "non-profit organisations", "health", "transport and mobility",
+    "biodiversity", "women and equality", "sport", "public authorities", "citizens"
+]
+PAGINAS = 2          # páginas de 50 resultados por búsqueda para repartir consultas entre más temas
 ESTADOS = ["31094501", "31094502"]   # próximas y abiertas
 TIPOS = ["1", "2", "8"]              # subvenciones, premios y financiación en cascada
 # -----------------------------
@@ -39,13 +45,13 @@ def consultar(texto, pagina):
     url = API + "?" + urllib.parse.urlencode({"apiKey": "SEDIA", "text": texto, "pageSize": 50, "pageNumber": pagina})
     req = urllib.request.Request(url, data=cuerpo, method="POST", headers={
         "Content-Type": f"multipart/form-data; boundary={limite}", "User-Agent": "Subvenly/1.0", "Accept": "application/json"})
-    for i in range(3):
+    for i in range(2):
         try:
-            with urllib.request.urlopen(req, timeout=60) as r:
+            with urllib.request.urlopen(req, timeout=20) as r:
                 return json.load(r)
         except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
             print(f"  intento {i+1}/3 fallido: {e}")
-            time.sleep(3 * (i + 1))
+            time.sleep(1 * (i + 1))
     raise RuntimeError("No se pudo consultar el portal de la UE")
 
 def convertir(r, hoy):
@@ -54,10 +60,29 @@ def convertir(r, hoy):
     titulo = " ".join(str(primero(m.get("title")) or r.get("title") or r.get("summary") or "").split())
     if not ident or not titulo:
         return None
+    apertura = iso(primero(m.get("startDate")))
+    cierre = iso(primero(m.get("deadlineDate")))
+    estado = str(primero(m.get("status")) or "")
+    if not estado:
+        acciones = primero(m.get("actions"))
+        if isinstance(acciones, str):
+            try:
+                acciones = json.loads(acciones)
+            except json.JSONDecodeError:
+                acciones = []
+        if isinstance(acciones, list) and acciones:
+            estado = str(((acciones[0].get("status") or {}).get("id")) or "")
+    if estado == "31094501":
+        estado_convocatoria = "próxima"
+    elif estado == "31094502":
+        estado_convocatoria = "en plazo"
+    else:
+        estado_convocatoria = "por verificar"
     return {"id": "UE-" + ident, "titulo": titulo[:300], "organo": "Comisión Europea", "ambito": "Unión Europea",
-            "territorio": "Unión Europea", "n1": "UNIÓN EUROPEA", "n2": "UNIÓN EUROPEA", "n3": "COMISIÓN EUROPEA", "fecha": iso(primero(m.get("startDate"))) or hoy.isoformat(),
-            "cierre": iso(primero(m.get("deadlineDate"))), "plazo_fin": iso(primero(m.get("deadlineDate"))), "link": TOPIC.format(ident.lower()) if ident else r.get("url", ""),
-            "visto": hoy.isoformat()}
+            "territorio": "Unión Europea", "n1": "UNIÓN EUROPEA", "n2": "UNIÓN EUROPEA", "n3": "COMISIÓN EUROPEA",
+            "fecha": hoy.isoformat(), "fechaTipo": "detectada", "plazo_inicio": apertura,
+            "cierre": cierre, "plazo_fin": cierre, "estadoConvocatoria": estado_convocatoria,
+            "link": TOPIC.format(ident.lower()) if ident else r.get("url", ""), "visto": hoy.isoformat()}
 
 def main():
     hoy = dt.date.today()
@@ -81,18 +106,27 @@ def main():
         print("El portal no devolvió nada: no se modifica ningún dato.")
         return 1
     escribir("_diagnostico_ue.json", {"fecha": hoy.isoformat(), "recibidas": len(raw), "ejemplo": raw[0]})
-    previo = {i["id"]: i for i in leer("novedades.json", {"items": []}).get("items", [])}
+    previo_doc = leer("novedades.json", {"items": []})
+    estado_actualizacion = previo_doc.get("estadoActualizacion", "desconocida")
+    previo = {i["id"]: i for i in previo_doc.get("items", [])}
     for r in raw:
         n = convertir(r, hoy)
-        if n and n["id"] not in previo:
+        if not n:
+            continue
+        if n["id"] not in previo:
             previo[n["id"]] = n
+        else:
+            # Actualizar plazos y estado del portal sin reiniciar la fecha en que se detectó.
+            visto = previo[n["id"]].get("visto") or n["visto"]
+            previo[n["id"]].update(n)
+            previo[n["id"]]["visto"] = visto
     limite = (hoy - dt.timedelta(days=RETENCION_DIAS)).isoformat()
     nueva_lim = (hoy - dt.timedelta(days=NUEVA_DIAS)).isoformat()
-    items = [i for i in previo.values() if i["fecha"] >= limite and not (i.get("cierre") and i["cierre"] < hoy.isoformat())]
+    items = [i for i in previo.values() if (i["fecha"] >= limite or (i.get("plazo_fin") and i["plazo_fin"] >= hoy.isoformat())) and not (i.get("cierre") and i["cierre"] < hoy.isoformat())]
     for i in items:
         i["nueva"] = i["visto"] >= nueva_lim
     items.sort(key=lambda i: (i["fecha"], i["id"]), reverse=True)
-    escribir("novedades.json", {"actualizado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "items": items[:MAX_ITEMS]}, compacto=True)
+    escribir("novedades.json", {"actualizado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "estadoActualizacion": estado_actualizacion, "items": items[:MAX_ITEMS]}, compacto=True)
     print(f"Guardadas {min(len(items), MAX_ITEMS)} novedades en total.")
     return 0
 

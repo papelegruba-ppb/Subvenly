@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "actualizado": "2026-10-20",
+  "actualizado": "2026-10-22",
   "nota": "Registro de fuentes oficiales o portales de referencia. Una fuente no equivale a una convocatoria. La BDNS cubre convocatorias estatales, autonómicas y locales; se registran portales especializados donde ya están localizados y la cobertura directa pendiente se identifica explícitamente.",
   "fuentes": [
     {
@@ -158,9 +158,9 @@
       "nombre": "Comunidad de Madrid · Ayudas alquiler jóvenes",
       "ambito": "Comunidad de Madrid",
       "categoria": "Alquiler y vivienda",
-      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-alquiler-jovenes-0",
+      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-alquiler-jovenes",
       "monitor": true,
-      "nota": "No presentar como abierta sin fechas oficiales vigentes.",
+      "nota": "Ficha oficial general; comprobar si existe convocatoria vigente y su plazo antes de presentar como abierta.",
       "oficial": true
     },
     {
@@ -348,9 +348,9 @@
       "nombre": "Comunidad de Madrid · Buscador de ayudas y subvenciones",
       "ambito": "Comunidad de Madrid",
       "categoria": "Ayudas generales",
-      "url": "https://sede.comunidad.madrid/buscador?t=ayudas+y+subvenciones&tipo=All",
+      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones-0",
       "monitor": true,
-      "nota": "Buscador oficial con estados y plazos de las fichas.",
+      "nota": "Buscador oficial de ayudas y subvenciones de la Comunidad de Madrid; fuente de descubrimiento, no convocatoria individual.",
       "oficial": true
     },
     {
@@ -582,6 +582,96 @@
       "monitor": true,
       "nota": "Pago único en supuestos familiares concretos, separado de la prestación por nacimiento y cuidado de menor; revisar límites de ingresos y requisitos vigentes.",
       "oficial": true
+    },
+    {
+      "id": "sepe-prestaciones",
+      "nombre": "SEPE · Prestaciones por desempleo",
+      "ambito": "Estatal",
+      "categoria": "Prestaciones por desempleo",
+      "url": "https://www.sepe.es/HomeSepe/prestaciones-desempleo.html",
+      "monitor": true,
+      "oficial": true,
+      "nota": "Portal oficial de prestaciones contributivas y subsidios. Verificar el régimen aplicable según la fecha del hecho causante."
+    },
+    {
+      "id": "sepe-subsidio-agotamiento",
+      "nombre": "SEPE · Subsidio por agotamiento de la prestación contributiva",
+      "ambito": "Estatal",
+      "categoria": "Prestaciones por desempleo",
+      "url": "https://www.sepe.es/HomeSepe/prestaciones-desempleo/subsidio-desempleo/subsidio-agotamiento-prestacion-contributiva",
+      "monitor": true,
+      "oficial": true,
+      "nota": "Revisar fecha de agotamiento, carencia de rentas, responsabilidades familiares y plazo individual."
+    },
+    {
+      "id": "sepe-subsidio-cotizaciones",
+      "nombre": "SEPE · Subsidio por cotizaciones insuficientes",
+      "ambito": "Estatal",
+      "categoria": "Prestaciones por desempleo",
+      "url": "https://www.sepe.es/HomeSepe/prestaciones-desempleo/subsidio-desempleo/subsidio-cotizaciones-insuficientes-he-trabajado-menos-de-un-anyo.html",
+      "monitor": true,
+      "oficial": true,
+      "nota": "Verificar días cotizados, situación legal de desempleo y requisitos económicos."
+    },
+    {
+      "id": "sepe-subsidio-52",
+      "nombre": "SEPE · Subsidio para mayores de 52 años",
+      "ambito": "Estatal",
+      "categoria": "Prestaciones por desempleo",
+      "url": "https://www.sepe.es/HomeSepe/prestaciones-desempleo/subsidio-desempleo/tengo-mas-de-52.html",
+      "monitor": true,
+      "oficial": true,
+      "nota": "Revisar edad, cotizaciones para desempleo y jubilación, rentas y situación legal de desempleo."
+    },
+    {
+      "id": "sepe-subsidio-retorno",
+      "nombre": "SEPE · Subsidio para personas emigrantes retornadas",
+      "ambito": "Estatal",
+      "categoria": "Prestaciones por desempleo",
+      "url": "https://www.sepe.es/HomeSepe/es/prestaciones-desempleo/subsidio-desempleo/subsidio-de-emigrante-retornado.html",
+      "monitor": true,
+      "oficial": true,
+      "nota": "Supuesto específico; verificar nacionalidad, país de procedencia, periodo trabajado y Certificado de Emigrante Retornado."
+    },
+    {
+      "id": "sepe-retorno-cotizado",
+      "nombre": "SEPE · Prestación para emigrantes retornados que cotizaron en España",
+      "ambito": "Estatal",
+      "categoria": "Prestaciones por desempleo",
+      "url": "https://www.sepe.es/HomeSepe/prestaciones-desempleo/quiero-cobrar-el-paro/emigrante-retornado-cotizaron-Espana",
+      "monitor": true,
+      "oficial": true,
+      "nota": "Vía distinta del subsidio de emigrante retornado; verificar cotizaciones españolas previas."
+    },
+    {
+      "id": "sepe-simulador",
+      "nombre": "SEPE · Simulador de prestaciones",
+      "ambito": "Estatal",
+      "categoria": "Herramientas oficiales",
+      "url": "https://sede.sepe.gob.es/dgsimulador/introSimulador.do",
+      "monitor": false,
+      "oficial": true,
+      "nota": "Herramienta orientativa de cálculo; no sustituye la resolución del SEPE."
+    },
+    {
+      "id": "gencat-rgc",
+      "nombre": "Generalitat de Catalunya · Renta Garantizada de Ciudadanía",
+      "ambito": "Cataluña",
+      "categoria": "Prestaciones sociales",
+      "url": "https://tramits.gencat.cat/es/tramits/tramits-temes/rgc-i-complement-activables",
+      "monitor": true,
+      "oficial": true,
+      "nota": "Prestación personal con modalidades activables/no activables. Verificar solicitud previa del IMV, residencia, situación laboral y umbrales económicos vigentes."
+    },
+    {
+      "id": "sepe-prestacion-contributiva",
+      "nombre": "SEPE · Prestación contributiva por desempleo",
+      "ambito": "Estatal",
+      "categoria": "Prestaciones por desempleo",
+      "url": "https://www.sepe.es/HomeSepe/es/prestaciones-desempleo/prestacion-contributiva/prestacion-contributiva-mas-de-un-anyo.html",
+      "monitor": true,
+      "oficial": true,
+      "nota": "Requisitos generales: situación legal de desempleo, al menos 360 días cotizados por desempleo en los seis años anteriores y demanda de empleo. Confirmar el plazo individual."
     }
   ],
   "coberturaTerritorial": [

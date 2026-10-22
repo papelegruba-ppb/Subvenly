@@ -21,7 +21,9 @@ NUEVA_DIAS = 7             # durante cuántos días lleva la etiqueta "Nuevo"
 PAGINA = 200
 MAX_PAGINAS = 40
 MAX_ITEMS = 2000
-MAX_DETALLES = 300        # máximo de convocatorias cuyo detalle se pide en cada ejecución
+MAX_DETALLES = 100        # presupuesto prudente de detalles nuevos y revisiones por ejecución
+DIAS_RETROCESO = 90       # cobertura histórica progresiva dentro de la ventana retenida
+BLOQUE_RETROCESO = 7      # días por lote histórico para no disparar el tiempo de ejecución
 DETALLE = "https://www.infosubvenciones.es/bdnstrans/api/convocatorias?numConv={}&vpd=GE"
 # Territorios que se conservan (sin tildes, en minúsculas). Lista vacía = TODA España:
 # estatales, de todas las comunidades autónomas y locales (ayuntamientos, diputaciones...).
@@ -29,25 +31,46 @@ DETALLE = "https://www.infosubvenciones.es/bdnstrans/api/convocatorias?numConv={
 TERRITORIOS = []
 # La convocatoria debe mencionar alguno de estos temas...
 INCLUIR = [
-    # Empresa, autónomos, empleo e innovación
+    # Términos generales de convocatoria: priorizar cobertura amplia y revisar relevancia después
+    "ayuda", "ajut", "subvencion", "prestacion", "prestacio", "subsidio", "pension", "pensio",
+    "beca", "premio", "premi",
+    # Autónomos, empresas, empleo y actividad económica
     "autonom", "emprend", "pyme", "microempres", "pequena empresa", "empresa", "comerc",
     "contratacion", "contractacio", "empleo", "ocupacio", "digitaliz", "inversion", "inversio",
     "innovacion", "innovacio", "formacion", "formacio", "establecimiento", "negocio", "turis",
     "rural", "industri", "internacionaliz", "eficiencia energ", "autoocupacio", "cuota cero",
-    "tarifa cero", "bonificacion", "bonificacio", "ayuda al empleo",
+    "tarifa cero", "bonificacion", "bonificacio", "ayuda al empleo", "exportacion", "exportacio",
+    "financiacion", "financament", "economia social", "cooperativa", "artesania", "artesania",
+    "startup", "empresa emergente", "propiedad industrial", "propietat industrial", "marca",
     # Personas, familias, vivienda y prestaciones
     "ingreso minimo vital", "ingres minim vital", "renta garantizada", "renda garantida",
     "nacimiento", "naixement", "adopcion", "adopcio", "familia", "families", "infancia",
-    "infancia", "hijos a cargo", "crianza", "maternidad", "maternitat", "alquiler", "lloguer",
-    "vivienda", "habitatge", "arrendamiento", "jovenes", "joves", "discapacidad", "discapacitat",
-    "dependencia", "dependencia", "pobreza", "vulnerabilidad", "emergencia social",
-    # Emergencias, energía, combustible y medidas extraordinarias
-    "dana", "catastrofe", "catastrofe", "emergencia", "combustible", "gasoleo", "gasoil",
-    "carburante", "energia", "anticrisis", "pago unico", "pagament unic", "200 euros",
-    "200 €", "marcas", "marques", "propiedad industrial", "propietat industrial"
+    "hijos a cargo", "crianza", "maternidad", "maternitat", "alquiler", "lloguer", "vivienda",
+    "habitatge", "arrendamiento", "jovenes", "joves", "discapacidad", "discapacitat",
+    "dependencia", "pobreza", "vulnerabilidad", "emergencia social", "mayores", "tercera edad",
+    "salud", "sanidad", "sanitari", "enfermedad", "cuidados", "conciliacion", "conciliacio",
+    "igualdad", "igualtat", "mujer", "dona", "violencia", "victimas", "victimes", "exclusion social",
+    "emigrante retornado", "emigrants retornats", "retorno", "retorn", "desempleo", "atur",
+    "renta", "familia monoparental", "familia numerosa", "beca", "becas", "estudios", "estudi",
+    "educacion", "educacio", "libros", "llibres", "comedor escolar", "transport escolar",
+    "matricula", "matrícula", "universidad", "universitat", "juventud", "joventut",
+    # Cultura, deporte, investigación, agricultura, medio ambiente y territorio
+    "cultura", "cultural", "patrimonio", "patrimoni", "museo", "cinematograf", "audiovisual",
+    "artes escenicas", "arts esceniques", "deporte", "deportiv", "esport", "club deportivo",
+    "investigacion", "investigacio", "ciencia", "cientific", "agricultura", "agricola",
+    "ganader", "ramader", "pesca", "acuicultura", "forestal", "explotacion agraria",
+    "medio ambiente", "medi ambient", "biodiversidad", "biodiversitat", "residuos", "residus",
+    "agua", "sequía", "sequia", "incendio", "incendis", "inundacion", "inundacio", "catastrofe",
+    "catastrofe", "dana", "emergencia", "combustible", "gasoleo", "gasoil", "carburante",
+    "energia", "energía", "anticrisis", "pago unico", "pagament unic", "rehabilitacion",
+    "rehabilitacio", "accesibilidad", "accessibilitat", "eficiencia energetica", "movilidad",
+    "mobilitat", "transporte", "transport", "comunidad de propietarios", "comunitat de propietaris",
+    "asociaciones", "associacions", "entidad sin animo de lucro", "entitats sense afany de lucre",
+    "ong", "voluntariado", "voluntariat", "premio", "premios", "premi", "200 euros", "200 €"
 ]
-# Exclusiones de bajo valor; no excluir becas o ayudas educativas de forma global.
-EXCLUIR = ["deportiv", "esportiv", "festejo", "bienestar animal"]
+# No se excluyen categorías completas (deporte, cultura, asociaciones, bienestar animal, etc.):
+# pueden contener ayudas públicas legítimas. La relevancia se decide por términos positivos.
+EXCLUIR = []
 # -----------------------------------------------------------------
 
 def norm(t):
@@ -95,12 +118,14 @@ def descargar(desde, hasta):
         if isinstance(r, dict) and r.get("last"):
             break
         time.sleep(0.2)  # el límite oficial es de 10 peticiones por segundo
+    else:
+        raise RuntimeError("Se alcanzó el límite de páginas BDNS sin completar el intervalo; no se avanzará el cursor.")
     return items
 
 def relevante(it):
     n1, n2, n3 = (pick(it, k) for k in ("nivel1", "nivel2", "nivel3"))
     territorio = norm(" ".join([str(n1), str(n2), str(n3)]))
-    texto = norm(pick(it, "descripcion", "descripcionLeng"))
+    texto = norm(" ".join(str(it.get(k) or "") for k in ("descripcion", "descripcionLeng")))
     estatal = "estado" in norm(n1) or "estatal" in norm(n1)
     if TERRITORIOS and not (estatal or any(t in territorio for t in TERRITORIOS)):
         return False
@@ -168,45 +193,134 @@ def main():
     estado = leer("estado.json", {})
     ultima = iso(estado.get("ultima"))
     desde = (dt.date.fromisoformat(ultima) - dt.timedelta(days=MARGEN_DIAS)) if ultima else hoy - dt.timedelta(days=DIAS_PRIMERA_VEZ)
-    if "--fixture" in sys.argv:
+    fixture = "--fixture" in sys.argv
+    error_retroceso = ""
+    retroceso_hasta_siguiente = estado.get("retrocesoHasta", "")
+    if fixture:
         raw = json.load(open(sys.argv[sys.argv.index("--fixture") + 1], encoding="utf-8"))
         raw = raw.get("content", raw)
     else:
         print(f"Consultando la BDNS desde {desde} hasta {hoy}")
         raw = descargar(desde, hoy)
+        # Segunda pasada: recorre progresivamente los últimos 90 días para completar categorías
+        # que antes no se detectaban por las palabras clave. Se hace en bloques de siete días.
+        limite_retroceso = hoy - dt.timedelta(days=DIAS_RETROCESO)
+        try:
+            cursor = dt.date.fromisoformat(estado.get("retrocesoHasta", "")) if estado.get("retrocesoHasta") else hoy - dt.timedelta(days=3)
+        except ValueError:
+            cursor = hoy - dt.timedelta(days=3)
+        if cursor < limite_retroceso or cursor > hoy:
+            cursor = hoy - dt.timedelta(days=3)
+        retroceso_desde = max(limite_retroceso, cursor - dt.timedelta(days=BLOQUE_RETROCESO - 1))
+        print(f"Repaso histórico BDNS: {retroceso_desde} a {cursor}")
+        try:
+            historico = descargar(retroceso_desde, cursor)
+            raw.extend(historico)
+            if retroceso_desde <= limite_retroceso:
+                retroceso_hasta_siguiente = (hoy - dt.timedelta(days=3)).isoformat()
+            else:
+                retroceso_hasta_siguiente = (retroceso_desde - dt.timedelta(days=1)).isoformat()
+        except Exception as exc:
+            error_retroceso = str(exc)[:500]
+            retroceso_hasta_siguiente = cursor.isoformat()
+            print("AVISO: el repaso histórico no se completó; se conserva el cursor para reintentarlo:", error_retroceso)
+    # Una convocatoria puede aparecer en las dos ventanas. Deduplicar antes de filtrar y enriquecer.
+    unicos = {}
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        ident = str(pick(item, "numeroConvocatoria", "codigoBDNS", "id") or "")
+        if ident and ident not in unicos:
+            unicos[ident] = item
+    raw = list(unicos.values())
     filtradas = [it for it in raw if relevante(it)]
     print(f"Recibidas: {len(raw)} · relevantes: {len(filtradas)}")
-    if not raw:
-        print("La BDNS no devolvió nada: no se modifica ningún dato.")
+    if fixture and not raw:
+        print("El fixture está vacío: no se modifica ningún dato.")
         return 1
     detalles, det_ok = 0, True
-    previo = {i["id"]: i for i in leer("novedades.json", {"items": []}).get("items", [])}
+    previo = {str(i["id"]): i for i in leer("novedades.json", {"items": []}).get("items", [])}
+    campos_lista = ("titulo", "organo", "n1", "n2", "n3", "ambito", "territorio", "fecha", "link")
     for it in filtradas:
         n = convertir(it, hoy)
-        if n["id"] and n["id"] not in previo:
-            if det_ok and detalles < MAX_DETALLES:
-                try:
-                    n.update(campos_detalle(get(DETALLE.format(n["id"]), intentos=1)))
-                    detalles += 1
-                    time.sleep(0.15)
-                except Exception as e:
-                    print("  detalle no disponible, se sigue sin él:", e)
-                    det_ok = False
-            previo[n["id"]] = n
-    # Diagnóstico (se escribe al final para incluir los contadores): sirve para comprobar los nombres de campo reales
-    escribir("_diagnostico.json", {"fecha": hoy.isoformat(), "recibidas": len(raw), "relevantes": len(filtradas), "detalles_pedidos": detalles, "detalle_funciona": det_ok,
-                                   "claves_primer_elemento": sorted(raw[0].keys()) if isinstance(raw[0], dict) else [],
-                                   "ejemplo": raw[0]})
+        ident = str(n.get("id") or "")
+        if not ident:
+            continue
+        if ident not in previo:
+            n["visto"] = hoy.isoformat()
+            previo[ident] = n
+        else:
+            anterior = previo[ident]
+            for campo in campos_lista:
+                if n.get(campo) not in ("", None):
+                    anterior[campo] = n[campo]
+            anterior["ultimaVezDetectada"] = hoy.isoformat()
+        actual = previo[ident]
+        if not actual.get("detalleRevisado") and det_ok and detalles < MAX_DETALLES:
+            try:
+                detalle = campos_detalle(get(DETALLE.format(ident), intentos=1))
+                if detalle:
+                    actual.update(detalle)
+                    actual["detalleActualizado"] = hoy.isoformat()
+                actual["detalleRevisado"] = hoy.isoformat()
+                detalles += 1
+                time.sleep(0.15)
+            except Exception as e:
+                actual["detalleRevisado"] = hoy.isoformat()
+                print("  detalle no disponible, se sigue sin él:", e)
+                det_ok = False
+    # Revisar periódicamente detalles antiguos para detectar cambios en plazos, bases o importes.
+    hoy_iso = hoy.isoformat()
+    def prioridad_detalle(item):
+        fin = item.get("plazo_fin") or item.get("cierre") or ""
+        if fin and fin >= hoy_iso:
+            return (0, fin, item.get("detalleRevisado", ""))
+        if not fin:
+            return (1, "9999-12-31", item.get("detalleRevisado", ""))
+        return (2, fin, item.get("detalleRevisado", ""))
+    revisables = []
+    for item in previo.values():
+        revisado = item.get("detalleRevisado", "")
+        try:
+            viejo = not revisado or (hoy - dt.date.fromisoformat(revisado[:10])).days >= 7
+        except ValueError:
+            viejo = True
+        if viejo:
+            revisables.append(item)
+    revisables.sort(key=prioridad_detalle)
+    for item in revisables:
+        if not det_ok or detalles >= MAX_DETALLES:
+            break
+        try:
+            detalle = campos_detalle(get(DETALLE.format(item["id"]), intentos=1))
+            if detalle:
+                item.update(detalle)
+                item["detalleActualizado"] = hoy.isoformat()
+            item["detalleRevisado"] = hoy.isoformat()
+            detalles += 1
+            time.sleep(0.15)
+        except Exception as e:
+            item["detalleRevisado"] = hoy.isoformat()
+            print("  revisión de detalle no disponible para", item["id"], ":", e)
+            det_ok = False
     limite = (hoy - dt.timedelta(days=RETENCION_DIAS)).isoformat()
     nueva_lim = (hoy - dt.timedelta(days=NUEVA_DIAS)).isoformat()
-    items = [i for i in previo.values() if i["fecha"] >= limite]
+    items = [i for i in previo.values() if i["fecha"] >= limite or (i.get("plazo_fin") and i["plazo_fin"] >= hoy.isoformat())]
     for i in items:
         i["nueva"] = i["visto"] >= nueva_lim
     items.sort(key=lambda i: (i["fecha"], i["id"]), reverse=True)
-    escribir("novedades.json", {"actualizado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "items": items[:MAX_ITEMS]}, compacto=True)
-    escribir("estado.json", {"ultima": hoy.isoformat()})
-    print(f"Guardadas {min(len(items), MAX_ITEMS)} novedades.")
-    return 0
+    estado_actualizacion = "parcial" if error_retroceso or not det_ok else "correcta"
+    escribir("_diagnostico.json", {"fecha": hoy.isoformat(), "recibidas": len(raw), "relevantes": len(filtradas),
+        "detalles_pedidos": detalles, "detalle_funciona": det_ok, "estado": estado_actualizacion,
+        "retroceso_desde": (retroceso_desde.isoformat() if not fixture else None),
+        "retroceso_hasta": (cursor.isoformat() if not fixture else None),
+        "error_retroceso": error_retroceso,
+        "claves_primer_elemento": sorted(raw[0].keys()) if raw else [], "ejemplo": raw[0] if raw else None})
+    escribir("novedades.json", {"actualizado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+        "estadoActualizacion": estado_actualizacion, "items": items[:MAX_ITEMS]}, compacto=True)
+    escribir("estado.json", {"ultima": hoy.isoformat(), "retrocesoHasta": retroceso_hasta_siguiente})
+    print(f"Guardadas {min(len(items), MAX_ITEMS)} novedades; actualización {estado_actualizacion}.")
+    return 2 if estado_actualizacion == "parcial" else 0
 
 if __name__ == "__main__":
     try:
