@@ -678,7 +678,8 @@ Object.assign(QUESTIONS,{
  familiaNumerosa:"¿Tienes reconocida la condición de familia numerosa?",
  social:"¿Quieres comprobar prestaciones sociales, incluido el ingreso mínimo vital?",
  fiscal:"¿Quieres comprobar deducciones y beneficios fiscales personales?",
- emergencias:"¿Has sufrido daños por una DANA, inundación, incendio u otra catástrofe?",
+ emergencias:"¿Has sufrido daños personales o en tu vivienda por una DANA, inundación, incendio u otra catástrofe?",
+ emergenciasActividad:"¿Tu negocio o centro de actividad ha sufrido daños por una DANA, inundación, incendio u otra catástrofe?",
  transporte:"¿Tu actividad pertenece al transporte o a un sector con ayudas específicas por carburante?",
  municipioBarcelona:"¿Resides en Barcelona ciudad?",
  municipioMadrid:"¿Resides en Madrid ciudad?",
@@ -691,7 +692,7 @@ Object.assign(DEP,{nacimientoFecha:"familia",menores:"familia",contratoAlquiler:
 delete DEP.familiaMonoparental;delete DEP.familiaNumerosa;
 Object.assign(FALTA,{
  ccaa:"residir o desarrollar la actividad en la comunidad autónoma indicada",municipioBarcelona:"residir en Barcelona ciudad si la convocatoria lo exige",municipioMadrid:"residir en Madrid ciudad si la convocatoria lo exige",
- familia:"tener una situación familiar contemplada en las bases",nacimientoFecha:"cumplir el plazo correspondiente a la fecha del nacimiento/adopción",menores:"tener menores a cargo según las condiciones",alquiler:"tener gastos de alquiler subvencionables",edad:"cumplir el tramo de edad de la convocatoria",unidad:"cumplir los requisitos de la unidad de convivencia",ingresos:"cumplir los límites de ingresos",contratoAlquiler:"disponer del contrato exigido",empadronamiento:"cumplir el requisito de empadronamiento si lo exige la convocatoria",residenciaLegal:"cumplir los requisitos de residencia",familiaMonoparental:"tener reconocida la condición si se solicita ese supuesto",familiaNumerosa:"tener reconocida la condición si se solicita ese supuesto",social:"cumplir los requisitos de la prestación concreta",fiscal:"cumplir los requisitos fiscales del beneficio concreto",emergencias:"estar dentro del ámbito territorial y acreditar los daños o circunstancias de la catástrofe",transporte:"pertenecer al sector y cumplir las condiciones de la medida de combustible"
+ familia:"tener una situación familiar contemplada en las bases",nacimientoFecha:"cumplir el plazo correspondiente a la fecha del nacimiento/adopción",menores:"tener menores a cargo según las condiciones",alquiler:"tener gastos de alquiler subvencionables",edad:"cumplir el tramo de edad de la convocatoria",unidad:"cumplir los requisitos de la unidad de convivencia",ingresos:"cumplir los límites de ingresos",contratoAlquiler:"disponer del contrato exigido",empadronamiento:"cumplir el requisito de empadronamiento si lo exige la convocatoria",residenciaLegal:"cumplir los requisitos de residencia",familiaMonoparental:"tener reconocida la condición si se solicita ese supuesto",familiaNumerosa:"tener reconocida la condición si se solicita ese supuesto",social:"cumplir los requisitos de la prestación concreta",fiscal:"cumplir los requisitos fiscales del beneficio concreto",emergencias:"estar dentro del ámbito territorial y acreditar los daños personales o en la vivienda",emergenciasActividad:"estar dentro del ámbito territorial y acreditar los daños sufridos por el negocio o centro de actividad",transporte:"pertenecer al sector y cumplir las condiciones de la medida de combustible"
 });
 FALTA.bases="comprobar las bases oficiales completas, los requisitos que faltan y el estado vigente de la convocatoria";
 function valorAid(k,a){
@@ -765,7 +766,7 @@ function secuencia(){
  if(c==="empresaotra")l=l.concat(["#Tu empresa o entidad","hacienda"]);
  if(c==="nuevo"&&A.perfil==="empresa")l=l.concat(["#Preparar la constitución de tu empresa"]);else if(c==="nuevo")l=l.concat(["#Preparar el inicio de actividad","nuevo","jovenyo","paro","desempleado","hacienda"]);
  l=l.concat(["#Dónde resides o desarrollas la actividad","ccaa","provincia","municipio","amb","lleida","centre","ponent"]);
- if(c==="aut"||c==="sl"||c==="empresaotra")l=l.concat(["#Tu equipo y las contrataciones","plantilla","contratar","indefinido","joven","bcn","#Otras ayudas de actividad","transporte","emergencias"]);
+ if(c==="aut"||c==="sl"||c==="empresaotra")l=l.concat(["#Tu equipo y las contrataciones","plantilla","contratar","indefinido","joven","bcn","#Otras ayudas de actividad","transporte","emergenciasActividad"]);
  if(A.perfil==="autonomo"||A.perfil==="ambos"){
   l=l.concat(["#Dirección fiscal y residencia","direccionIgual"]);
   if(A.direccionIgual==="no")l=l.concat(["#Dónde resides","ccaaResidencia","provinciaResidencia","municipioResidencia"]);
