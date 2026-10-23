@@ -1,12 +1,12 @@
 {
- "fecha": "2026-10-22",
- "recibidas": 2161,
- "relevantes": 1673,
+ "fecha": "2026-10-23",
+ "recibidas": 1983,
+ "relevantes": 1537,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-09-08",
- "retroceso_hasta": "2026-09-14",
+ "retroceso_desde": "2026-09-01",
+ "retroceso_hasta": "2026-09-07",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1138906,
+  "id": 1138944,
   "mrr": false,
-  "numeroConvocatoria": "937345",
-  "descripcion": "Subvención excepcional Fundación Esclerosi Múltiple",
-  "descripcionLeng": "Subvenció excepcional Fundació Esclerosi Múltiple",
-  "fechaRecepcion": "2026-10-22",
-  "nivel1": "LOCAL",
-  "nivel2": "ESCALA, L'",
-  "nivel3": "AYUNTAMIENTO DE L'ESCALA",
+  "numeroConvocatoria": "937383",
+  "descripcion": "Resolución del consejero de Empresa, Empleo y Energía, y pesidente del SOIB Grados B de FP para ocupados y desempleados 24_26_PNL 081/2026",
+  "descripcionLeng": "Resolució del conseller d’Empresa, Ocupació i Energia, i president del SOIB de Graus B d'FP per ocupats i desocupats 24_26_PNL 081/2026",
+  "fechaRecepcion": "2026-10-23",
+  "nivel1": "AUTONOMICA",
+  "nivel2": "ILLES BALEARS",
+  "nivel3": "SERVICIO DE OCUPACIÓN DE LAS ISLAS BALEARES (SOIB)",
   "codigoInvente": null
  }
 }

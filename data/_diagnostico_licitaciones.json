@@ -1,27 +1,28 @@
 {
- "fecha": "2026-10-22",
+ "fecha": "2026-10-23",
  "ficheros": 2,
- "encontradas": 197,
- "guardadas": 2034,
- "fuentes_correctas": [],
- "fuentes_parciales": [
-  "perfiles",
+ "encontradas": 214,
+ "guardadas": 2117,
+ "fuentes_correctas": [
   "agregadas"
+ ],
+ "fuentes_parciales": [
+  "perfiles"
  ],
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "CEGC_2026-10",
-  "titulo": "Suministro de cascos con destino al personal del Consorcio de Emergencias de Gran Canaria.",
-  "organo": "Presidencia del Consorcio de Emergencias de Gran Canaria",
-  "territorio": "Gran Canaria",
-  "nuts": "ES705",
+  "id": "2026/139",
+  "titulo": "Contrato mixto consistente en suministro, en régimen de arrendamiento y trabajos de ejecución de instalaciones eléctricas temporales para las diversas actividades y eventos programados por comercio y hostelería.",
+  "organo": "Junta de Gobierno del Ayuntamiento de Cádiz",
+  "territorio": "Cádiz",
+  "nuts": "ES612",
   "tipo": "Suministros",
-  "cpv": "18444111",
-  "presupuesto": 289800,
-  "cierre": "2026-11-24",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=PlVHyGTtIl5%2FR5QFTlaM4A%3D%3D",
-  "visto": "2026-10-22",
+  "cpv": "31211000",
+  "presupuesto": 7125,
+  "cierre": "2026-11-06",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=hHFPwY31RF0kJPJS%2BPS9vg%3D%3D",
+  "visto": "2026-10-23",
   "actualizada": "2026-10-21"
  }
 }
