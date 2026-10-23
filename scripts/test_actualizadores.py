@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Pruebas de regresión locales para los importadores de Subvenly. No usan red."""
 import datetime as dt
+import json
+import tempfile
 import sys
 import unittest
 from unittest.mock import patch
