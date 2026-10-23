@@ -256,6 +256,17 @@ def main():
         except Exception as exc:
             errores.append("{}: {}".format(nombre, str(exc)[:400]))
     if not nuevos:
+        # Persistir el diagnóstico incluso cuando fallan todos los feeds. No se toca
+        # novedades.json: los datos anteriores se conservan hasta recuperar la fuente.
+        diagnostico.update({
+            "recibidas": 0,
+            "porFuente": por_fuente,
+            "errores": errores,
+            "muestra": [],
+            "datosAnterioresConservados": True,
+            "estado": "fallida",
+        })
+        escribir_json("_diagnostico_cido.json", diagnostico)
         raise RuntimeError("Ningún RSS del CIDO devolvió registros. " + "; ".join(errores))
     datos = leer_json("novedades.json", {"items": []})
     combinado, resumen = combinar(datos, nuevos, hoy)
