@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """Pruebas de regresión locales para los importadores de Subvenly. No usan red."""
 import datetime as dt
-import json
-import tempfile
 import sys
 import unittest
 from unittest.mock import patch
@@ -123,6 +121,19 @@ class TestCIDO(unittest.TestCase):
         self.assertEqual(actualizado["titulo"], "Ajuts per a la digitalització de negocis locals 2026")
         self.assertEqual(actualizado["visto"], "2026-10-20")
         self.assertEqual(resumen["nuevas"], 1)
+
+    def test_guarda_diagnostico_si_fallan_todos_los_rss(self):
+        with patch.object(actualizar_cido, "descargar_rss", side_effect=RuntimeError("fallo")):
+            with patch.object(actualizar_cido, "escribir_json") as guardar:
+                with self.assertRaisesRegex(RuntimeError, "Ningún RSS del CIDO"):
+                    actualizar_cido.main()
+        guardar.assert_called_once()
+        nombre, diagnostico = guardar.call_args.args
+        self.assertEqual(nombre, "_diagnostico_cido.json")
+        self.assertEqual(diagnostico["estado"], "fallida")
+        self.assertEqual(diagnostico["recibidas"], 0)
+        self.assertTrue(diagnostico["datosAnterioresConservados"])
+        self.assertEqual(len(diagnostico["errores"]), 2)
 
     def test_bdns_no_consulta_el_endpoint_de_detalle_para_cido(self):
         self.assertTrue(actualizar.es_bdns({"id":"123456"}))
