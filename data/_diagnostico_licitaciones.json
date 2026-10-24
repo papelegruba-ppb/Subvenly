@@ -1,8 +1,8 @@
 {
- "fecha": "2026-10-23",
- "ficheros": 2,
- "encontradas": 214,
- "guardadas": 2117,
+ "fecha": "2026-10-24",
+ "ficheros": 1,
+ "encontradas": 121,
+ "guardadas": 2181,
  "fuentes_correctas": [
   "agregadas"
  ],
@@ -12,17 +12,17 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "2026/139",
-  "titulo": "Contrato mixto consistente en suministro, en régimen de arrendamiento y trabajos de ejecución de instalaciones eléctricas temporales para las diversas actividades y eventos programados por comercio y hostelería.",
-  "organo": "Junta de Gobierno del Ayuntamiento de Cádiz",
-  "territorio": "Cádiz",
-  "nuts": "ES612",
-  "tipo": "Suministros",
-  "cpv": "31211000",
-  "presupuesto": 7125,
-  "cierre": "2026-11-06",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=hHFPwY31RF0kJPJS%2BPS9vg%3D%3D",
-  "visto": "2026-10-23",
-  "actualizada": "2026-10-21"
+  "id": "2026/D22200/006-650/00003",
+  "titulo": "seguro privado MUREC",
+  "organo": "Junta de Gobierno de la Diputación Provincial de Almería",
+  "territorio": "Almería",
+  "nuts": "ES611",
+  "tipo": "Otros",
+  "cpv": "66515000",
+  "presupuesto": 18000,
+  "cierre": "2026-11-04",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=uGt1YVp307jzAq95uGTrDQ%3D%3D",
+  "visto": "2026-10-24",
+  "actualizada": "2026-10-20"
  }
 }

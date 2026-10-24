@@ -1,12 +1,12 @@
 {
- "fecha": "2026-10-23",
- "recibidas": 1983,
- "relevantes": 1537,
+ "fecha": "2026-10-24",
+ "recibidas": 1888,
+ "relevantes": 1470,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-09-01",
- "retroceso_hasta": "2026-09-07",
+ "retroceso_desde": "2026-08-25",
+ "retroceso_hasta": "2026-08-31",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1138944,
+  "id": 1139241,
   "mrr": false,
-  "numeroConvocatoria": "937383",
-  "descripcion": "Resolución del consejero de Empresa, Empleo y Energía, y pesidente del SOIB Grados B de FP para ocupados y desempleados 24_26_PNL 081/2026",
-  "descripcionLeng": "Resolució del conseller d’Empresa, Ocupació i Energia, i president del SOIB de Graus B d'FP per ocupats i desocupats 24_26_PNL 081/2026",
-  "fechaRecepcion": "2026-10-23",
-  "nivel1": "AUTONOMICA",
-  "nivel2": "ILLES BALEARS",
-  "nivel3": "SERVICIO DE OCUPACIÓN DE LAS ISLAS BALEARES (SOIB)",
+  "numeroConvocatoria": "937680",
+  "descripcion": "Concurso de Postales de Navidad 2026",
+  "descripcionLeng": "Concurso de Postais de Nadal 2026",
+  "fechaRecepcion": "2026-10-24",
+  "nivel1": "LOCAL",
+  "nivel2": "CARBALLIÑO, O",
+  "nivel3": "AYUNTAMIENTO DE CARBALLIÑO, O",
   "codigoInvente": null
  }
 }
