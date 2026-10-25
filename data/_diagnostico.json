@@ -1,12 +1,12 @@
 {
- "fecha": "2026-10-24",
- "recibidas": 1888,
- "relevantes": 1470,
+ "fecha": "2026-10-25",
+ "recibidas": 1494,
+ "relevantes": 1185,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-08-25",
- "retroceso_hasta": "2026-08-31",
+ "retroceso_desde": "2026-08-18",
+ "retroceso_hasta": "2026-08-24",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1139241,
+  "id": 1139242,
   "mrr": false,
-  "numeroConvocatoria": "937680",
-  "descripcion": "Concurso de Postales de Navidad 2026",
-  "descripcionLeng": "Concurso de Postais de Nadal 2026",
-  "fechaRecepcion": "2026-10-24",
-  "nivel1": "LOCAL",
-  "nivel2": "CARBALLIÑO, O",
-  "nivel3": "AYUNTAMIENTO DE CARBALLIÑO, O",
+  "numeroConvocatoria": "937681",
+  "descripcion": "subvenciones en concepto de becas para alumnos que realizen cursos de formación profesional para la ocupación financiados por el SOIB",
+  "descripcionLeng": "subvencions en concepte de beques per alumnes que realitzin cursos de formació professional per a l'ocupació finançats pel SOIB",
+  "fechaRecepcion": "2026-10-25",
+  "nivel1": "AUTONOMICA",
+  "nivel2": "ILLES BALEARS",
+  "nivel3": "SERVICIO DE OCUPACIÓN DE LAS ISLAS BALEARES (SOIB)",
   "codigoInvente": null
  }
 }

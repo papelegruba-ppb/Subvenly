@@ -1,8 +1,8 @@
 {
- "fecha": "2026-10-24",
+ "fecha": "2026-10-25",
  "ficheros": 1,
- "encontradas": 121,
- "guardadas": 2181,
+ "encontradas": 85,
+ "guardadas": 2254,
  "fuentes_correctas": [
   "agregadas"
  ],
@@ -12,17 +12,17 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "2026/D22200/006-650/00003",
-  "titulo": "seguro privado MUREC",
-  "organo": "Junta de Gobierno de la Diputación Provincial de Almería",
-  "territorio": "Almería",
-  "nuts": "ES611",
-  "tipo": "Otros",
-  "cpv": "66515000",
-  "presupuesto": 18000,
-  "cierre": "2026-11-04",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=uGt1YVp307jzAq95uGTrDQ%3D%3D",
-  "visto": "2026-10-24",
+  "id": "CP00140/2026",
+  "titulo": "Servicio de renting para vehículo destinado a Servicios Generales de la Sede Social de ASEPEYO",
+  "organo": "Subdirección General Económica de ASEPEYO. Mutua Colaboradora con la Seguridad Social. num. 151",
+  "territorio": "Extra-Regio NUTS 3",
+  "nuts": "ESZZZ",
+  "tipo": "Servicios",
+  "cpv": "66114000",
+  "presupuesto": 15600,
+  "cierre": "2026-11-05",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=m8dZNC6usp%2BLAncw3qdZkA%3D%3D",
+  "visto": "2026-10-25",
   "actualizada": "2026-10-20"
  }
 }
