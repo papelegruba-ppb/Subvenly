@@ -95,6 +95,16 @@ class TestCIDO(unittest.TestCase):
         self.assertEqual(items[0]["estadoConvocatoria"], "por verificar")
         self.assertTrue(items[0]["link"].startswith("https://cido.diba.cat/subvencions/"))
 
+    def test_normaliza_enlaces_http_del_rss_a_https(self):
+        xml = self.fixture_rss().replace(
+            b"https://cido.diba.cat/subvencions/",
+            b"http://cido.diba.cat/subvencions/",
+        )
+        items = actualizar_cido.parsear_rss(xml, dt.date(2026, 10, 22))
+        self.assertEqual(len(items), 2)
+        for item in items:
+            self.assertTrue(item["link"].startswith("https://cido.diba.cat/subvencions/"))
+
     def test_clasifica_el_feed_de_becas_segun_el_organismo(self):
         xml = self.fixture_rss().replace(b"Ajuntament de Lleida", b"Generalitat de Catalunya")
         items = actualizar_cido.parsear_rss(
