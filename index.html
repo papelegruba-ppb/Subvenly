@@ -789,7 +789,7 @@ function encajeNov(n,pf){
   }else if(!de){unk=true;why.push("comprueba el territorio")}
  }
  else if(amb==="Local"){
-  if(candidatosMunicipio.some(function(m){return textoLocal.indexOf(m)>=0})){
+  if(candidatosMunicipio.some(function(m){return textoLocal.indexOf(nrm(m))>=0})){
    // Una coincidencia con la residencia o con la actividad evita excluir por el territorio equivocado.
   }else if(ubicacionIndeterminada){
    if(candidatosMunicipio.length>=2)bad=true;
