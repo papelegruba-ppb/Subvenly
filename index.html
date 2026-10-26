@@ -106,8 +106,7 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
 .facts div{border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:.88rem}
 .facts b{display:block;color:var(--mut);font-weight:500;font-size:.78rem}
 .res{border-radius:12px;padding:12px 14px;margin-top:12px}
-.lead,.card p:not(.meta),.card li,.pane p,.pane li,.notice,.miss li{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
-@media (max-width:520px){.lead,.card p:not(.meta),.card li,.pane p,.pane li,.notice,.miss li{text-align:left}}
+.lead,.card p:not(.meta),.card li,.pane p,.pane li,.notice,.miss li{text-align:left;hyphens:auto;-webkit-hyphens:auto}
 </style>
 </head>
 <body>
@@ -141,7 +140,7 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
 
 <p class="foot" style="max-width:1000px;margin:0 auto 40px;padding:0 16px">
   <span class="foot-logo">Subvenly</span><br>
-  Un proyecto de Papelegruba · <a href="mailto:hola@subvenly.com">hola@subvenly.com</a>
+  Un proyecto de Papelegruba
 </p>
 
 <dialog id="dlg" aria-labelledby="dtitle">
@@ -224,7 +223,7 @@ function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null
 function txt(tag,s){var e=el(tag);e.textContent=s;return e}
 function fmt(d){var p=d.split("-");return p[2]+"/"+p[1]+"/"+p[0]}
 var LBL={si:["Encaja","b-si"],mid:["Puede encajar","b-mid"],no:["No encaja","b-no"]};
-function seg(key,cb){var w=el("div","seg");
+function seg(key,cb){var w=el("div","seg");w.setAttribute("role","group");w.setAttribute("aria-label",QUESTIONS[key]||key);
   [["si","Sí"],["no","No"],["nose","No sé"]].forEach(function(o){var b=el("button","",o[1]);
     b.type="button";b.setAttribute("aria-pressed",A[key]===o[0]);
     b.onclick=function(){A[key]=o[0];save();cb()};w.appendChild(b)});return w}
@@ -276,8 +275,6 @@ function selectPregunta(k,opts){
 function chips(id,arr,get,set){var f=document.getElementById(id);f.innerHTML="";
   arr.forEach(function(t){var b=el("button","chip",t);b.type="button";b.setAttribute("aria-pressed",get()===t);
     b.onclick=function(){set(t);renderFilters();renderList()};f.appendChild(b)})}
-function alertLink(a,cls){var l=el("a","btn "+cls,"Avísame cuando abra");
-  l.href="mailto:hola@subvenly.com?subject="+encodeURIComponent("Avísame cuando abra: "+a.titulo)+"&body="+encodeURIComponent("Hola, me interesa: "+a.titulo+mailBody());return l}
 function mkCard(it,mode,answered){var a=it.a,e=it.e,s=estado(a),closed=s.k==="closed";
   var c=el("article","card"+(mode==="no"?" dim":"")+(closed?" closed":"")),t=el("div","top");
   var lt=el("div","","<h3></h3><div class='meta'></div>");lt.querySelector("h3").textContent=a.titulo;
@@ -285,7 +282,7 @@ function mkCard(it,mode,answered){var a=it.a,e=it.e,s=estado(a),closed=s.k==="cl
   var bg=el("div","badges");bg.appendChild(el("span","st st-"+s.k,s.t));
   if(answered)bg.appendChild(el("span","badge "+LBL[e.s][1],LBL[e.s][0]));
   t.appendChild(bg);c.appendChild(t);
-  c.appendChild(el("p","meta",(a.categoria?a.categoria+" · ":"")+"Plazo: "+a.plazo+" · <span class='amount'>"+a.importe+"</span>"));
+  var meta=el("p","meta");meta.appendChild(document.createTextNode((a.categoria?a.categoria+" · ":"")+"Plazo: "+(a.plazo||"No indicado")+" · "));meta.appendChild(txt("span",a.importe||"Importe no indicado"));meta.lastChild.className="amount";c.appendChild(meta);
   c.appendChild(txt("p",a.resumen));
   if(a.aviso){var av=el("div","miss m");av.appendChild(txt("strong","Convocatoria pendiente de publicar"));av.appendChild(txt("span",a.aviso));c.appendChild(av)}
   var vg=VIG[String(a.id)];if(vg&&vg.estado==="cambio"){var vb=el("div","miss m");vb.appendChild(txt("strong","Posible cambio en la web oficial"));vb.appendChild(txt("span","Desde el "+fmt(vg.desde)+" la página oficial parece haber cambiado. Confirma importes y condiciones antes de decidir."));c.appendChild(vb)}
@@ -294,7 +291,7 @@ function mkCard(it,mode,answered){var a=it.a,e=it.e,s=estado(a),closed=s.k==="cl
   else{var ul=el("ul");a.requisitos.forEach(function(r){ul.appendChild(txt("li",r))});c.appendChild(ul)}
   var row=el("div","row"),b=el("button","btn"+(mode==="no"?" alt":""),mode==="no"?"Ver qué necesito":"Ver detalle y test");b.type="button";
   b.onclick=function(){openDlg(a,mode==="no"?"test":"resumen")};row.appendChild(b);
-  if(closed)row.appendChild(alertLink(a,"alt"));c.appendChild(row);return c}
+  c.appendChild(row);return c}
 function aplicaPerfil(a){
   if(!A.perfil)return true;
   if(A.perfil==="particular")return a.perfil==="personal";
@@ -308,8 +305,9 @@ function openDlg(a,t){cur=a;tab=t||"resumen";document.getElementById("dtitle").t
   var d=document.getElementById("dlg");if(!d.open)d.showModal()}
 function drawDlg(){var a=cur,tabs=document.getElementById("tabs"),pane=document.getElementById("pane"),s=estado(a);tabs.innerHTML="";pane.innerHTML="";
   [["resumen","Resumen"],["docs","Documentación"],["eval","Evaluación"],["test","¿Me encaja?"],["cambios","Cambios detectados"]].forEach(function(o){
-    var b=el("button","",o[1]);b.type="button";b.setAttribute("role","tab");b.setAttribute("aria-selected",tab===o[0]);
+    var b=el("button","",o[1]);b.type="button";b.id="tab-"+o[0];b.setAttribute("role","tab");b.setAttribute("aria-controls","pane");b.setAttribute("aria-selected",tab===o[0]);
     b.onclick=function(){tab=o[0];drawDlg()};tabs.appendChild(b)});
+  pane.setAttribute("role","tabpanel");pane.setAttribute("aria-labelledby","tab-"+tab);
   function list(arr){var u=el("ul");arr.forEach(function(x){u.appendChild(txt("li",x))});return u}
   if(tab==="resumen"){
     var f=el("div","facts");[["Estado",s.t],["Órgano",a.organo],["Ámbito",a.ambito],["Plazo",a.plazo],["Importe",a.importe]].forEach(function(x){
@@ -340,9 +338,8 @@ function drawDlg(){var a=cur,tabs=document.getElementById("tabs"),pane=document.
       :"Para encajar te falta: "+e.bad.map(function(k){return falta(k,a)}).join("; ")+".";
     if(s.k==="closed")m+=" Además, la convocatoria está cerrada ahora mismo.";
     box.appendChild(txt("strong",LBL[e.s][0]));box.appendChild(txt("p",m));pane.appendChild(box);
-    var r2=el("div","row"),c=el("a","btn","Escríbenos y lo revisamos");
-    c.href="mailto:hola@subvenly.com?subject="+encodeURIComponent("Consulta sobre: "+a.titulo)+"&body="+encodeURIComponent("Hola, quiero consultar: "+a.titulo+mailBody());r2.appendChild(c);
-    if(s.k==="closed")r2.appendChild(alertLink(a,"alt"));pane.appendChild(r2)}
+    // No se ofrecen derivaciones ni avisos por correo en esta versión personal.
+  }
 }
 document.getElementById("close").onclick=function(){document.getElementById("dlg").close()};
 document.getElementById("dlg").addEventListener("click",function(e){if(e.target===this)this.close()});
@@ -415,13 +412,13 @@ function renderNovedades(){var c=document.getElementById("nov-list");c.innerHTML
     if(d.length)card.appendChild(txt("p",d.join(" · "))).className="meta";
     if(n.beneficiarios)card.appendChild(txt("p","Para: "+n.beneficiarios));
     if(n.finalidad)card.appendChild(txt("p",n.finalidad.length>220?n.finalidad.slice(0,217)+"…":n.finalidad));
-    var r=el("div","row"),a=el("a","btn alt","Ver convocatoria oficial");a.href=n.sede||n.link;a.target="_blank";a.rel="noopener";r.appendChild(a);
-    var q=el("a","btn alt","Que me ayuden a revisarla");q.href="mailto:hola@subvenly.com?subject="+encodeURIComponent("Revisar convocatoria: "+n.titulo.slice(0,80))+"&body="+encodeURIComponent("Hola, me interesa esta convocatoria: "+n.link+mailBody());r.appendChild(q);
-    card.appendChild(r);g.appendChild(card)});c.appendChild(g);
+    var r=el("div","row"),urlNov=n.sede||n.link;
+    if(okUrl(urlNov)){var a=el("a","btn alt","Ver convocatoria oficial");a.href=urlNov;a.target="_blank";a.rel="noopener noreferrer";r.appendChild(a)}
+    if(r.childNodes.length)card.appendChild(r);g.appendChild(card)});c.appendChild(g);
   if(all.length>NOV_MAX){var m=el("div","row"),b=el("button","btn alt","Ver más novedades");b.type="button";b.onclick=function(){NOV_MAX+=15;renderNovedades()};m.appendChild(b);c.appendChild(m)}}
 var CPV={"03":"Agricultura y pesca","09":"Energía","15":"Alimentación","18":"Ropa y calzado","22":"Impresos y papel","30":"Equipos informáticos y de oficina","31":"Material eléctrico","32":"Equipos de telecomunicaciones","33":"Material médico","34":"Vehículos y transporte","35":"Seguridad y defensa","37":"Deporte, música y juegos","38":"Instrumentos de laboratorio","39":"Mobiliario y electrodomésticos","42":"Maquinaria industrial","44":"Materiales de construcción","45":"Obras de construcción","48":"Software","50":"Reparación y mantenimiento","51":"Instalación","55":"Hostelería y restauración","60":"Transporte","63":"Servicios auxiliares del transporte","64":"Correos y telecomunicaciones","65":"Suministros públicos","66":"Servicios financieros y seguros","70":"Servicios inmobiliarios","71":"Arquitectura e ingeniería","72":"Servicios informáticos","73":"Investigación y desarrollo","75":"Administración pública","77":"Agricultura y jardinería","79":"Servicios a empresas (consultoría, publicidad, formación…)","80":"Educación y formación","85":"Sanidad y servicios sociales","90":"Limpieza, residuos y medio ambiente","92":"Cultura, ocio y deporte","98":"Otros servicios"};
 var licQ="",licT="",licTipo="",licSec="",licMax=0,licMia=false,LIC_MAX=15;
-function okUrl(u){return /^https?:\/\//i.test(u||"")}
+function okUrl(u){try{var x=new URL(String(u||""),window.location.href);return (x.protocol==="https:"||x.protocol==="http:")&&!!x.hostname}catch(e){return false}}
 function opciones(sel,pares){pares.forEach(function(p){sel.appendChild(new Option(p[1],p[0]))})}
 function buildLicTop(){var c=document.getElementById("lic-top");c.innerHTML="";var it=(LIC&&LIC.items)||[];if(!it.length)return;
   c.appendChild(el("h2","gh","Licitaciones abiertas <small>· en plazo de presentar oferta, sin revisar</small>"));
@@ -458,8 +455,7 @@ function renderLic(){var c=document.getElementById("lic-list");c.innerHTML="";if
     var sc=l.cpv&&CPV[l.cpv.slice(0,2)];if(sc)f.push("Sector: "+sc);
     if(f.length)card.appendChild(txt("p",f.join(" · "))).className="meta";
     var r=el("div","row");if(okUrl(l.link)){var a=el("a","btn alt","Ver licitación");a.href=l.link;a.target="_blank";a.rel="noopener";r.appendChild(a)}
-    var q=el("a","btn alt","Que me ayuden a prepararla");q.href="mailto:hola@subvenly.com?subject="+encodeURIComponent("Licitación: "+l.titulo.slice(0,80))+"&body="+encodeURIComponent("Hola, me interesa esta licitación: "+(l.link||l.id)+mailBody());r.appendChild(q);
-    card.appendChild(r);g.appendChild(card)});c.appendChild(g);
+    if(r.childNodes.length)card.appendChild(r);g.appendChild(card)});c.appendChild(g);
   if(all.length>LIC_MAX){var mm=el("div","row"),b=el("button","btn alt","Ver más licitaciones ("+(all.length-LIC_MAX)+")");b.type="button";b.onclick=function(){LIC_MAX+=15;renderLic()};mm.appendChild(b);c.appendChild(mm)}}
 function cargar(u,def){return fetch(u,{cache:"no-cache"}).then(function(r){if(!r.ok)throw new Error(u);return r.json()}).catch(function(){return def})}
 </script>
@@ -823,7 +819,6 @@ function renderFilters(){
  sel("Administración u organismo",organoAyuda,[["","Todos los organismos"]].concat(organos.map(function(x){return[x,x]})),function(v){organoAyuda=v});
  sel("Compatibilidad según el test",compatAyuda,[["","Todas las compatibilidades"],["si","Encaja"],["mid","Puede encajar / por verificar"],["no","No encaja"]],function(v){compatAyuda=v});
 }
-function mailBody(){var o=[],labels={si:"Sí",no:"No",nose:"No sé"};secuencia().forEach(function(k){if(k[0]==="#"||A[k]===undefined||A[k]===""||!mostrar(k))return;var v=Object.prototype.hasOwnProperty.call(labels,A[k])?labels[A[k]]:String(A[k]);o.push((QUESTIONS[k]||k)+" "+v)});return o.length?"\n\nMis respuestas del test:\n"+o.join("\n"):""}
 function renderSourceChanges(){
  var section=document.getElementById("source-changes"),list=document.getElementById("source-changes-list");if(!section||!list)return;list.innerHTML="";
  var vistos={};try{vistos=JSON.parse(LS.get("subvenly_fuentes_revisadas")||"{}")||{}}catch(e){}
