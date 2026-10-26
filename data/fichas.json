@@ -1843,7 +1843,7 @@
       "Estar registrado en el fichero del Sistema Nacional de Garantía Juvenil como beneficiario/a",
       "Titulación acreditada el día hábil anterior al inicio del contrato: certificado de profesionalidad, FP de grado medio o superior, título equivalente o título universitario terminado en los últimos 3 años (5 años si tiene discapacidad)",
       "Contrato formativo para la obtención de práctica profesional, a jornada completa y de 12 meses",
-      "Límite de contratos: empresas privadas y cooperativas de trabajo asociado, 1 contrato; entidades sin ánimo de lucro, hasta 3 según plantilla (1 hasta 10 trabajadores, 2 entre 11 y 30, 3 desde 31)"
+      "Límite de contratos: empresas privadas y cooperativas de trabajo asociado con consideración de empresa privada, 1 contrato; entidades sin ánimo de lucro, hasta 3 según plantilla (1 hasta 10 trabajadores, 2 entre 11 y 30, 3 desde 31)"
     ],
     "docs": [
       "Solicitud telemática por internet (formulario de la sede electrónica o EACAT para administraciones locales): no se admite documentación por otros canales",
@@ -1853,7 +1853,7 @@
       "Documentación acreditativa de la representación solo si la firma electrónica no la acredita; escritura de constitución solo en sociedades civiles privadas",
       "Si no autorizas la consulta de oficio, documentación de estar al corriente con Hacienda y la Seguridad Social"
     ],
-    "eval": "Importe por módulo mensual según el grupo de cotización del joven (8-11: 1.583,52 €; 3-7: 1.597,12 €; 1-2: 2.224,09 €) por mes efectivo, máximo 12 meses por contrato (19.002,24 €, 19.165,44 € o 26.689,08 € totales). Orden del proceso: primero se solicita la subvención; el contrato solo puede iniciarse a partir del día siguiente a la resolución de concesión y como máximo el 31/03/2027, y debe terminar como máximo el 30/03/2028; no se debe firmar ni iniciar el contrato antes de la resolución. En los primeros 3 meses puede sustituirse una baja con otro contrato de al menos 9 meses. Para entidades sin ánimo de lucro hay 5.300.000 € reservados en tres líneas (mujeres en sectores masculinizados; jóvenes de grupos 3-11 en sectores industrial, digital o agrario; resto de solicitudes) y para empresas 5.000.000 € con las mismas líneas. La resolución se notifica en un máximo de 3 meses desde el fin de plazo.",
+    "eval": "Importe por módulo mensual según el grupo de cotización del joven (8-11: 1.583,52 €; 3-7: 1.597,12 €; 1-2: 2.224,09 €) por mes efectivo, máximo 12 meses por contrato (19.002,24 €, 19.165,44 € o 26.689,08 € totales). Orden del proceso: primero se solicita la subvención y se espera la resolución de concesión; la contratación solo puede iniciarse a partir del día siguiente al otorgamiento y como máximo el 31/03/2027, y debe terminar como máximo el 30/03/2028. En los primeros 3 meses puede sustituirse una baja con otro contrato de al menos 9 meses. Para entidades sin ánimo de lucro hay 5.300.000 € reservados en tres líneas (mujeres en sectores masculinizados; jóvenes de grupos de cotización 3 a 11 o contrataciones vinculadas a los sectores industrial, digital o agrario; resto de solicitudes) y para empresas 5.000.000 € con las mismas líneas. La resolución se notifica en un máximo de 3 meses desde el fin del plazo de solicitud, según la resolución de convocatoria.",
     "link": "https://serveiocupacio.gencat.cat/ca/entitats/subvencions-foment-ocupacio/contractes-formatius-joves-en-practiques-2026/",
     "links": [
       [
