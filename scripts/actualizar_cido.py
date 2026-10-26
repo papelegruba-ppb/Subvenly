@@ -137,7 +137,18 @@ def parsear_rss(contenido, hoy=None, feed=FEED, nivel_defecto="Local"):
                     if link:
                         break
         link = urllib.parse.urljoin(feed, link)
-        if not link.startswith("https://cido.diba.cat/subvencions/"):
+        # El RSS oficial puede publicar enlaces HTTP aunque el sitio admita HTTPS.
+        # Normalizamos solo el host oficial de CIDO; el resto de enlaces no se acepta.
+        try:
+            parsed_link = urllib.parse.urlsplit(link)
+        except ValueError:
+            continue
+        if parsed_link.scheme.lower() == "http" and (parsed_link.hostname or "").lower() == "cido.diba.cat":
+            link = urllib.parse.urlunsplit(("https", "cido.diba.cat", parsed_link.path, parsed_link.query, parsed_link.fragment))
+            parsed_link = urllib.parse.urlsplit(link)
+        if (parsed_link.scheme.lower() != "https"
+                or (parsed_link.hostname or "").lower() != "cido.diba.cat"
+                or not parsed_link.path.startswith("/subvencions/")):
             continue
         descripcion = limpiar(campo(item, "description") or campo(item, "encoded") or campo(item, "summary") or campo(item, "content"))
         if not titulo or titulo.lower().startswith("data de publicacio"):
@@ -256,6 +267,17 @@ def main():
         except Exception as exc:
             errores.append("{}: {}".format(nombre, str(exc)[:400]))
     if not nuevos:
+        # Persistir el diagnóstico incluso cuando fallan todos los feeds. No se toca
+        # novedades.json: los datos anteriores se conservan hasta recuperar la fuente.
+        diagnostico.update({
+            "recibidas": 0,
+            "porFuente": por_fuente,
+            "errores": errores,
+            "muestra": [],
+            "datosAnterioresConservados": True,
+            "estado": "fallida",
+        })
+        escribir_json("_diagnostico_cido.json", diagnostico)
         raise RuntimeError("Ningún RSS del CIDO devolvió registros. " + "; ".join(errores))
     datos = leer_json("novedades.json", {"items": []})
     combinado, resumen = combinar(datos, nuevos, hoy)
