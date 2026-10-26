@@ -1,8 +1,8 @@
 {
- "fecha": "2026-10-25",
+ "fecha": "2026-10-26",
  "ficheros": 1,
- "encontradas": 85,
- "guardadas": 2254,
+ "encontradas": 139,
+ "guardadas": 2383,
  "fuentes_correctas": [
   "agregadas"
  ],
@@ -12,17 +12,17 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "CP00140/2026",
-  "titulo": "Servicio de renting para vehículo destinado a Servicios Generales de la Sede Social de ASEPEYO",
-  "organo": "Subdirección General Económica de ASEPEYO. Mutua Colaboradora con la Seguridad Social. num. 151",
-  "territorio": "Extra-Regio NUTS 3",
-  "nuts": "ESZZZ",
-  "tipo": "Servicios",
-  "cpv": "66114000",
-  "presupuesto": 15600,
+  "id": "413/2026/OBRAS/Segundo Procedimiento",
+  "titulo": "Urbanización del entorno del Espacio Matadero Arte (E.M.A.) de Malpartida de Plasencia",
+  "organo": "Alcaldía del Ayuntamiento de Malpartida de Plasencia",
+  "territorio": "Cáceres",
+  "nuts": "ES432",
+  "tipo": "Obras",
+  "cpv": "45211360",
+  "presupuesto": 173049,
   "cierre": "2026-11-05",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=m8dZNC6usp%2BLAncw3qdZkA%3D%3D",
-  "visto": "2026-10-25",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=yV0JTI54NrzLIx6q1oPaMg%3D%3D",
+  "visto": "2026-10-26",
   "actualizada": "2026-10-20"
  }
 }
