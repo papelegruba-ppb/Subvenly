@@ -811,6 +811,17 @@ function renderFilters(){
  var tipos=["Todas"].concat(Array.from(new Set(AIDS.map(function(a){return a.tipo}).filter(Boolean))).sort());
  chips("filters",tipos,function(){return tipo},function(t){tipo=t});
  chips("estf",["Todas","Abiertas","Pendientes","Por verificar","Cerradas"],function(){return est},function(t){est=t});
+ var f=document.getElementById("advf");f.innerHTML="";
+ var q=el("input","fld");q.type="search";q.placeholder="Buscar por nombre, organismo, objetivo o importe…";q.setAttribute("aria-label","Buscar ayudas");q.value=busquedaAyuda;
+ q.oninput=function(){busquedaAyuda=q.value;renderList()};f.appendChild(q);
+ function sel(label,value,options,change){var x=el("select","fld");x.setAttribute("aria-label",label);options.forEach(function(o){x.appendChild(new Option(o[1],o[0]))});x.value=value;x.onchange=function(){change(x.value);renderList()};f.appendChild(x)}
+ var ambitos=Array.from(new Set(AIDS.map(function(a){return a.ambito}).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,"es")});
+ var organos=Array.from(new Set(AIDS.map(function(a){return a.organo}).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,"es")});
+ var categorias=Array.from(new Set(AIDS.map(function(a){return a.categoria}).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,"es")});
+ sel("Objetivo de la ayuda",categoriaAyuda,[["","Todos los objetivos"]].concat(categorias.map(function(x){return[x,x]})),function(v){categoriaAyuda=v});
+ sel("Ámbito territorial",ambitoAyuda,[["","Todos los ámbitos"]].concat(ambitos.map(function(x){return[x,x]})),function(v){ambitoAyuda=v});
+ sel("Administración u organismo",organoAyuda,[["","Todos los organismos"]].concat(organos.map(function(x){return[x,x]})),function(v){organoAyuda=v});
+ sel("Compatibilidad según el test",compatAyuda,[["","Todas las compatibilidades"],["si","Encaja"],["mid","Puede encajar / por verificar"],["no","No encaja"]],function(v){compatAyuda=v});
 }
 function mailBody(){var o=[],labels={si:"Sí",no:"No",nose:"No sé"};secuencia().forEach(function(k){if(k[0]==="#"||A[k]===undefined||A[k]===""||!mostrar(k))return;var v=Object.prototype.hasOwnProperty.call(labels,A[k])?labels[A[k]]:String(A[k]);o.push((QUESTIONS[k]||k)+" "+v)});return o.length?"\n\nMis respuestas del test:\n"+o.join("\n"):""}
 function renderSourceChanges(){
