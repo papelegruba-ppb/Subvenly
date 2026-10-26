@@ -19,7 +19,7 @@ const context = {
   valorAid: key => values[key],
   nrm: value => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(),
   n1lab: value => {
-    const t = String(value || "").normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").toLowerCase();
+    const t = String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
     return t.includes("union europea") || t === "ue" ? "Unión Europea" :
       t.startsWith("estatal") ? "Estatal" : t.includes("autonom") || t === "regional" ? "Autonómica" :
       t.includes("local") ? "Local" : "Otros";
