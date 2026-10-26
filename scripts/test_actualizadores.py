@@ -95,6 +95,16 @@ class TestCIDO(unittest.TestCase):
         self.assertEqual(items[0]["estadoConvocatoria"], "por verificar")
         self.assertTrue(items[0]["link"].startswith("https://cido.diba.cat/subvencions/"))
 
+    def test_normaliza_enlaces_http_del_rss_a_https(self):
+        xml = self.fixture_rss().replace(
+            b"https://cido.diba.cat/subvencions/",
+            b"http://cido.diba.cat/subvencions/",
+        )
+        items = actualizar_cido.parsear_rss(xml, dt.date(2026, 10, 22))
+        self.assertEqual(len(items), 2)
+        for item in items:
+            self.assertTrue(item["link"].startswith("https://cido.diba.cat/subvencions/"))
+
     def test_clasifica_el_feed_de_becas_segun_el_organismo(self):
         xml = self.fixture_rss().replace(b"Ajuntament de Lleida", b"Generalitat de Catalunya")
         items = actualizar_cido.parsear_rss(
@@ -121,6 +131,19 @@ class TestCIDO(unittest.TestCase):
         self.assertEqual(actualizado["titulo"], "Ajuts per a la digitalització de negocis locals 2026")
         self.assertEqual(actualizado["visto"], "2026-10-20")
         self.assertEqual(resumen["nuevas"], 1)
+
+    def test_guarda_diagnostico_si_fallan_todos_los_rss(self):
+        with patch.object(actualizar_cido, "descargar_rss", side_effect=RuntimeError("fallo")):
+            with patch.object(actualizar_cido, "escribir_json") as guardar:
+                with self.assertRaisesRegex(RuntimeError, "Ningún RSS del CIDO"):
+                    actualizar_cido.main()
+        guardar.assert_called_once()
+        nombre, diagnostico = guardar.call_args.args
+        self.assertEqual(nombre, "_diagnostico_cido.json")
+        self.assertEqual(diagnostico["estado"], "fallida")
+        self.assertEqual(diagnostico["recibidas"], 0)
+        self.assertTrue(diagnostico["datosAnterioresConservados"])
+        self.assertEqual(len(diagnostico["errores"]), 2)
 
     def test_bdns_no_consulta_el_endpoint_de_detalle_para_cido(self):
         self.assertTrue(actualizar.es_bdns({"id":"123456"}))
