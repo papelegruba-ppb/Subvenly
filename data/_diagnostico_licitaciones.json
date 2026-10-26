@@ -1,8 +1,8 @@
 {
  "fecha": "2026-10-26",
  "ficheros": 1,
- "encontradas": 139,
- "guardadas": 2383,
+ "encontradas": 104,
+ "guardadas": 2468,
  "fuentes_correctas": [
   "agregadas"
  ],
@@ -12,16 +12,16 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "413/2026/OBRAS/Segundo Procedimiento",
-  "titulo": "Urbanización del entorno del Espacio Matadero Arte (E.M.A.) de Malpartida de Plasencia",
-  "organo": "Alcaldía del Ayuntamiento de Malpartida de Plasencia",
-  "territorio": "Cáceres",
-  "nuts": "ES432",
-  "tipo": "Obras",
-  "cpv": "45211360",
-  "presupuesto": 173049,
-  "cierre": "2026-11-05",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=yV0JTI54NrzLIx6q1oPaMg%3D%3D",
+  "id": "FPNCYL-44/2026",
+  "titulo": "Servicio de atención al público, información e interpretación para visitantes en el Centro de Visitantes de La Fonseya (Oseja de Sajambre) y Valdeón (Posada de Valdeón) años 2027-2028",
+  "organo": "Fundación del Patrimonio Natural de Castilla y León",
+  "territorio": "León",
+  "nuts": "ES413",
+  "tipo": "Servicios",
+  "cpv": "92000000",
+  "presupuesto": 278722,
+  "cierre": "2026-11-18",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=FhUKef7YkSp%2BF6L2uCfUWg%3D%3D",
   "visto": "2026-10-26",
   "actualizada": "2026-10-20"
  }
