@@ -1820,5 +1820,56 @@
     ],
     "categoria": "Educación y juventud",
     "consultado": "2026-10-22"
+  },
+  {
+    "id": 52,
+    "tipo": "Subvención",
+    "titulo": "Subvenciones para contratos formativos para la obtención de práctica profesional (jóvenes en prácticas) 2026",
+    "organo": "SOC · Generalitat de Catalunya",
+    "ambito": "Cataluña",
+    "plazo": "Del 16/10/2026 al 29/10/2026",
+    "cierre": "2026-10-29",
+    "importe": "1.583,52 €/mes (grupos de cotización 8-11) · 1.597,12 €/mes (grupos 3-7) · 2.224,09 €/mes (grupos 1-2), hasta 12 meses: de 19.002,24 € a 26.689,08 € por contrato",
+    "resumen": "El SOC subvenciona contratos formativos de 12 meses a jornada completa para jóvenes de 16 a 29 años en desempleo, dentro del programa Joves en Pràctiques (Garantía Juvenil, cofinanciado por el FSE+). La dotación es de 19.300.000 €. Las empresas privadas pueden solicitar un contrato y las entidades sin ánimo de lucro hasta tres según su plantilla.",
+    "reqs": {
+      "catalunya": "si",
+      "contratar": "si",
+      "joven": "si"
+    },
+    "requisitos": [
+      "Ser entidad beneficiaria con establecimiento operativo en Cataluña: empresa privada (autónomo o pyme), cooperativa de trabajo asociado, entidad sin ánimo de lucro, ayuntamiento, consejo comarcal u organismo local vinculado",
+      "Estar al corriente de las obligaciones tributarias y con la Seguridad Social (consulta de oficio o documentación si no la autorizas)",
+      "Joven de 16 a 29 años, inscrito como demandante de empleo no ocupado (DONO) en el SOC el día hábil anterior al inicio del contrato",
+      "Estar registrado en el fichero del Sistema Nacional de Garantía Juvenil como beneficiario/a",
+      "Titulación acreditada el día hábil anterior al inicio del contrato: certificado de profesionalidad, FP de grado medio o superior, título equivalente o título universitario terminado en los últimos 3 años (5 años si tiene discapacidad)",
+      "Contrato formativo para la obtención de práctica profesional, a jornada completa y de 12 meses",
+      "Límite de contratos: empresas privadas y cooperativas de trabajo asociado con consideración de empresa privada, 1 contrato; entidades sin ánimo de lucro, hasta 3 según plantilla (1 hasta 10 trabajadores, 2 entre 11 y 30, 3 desde 31)"
+    ],
+    "docs": [
+      "Solicitud telemática por internet (formulario de la sede electrónica o EACAT para administraciones locales): no se admite documentación por otros canales",
+      "Memoria técnica según modelo normalizado (G146NFOC-113)",
+      "Declaración de ausencia de conflicto de interés de entidades solicitantes (DACI, G146NIA-459)",
+      "Si firmas como autónomo, certificado digital de persona física; como persona jurídica, certificado de representación o inscripción en Representa",
+      "Documentación acreditativa de la representación solo si la firma electrónica no la acredita; escritura de constitución solo en sociedades civiles privadas",
+      "Si no autorizas la consulta de oficio, documentación de estar al corriente con Hacienda y la Seguridad Social"
+    ],
+    "eval": "Importe por módulo mensual según el grupo de cotización del joven (8-11: 1.583,52 €; 3-7: 1.597,12 €; 1-2: 2.224,09 €) por mes efectivo, máximo 12 meses por contrato (19.002,24 €, 19.165,44 € o 26.689,08 € totales). Orden del proceso: primero se solicita la subvención y se espera la resolución de concesión; la contratación solo puede iniciarse a partir del día siguiente al otorgamiento y como máximo el 31/03/2027, y debe terminar como máximo el 30/03/2028. En los primeros 3 meses puede sustituirse una baja con otro contrato de al menos 9 meses. Para entidades sin ánimo de lucro hay 5.300.000 € reservados en tres líneas (mujeres en sectores masculinizados; jóvenes de grupos de cotización 3 a 11 o contrataciones vinculadas a los sectores industrial, digital o agrario; resto de solicitudes) y para empresas 5.000.000 € con las mismas líneas. La resolución se notifica en un máximo de 3 meses desde el fin del plazo de solicitud, según la resolución de convocatoria.",
+    "link": "https://serveiocupacio.gencat.cat/ca/entitats/subvencions-foment-ocupacio/contractes-formatius-joves-en-practiques-2026/",
+    "links": [
+      [
+        "Convocatoria del SOC (Joves en Pràctiques 2026)",
+        "https://serveiocupacio.gencat.cat/ca/entitats/subvencions-foment-ocupacio/contractes-formatius-joves-en-practiques-2026/"
+      ],
+      [
+        "Trámite de solicitud (Tràmits Gencat)",
+        "https://tramits.gencat.cat/ca/tramits/tramits-temes/Subvencions-destinades-a-la-realitzacio-de-contractes-formatius-per-a-lobtencio-de-practica-professional?category=&moda=1"
+      ],
+      [
+        "Resolución EMT/3653/2026 (DOGC núm. 9773)",
+        "https://portaldogc.gencat.cat/utilsEADOP/PDF/9773/2175380.pdf"
+      ]
+    ],
+    "categoria": "Contratación",
+    "consultado": "2026-10-26"
   }
 ]
