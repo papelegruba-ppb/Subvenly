@@ -318,8 +318,8 @@ function drawDlg(){var a=cur,tabs=document.getElementById("tabs"),pane=document.
     pane.appendChild(txt("h4","Para qué es"));pane.appendChild(txt("p",a.resumen));
     pane.appendChild(txt("h4","Requisitos"));pane.appendChild(list(a.requisitos));
     var r=el("div","row");
-    var LK=a.links||(a.link&&a.link!=="#"?[["Trámite oficial",a.link]]:[]);LK.forEach(function(x){var l=el("a","btn alt",x[0]);l.href=x[1];l.target="_blank";l.rel="noopener";r.appendChild(l)});
-    if(s.k==="closed")r.appendChild(alertLink(a,""));pane.appendChild(r)
+    var LK=a.links||(a.link&&a.link!=="#"?[["Trámite oficial",a.link]]:[]);LK.forEach(function(x){if(okUrl(x[1])){var l=el("a","btn alt",x[0]);l.href=x[1];l.target="_blank";l.rel="noopener noreferrer";r.appendChild(l)}});
+    pane.appendChild(r)
   }else if(tab==="cambios"){
     pane.appendChild(txt("h4","Cambios detectados en la página oficial"));
     var vgCambios=VIG[String(a.id)];
