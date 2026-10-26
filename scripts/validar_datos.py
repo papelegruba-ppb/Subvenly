@@ -221,7 +221,7 @@ def main():
            "La versión personal no debe incluir derivaciones por correo ni adjuntar respuestas del test")
     exigir('function okUrl(u){try{var x=new URL' in html and 'if(okUrl(urlNov))' in html and 'if(okUrl(x[1]))' in html,
            "Los enlaces externos de fichas y novedades deben validarse antes de mostrarse")
-    exigir('role="tabpanel"' not in html or 'pane.setAttribute("role","tabpanel")' in html,
+    exigir('pane.setAttribute("role","tabpanel")' in html and 'pane.setAttribute("aria-labelledby","tab-"+tab)' in html,
            "El panel del diálogo debe estar asociado a sus pestañas accesibles")
     prueba_actualizadores = subprocess.run([sys.executable, str(ROOT / "scripts" / "test_actualizadores.py")],
                                            capture_output=True, text=True, cwd=ROOT)
