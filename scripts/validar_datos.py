@@ -212,6 +212,17 @@ def main():
     exigir(prueba_rutas.returncode == 0,
            "Fallaron las pruebas de rutas del test: " + (prueba_rutas.stdout + prueba_rutas.stderr).strip())
     print(prueba_rutas.stdout.strip())
+    prueba_compatibilidad = subprocess.run(["node", str(ROOT / "scripts" / "test_compatibilidad.js")],
+                                          capture_output=True, text=True, cwd=ROOT)
+    exigir(prueba_compatibilidad.returncode == 0,
+           "Fallaron las pruebas de compatibilidad: " + (prueba_compatibilidad.stdout + prueba_compatibilidad.stderr).strip())
+    print(prueba_compatibilidad.stdout.strip())
+    exigir("mailto:" not in html and "mailBody" not in html and "alertLink" not in html,
+           "La versión personal no debe incluir derivaciones por correo ni adjuntar respuestas del test")
+    exigir('function okUrl(u){try{var x=new URL' in html and 'if(okUrl(urlNov))' in html and 'if(okUrl(x[1]))' in html,
+           "Los enlaces externos de fichas y novedades deben validarse antes de mostrarse")
+    exigir('role="tabpanel"' not in html or 'pane.setAttribute("role","tabpanel")' in html,
+           "El panel del diálogo debe estar asociado a sus pestañas accesibles")
     prueba_actualizadores = subprocess.run([sys.executable, str(ROOT / "scripts" / "test_actualizadores.py")],
                                            capture_output=True, text=True, cwd=ROOT)
     exigir(prueba_actualizadores.returncode == 0,
