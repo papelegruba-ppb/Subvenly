@@ -19,7 +19,7 @@ const context = {
   valorAid: key => values[key],
   nrm: value => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(),
   n1lab: value => {
-    const t = String(value || "").toLowerCase();
+    const t = String(value || "").normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").toLowerCase();
     return t.includes("union europea") || t === "ue" ? "Unión Europea" :
       t.startsWith("estatal") ? "Estatal" : t.includes("autonom") || t === "regional" ? "Autonómica" :
       t.includes("local") ? "Local" : "Otros";
@@ -71,8 +71,8 @@ novelty("16. Beneficiarios no identificados",
   {n1:"Autonómica",n2:"Cataluña",beneficiarios:""}, profile(), "mid");
 novelty("17. Ayuda estatal: no excluir por comunidad autónoma",
   {n1:"Estatal",n2:"España",beneficiarios:empresa}, profile({perfil:"autonomo",particular:false,aut:true,soc:false}), "si");
-novelty("18. Ayuda empresarial para perfil particular",
-  {n1:"Estatal",n2:"España",beneficiarios:empresa}, profile(), "no");
+novelty("18. Beneficiarios incompatibles con datos incompletos",
+  {n1:"Estatal",n2:"España",beneficiarios:empresa}, profile(), "mid");
 novelty("19. Ayuda europea con beneficiarios compatibles",
   {n1:"Unión Europea",n2:"Unión Europea",beneficiarios:persona}, profile(), "si");
 novelty("20. Ayuda europea sin beneficiarios identificados",
