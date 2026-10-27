@@ -1,28 +1,27 @@
 {
- "fecha": "2026-10-26",
+ "fecha": "2026-10-27",
  "ficheros": 1,
- "encontradas": 104,
- "guardadas": 2468,
+ "encontradas": 101,
+ "guardadas": 2431,
  "fuentes_correctas": [
+  "perfiles",
   "agregadas"
  ],
- "fuentes_parciales": [
-  "perfiles"
- ],
+ "fuentes_parciales": [],
  "errores": [],
- "estado": "parcial",
+ "estado": "completa",
  "ejemplo": {
-  "id": "FPNCYL-44/2026",
-  "titulo": "Servicio de atención al público, información e interpretación para visitantes en el Centro de Visitantes de La Fonseya (Oseja de Sajambre) y Valdeón (Posada de Valdeón) años 2027-2028",
-  "organo": "Fundación del Patrimonio Natural de Castilla y León",
-  "territorio": "León",
-  "nuts": "ES413",
+  "id": "2026/AR42U/00001998E",
+  "titulo": "Repuestos sostenimiento de equipos HOCA y SHUTTLE.",
+  "organo": "Intendente de Ferrol",
+  "territorio": "Noroeste",
+  "nuts": "ES1",
   "tipo": "Servicios",
-  "cpv": "92000000",
-  "presupuesto": 278722,
-  "cierre": "2026-11-18",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=FhUKef7YkSp%2BF6L2uCfUWg%3D%3D",
-  "visto": "2026-10-26",
+  "cpv": "50530000",
+  "presupuesto": 8264,
+  "cierre": "2026-11-05",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=4z5qD8NiaLqP66GS%2BONYvQ%3D%3D",
+  "visto": "2026-10-27",
   "actualizada": "2026-10-20"
  }
 }

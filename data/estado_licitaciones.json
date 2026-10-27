@@ -1,16 +1,8 @@
 {
- "ultima": "2026-10-26",
+ "ultima": "2026-10-27",
  "fuentes": [
+  "perfiles",
   "agregadas"
  ],
- "feeds": {
-  "perfiles": {
-   "corte": "2026-10-20",
-   "next": "https://contrataciondelestado.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3_20261021_203238_10.atom"
-  },
-  "agregadas": {
-   "corte": "2026-10-20",
-   "completo": true
-  }
- }
+ "feeds": {}
 }

@@ -1,12 +1,12 @@
 {
- "fecha": "2026-10-26",
- "recibidas": 1079,
- "relevantes": 874,
+ "fecha": "2026-10-27",
+ "recibidas": 1483,
+ "relevantes": 1194,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-08-04",
- "retroceso_hasta": "2026-08-10",
+ "retroceso_desde": "2026-07-29",
+ "retroceso_hasta": "2026-08-03",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1139242,
+  "id": 1139611,
   "mrr": false,
-  "numeroConvocatoria": "937681",
-  "descripcion": "subvenciones en concepto de becas para alumnos que realizen cursos de formación profesional para la ocupación financiados por el SOIB",
-  "descripcionLeng": "subvencions en concepte de beques per alumnes que realitzin cursos de formació professional per a l'ocupació finançats pel SOIB",
-  "fechaRecepcion": "2026-10-25",
+  "numeroConvocatoria": "938050",
+  "descripcion": "Segunda convocatoria pública de subvenciones para el diseño de refugios como espacios que ofrecen confort térmico en las Illes Balears en el marco del impuesto sobre estancias turísticas en las Illes Balears y de medidas de impulso del turismo sostenible",
+  "descripcionLeng": "Segona convocatòria pública de subvencions per al disseny de refugis com espais que ofereixen confort tèrmic a les Illes Balears en el marc de l’impost sobre estades turístiques a les Illes Balears i de mesures d’impuls del turisme sostenible (ITS2024-202",
+  "fechaRecepcion": "2026-10-27",
   "nivel1": "AUTONOMICA",
   "nivel2": "ILLES BALEARS",
-  "nivel3": "SERVICIO DE OCUPACIÓN DE LAS ISLAS BALEARES (SOIB)",
+  "nivel3": "DIRECCIÓN GENERAL DE ECONOMÍA CIRCULAR, TRANSICIÓN ENERGÉTICA Y CAMBIO CLIMÁTICO",
   "codigoInvente": null
  }
 }
