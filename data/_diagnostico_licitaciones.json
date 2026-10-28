@@ -1,27 +1,20 @@
 {
- "fecha": "2026-10-27",
- "ficheros": 1,
- "encontradas": 101,
+ "fecha": "2026-10-28",
+ "ficheros": 0,
+ "encontradas": 0,
  "guardadas": 2431,
- "fuentes_correctas": [
-  "perfiles",
-  "agregadas"
- ],
+ "fuentes_correctas": [],
  "fuentes_parciales": [],
- "errores": [],
- "estado": "completa",
- "ejemplo": {
-  "id": "2026/AR42U/00001998E",
-  "titulo": "Repuestos sostenimiento de equipos HOCA y SHUTTLE.",
-  "organo": "Intendente de Ferrol",
-  "territorio": "Noroeste",
-  "nuts": "ES1",
-  "tipo": "Servicios",
-  "cpv": "50530000",
-  "presupuesto": 8264,
-  "cierre": "2026-11-05",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=4z5qD8NiaLqP66GS%2BONYvQ%3D%3D",
-  "visto": "2026-10-27",
-  "actualizada": "2026-10-20"
- }
+ "errores": [
+  {
+   "fuente": "perfiles",
+   "error": "No se pudo descargar https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3.atom"
+  },
+  {
+   "fuente": "agregadas",
+   "error": "No se pudo descargar https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_1044/PlataformasAgregadasSinMenores.atom"
+  }
+ ],
+ "estado": "fallida",
+ "ejemplo": null
 }
