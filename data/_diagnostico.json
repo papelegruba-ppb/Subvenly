@@ -1,12 +1,12 @@
 {
- "fecha": "2026-10-28",
- "recibidas": 2277,
- "relevantes": 1745,
+ "fecha": "2026-10-29",
+ "recibidas": 2132,
+ "relevantes": 1667,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-10-18",
- "retroceso_hasta": "2026-10-24",
+ "retroceso_desde": "2026-10-11",
+ "retroceso_hasta": "2026-10-17",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1139909,
+  "id": 1140194,
   "mrr": false,
-  "numeroConvocatoria": "938348",
-  "descripcion": "Convocatoria contratación personal investigador en formación_INSTRUMENTAL",
-  "descripcionLeng": "Convocatòria contratació personal investigador en formació_INSTRUMENTAL",
-  "fechaRecepcion": "2026-10-28",
+  "numeroConvocatoria": "938633",
+  "descripcion": "subvención directa",
+  "descripcionLeng": "subvenció directa",
+  "fechaRecepcion": "2026-10-29",
   "nivel1": "AUTONOMICA",
   "nivel2": "ILLES BALEARS",
-  "nivel3": "DIRECCIÓN GENERAL DE UNIVERSIDADES, INVESTIGACIÓN Y ENSEÑANZAS ARTÍSTICAS SUPERIORES",
+  "nivel3": "DIRECCIÓN GENERAL DE INMIGRACIÓN Y COOPERACIÓN AL DESARROLLO",
   "codigoInvente": null
  }
 }
