@@ -1,12 +1,12 @@
 {
- "fecha": "2026-10-29",
- "recibidas": 2132,
- "relevantes": 1667,
+ "fecha": "2026-10-30",
+ "recibidas": 2252,
+ "relevantes": 1778,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-10-11",
- "retroceso_hasta": "2026-10-17",
+ "retroceso_desde": "2026-10-04",
+ "retroceso_hasta": "2026-10-10",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1140194,
+  "id": 1140488,
   "mrr": false,
-  "numeroConvocatoria": "938633",
-  "descripcion": "subvención directa",
-  "descripcionLeng": "subvenció directa",
+  "numeroConvocatoria": "938927",
+  "descripcion": "ayudas escolares curso 206/2027",
+  "descripcionLeng": null,
   "fechaRecepcion": "2026-10-29",
-  "nivel1": "AUTONOMICA",
-  "nivel2": "ILLES BALEARS",
-  "nivel3": "DIRECCIÓN GENERAL DE INMIGRACIÓN Y COOPERACIÓN AL DESARROLLO",
+  "nivel1": "LOCAL",
+  "nivel2": "IGLESUELA DEL TIÉTAR, LA",
+  "nivel3": "AYUNTAMIENTO DE IGLESUELA DEL TIÉTAR, LA",
   "codigoInvente": null
  }
 }
