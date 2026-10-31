@@ -1,8 +1,8 @@
 {
- "fecha": "2026-10-29",
+ "fecha": "2026-10-31",
  "ficheros": 2,
- "encontradas": 75,
- "guardadas": 2376,
+ "encontradas": 248,
+ "guardadas": 2430,
  "fuentes_correctas": [],
  "fuentes_parciales": [
   "perfiles",
@@ -11,17 +11,17 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "S-04478-2026",
-  "titulo": "Filtros Climatizadores Prado - Sant Cugat",
-  "organo": "Compras de la Corporación de Radio y Televisión Española S.A.",
-  "territorio": "Madrid",
-  "nuts": "ES300",
-  "tipo": "Suministros",
-  "cpv": "42913500",
-  "presupuesto": 53761,
-  "cierre": "2026-11-17",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=1qVj0SoQSX%2FyoM4us5k4vw%3D%3D",
-  "visto": "2026-10-29",
+  "id": "SERV-ABR/2026000362",
+  "titulo": "Servicio de dinamización de Asociaciones de Mayores del municipio incorporando condiciones especiales de ejecución de carácter social",
+  "organo": "Junta de Gobierno del Ayuntamiento de Molina de Segura",
+  "territorio": "",
+  "nuts": "ES620",
+  "tipo": "Servicios",
+  "cpv": "85311100",
+  "presupuesto": 83887,
+  "cierre": "2026-11-12",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=WsZDMbEkzl1xseVhcqrkhw%3D%3D",
+  "visto": "2026-10-31",
   "actualizada": "2026-10-28"
  }
 }

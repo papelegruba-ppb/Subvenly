@@ -1,12 +1,12 @@
 {
- "fecha": "2026-10-30",
- "recibidas": 2252,
- "relevantes": 1778,
+ "fecha": "2026-10-31",
+ "recibidas": 2224,
+ "relevantes": 1826,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-10-04",
- "retroceso_hasta": "2026-10-10",
+ "retroceso_desde": "2026-09-27",
+ "retroceso_hasta": "2026-10-03",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1140488,
+  "id": 1140744,
   "mrr": false,
-  "numeroConvocatoria": "938927",
-  "descripcion": "ayudas escolares curso 206/2027",
+  "numeroConvocatoria": "939183",
+  "descripcion": "DESARROLLO DEL PROYECTO \"TRABAJO CON APOYO PARA PERSONAS CON SINDROME DE DOWN\"",
   "descripcionLeng": null,
-  "fechaRecepcion": "2026-10-29",
+  "fechaRecepcion": "2026-10-30",
   "nivel1": "LOCAL",
-  "nivel2": "IGLESUELA DEL TIÉTAR, LA",
-  "nivel3": "AYUNTAMIENTO DE IGLESUELA DEL TIÉTAR, LA",
+  "nivel2": "CUENCA",
+  "nivel3": "AYUNTAMIENTO DE CUENCA",
   "codigoInvente": null
  }
 }
