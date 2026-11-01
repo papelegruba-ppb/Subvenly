@@ -1,8 +1,8 @@
 {
- "fecha": "2026-10-31",
+ "fecha": "2026-11-01",
  "ficheros": 2,
- "encontradas": 248,
- "guardadas": 2430,
+ "encontradas": 185,
+ "guardadas": 2592,
  "fuentes_correctas": [],
  "fuentes_parciales": [
   "perfiles",
@@ -11,17 +11,17 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "SERV-ABR/2026000362",
-  "titulo": "Servicio de dinamización de Asociaciones de Mayores del municipio incorporando condiciones especiales de ejecución de carácter social",
-  "organo": "Junta de Gobierno del Ayuntamiento de Molina de Segura",
-  "territorio": "",
-  "nuts": "ES620",
+  "id": "1918580W",
+  "titulo": "Contrato privado de seguros de vida e invalidez del personal municipal y de los miembros de la corporación.",
+  "organo": "Alcaldía del Ayuntamiento de Binéfar",
+  "territorio": "Huesca",
+  "nuts": "ES241",
   "tipo": "Servicios",
-  "cpv": "85311100",
-  "presupuesto": 83887,
-  "cierre": "2026-11-12",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=WsZDMbEkzl1xseVhcqrkhw%3D%3D",
-  "visto": "2026-10-31",
+  "cpv": "66511000",
+  "presupuesto": 30000,
+  "cierre": "2026-11-11",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=u%2FPxAO4OKPGLAncw3qdZkA%3D%3D",
+  "visto": "2026-11-01",
   "actualizada": "2026-10-28"
  }
 }
