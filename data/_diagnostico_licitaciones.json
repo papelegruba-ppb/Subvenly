@@ -1,8 +1,8 @@
 {
- "fecha": "2026-11-01",
+ "fecha": "2026-11-02",
  "ficheros": 2,
- "encontradas": 185,
- "guardadas": 2592,
+ "encontradas": 200,
+ "guardadas": 2752,
  "fuentes_correctas": [],
  "fuentes_parciales": [
   "perfiles",
@@ -11,17 +11,17 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "1918580W",
-  "titulo": "Contrato privado de seguros de vida e invalidez del personal municipal y de los miembros de la corporación.",
-  "organo": "Alcaldía del Ayuntamiento de Binéfar",
-  "territorio": "Huesca",
-  "nuts": "ES241",
+  "id": "CG-2027/1805/0002",
+  "titulo": "Seguridad a las personas, instalaciones y objetos que se encuentren en el edificio de IBERMUTUA, sito en la Avda. del Conocimiento, nº 15 de Granada",
+  "organo": "Dirección General de IBERMUTUA, Mutua Colaboradora con la Seguridad Social nº 274",
+  "territorio": "Granada",
+  "nuts": "ES614",
   "tipo": "Servicios",
-  "cpv": "66511000",
-  "presupuesto": 30000,
-  "cierre": "2026-11-11",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=u%2FPxAO4OKPGLAncw3qdZkA%3D%3D",
-  "visto": "2026-11-01",
+  "cpv": "79713000",
+  "presupuesto": 65000,
+  "cierre": "2026-11-16",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=yGyJ0GRoP5V9PLkba5eRog%3D%3D",
+  "visto": "2026-11-02",
   "actualizada": "2026-10-28"
  }
 }

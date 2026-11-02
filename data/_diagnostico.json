@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-01",
- "recibidas": 1814,
- "relevantes": 1449,
+ "fecha": "2026-11-02",
+ "recibidas": 1636,
+ "relevantes": 1289,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-09-20",
- "retroceso_hasta": "2026-09-26",
+ "retroceso_desde": "2026-09-13",
+ "retroceso_hasta": "2026-09-19",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1140744,
+  "id": 1140745,
   "mrr": false,
-  "numeroConvocatoria": "939183",
-  "descripcion": "DESARROLLO DEL PROYECTO \"TRABAJO CON APOYO PARA PERSONAS CON SINDROME DE DOWN\"",
+  "numeroConvocatoria": "939184",
+  "descripcion": "Ayudas para actividades extraescolares 2026",
   "descripcionLeng": null,
-  "fechaRecepcion": "2026-10-30",
+  "fechaRecepcion": "2026-11-01",
   "nivel1": "LOCAL",
-  "nivel2": "CUENCA",
-  "nivel3": "AYUNTAMIENTO DE CUENCA",
+  "nivel2": "LIÉDENA",
+  "nivel3": "AYUNTAMIENTO DE LIÉDENA",
   "codigoInvente": null
  }
 }
