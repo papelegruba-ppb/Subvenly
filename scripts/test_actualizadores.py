@@ -109,7 +109,7 @@ class TestCIDO(unittest.TestCase):
 
     def test_persiste_diagnostico_si_todos_los_feeds_son_irreconocibles(self):
         rss = b"""<?xml version="1.0"?><rss><channel><item>
-            <title>Elemento no válido</title>
+            <title>Elemento no valido</title>
             <link>https://example.com/convocatoria</link>
         </item></channel></rss>"""
         with tempfile.TemporaryDirectory() as tmp:
