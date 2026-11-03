@@ -1,8 +1,8 @@
 {
- "fecha": "2026-11-02",
+ "fecha": "2026-11-03",
  "ficheros": 2,
- "encontradas": 200,
- "guardadas": 2752,
+ "encontradas": 201,
+ "guardadas": 2827,
  "fuentes_correctas": [],
  "fuentes_parciales": [
   "perfiles",
@@ -11,17 +11,17 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "CG-2027/1805/0002",
-  "titulo": "Seguridad a las personas, instalaciones y objetos que se encuentren en el edificio de IBERMUTUA, sito en la Avda. del Conocimiento, nº 15 de Granada",
-  "organo": "Dirección General de IBERMUTUA, Mutua Colaboradora con la Seguridad Social nº 274",
-  "territorio": "Granada",
-  "nuts": "ES614",
-  "tipo": "Servicios",
-  "cpv": "79713000",
-  "presupuesto": 65000,
-  "cierre": "2026-11-16",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=yGyJ0GRoP5V9PLkba5eRog%3D%3D",
-  "visto": "2026-11-02",
+  "id": "4171 B/2026",
+  "titulo": "Otorgamiento en Régimen de concurrencia de 21 autorizaciones demaniales para la ocupación y explotación de puestos vacantes en el mercado Municipal de abastos de Telde",
+  "organo": "Concejalía Delegada de Contratación del Ayuntamiento de Telde",
+  "territorio": "Canarias",
+  "nuts": "ES70",
+  "tipo": "Otros",
+  "cpv": "",
+  "presupuesto": 0,
+  "cierre": "2026-11-19",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Jtdgws2E%2B7Rq1DdmE7eaXg%3D%3D",
+  "visto": "2026-11-03",
   "actualizada": "2026-10-28"
  }
 }

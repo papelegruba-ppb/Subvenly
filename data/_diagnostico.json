@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-02",
- "recibidas": 1636,
- "relevantes": 1289,
+ "fecha": "2026-11-03",
+ "recibidas": 1163,
+ "relevantes": 967,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-09-13",
- "retroceso_hasta": "2026-09-19",
+ "retroceso_desde": "2026-09-06",
+ "retroceso_hasta": "2026-09-12",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1140745,
+  "id": 1140876,
   "mrr": false,
-  "numeroConvocatoria": "939184",
-  "descripcion": "Ayudas para actividades extraescolares 2026",
+  "numeroConvocatoria": "939315",
+  "descripcion": "RESOLUCIÓN DEL DIRECTOR GENERAL DEL ICA POR LA QUE SE CONVOCA LA CONCESIÓN DE AYUDAS ECONÓMICAS, EN RÉGIMEN DE CONCURRENCIA NO COMPETITIVA, DESTINADAS AL FORTALECIMIENTO DE LA INDUSTRIA AUDIOVISUAL EN LA REGIÓN DE MURCIA.",
   "descripcionLeng": null,
-  "fechaRecepcion": "2026-11-01",
-  "nivel1": "LOCAL",
-  "nivel2": "LIÉDENA",
-  "nivel3": "AYUNTAMIENTO DE LIÉDENA",
-  "codigoInvente": null
+  "fechaRecepcion": "2026-11-02",
+  "nivel1": "AUTONOMICA",
+  "nivel2": "REGIÓN DE MURCIA",
+  "nivel3": "INSTITUTO DE INDUSTRIAS CULTURALES Y DE LAS ARTES DE LA REGIÓN DE MURCIA ( ICA )",
+  "codigoInvente": "INV00003700"
  }
 }
