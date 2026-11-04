@@ -1,8 +1,8 @@
 {
- "fecha": "2026-11-03",
+ "fecha": "2026-11-04",
  "ficheros": 2,
- "encontradas": 201,
- "guardadas": 2827,
+ "encontradas": 170,
+ "guardadas": 2648,
  "fuentes_correctas": [],
  "fuentes_parciales": [
   "perfiles",
@@ -11,17 +11,17 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "4171 B/2026",
-  "titulo": "Otorgamiento en Régimen de concurrencia de 21 autorizaciones demaniales para la ocupación y explotación de puestos vacantes en el mercado Municipal de abastos de Telde",
-  "organo": "Concejalía Delegada de Contratación del Ayuntamiento de Telde",
-  "territorio": "Canarias",
-  "nuts": "ES70",
-  "tipo": "Otros",
-  "cpv": "",
-  "presupuesto": 0,
-  "cierre": "2026-11-19",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Jtdgws2E%2B7Rq1DdmE7eaXg%3D%3D",
-  "visto": "2026-11-03",
+  "id": "1236/2026",
+  "titulo": "Asfaltado de calle Cantarranas, Avda. de Andalucía y Paseo de la Janda.",
+  "organo": "Junta de Gobierno Local del Ayuntamiento de Benalup-Casas Viejas",
+  "territorio": "Cádiz",
+  "nuts": "ES612",
+  "tipo": "Obras",
+  "cpv": "45233222",
+  "presupuesto": 72727,
+  "cierre": "2026-11-12",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=q74ZIQyi616TylGzYmBF9Q%3D%3D",
+  "visto": "2026-11-04",
   "actualizada": "2026-10-28"
  }
 }

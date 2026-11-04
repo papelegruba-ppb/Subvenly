@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-03",
- "recibidas": 1163,
- "relevantes": 967,
- "detalles_pedidos": 100,
- "detalle_funciona": true,
- "estado": "correcta",
- "retroceso_desde": "2026-09-06",
- "retroceso_hasta": "2026-09-12",
+ "fecha": "2026-11-04",
+ "recibidas": 1391,
+ "relevantes": 1140,
+ "detalles_pedidos": 76,
+ "detalle_funciona": false,
+ "estado": "parcial",
+ "retroceso_desde": "2026-08-30",
+ "retroceso_hasta": "2026-09-05",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1140876,
+  "id": 1141203,
   "mrr": false,
-  "numeroConvocatoria": "939315",
-  "descripcion": "RESOLUCIÓN DEL DIRECTOR GENERAL DEL ICA POR LA QUE SE CONVOCA LA CONCESIÓN DE AYUDAS ECONÓMICAS, EN RÉGIMEN DE CONCURRENCIA NO COMPETITIVA, DESTINADAS AL FORTALECIMIENTO DE LA INDUSTRIA AUDIOVISUAL EN LA REGIÓN DE MURCIA.",
-  "descripcionLeng": null,
-  "fechaRecepcion": "2026-11-02",
+  "numeroConvocatoria": "939642",
+  "descripcion": "Resolución del consejero de Empresa, Empleo y Energía, y presidente del SOIB Grados B de FP para ocupados y desempleados 24_26_PNL 088/2026",
+  "descripcionLeng": "Resolució del conseller d’Empresa, Ocupació i Energia, i president del SOIB de Graus B d'FP per ocupats i desocupats 24_26_PNL 088/2026",
+  "fechaRecepcion": "2026-11-04",
   "nivel1": "AUTONOMICA",
-  "nivel2": "REGIÓN DE MURCIA",
-  "nivel3": "INSTITUTO DE INDUSTRIAS CULTURALES Y DE LAS ARTES DE LA REGIÓN DE MURCIA ( ICA )",
-  "codigoInvente": "INV00003700"
+  "nivel2": "ILLES BALEARS",
+  "nivel3": "SERVICIO DE OCUPACIÓN DE LAS ISLAS BALEARES (SOIB)",
+  "codigoInvente": null
  }
 }
