@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Pruebas de regresión locales para los importadores de Subvenly. No usan red."""
 import datetime as dt
+import json
+import tempfile
 import sys
 import unittest
 from unittest.mock import patch
@@ -94,6 +96,35 @@ class TestCIDO(unittest.TestCase):
         self.assertEqual(items[0]["fecha"], "2026-10-21")
         self.assertEqual(items[0]["estadoConvocatoria"], "por verificar")
         self.assertTrue(items[0]["link"].startswith("https://cido.diba.cat/subvencions/"))
+
+    def test_normaliza_enlaces_http_del_rss_a_https(self):
+        xml = self.fixture_rss().replace(
+            b"https://cido.diba.cat/subvencions/",
+            b"http://cido.diba.cat/subvencions/",
+        )
+        items = actualizar_cido.parsear_rss(xml, dt.date(2026, 10, 22))
+        self.assertEqual(len(items), 2)
+        for item in items:
+            self.assertTrue(item["link"].startswith("https://cido.diba.cat/subvencions/"))
+
+    def test_persiste_diagnostico_si_todos_los_feeds_son_irreconocibles(self):
+        rss = b"""<?xml version="1.0"?><rss><channel><item>
+            <title>Elemento no valido</title>
+            <link>https://example.com/convocatoria</link>
+        </item></channel></rss>"""
+        with tempfile.TemporaryDirectory() as tmp:
+            novedades = Path(tmp) / "novedades.json"
+            anterior = {"items": [{"id": "bdns-1", "titulo": "Dato anterior"}]}
+            novedades.write_text(json.dumps(anterior), encoding="utf-8")
+            with patch.object(actualizar_cido, "DATA", tmp), \
+                 patch.object(actualizar_cido, "descargar_rss", return_value=rss):
+                with self.assertRaisesRegex(RuntimeError, "Ningún RSS del CIDO"):
+                    actualizar_cido.main()
+            diagnostico = json.loads((Path(tmp) / "_diagnostico_cido.json").read_text(encoding="utf-8"))
+            self.assertEqual(diagnostico["estado"], "fallida")
+            self.assertEqual(len(diagnostico["errores"]), 2)
+            self.assertTrue(diagnostico["datosAnterioresConservados"])
+            self.assertEqual(json.loads(novedades.read_text(encoding="utf-8")), anterior)
 
     def test_clasifica_el_feed_de_becas_segun_el_organismo(self):
         xml = self.fixture_rss().replace(b"Ajuntament de Lleida", b"Generalitat de Catalunya")
