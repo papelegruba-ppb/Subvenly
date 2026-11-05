@@ -1,8 +1,8 @@
 {
  "fecha": "2026-11-05",
  "ficheros": 2,
- "encontradas": 197,
- "guardadas": 2454,
+ "encontradas": 179,
+ "guardadas": 2590,
  "fuentes_correctas": [],
  "fuentes_parciales": [
   "perfiles",
@@ -11,17 +11,17 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "PASA 1470/2026",
-  "titulo": "Suministro continuado de material fungible y dotación del sistema automatizado de cribado de orina en el laboratorio de microbiología del Hospital General Universitario Dr. Balmis de Alicante",
-  "organo": "Departamento de Salud Alicante. Dirección Económica-Gerencia",
-  "territorio": "Alicante/Alacant",
-  "nuts": "ES521",
-  "tipo": "Suministros",
-  "cpv": "33696500",
-  "presupuesto": 59940,
-  "cierre": "2026-11-11",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=8W%2Feb8y7ibZVq4S9zvaQpQ%3D%3D",
+  "id": "EXP.26.0410.PNC.CO",
+  "titulo": "Contrato de obras correspondientes al proyecto básico y de ejecución de edificio de guarda y patios de manejo de camellos y dromedarios en el Parque de la Naturaleza de Cabárceno T.M. de Penagos.",
+  "organo": "Sociedad Regional Cántabra de Promoción Turística S.A. CANTUR S.A.",
+  "territorio": "Cantabria",
+  "nuts": "ES130",
+  "tipo": "Obras",
+  "cpv": "45210000",
+  "presupuesto": 531126,
+  "cierre": "2026-11-23",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=vH5VyKCD8V436J9Lctlsuw%3D%3D",
   "visto": "2026-11-05",
-  "actualizada": "2026-10-28"
+  "actualizada": "2026-10-27"
  }
 }
