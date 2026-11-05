@@ -51,8 +51,8 @@ jobs:
       - name: Buscar licitaciones abiertas
         id: buscar_lic
         continue-on-error: true
-        timeout-minutes: 4
-        run: timeout --kill-after=10s 180s python scripts/actualizar_licitaciones.py
+        timeout-minutes: 6
+        run: timeout --kill-after=10s 300s python -u scripts/actualizar_licitaciones.py
 
       - name: Vigilar las fuentes oficiales registradas
         id: vigilar_fuentes
