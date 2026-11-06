@@ -1820,5 +1820,53 @@
     ],
     "categoria": "Educación y juventud",
     "consultado": "2026-10-22"
+  },
+  {
+    "id": 52,
+    "tipo": "Subvención",
+    "titulo": "Ajuts per a l'impuls de l'activitat econòmica al Centre Històric de Lleida",
+    "organo": "Ajuntament de Lleida · Promoció de la Ciutat",
+    "ambito": "Municipal · Centre Històric de Lleida (Cataluña)",
+    "plazo": "Hasta agotar el crédito disponible y, como máximo, el 10/11/2026",
+    "cierre": "2026-11-10",
+    "importe": "Hasta el 70 % del coste de las actuaciones subvencionables, con un máximo de 10.000 € por persona beneficiaria/solicitud",
+    "resumen": "Ayudas para impulsar la implantación de nuevas actividades económicas comerciales, profesionales o de servicios en el barrio Centre Històric de Lleida, así como el relevo de actividades existentes dentro del periodo establecido en la convocatoria. Pueden solicitarlas personas trabajadoras autónomas, sociedades mercantiles, cooperativas, sociedades civiles privadas y otras entidades con o sin personalidad jurídica propia de naturaleza empresarial.",
+    "reqs": {
+      "catalunya": "si"
+    },
+    "requisitos": [
+      "Implantar o tener intención de implantar una nueva actividad económica comercial, profesional o de servicios en el barrio Centre Històric de Lleida, o asumir el relevo de una actividad existente dentro del periodo fijado por la convocatoria.",
+      "La actividad debe desarrollarse en un local del Centre Històric, situado a pie de calle, en un altillo o en plantas superiores.",
+      "El 100 % de la superficie del inmueble debe destinarse a la actividad económica.",
+      "Estar al corriente de las obligaciones con el Ajuntament de Lleida, la Hacienda Pública y la Tesorería General de la Seguridad Social.",
+      "No encontrarse en ninguna de las circunstancias que impiden obtener la condición de persona beneficiaria conforme al artículo 13.2 de la Ley 38/2003, General de Subvenciones.",
+      "Quedan excluidos los establecimientos de juegos de azar y apuestas; manicura y pedicura exclusivas; bares musicales, discotecas, salas de baile, salas de fiestas con espectáculo, salas de conciertos, karaokes, cafés teatro y cafés concierto; tatuajes y piercings; y venta y reparación de accesorios de telefonía móvil como actividad exclusiva."
+    ],
+    "docs": [
+      "Documentación identificativa y acreditativa de la persona o entidad solicitante.",
+      "Documentación que acredite la implantación de la nueva actividad o el relevo de la actividad existente.",
+      "Presupuestos, facturas y justificantes de los gastos subvencionables, según las bases y el trámite oficial.",
+      "Documentación adicional indicada en el trámite electrónico del Ajuntament de Lleida."
+    ],
+    "eval": "La ayuda puede cubrir hasta el 70 % del coste subvencionable, con un máximo de 10.000 €. Las actuaciones subvencionables se agrupan en: A.1 adecuación, reformas, eficiencia energética, accesibilidad y licencias de actividad; A.2 mobiliario, equipos informáticos, maquinaria y equipamiento; A.3 rentas de arrendamiento o compra del local; A.4 estudios de marketing, ventas y viabilidad; A.5 digitalización directamente vinculada al negocio y con mejora tecnológica, comercial u organizativa. El plazo finaliza al agotarse el crédito y, en todo caso, el 10/11/2026. Confirmar disponibilidad presupuestaria y condiciones completas en el trámite antes de presentar la solicitud.",
+    "link": "https://tramits.paeria.cat/Ciutadania/DetallTramit.aspx?IdTramit=3317",
+    "links": [
+      [
+        "Trámite oficial y solicitud",
+        "https://tramits.paeria.cat/Ciutadania/DetallTramit.aspx?IdTramit=3317"
+      ],
+      [
+        "Infografía de la convocatoria (PDF)",
+        "https://mcusercontent.com/55a832fc0a3d1795a009751bd/files/6af04faf-f947-71bb-8770-d37334342149/Infografia_ajuts_Pla_de_Barris.pdf"
+      ],
+      [
+        "Infografía (enlace de la comunicación municipal)",
+        "https://us.list-manage.com/_yh4AkX7jkf?e=d7633657af&c2id=4602c4064aa6e8316108afe017b8d9b0"
+      ]
+    ],
+    "categoria": "Inicio de actividad, inversión y digitalización",
+    "pend": true,
+    "estadoManual": "Según la comunicación municipal recibida el 06/11/2026, el plazo está condicionado al agotamiento del crédito y finaliza como máximo el 10/11/2026. Confirmar que queda crédito disponible en el trámite oficial.",
+    "consultado": "2026-11-06"
   }
 ]
