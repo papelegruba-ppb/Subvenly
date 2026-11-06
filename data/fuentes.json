@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "actualizado": "2026-10-22",
-  "nota": "Registro de fuentes oficiales o portales de referencia. Una fuente no equivale a una convocatoria. La BDNS cubre convocatorias estatales, autonómicas y locales; se registran portales especializados donde ya están localizados y la cobertura directa pendiente se identifica explícitamente.",
+  "actualizado": "2026-11-06",
+  "nota": "Registro ampliado de fuentes oficiales y portales de referencia de las 17 comunidades autónomas y Ceuta/Melilla. La BDNS ofrece cobertura transversal, pero los portales territoriales complementan la detección; monitorizar una página no equivale a extraer todas sus convocatorias.",
   "fuentes": [
     {
       "id": "bdns",
@@ -824,6 +824,316 @@
       "oficial": true,
       "licencia": "Creative Commons Attribution (CC BY)",
       "nota": "RSS público de becas. Se importa como descubrimiento; nivel territorial clasificado solo cuando el organismo está identificado y el estado queda por verificar."
+    },
+    {
+      "id": "gencat-tramits",
+      "nombre": "Generalitat de Catalunya · Tràmits y ayudas",
+      "ambito": "Cataluña",
+      "categoria": "Ayudas generales",
+      "url": "https://web.gencat.cat/ca/tramits/",
+      "monitor": true,
+      "nota": "Buscador de trámites y convocatorias; comprobar ficha y DOGC.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-canalempresa",
+      "nombre": "Canal Empresa · Ayudas y financiación",
+      "ambito": "Cataluña",
+      "categoria": "Empresa y autónomos",
+      "url": "https://canalempresa.gencat.cat/",
+      "monitor": true,
+      "nota": "Descubrimiento de ayudas empresariales; verificar cada convocatoria en DOGC/BDNS.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-dogc",
+      "nombre": "Diari Oficial de la Generalitat de Catalunya (DOGC)",
+      "ambito": "Cataluña",
+      "categoria": "Boletín oficial",
+      "url": "https://dogc.gencat.cat/",
+      "monitor": true,
+      "nota": "Verificación primaria de bases, convocatorias, extractos y resoluciones.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-accio",
+      "nombre": "ACCIÓ · Ayudas y servicios para empresas",
+      "ambito": "Cataluña",
+      "categoria": "Innovación y empresa",
+      "url": "https://www.accio.gencat.cat/",
+      "monitor": true,
+      "nota": "Localizar convocatorias de innovación, internacionalización, industria e inversión.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-soc",
+      "nombre": "Servei Públic d'Ocupació de Catalunya (SOC)",
+      "ambito": "Cataluña",
+      "categoria": "Empleo y formación",
+      "url": "https://serveiocupacio.gencat.cat/",
+      "monitor": true,
+      "nota": "Ayudas de empleo, contratación, formación y autoocupación.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-icaen",
+      "nombre": "Institut Català d'Energia (ICAEN)",
+      "ambito": "Cataluña",
+      "categoria": "Energía y sostenibilidad",
+      "url": "https://icaen.gencat.cat/",
+      "monitor": true,
+      "nota": "Localizar programas de eficiencia energética y renovables.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-residus",
+      "nombre": "Agència de Residus de Catalunya",
+      "ambito": "Cataluña",
+      "categoria": "Economía circular",
+      "url": "https://residus.gencat.cat/",
+      "monitor": true,
+      "nota": "Ayudas de residuos, prevención y economía circular.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-habitatge-ayuts",
+      "nombre": "Agència de l'Habitatge de Catalunya · Ayudas",
+      "ambito": "Cataluña",
+      "categoria": "Vivienda y accesibilidad",
+      "url": "https://habitatge.gencat.cat/ca/ajuts/",
+      "monitor": true,
+      "nota": "Separar cada línea y verificar plazo, beneficiarios y bases.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-ccam",
+      "nombre": "Consorci de Comerç, Artesania i Moda de Catalunya",
+      "ambito": "Cataluña",
+      "categoria": "Comercio y artesanía",
+      "url": "https://ccam.gencat.cat/",
+      "monitor": true,
+      "nota": "Ayudas y programas para comercio, artesanía y moda.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-raiscdatos",
+      "nombre": "Portal de dades obertes de Catalunya · RAISC",
+      "ambito": "Cataluña",
+      "categoria": "Datos abiertos de subvenciones",
+      "url": "https://analisi.transparenciacatalunya.cat/",
+      "monitor": true,
+      "nota": "Localizar dataset RAISC vigente y revisar metadatos/cobertura; no asumir exhaustividad.",
+      "oficial": true
+    },
+    {
+      "id": "andalucia-boja",
+      "nombre": "Boletín Oficial de la Junta de Andalucía (BOJA)",
+      "ambito": "Andalucía",
+      "categoria": "Boletín oficial",
+      "url": "https://www.juntadeandalucia.es/eboja.html",
+      "monitor": true,
+      "nota": "Verificación primaria de bases, convocatorias, extractos, modificaciones y resoluciones.",
+      "oficial": true
+    },
+    {
+      "id": "andalucia-sede",
+      "nombre": "Junta de Andalucía · Catálogo de procedimientos y trámites",
+      "ambito": "Andalucía",
+      "categoria": "Ayudas generales",
+      "url": "https://www.juntadeandalucia.es/servicios/sede/tramites.html",
+      "monitor": true,
+      "nota": "Localizar procedimientos, convocatorias y solicitudes de todas las consejerías.",
+      "oficial": true
+    },
+    {
+      "id": "andalucia-trade",
+      "nombre": "Andalucía TRADE",
+      "ambito": "Andalucía",
+      "categoria": "Empresa e innovación",
+      "url": "https://www.andaluciatrade.es/",
+      "monitor": true,
+      "nota": "Ayudas a inversión, innovación, internacionalización y desarrollo empresarial.",
+      "oficial": true
+    },
+    {
+      "id": "andalucia-energia",
+      "nombre": "Agencia Andaluza de la Energía",
+      "ambito": "Andalucía",
+      "categoria": "Energía y sostenibilidad",
+      "url": "https://www.agenciaandaluzadelaenergia.es/",
+      "monitor": true,
+      "nota": "Programas de eficiencia, renovables y movilidad; comprobar convocatoria oficial.",
+      "oficial": true
+    },
+    {
+      "id": "andalucia-sae",
+      "nombre": "Servicio Andaluz de Empleo",
+      "ambito": "Andalucía",
+      "categoria": "Empleo y formación",
+      "url": "https://www.juntadeandalucia.es/organismos/sae.html",
+      "monitor": true,
+      "nota": "Ayudas de contratación, empleo y formación.",
+      "oficial": true
+    },
+    {
+      "id": "andalucia-iam",
+      "nombre": "Instituto Andaluz de la Mujer",
+      "ambito": "Andalucía",
+      "categoria": "Igualdad y emprendimiento",
+      "url": "https://www.juntadeandalucia.es/organismos/iam.html",
+      "monitor": true,
+      "nota": "Convocatorias y ayudas para igualdad, empleo y emprendimiento femenino.",
+      "oficial": true
+    },
+    {
+      "id": "aragon-boa",
+      "nombre": "Boletín Oficial de Aragón",
+      "ambito": "Aragón",
+      "categoria": "Boletín oficial",
+      "url": "https://www.boa.aragon.es/",
+      "monitor": true,
+      "nota": "Verificación de convocatorias y resoluciones.",
+      "oficial": true
+    },
+    {
+      "id": "asturias-bopa",
+      "nombre": "Boletín Oficial del Principado de Asturias",
+      "ambito": "Asturias",
+      "categoria": "Boletín oficial",
+      "url": "https://sede.asturias.es/bopa",
+      "monitor": true,
+      "nota": "Verificación de convocatorias y resoluciones.",
+      "oficial": true
+    },
+    {
+      "id": "balears-boib",
+      "nombre": "Butlletí Oficial de les Illes Balears",
+      "ambito": "Illes Balears",
+      "categoria": "Boletín oficial",
+      "url": "https://www.caib.es/eboibfront/",
+      "monitor": true,
+      "nota": "Verificación de convocatorias y resoluciones.",
+      "oficial": true
+    },
+    {
+      "id": "canarias-boc",
+      "nombre": "Boletín Oficial de Canarias",
+      "ambito": "Canarias",
+      "categoria": "Boletín oficial",
+      "url": "https://www.gobiernodecanarias.org/boc/",
+      "monitor": true,
+      "nota": "Verificación de convocatorias y resoluciones.",
+      "oficial": true
+    },
+    {
+      "id": "cantabria-boc",
+      "nombre": "Boletín Oficial de Cantabria",
+      "ambito": "Cantabria",
+      "categoria": "Boletín oficial",
+      "url": "https://boc.cantabria.es/",
+      "monitor": true,
+      "nota": "Verificación de convocatorias y resoluciones.",
+      "oficial": true
+    },
+    {
+      "id": "clm-docm",
+      "nombre": "Diario Oficial de Castilla-La Mancha",
+      "ambito": "Castilla-La Mancha",
+      "categoria": "Boletín oficial",
+      "url": "https://docm.jccm.es/",
+      "monitor": true,
+      "nota": "Verificación de convocatorias y resoluciones.",
+      "oficial": true
+    },
+    {
+      "id": "cyl-bocyl",
+      "nombre": "Boletín Oficial de Castilla y León",
+      "ambito": "Castilla y León",
+      "categoria": "Boletín oficial",
+      "url": "https://bocyl.jcyl.es/",
+      "monitor": true,
+      "nota": "Verificación de convocatorias y resoluciones.",
+      "oficial": true
+    },
+    {
+      "id": "valencia-dogv",
+      "nombre": "Diari Oficial de la Generalitat Valenciana",
+      "ambito": "Comunitat Valenciana",
+      "categoria": "Boletín oficial",
+      "url": "https://dogv.gva.es/",
+      "monitor": true,
+      "nota": "Verificación de convocatorias y resoluciones.",
+      "oficial": true
+    },
+    {
+      "id": "extremadura-doe",
+      "nombre": "Diario Oficial de Extremadura",
+      "ambito": "Extremadura",
+      "categoria": "Boletín oficial",
+      "url": "https://doe.juntaex.es/",
+      "monitor": true,
+      "nota": "Verificación de convocatorias y resoluciones.",
+      "oficial": true
+    },
+    {
+      "id": "galicia-dog",
+      "nombre": "Diario Oficial de Galicia",
+      "ambito": "Galicia",
+      "categoria": "Boletín oficial",
+      "url": "https://www.xunta.gal/diario-oficial-galicia",
+      "monitor": true,
+      "nota": "Verificación de convocatorias y resoluciones.",
+      "oficial": true
+    },
+    {
+      "id": "madrid-bocm",
+      "nombre": "Boletín Oficial de la Comunidad de Madrid",
+      "ambito": "Comunidad de Madrid",
+      "categoria": "Boletín oficial",
+      "url": "https://www.bocm.es/",
+      "monitor": true,
+      "nota": "Verificación de convocatorias y resoluciones.",
+      "oficial": true
+    },
+    {
+      "id": "murcia-borm",
+      "nombre": "Boletín Oficial de la Región de Murcia",
+      "ambito": "Región de Murcia",
+      "categoria": "Boletín oficial",
+      "url": "https://www.borm.es/",
+      "monitor": true,
+      "nota": "Verificación de convocatorias y resoluciones.",
+      "oficial": true
+    },
+    {
+      "id": "navarra-bon",
+      "nombre": "Boletín Oficial de Navarra",
+      "ambito": "Navarra",
+      "categoria": "Boletín oficial",
+      "url": "https://bon.navarra.es/",
+      "monitor": true,
+      "nota": "Verificación de convocatorias y resoluciones.",
+      "oficial": true
+    },
+    {
+      "id": "euskadi-bopv",
+      "nombre": "Boletín Oficial del País Vasco",
+      "ambito": "País Vasco",
+      "categoria": "Boletín oficial",
+      "url": "https://www.euskadi.eus/y22-bopv/es/",
+      "monitor": true,
+      "nota": "Verificación de convocatorias y resoluciones.",
+      "oficial": true
+    },
+    {
+      "id": "larioja-bor",
+      "nombre": "Boletín Oficial de La Rioja",
+      "ambito": "La Rioja",
+      "categoria": "Boletín oficial",
+      "url": "https://web.larioja.org/bor-portada",
+      "monitor": true,
+      "nota": "Verificación de convocatorias y resoluciones.",
+      "oficial": true
     }
   ],
   "coberturaTerritorial": [
