@@ -126,6 +126,9 @@ jobs:
       - name: Resumen de actualización y cobertura
         if: always()
         run: |
+          LIC_DIAG_STATE=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_licitaciones.json"); print(json.loads(p.read_text(encoding="utf-8")).get("estado", "desconocida") if p.exists() else "desconocida")' 2>/dev/null || echo "desconocida")
+          LIC_PARTIAL=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_licitaciones.json"); d=json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}; print(", ".join(d.get("fuentes_parciales", [])))' 2>/dev/null || true)
+          LIC_ERRORS=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_licitaciones.json"); d=json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}; print(", ".join(e.get("fuente", "desconocida") for e in d.get("errores", [])))' 2>/dev/null || true)
           {
             echo "## Actualización de Subvenly"
             echo ""
@@ -133,13 +136,18 @@ jobs:
             echo "- BDNS: **${{ steps.buscar.outcome }}**"
             echo "- Unión Europea: **${{ steps.buscar_ue.outcome }}**"
             echo "- CIDO (convocatorias locales de Cataluña): **${{ steps.buscar_cido.outcome }}**"
-            echo "- Licitaciones: **${{ steps.buscar_lic.outcome }}**"
+            echo "- Licitaciones: **${{ steps.buscar_lic.outcome }} · cobertura ${LIC_DIAG_STATE}**"
             echo "- Vigilancia de fuentes: **${{ steps.vigilar_fuentes.outcome }}**"
             echo "- Vigilancia de fichas: **${{ steps.vigilar.outcome }}**"
             echo ""
             if [[ "${{ steps.buscar.outcome }}" != "success" || "${{ steps.buscar_ue.outcome }}" != "success" || "${{ steps.buscar_cido.outcome }}" != "success" || "${{ steps.buscar_lic.outcome }}" != "success" ]]; then
-              echo "> **Aviso:** una o más fuentes automáticas no se han actualizado. La web puede seguir publicada con los datos anteriores o con una actualización parcial. Consulta los archivos de diagnóstico data/_diagnostico*.json."
-              echo "::warning::Una o más fuentes de Subvenly no se han actualizado."
+              echo "> **Aviso:** una o más fuentes automáticas no se han actualizado correctamente. La web puede seguir publicada con datos anteriores o parciales. Consulta los diagnósticos data/_diagnostico*.json."
+              echo "::warning::Una o más fuentes de Subvenly no se han actualizado correctamente."
+            elif [[ "${LIC_DIAG_STATE}" != "completa" ]]; then
+              echo "> **Aviso de cobertura:** las licitaciones se han actualizado con los registros recibidos, pero su cobertura no es completa o no está confirmada."
+              if [[ -n "${LIC_PARTIAL}" ]]; then echo "> Páginas pendientes: **${LIC_PARTIAL}**."; fi
+              if [[ -n "${LIC_ERRORS}" ]]; then echo "> Fuentes con error: **${LIC_ERRORS}**."; fi
+              echo "::warning::Cobertura de licitaciones parcial o no confirmada."
             else
               echo "Las búsquedas automáticas principales terminaron correctamente. Esto no significa que el catálogo sea exhaustivo ni que cada convocatoria esté verificada individualmente."
             fi

@@ -234,6 +234,31 @@ class TestProcedenciaNovedades(unittest.TestCase):
 
 
 class TestLicitaciones(unittest.TestCase):
+    def test_paginacion_pendiente_no_se_registra_como_error(self):
+        resumen = actualizar_licitaciones.resumen_fuentes([], ["perfiles", "agregadas"])
+        self.assertEqual(resumen["estado"], "parcial")
+        self.assertEqual(resumen["fuentesConError"], [])
+        self.assertEqual(resumen["fuentesParciales"], ["perfiles", "agregadas"])
+        self.assertEqual(resumen["codigo_salida"], 0)
+
+    def test_error_real_se_identifica_y_devuelve_codigo_no_cero(self):
+        resumen = actualizar_licitaciones.resumen_fuentes(
+            [{"fuente": "perfiles", "error": "timeout"}], ["agregadas"]
+        )
+        self.assertEqual(resumen["estado"], "parcial")
+        self.assertEqual(resumen["fuentesConError"], ["perfiles"])
+        self.assertEqual(resumen["fuentesParciales"], ["agregadas"])
+        self.assertEqual(resumen["codigo_salida"], 1)
+
+    def test_interfaz_distingue_paginas_pendientes_y_errores(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        inicio = html.index("function renderLic()")
+        bloque = html[inicio:inicio + 2200]
+        self.assertIn("fuentesParciales", bloque)
+        self.assertIn("fuentesConError", bloque)
+        self.assertIn("Quedan páginas pendientes de consultar", bloque)
+        self.assertIn("No se pudieron consultar estas fuentes", bloque)
+
     def make_entry(self, status="PUB", deadline="2026-11-16"):
         xml = f'''<entry xmlns="http://www.w3.org/2005/Atom">
           <id>urn:uuid:test-123</id><updated>2026-10-20</updated>
