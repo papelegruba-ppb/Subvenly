@@ -1,7 +1,7 @@
 {
   "version": 1,
   "actualizado": "2026-11-06",
-  "nota": "Registro ampliado de fuentes oficiales y portales de referencia de las 17 comunidades autónomas y Ceuta/Melilla. La BDNS ofrece cobertura transversal, pero los portales territoriales complementan la detección; monitorizar una página no equivale a extraer todas sus convocatorias. Se incorporan WIZBII Money como fuente privada secundaria de descubrimiento y benchmark; sus datos nunca sustituyen la verificación oficial.",
+  "nota": "Registro ampliado de fuentes oficiales y portales de referencia de las 17 comunidades autónomas y Ceuta/Melilla. La BDNS ofrece cobertura transversal, pero los portales territoriales complementan la detección; monitorizar una página no equivale a extraer todas sus convocatorias. WIZBII Money y sus categorías se registran como fuentes privadas secundarias de descubrimiento y benchmark; sus datos nunca sustituyen la verificación oficial.",
   "fuentes": [
     {
       "id": "bdns",
@@ -1154,6 +1154,56 @@
       "monitor": false,
       "oficial": false,
       "nota": "Fuente secundaria para conocer cobertura declarada, proceso de simulación y modelo de acompañamiento. WIZBII reconoce que su catálogo puede omitir ayudas. La simulación no acredita elegibilidad ni sustituye la fuente administrativa."
+    },
+    {
+      "id": "wizbii-money-jovenes",
+      "nombre": "WIZBII Money · Categoría de ayudas para jóvenes",
+      "ambito": "Estatal, autonómico y local (España)",
+      "categoria": "Fuente secundaria de descubrimiento y benchmark",
+      "url": "https://www.wizbii.es/money/aides/category/ayudas-para-jovenes",
+      "monitor": true,
+      "oficial": false,
+      "nota": "Listado editorial de ayudas juveniles (Bono Cultural Joven, Garantía Juvenil, becas y Bono Alquiler Joven). Usar para detectar oportunidades; comprobar edición, edad, plazo y bases en el organismo competente."
+    },
+    {
+      "id": "wizbii-money-nacionales",
+      "nombre": "WIZBII Money · Categoría de ayudas nacionales",
+      "ambito": "Estatal, autonómico y local (España)",
+      "categoria": "Fuente secundaria de descubrimiento y benchmark",
+      "url": "https://www.wizbii.es/money/aides/category/ayudas-nacionales",
+      "monitor": true,
+      "oficial": false,
+      "nota": "Listado de prestaciones y programas nacionales. Revisar vigencia y cuantías: puede conservar ediciones antiguas o fichas desactualizadas. Verificar en la administración gestora."
+    },
+    {
+      "id": "wizbii-money-movilidad",
+      "nombre": "WIZBII Money · Categoría de movilidad y transporte",
+      "ambito": "Estatal, autonómico y local (España)",
+      "categoria": "Fuente secundaria de descubrimiento y benchmark",
+      "url": "https://www.wizbii.es/money/aides/category/ayudas-movilidad-transporte",
+      "monitor": true,
+      "oficial": false,
+      "nota": "Ruta enlazada desde el directorio principal; la consulta automatizada no permitió recuperar su contenido en esta revisión. Mantener como señal secundaria y comprobar las fichas y convocatorias oficiales."
+    },
+    {
+      "id": "wizbii-money-empleo",
+      "nombre": "WIZBII Money · Categoría de ayudas al empleo",
+      "ambito": "Estatal, autonómico y local (España)",
+      "categoria": "Fuente secundaria de descubrimiento y benchmark",
+      "url": "https://www.wizbii.es/money/aides/category/ayuda-al-empleo",
+      "monitor": true,
+      "oficial": false,
+      "nota": "Listado de prestaciones y subsidios por desempleo. Contrastar requisitos, cuantías y reformas con las fichas oficiales del SEPE y la normativa vigente."
+    },
+    {
+      "id": "wizbii-money-simuladores",
+      "nombre": "WIZBII Money · Categoría de simuladores de ayudas",
+      "ambito": "Estatal, autonómico y local (España)",
+      "categoria": "Fuente secundaria de descubrimiento y benchmark",
+      "url": "https://www.wizbii.es/money/aides/category/simulacion-de-ayuda-financiera",
+      "monitor": true,
+      "oficial": false,
+      "nota": "Simuladores orientativos de IMV, becas y prestaciones SEPE. No usar sus resultados como prueba de elegibilidad ni como fuente de cuantías oficiales; contrastar con el organismo gestor."
     }
   ],
   "coberturaTerritorial": [
