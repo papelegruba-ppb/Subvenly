@@ -1,7 +1,7 @@
 {
   "version": 1,
   "actualizado": "2026-11-06",
-  "nota": "Registro ampliado de fuentes oficiales y portales de referencia de las 17 comunidades autónomas y Ceuta/Melilla. La BDNS ofrece cobertura transversal, pero los portales territoriales complementan la detección; monitorizar una página no equivale a extraer todas sus convocatorias.",
+  "nota": "Registro ampliado de fuentes oficiales y portales de referencia de las 17 comunidades autónomas y Ceuta/Melilla. La BDNS ofrece cobertura transversal, pero los portales territoriales complementan la detección; monitorizar una página no equivale a extraer todas sus convocatorias. Se incorporan WIZBII Money como fuente privada secundaria de descubrimiento y benchmark; sus datos nunca sustituyen la verificación oficial.",
   "fuentes": [
     {
       "id": "bdns",
@@ -1134,6 +1134,26 @@
       "monitor": true,
       "nota": "Verificación de convocatorias y resoluciones.",
       "oficial": true
+    },
+    {
+      "id": "wizbii-money-catalogo",
+      "nombre": "WIZBII Money · Directorio público de ayudas",
+      "ambito": "Estatal, autonómico y local (España)",
+      "categoria": "Fuente secundaria de descubrimiento y benchmark",
+      "url": "https://www.wizbii.es/money/aides",
+      "monitor": true,
+      "oficial": false,
+      "nota": "Plataforma privada. Usar exclusivamente como señal secundaria para descubrir prestaciones y ayudas; extraer cada oportunidad individual y contrastar beneficiarios, cuantías, estado, plazo y bases en BDNS, BOE, boletín o sede del organismo competente. No asumir cobertura exhaustiva ni importar sus estimaciones como datos oficiales."
+    },
+    {
+      "id": "wizbii-money-faq",
+      "nombre": "WIZBII Money · FAQ y cobertura declarada",
+      "ambito": "España",
+      "categoria": "Benchmark de cobertura y funcionamiento",
+      "url": "https://www.wizbii.es/money/faq",
+      "monitor": false,
+      "oficial": false,
+      "nota": "Fuente secundaria para conocer cobertura declarada, proceso de simulación y modelo de acompañamiento. WIZBII reconoce que su catálogo puede omitir ayudas. La simulación no acredita elegibilidad ni sustituye la fuente administrativa."
     }
   ],
   "coberturaTerritorial": [
