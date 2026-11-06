@@ -1820,5 +1820,135 @@
     ],
     "categoria": "Educación y juventud",
     "consultado": "2026-10-22"
+  },
+  {
+    "id": 52,
+    "perfil": "autonomo",
+    "tipo": "Subvención",
+    "titulo": "Cuota Cero Andalucía · Línea 1 · convocatoria prevista 2027",
+    "organo": "Junta de Andalucía · Consejería de Empleo, Empresa y Trabajo Autónomo",
+    "ambito": "Andalucía",
+    "plazo": "Futura convocatoria 2027 · pendiente de publicación",
+    "pend": true,
+    "estadoManual": "La Consejería comunicó por escrito que está prevista una nueva convocatoria para 2027, dirigida también a autónomos que no pudieron solicitar la convocatoria anterior por su finalización el 30/09/2026 y que cumplan los requisitos. La noticia presupuestaria de noviembre de 2026 anuncia dotación para Cuota Cero en 2027 y efectos retroactivos desde el 01/10/2026. No presentar como abierta hasta la publicación de la convocatoria y sus bases.",
+    "importe": "Reintegro de cuotas de Seguridad Social subvencionables; importe y condiciones de 2027 pendientes de convocatoria.",
+    "resumen": "Ayuda de la Junta de Andalucía para financiar cuotas de cotización a la Seguridad Social de personas trabajadoras autónomas acogidas a las reducciones o bonificaciones previstas en la normativa estatal. La edición 2024-2026 finalizó el 30/09/2026; la Consejería ha comunicado que prevé una nueva convocatoria para 2027.",
+    "requisitos": [
+      "Ser persona trabajadora autónoma y cumplir los requisitos que establezca la convocatoria 2027.",
+      "La Consejería ha indicado que la nueva convocatoria incluirá a autónomos que no pudieron solicitar la anterior por su finalización el 30/09/2026, siempre que cumplan los requisitos.",
+      "Los requisitos detallados, periodos subvencionables, cuantías y plazo de solicitud de 2027 están pendientes de publicación; no trasladar automáticamente todos los requisitos de 2024-2026."
+    ],
+    "docs": [
+      "Pendiente de las bases y del trámite de la convocatoria 2027."
+    ],
+    "eval": "Preclasificación: futura convocatoria, no solicitables todavía. Evidencia primaria aportada por la usuaria: respuesta de la Consejería a su PEG de 21/10/2026, que confirma que está prevista una nueva convocatoria para 2027. La información oficial de la edición 2024-2026 sirve solo como antecedente y no confirma por sí sola las condiciones de 2027.",
+    "links": [
+      [
+        "Información oficial Línea 1: Cuota Cero",
+        "https://www.juntadeandalucia.es/organismos/empleoempresaytrabajoautonomo/areas/trabajo-autonomo/fomento-trabajo-autonomo/paginas/subv-fomento-cuota-cero.html"
+      ],
+      [
+        "Preguntas frecuentes oficiales de la Línea 1",
+        "https://www.juntadeandalucia.es/organismos/empleoempresaytrabajoautonomo/areas/trabajo-autonomo/fomento-trabajo-autonomo/paginas/preguntas-frecuentes-l1.html"
+      ],
+      [
+        "Presupuesto 2027 y continuidad de Cuota Cero",
+        "https://www.juntadeandalucia.es/organismos/empleoempresaytrabajoautonomo/servicios/actualidad/noticias/detalle/691138.html"
+      ]
+    ],
+    "categoria": "Autónomos e inicio de actividad",
+    "consultado": "2026-11-06"
+  },
+  {
+    "id": 53,
+    "perfil": "empresa",
+    "tipo": "Subvención",
+    "titulo": "Elaboración y registro de planes de igualdad en empresas y entidades de menos de 50 personas trabajadoras · Cataluña 2026",
+    "organo": "Generalitat de Catalunya · Departament d'Igualtat i Feminisme",
+    "ambito": "Cataluña",
+    "plazo": "Del 20/10/2026 al 09/11/2026",
+    "cierre": "2026-11-09",
+    "importe": "2.500 € por persona beneficiaria. Presupuesto total de la convocatoria: 250.000 €.",
+    "resumen": "Subvención en régimen de concurrencia no competitiva para fomentar la elaboración y registro de planes de igualdad en empresas y entidades privadas de Cataluña con menos de 50 personas trabajadoras. Cofinanciada por el FSE+ de Cataluña 2021-2027.",
+    "reqs": {
+      "catalunya": "si",
+      "empresa": "si",
+      "plantillaMax": 49
+    },
+    "requisitos": [
+      "Empresa o entidad privada legalmente constituida, con personalidad jurídica propia y establecimiento, sucursal o centro operativo en Cataluña.",
+      "Tener menos de 50 personas trabajadoras al presentar la solicitud y mantener esa condición hasta la justificación.",
+      "No haber iniciado la actuación antes de presentar la solicitud; no puede haberse constituido previamente la comisión negociadora del plan de igualdad.",
+      "Estar al corriente de obligaciones tributarias y con la Seguridad Social, y cumplir el resto de requisitos de las bases reguladoras.",
+      "No haber solicitado ni recibido otras ayudas para elaborar el mismo plan de igualdad; sujeta al límite de minimis aplicable."
+    ],
+    "docs": [
+      "Formulario de solicitud telemática a través de Tràmits gencat o Canal Empresa.",
+      "Acreditación de la representación, si procede.",
+      "Datos bancarios/solicitud de transferencia bancaria cuando corresponda."
+    ],
+    "eval": "Convocatoria abierta a 06/11/2026; fecha límite 09/11/2026. La ayuda es de 2.500 € por beneficiario. No afirmar compatibilidad sin comprobar que la empresa cumple todos los requisitos de la Resolución IFE/3711/2026 y de la Orden IFE/147/2025.",
+    "link": "https://tramits.gencat.cat/ca/tramits/tramits-temes/foment-elaboracio-plans-igualtat?moda=1",
+    "links": [
+      [
+        "Trámite oficial y solicitud",
+        "https://tramits.gencat.cat/ca/tramits/tramits-temes/foment-elaboracio-plans-igualtat?moda=1"
+      ],
+      [
+        "Información oficial de la convocatoria y cuantía",
+        "https://exteriors.gencat.cat/ca/ambits-dactuacio/afers_exteriors/ue/fons_europeus/detalls/noticia/20261019_plans-igualtat"
+      ],
+      [
+        "Resolución IFE/3711/2026 · DOGC",
+        "https://portaldogc.gencat.cat/utilsEADOP/PDF/9775/2175883.pdf"
+      ]
+    ],
+    "categoria": "Igualdad y organización empresarial",
+    "consultado": "2026-11-06",
+    "perm": true,
+    "permTxt": "Abierta hasta el 09/11/2026"
+  },
+  {
+    "id": 54,
+    "perfil": "empresa",
+    "tipo": "Programa de subvenciones",
+    "titulo": "ICEX Next 2026 · apoyo a la internacionalización de pymes y startups",
+    "organo": "ICEX España Exportación e Inversiones",
+    "ambito": "Estatal",
+    "plazo": "Convocatoria 2026 cerrada · inscripción hasta el 30/10/2026",
+    "cierre": "2026-10-30",
+    "cerrada": true,
+    "perm": false,
+    "permTxt": "Cerrada",
+    "estadoManual": "Convocatoria 2026 cerrada a 06/11/2026. Mantener en histórico y vigilar futuras ediciones; no mostrar como oportunidad abierta.",
+    "importe": "Hasta 24.000 € (60 % de los gastos subvencionables), más asesoramiento especializado.",
+    "resumen": "Programa ICEX Next para pymes y startups españolas que quieren iniciar o consolidar su internacionalización. Incluye asesoramiento personalizado (mínimo 30 horas) y apoyo económico para gastos del plan estratégico internacional durante dos años.",
+    "requisitos": [
+      "Ser pyme o startup española con producto o servicio propio y marca propia.",
+      "Facturación superior a 300.000 € en 2025, salvo startups de base tecnológica en los supuestos previstos por ICEX.",
+      "Disponer de medios personales y materiales para ejecutar el plan de internacionalización y de página web propia.",
+      "No ser filial comercial o productiva de una empresa extranjera ni encontrarse en situación de crisis; comprobar el resto de exclusiones y condiciones de la convocatoria."
+    ],
+    "docs": [
+      "Formulario de solicitud ICEX Next 2026 y declaraciones responsables.",
+      "Estados financieros previsionales y documentación complementaria indicada por ICEX en la convocatoria."
+    ],
+    "eval": "La inscripción de empresas finalizó el 30/10/2026. No presentar como abierta. El programa también tiene una inscripción separada para profesionales consultores, cuyo plazo no debe confundirse con la convocatoria para empresas.",
+    "links": [
+      [
+        "Noticia oficial ICEX Next 2026",
+        "https://www.icex.es/es/sala-prensa/notas-de-prensa/2026/10/icex_next_2026"
+      ],
+      [
+        "Documentación y convocatorias oficiales",
+        "https://www.icex.es/es/servicios/consultoria-estrategica/pymes/icex-next/documentacion-convocatorias"
+      ],
+      [
+        "Información del programa y requisitos",
+        "https://www.icex.es/es/servicios/consultoria-estrategica/pymes/icex-next/el-programa"
+      ]
+    ],
+    "categoria": "Internacionalización",
+    "consultado": "2026-11-06"
   }
 ]
