@@ -32,6 +32,21 @@ TIPOS = {"1": "Suministros", "2": "Servicios", "3": "Obras", "21": "Gestión de 
          "22": "Concesión de servicios", "31": "Concesión de obras", "32": "Concesión de obras públicas"}
 # -----------------------------
 
+def resumen_fuentes(errores, fuentes_parciales):
+    """Separa errores reales de feeds que aún tienen páginas pendientes."""
+    fuentes_error = list(dict.fromkeys(
+        str(error.get("fuente") or "desconocida") for error in errores
+    ))
+    pendientes = list(dict.fromkeys(str(nombre) for nombre in fuentes_parciales if nombre))
+    return {
+        "estado": "completa" if not errores and not pendientes else "parcial",
+        "fuentesConError": fuentes_error,
+        "fuentesParciales": pendientes,
+        # La paginación pendiente es normal y no debe convertir la ejecución en fallo.
+        "codigo_salida": 1 if errores else 0,
+    }
+
+
 def local(tag):
     return tag.rsplit("}", 1)[-1]
 
@@ -172,21 +187,21 @@ def main():
     lim_sin_plazo = (hoy - dt.timedelta(days=SIN_PLAZO_DIAS)).isoformat()
     items = [i for i in previo.values() if (i["cierre"] and i["cierre"] >= hoy.isoformat()) or (not i["cierre"] and i["visto"] >= lim_sin_plazo)]
     items.sort(key=lambda i: (i["cierre"] or "9999", i["id"]))
-    estado_actualizacion = "completa" if not errores and not fuentes_parciales else "parcial"
-    fuentes_error = [e["fuente"] for e in errores] + fuentes_parciales
+    resumen = resumen_fuentes(errores, fuentes_parciales)
+    estado_actualizacion = resumen["estado"]
     escribir("_diagnostico_licitaciones.json", {"fecha": hoy.isoformat(), "ficheros": ficheros, "encontradas": len(nuevas),
-        "guardadas": min(len(items), MAX_ITEMS), "fuentes_correctas": fuentes_ok, "fuentes_parciales": fuentes_parciales,
+        "guardadas": min(len(items), MAX_ITEMS), "fuentes_correctas": fuentes_ok, "fuentes_parciales": resumen["fuentesParciales"],
         "errores": errores, "estado": estado_actualizacion, "ejemplo": nuevas[0] if nuevas else None})
     escribir("licitaciones.json", {"actualizado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
-        "estadoActualizacion": estado_actualizacion, "fuentesConError": fuentes_error,
-        "items": items[:MAX_ITEMS]}, compacto=True)
+        "estadoActualizacion": estado_actualizacion, "fuentesConError": resumen["fuentesConError"],
+        "fuentesParciales": resumen["fuentesParciales"], "items": items[:MAX_ITEMS]}, compacto=True)
     if not errores and not fuentes_parciales:
         escribir("estado_licitaciones.json", {"ultima": hoy.isoformat(), "fuentes": fuentes_ok, "feeds": {}})
     else:
         # La fecha incremental avanza porque cada lote pendiente conserva su propio corte y cursor.
         escribir("estado_licitaciones.json", {"ultima": hoy.isoformat(), "fuentes": fuentes_ok, "feeds": cursores_nuevos})
     print(f"Guardadas {min(len(items), MAX_ITEMS)} licitaciones abiertas; estado de actualización: {estado_actualizacion}.")
-    return 2 if errores or fuentes_parciales else 0
+    return resumen["codigo_salida"]
 
 if __name__ == "__main__":
     try:
