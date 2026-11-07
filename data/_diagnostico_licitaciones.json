@@ -1,27 +1,28 @@
 {
- "fecha": "2026-11-05",
+ "fecha": "2026-11-07",
  "ficheros": 2,
- "encontradas": 179,
- "guardadas": 2590,
- "fuentes_correctas": [],
- "fuentes_parciales": [
-  "perfiles",
+ "encontradas": 157,
+ "guardadas": 2233,
+ "fuentes_correctas": [
   "agregadas"
+ ],
+ "fuentes_parciales": [
+  "perfiles"
  ],
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "EXP.26.0410.PNC.CO",
-  "titulo": "Contrato de obras correspondientes al proyecto básico y de ejecución de edificio de guarda y patios de manejo de camellos y dromedarios en el Parque de la Naturaleza de Cabárceno T.M. de Penagos.",
-  "organo": "Sociedad Regional Cántabra de Promoción Turística S.A. CANTUR S.A.",
-  "territorio": "Cantabria",
-  "nuts": "ES130",
-  "tipo": "Obras",
-  "cpv": "45210000",
-  "presupuesto": 531126,
-  "cierre": "2026-11-23",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=vH5VyKCD8V436J9Lctlsuw%3D%3D",
-  "visto": "2026-11-05",
+  "id": "A6SS-198/2026-L4",
+  "titulo": "Servicio de restauración destinado a los participantes en las acciones formativas descentralizadas organizadas por el Departamento de Formación de la Diputación Provincial de Alicante. LOTE 4: Benidorm",
+  "organo": "Presidencia de la Diputación Provincial de Alicante",
+  "territorio": "Alicante/Alacant",
+  "nuts": "ES521",
+  "tipo": "Servicios",
+  "cpv": "55300000",
+  "presupuesto": 3600,
+  "cierre": "2026-11-10",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=CFIPIf1Y2u4UqXM96WStVA%3D%3D",
+  "visto": "2026-11-07",
   "actualizada": "2026-10-27"
  }
 }

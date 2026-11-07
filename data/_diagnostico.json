@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-05",
- "recibidas": 1585,
- "relevantes": 1277,
+ "fecha": "2026-11-07",
+ "recibidas": 1885,
+ "relevantes": 1489,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-08-09",
- "retroceso_hasta": "2026-08-15",
+ "retroceso_desde": "2026-10-29",
+ "retroceso_hasta": "2026-11-04",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1141526,
+  "id": 1142153,
   "mrr": false,
-  "numeroConvocatoria": "939965",
-  "descripcion": "Subvención nominativa para el proyecto museístico del Centro de Interpretación de los Cabezazos (Barranco Agua de Dios), en el Municipio de Tegueste",
+  "numeroConvocatoria": "940592",
+  "descripcion": "SUBVENCIÓN NOMINATIVA 2026 CAMPUES INTERNACIONALIZACIÓN UNIV CÁDIZ",
   "descripcionLeng": null,
-  "fechaRecepcion": "2026-11-04",
-  "nivel1": "LOCAL",
-  "nivel2": "CABILDO INSULAR DE TENERIFE",
-  "nivel3": "CABILDO INSULAR DE TENERIFE",
+  "fechaRecepcion": "2026-11-06",
+  "nivel1": "AUTONOMICA",
+  "nivel2": "ANDALUCÍA",
+  "nivel3": "AGENCIA EMPRESARIAL PARA LA TRANSFORMACIÓN Y EL DESARROLLO ECONÓMICO",
   "codigoInvente": null
  }
 }
