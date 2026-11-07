@@ -1,8 +1,8 @@
 {
  "fecha": "2026-11-07",
  "ficheros": 1,
- "encontradas": 81,
- "guardadas": 2300,
+ "encontradas": 89,
+ "guardadas": 2376,
  "fuentes_correctas": [
   "agregadas"
  ],
@@ -12,16 +12,16 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "AYAL-2026000160",
-  "titulo": "Obras de Huerto Urbano, sito en las inmediaciones de la Calle Hoyo de las Tres Marías, de la Ciudad de Almería",
-  "organo": "Junta de Gobierno del Ayuntamiento de Almería",
-  "territorio": "Almería",
-  "nuts": "ES611",
+  "id": "2026000757",
+  "titulo": "Obras de construcción e instalación de un carro de varada en el puerto de Tapia de Casariego",
+  "organo": "Consejería de Medio Rural y Política Agraria",
+  "territorio": "",
+  "nuts": "ES120",
   "tipo": "Obras",
-  "cpv": "45112000",
-  "presupuesto": 247934,
-  "cierre": "2026-11-16",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=glNZhMKNa0mAAM7L03kM8A%3D%3D",
+  "cpv": "45244000",
+  "presupuesto": 139570,
+  "cierre": "2026-11-17",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=OkAubvYgMs7N3k3tjedSGw%3D%3D",
   "visto": "2026-11-07",
   "actualizada": "2026-10-27"
  }
