@@ -105,12 +105,12 @@
     },
     {
       "id": "gencat-habitatge",
-      "nombre": "Generalitat · Ayudas de vivienda",
+      "nombre": "Agència de l'Habitatge de Catalunya · Ayudas de vivienda, alquiler y accesibilidad",
       "ambito": "Cataluña",
-      "categoria": "Alquiler y vivienda",
+      "categoria": "Alquiler, vivienda y accesibilidad",
       "url": "https://habitatge.gencat.cat/ca/ajuts/",
       "monitor": true,
-      "nota": "Separar cada línea y convocatoria concreta.",
+      "nota": "Fuente paraguas: consultar cada línea y convocatoria concreta; verificar plazo, beneficiarios y bases.",
       "oficial": true
     },
     {
@@ -893,16 +893,6 @@
       "url": "https://residus.gencat.cat/",
       "monitor": true,
       "nota": "Ayudas de residuos, prevención y economía circular.",
-      "oficial": true
-    },
-    {
-      "id": "gencat-habitatge-ayuts",
-      "nombre": "Agència de l'Habitatge de Catalunya · Ayudas",
-      "ambito": "Cataluña",
-      "categoria": "Vivienda y accesibilidad",
-      "url": "https://habitatge.gencat.cat/ca/ajuts/",
-      "monitor": true,
-      "nota": "Separar cada línea y verificar plazo, beneficiarios y bases.",
       "oficial": true
     },
     {
