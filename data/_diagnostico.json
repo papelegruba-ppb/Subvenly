@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-07",
- "recibidas": 2257,
- "relevantes": 1678,
+ "fecha": "2026-11-08",
+ "recibidas": 1687,
+ "relevantes": 1256,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-10-15",
- "retroceso_hasta": "2026-10-21",
+ "retroceso_desde": "2026-10-08",
+ "retroceso_hasta": "2026-10-14",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1142153,
+  "id": 1142164,
   "mrr": false,
-  "numeroConvocatoria": "940592",
-  "descripcion": "SUBVENCIÓN NOMINATIVA 2026 CAMPUES INTERNACIONALIZACIÓN UNIV CÁDIZ",
-  "descripcionLeng": null,
-  "fechaRecepcion": "2026-11-06",
+  "numeroConvocatoria": "940603",
+  "descripcion": "Resolución de la consejera de Trabajo, Función Pública y Diálogo Social, y presidenta del SOIB, SOIB Vulnerables Oferta Específica grados B de niveles 1 y 2 de FP, 2025-2027_PNL 109/2026",
+  "descripcionLeng": "Resolució de la consellera de Treball, Funció Pública i Diàleg Social, i presidenta del SOIB, SOIB Vulnerables Oferta específica graus B de nivells 1 i 2 d’FP, 2025-2027_PNL 109/2026",
+  "fechaRecepcion": "2026-11-08",
   "nivel1": "AUTONOMICA",
-  "nivel2": "ANDALUCÍA",
-  "nivel3": "AGENCIA EMPRESARIAL PARA LA TRANSFORMACIÓN Y EL DESARROLLO ECONÓMICO",
+  "nivel2": "ILLES BALEARS",
+  "nivel3": "SERVICIO DE OCUPACIÓN DE LAS ISLAS BALEARES (SOIB)",
   "codigoInvente": null
  }
 }
