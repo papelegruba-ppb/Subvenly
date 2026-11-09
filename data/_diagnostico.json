@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-08",
- "recibidas": 1687,
- "relevantes": 1256,
+ "fecha": "2026-11-09",
+ "recibidas": 1744,
+ "relevantes": 1328,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-10-08",
- "retroceso_hasta": "2026-10-14",
+ "retroceso_desde": "2026-10-01",
+ "retroceso_hasta": "2026-10-07",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1142164,
+  "id": 1142178,
   "mrr": false,
-  "numeroConvocatoria": "940603",
-  "descripcion": "Resolución de la consejera de Trabajo, Función Pública y Diálogo Social, y presidenta del SOIB, SOIB Vulnerables Oferta Específica grados B de niveles 1 y 2 de FP, 2025-2027_PNL 109/2026",
-  "descripcionLeng": "Resolució de la consellera de Treball, Funció Pública i Diàleg Social, i presidenta del SOIB, SOIB Vulnerables Oferta específica graus B de nivells 1 i 2 d’FP, 2025-2027_PNL 109/2026",
+  "numeroConvocatoria": "940617",
+  "descripcion": "SN a la Escuela Taurina Extremeña para financiar el proyecto Fomento, formación y promoción de la tauromaquia entre jóvenes de Extremadura 2026",
+  "descripcionLeng": null,
   "fechaRecepcion": "2026-11-08",
-  "nivel1": "AUTONOMICA",
-  "nivel2": "ILLES BALEARS",
-  "nivel3": "SERVICIO DE OCUPACIÓN DE LAS ISLAS BALEARES (SOIB)",
+  "nivel1": "LOCAL",
+  "nivel2": "DIPUTACIÓN PROV. DE CÁCERES",
+  "nivel3": "DIPUTACIÓN PROVINCIAL DE CÁCERES",
   "codigoInvente": null
  }
 }
