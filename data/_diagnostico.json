@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-09",
- "recibidas": 1744,
- "relevantes": 1328,
+ "fecha": "2026-11-10",
+ "recibidas": 1747,
+ "relevantes": 1395,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-10-01",
- "retroceso_hasta": "2026-10-07",
+ "retroceso_desde": "2026-09-24",
+ "retroceso_hasta": "2026-09-30",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1142178,
+  "id": 1142549,
   "mrr": false,
-  "numeroConvocatoria": "940617",
-  "descripcion": "SN a la Escuela Taurina Extremeña para financiar el proyecto Fomento, formación y promoción de la tauromaquia entre jóvenes de Extremadura 2026",
+  "numeroConvocatoria": "940988",
+  "descripcion": "Bases reguladoras y convocatoria correspondiente a ayudas directas a estudiantado del Máster Erasmus Mundus en Estudios de las Mujeres y de Género (GEMMA) con destino en la Universidad de Oviedo en el curso 2026-2027",
   "descripcionLeng": null,
-  "fechaRecepcion": "2026-11-08",
-  "nivel1": "LOCAL",
-  "nivel2": "DIPUTACIÓN PROV. DE CÁCERES",
-  "nivel3": "DIPUTACIÓN PROVINCIAL DE CÁCERES",
-  "codigoInvente": null
+  "fechaRecepcion": "2026-11-10",
+  "nivel1": "OTROS",
+  "nivel2": "UNIVERSIDAD DE OVIEDO",
+  "nivel3": null,
+  "codigoInvente": "INV00005347"
  }
 }

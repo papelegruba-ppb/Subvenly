@@ -1,8 +1,8 @@
 {
- "fecha": "2026-11-09",
+ "fecha": "2026-11-10",
  "ficheros": 1,
- "encontradas": 68,
- "guardadas": 2451,
+ "encontradas": 97,
+ "guardadas": 2261,
  "fuentes_correctas": [
   "agregadas"
  ],
@@ -12,17 +12,17 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "771/2026",
-  "titulo": "Escenario Móvil. Plan MÁS Sevilla.",
-  "organo": "Alcaldía del Ayuntamiento de Villamanrique de la Condesa",
-  "territorio": "Sevilla",
-  "nuts": "ES618",
-  "tipo": "Suministros",
-  "cpv": "44212320",
-  "presupuesto": 30877,
-  "cierre": "2026-11-11",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=krhaMOG%2FHSQ%2B1TMyIiZmzw%3D%3D",
-  "visto": "2026-11-09",
-  "actualizada": "2026-10-27"
+  "id": "367/2026",
+  "titulo": "actuaciones de mejora en el entorno del parque san antonio reparación, conservación y acondicionamiento conforme a las unidades de obra del proyecto.",
+  "organo": "Alcaldía del Ayuntamiento de Cabezuela del Valle",
+  "territorio": "Cáceres",
+  "nuts": "ES432",
+  "tipo": "Obras",
+  "cpv": "45220000",
+  "presupuesto": 59500,
+  "cierre": "2026-11-10",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ADFkBcPBz1d%2BF6L2uCfUWg%3D%3D",
+  "visto": "2026-11-10",
+  "actualizada": "2026-10-26"
  }
 }
