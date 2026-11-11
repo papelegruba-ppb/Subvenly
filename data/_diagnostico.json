@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-10",
- "recibidas": 1747,
- "relevantes": 1395,
+ "fecha": "2026-11-11",
+ "recibidas": 1989,
+ "relevantes": 1586,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-09-24",
- "retroceso_hasta": "2026-09-30",
+ "retroceso_desde": "2026-09-17",
+ "retroceso_hasta": "2026-09-23",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1142549,
+  "id": 1142852,
   "mrr": false,
-  "numeroConvocatoria": "940988",
-  "descripcion": "Bases reguladoras y convocatoria correspondiente a ayudas directas a estudiantado del Máster Erasmus Mundus en Estudios de las Mujeres y de Género (GEMMA) con destino en la Universidad de Oviedo en el curso 2026-2027",
+  "numeroConvocatoria": "941291",
+  "descripcion": "XXV CERTAMEN DE TEATRO AFICIONADO ANA Mª VIDAL . BRUNETE 2027",
   "descripcionLeng": null,
   "fechaRecepcion": "2026-11-10",
-  "nivel1": "OTROS",
-  "nivel2": "UNIVERSIDAD DE OVIEDO",
-  "nivel3": null,
-  "codigoInvente": "INV00005347"
+  "nivel1": "LOCAL",
+  "nivel2": "BRUNETE",
+  "nivel3": "AYUNTAMIENTO DE BRUNETE",
+  "codigoInvente": null
  }
 }

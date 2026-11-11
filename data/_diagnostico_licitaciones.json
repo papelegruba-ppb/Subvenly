@@ -1,8 +1,8 @@
 {
- "fecha": "2026-11-10",
+ "fecha": "2026-11-11",
  "ficheros": 1,
- "encontradas": 97,
- "guardadas": 2261,
+ "encontradas": 52,
+ "guardadas": 2008,
  "fuentes_correctas": [
   "agregadas"
  ],
@@ -12,17 +12,17 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "367/2026",
-  "titulo": "actuaciones de mejora en el entorno del parque san antonio reparación, conservación y acondicionamiento conforme a las unidades de obra del proyecto.",
-  "organo": "Alcaldía del Ayuntamiento de Cabezuela del Valle",
-  "territorio": "Cáceres",
-  "nuts": "ES432",
+  "id": "1913359T",
+  "titulo": "Acondicionamiento de almacén (anexo a pabellón multiusos) para Bar Social, fase 1",
+  "organo": "Alcaldía del Ayuntamiento de Castejón de Monegros",
+  "territorio": "Huesca",
+  "nuts": "ES241",
   "tipo": "Obras",
-  "cpv": "45220000",
-  "presupuesto": 59500,
-  "cierre": "2026-11-10",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ADFkBcPBz1d%2BF6L2uCfUWg%3D%3D",
-  "visto": "2026-11-10",
+  "cpv": "45200000",
+  "presupuesto": 73656,
+  "cierre": "2026-11-16",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=TN9LdPe6DpHyoM4us5k4vw%3D%3D",
+  "visto": "2026-11-11",
   "actualizada": "2026-10-26"
  }
 }
