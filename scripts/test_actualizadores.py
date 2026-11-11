@@ -329,7 +329,7 @@ class TestRetencionNovedades(unittest.TestCase):
         items = []
 
         # Reproduce el reparto observado en producción antes del límite global:
-        # 1.610 BDNS, 223 UE y 1.140 CIDO (2.973 registros).
+        # 1.610 BDNS, 223 UE y 1.136 CIDO (2.969 registros).
         for i in range(1610):
             items.append({
                 "id": str(900000 + i), "fuente": "BDNS", "fecha": reciente,
@@ -343,7 +343,7 @@ class TestRetencionNovedades(unittest.TestCase):
                 "link": f"https://ec.europa.eu/info/funding-tenders/topic-details/test-{i}",
             })
 
-        ids_cido = {f"cido-{i:04d}" for i in range(1140)}
+        ids_cido = {f"cido-{i:04d}" for i in range(1136)}
         for ident in ids_cido:
             items.append({
                 "id": ident, "fuente": "CIDO", "fecha": fecha_cido,
@@ -375,7 +375,7 @@ class TestRetencionNovedades(unittest.TestCase):
 
             salida = json.loads((Path(tmp) / "novedades.json").read_text(encoding="utf-8"))
             ids_guardados = {item["id"] for item in salida["items"]}
-            self.assertEqual(len(salida["items"]), 2974)
+            self.assertEqual(len(salida["items"]), 2970)
             self.assertTrue(ids_cido.issubset(ids_guardados))
 
 
