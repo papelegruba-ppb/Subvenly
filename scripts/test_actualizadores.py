@@ -321,5 +321,63 @@ class TestLicitaciones(unittest.TestCase):
         self.assertEqual(len(rows), 1)
 
 
+class TestRetencionNovedades(unittest.TestCase):
+    def test_ue_no_recorta_registros_cido_al_guardar_el_catalogo(self):
+        hoy = dt.date.today()
+        reciente = hoy.isoformat()
+        fecha_cido = (hoy - dt.timedelta(days=30)).isoformat()
+        items = []
+
+        # Reproduce el reparto observado en producción antes del límite global:
+        # 1.610 BDNS, 223 UE y 1.140 CIDO (2.973 registros).
+        for i in range(1610):
+            items.append({
+                "id": str(900000 + i), "fuente": "BDNS", "fecha": reciente,
+                "visto": reciente, "titulo": f"Ayuda BDNS {i}",
+                "link": f"https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/{900000 + i}",
+            })
+        for i in range(223):
+            items.append({
+                "id": f"UE-ANTERIOR-{i}", "fuente": "Comisión Europea",
+                "fecha": reciente, "visto": reciente, "titulo": f"Convocatoria UE {i}",
+                "link": f"https://ec.europa.eu/info/funding-tenders/topic-details/test-{i}",
+            })
+
+        ids_cido = {f"cido-{i:04d}" for i in range(1140)}
+        for ident in ids_cido:
+            items.append({
+                "id": ident, "fuente": "CIDO", "fecha": fecha_cido,
+                "visto": fecha_cido, "titulo": f"Ajut local {ident}",
+                "link": f"https://cido.diba.cat/subvencions/{ident[5:]}",
+                "estadoConvocatoria": "por verificar",
+            })
+
+        respuesta = {"results": [{
+            "metadata": {
+                "identifier": ["HORIZON-TEST-NEW"],
+                "title": ["Nueva convocatoria UE de prueba"],
+                "startDate": [reciente + "T00:00:00.000+0000"],
+                "deadlineDate": [(hoy + dt.timedelta(days=30)).isoformat() + "T00:00:00.000+0000"],
+                "status": ["31094502"],
+            }
+        }]}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp) / "novedades.json").write_text(
+                json.dumps({"estadoActualizacion": "correcta", "items": items}),
+                encoding="utf-8",
+            )
+            with patch.object(actualizar, "DATA", tmp), \
+                 patch.object(actualizar_ue, "BUSQUEDAS", ["SME"]), \
+                 patch.object(actualizar_ue, "PAGINAS", 1), \
+                 patch.object(actualizar_ue, "consultar", return_value=respuesta):
+                self.assertEqual(actualizar_ue.main(), 0)
+
+            salida = json.loads((Path(tmp) / "novedades.json").read_text(encoding="utf-8"))
+            ids_guardados = {item["id"] for item in salida["items"]}
+            self.assertEqual(len(salida["items"]), 2974)
+            self.assertTrue(ids_cido.issubset(ids_guardados))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
