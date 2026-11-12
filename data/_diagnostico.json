@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-11",
- "recibidas": 1989,
- "relevantes": 1586,
+ "fecha": "2026-11-12",
+ "recibidas": 2284,
+ "relevantes": 1789,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-09-17",
- "retroceso_hasta": "2026-09-23",
+ "retroceso_desde": "2026-09-10",
+ "retroceso_hasta": "2026-09-16",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1142852,
+  "id": 1143144,
   "mrr": false,
-  "numeroConvocatoria": "941291",
-  "descripcion": "XXV CERTAMEN DE TEATRO AFICIONADO ANA Mª VIDAL . BRUNETE 2027",
-  "descripcionLeng": null,
-  "fechaRecepcion": "2026-11-10",
-  "nivel1": "LOCAL",
-  "nivel2": "BRUNETE",
-  "nivel3": "AYUNTAMIENTO DE BRUNETE",
+  "numeroConvocatoria": "941583",
+  "descripcion": "Subvención a las cámaras de comercio por realización de actuaciones en materia de innovación y digitalización",
+  "descripcionLeng": "Subvenció a les cambres de comerç per realització d'actuacions en matèria d'innovació i digitalització",
+  "fechaRecepcion": "2026-11-12",
+  "nivel1": "AUTONOMICA",
+  "nivel2": "ILLES BALEARS",
+  "nivel3": "DIRECCIÓN GENERAL DE INVESTIGACIÓN, INNOVACIÓN Y TRANSFORMACIÓN DIGITAL",
   "codigoInvente": null
  }
 }

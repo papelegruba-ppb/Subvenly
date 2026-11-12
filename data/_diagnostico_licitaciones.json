@@ -1,8 +1,8 @@
 {
- "fecha": "2026-11-11",
+ "fecha": "2026-11-12",
  "ficheros": 1,
- "encontradas": 52,
- "guardadas": 2008,
+ "encontradas": 27,
+ "guardadas": 1672,
  "fuentes_correctas": [
   "agregadas"
  ],
@@ -12,17 +12,17 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "1913359T",
-  "titulo": "Acondicionamiento de almacén (anexo a pabellón multiusos) para Bar Social, fase 1",
-  "organo": "Alcaldía del Ayuntamiento de Castejón de Monegros",
-  "territorio": "Huesca",
-  "nuts": "ES241",
-  "tipo": "Obras",
-  "cpv": "45200000",
-  "presupuesto": 73656,
-  "cierre": "2026-11-16",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=TN9LdPe6DpHyoM4us5k4vw%3D%3D",
-  "visto": "2026-11-11",
+  "id": "MNTB26-121",
+  "titulo": "Contratación del servicio de un agente comercial externo de la Fundación Colección Thyssen-Bornemisza, F.S.P.",
+  "organo": "Fundación Colección Thyssen Bornemisza",
+  "territorio": "Madrid",
+  "nuts": "ES300",
+  "tipo": "Servicios",
+  "cpv": "79000000",
+  "presupuesto": 38000,
+  "cierre": "2026-11-12",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=8ApY0Cjc2URrSd8H4b2soA%3D%3D",
+  "visto": "2026-11-12",
   "actualizada": "2026-10-26"
  }
 }
