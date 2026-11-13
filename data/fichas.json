@@ -1868,5 +1868,212 @@
     "pend": true,
     "estadoManual": "Según la comunicación municipal recibida el 06/11/2026, el plazo está condicionado al agotamiento del crédito y finaliza como máximo el 10/11/2026. Confirmar que queda crédito disponible en el trámite oficial.",
     "consultado": "2026-11-06"
+  },
+  {
+    "id": 53,
+    "perfil": "personal",
+    "tipo": "Subvención",
+    "titulo": "Ayuda por nacimiento o adopción de menor · Ayuntamiento de Madrid 2026-2027",
+    "organo": "Ayuntamiento de Madrid · Área de Gobierno de Políticas Sociales, Familia e Igualdad",
+    "ambito": "Municipal · municipio de Madrid",
+    "plazo": "Abierta del 27/10/2026 al 31/12/2027. Plazo individual: dos meses desde el día siguiente al nacimiento o adopción; consultar el plazo específico para hechos causantes anteriores a la publicación.",
+    "cierre": "2027-12-31",
+    "importe": "500 € por el primer hijo; 750 € por el segundo; 1.000 € por el tercero y siguientes (pago único)",
+    "resumen": "Subvención municipal de pago único para progenitores y adoptantes por nacimiento o adopción de menores entre el 1/09/2026 y el 31/12/2027. No tiene límite de renta ni de edad de los progenitores. No confundir con la ayuda autonómica de 500 €/mes de la Comunidad de Madrid.",
+    "reqs": {
+      "familia": "si",
+      "familiaEvento": {
+        "oneOf": [
+          "primer_hijo",
+          "otro_hijo"
+        ]
+      },
+      "municipioMadrid": "si"
+    },
+    "requisitos": [
+      "Nacimiento o adopción producido entre el 1 de septiembre de 2026 y el 31 de diciembre de 2027.",
+      "La persona solicitante debe estar empadronada en el municipio de Madrid durante los cinco años ininterrumpidos inmediatamente anteriores al nacimiento o adopción.",
+      "Tener nacionalidad española o residencia legal en España.",
+      "En caso de adopción, el menor debe tener hasta cinco años en el momento de la adopción.",
+      "Importe único: 500 € por el primer hijo, 750 € por el segundo y 1.000 € por el tercero o siguientes.",
+      "No se exige límite de renta ni edad máxima de los progenitores.",
+      "Comprobar las causas de prohibición y el resto de condiciones de las bases oficiales."
+    ],
+    "docs": [
+      "Solicitud oficial firmada por uno de los progenitores o tutores.",
+      "Documentación identificativa y acreditación de residencia legal, cuando proceda.",
+      "Certificado de empadronamiento histórico que acredite los cinco años ininterrumpidos.",
+      "Certificado de nacimiento o documentación de adopción.",
+      "Documentación adicional prevista en las bases y en la sede electrónica."
+    ],
+    "eval": "La preevaluación utiliza el perfil familiar y el municipio. Subvenly no comprueba por sí solo los cinco años ininterrumpidos de empadronamiento ni todas las causas de exclusión; confirmar estos extremos en las bases antes de solicitar.",
+    "link": "https://sede.madrid.es/portal/site/tramites/menuitem.62876cb64654a55e2dbd7003a8a409a0/?vgnextchannel=d6e537c190180210VgnVCM100000c90da8c0RCRD&vgnextfmt=default&vgnextoid=a9f09bcc9a861a10VgnVCM200000f921e388RCRD",
+    "links": [
+      [
+        "Convocatoria y solicitud oficial 2026-2027",
+        "https://sede.madrid.es/portal/site/tramites/menuitem.62876cb64654a55e2dbd7003a8a409a0/?vgnextchannel=d6e537c190180210VgnVCM100000c90da8c0RCRD&vgnextfmt=default&vgnextoid=a9f09bcc9a861a10VgnVCM200000f921e388RCRD"
+      ],
+      [
+        "Decreto de aprobación de la convocatoria · BOAM 26/10/2026",
+        "https://sede.madrid.es/portal/site/tramites/menuitem.b4c91589e7f6a5d829da39e5a8a409a0/?vgnextchannel=741d814231ede410VgnVCM1000000b205a0aRCRD&vgnextfmt=pd&vgnextoid=3d5dbf5bab261a10VgnVCM200000f921e388RCRD"
+      ],
+      [
+        "Información del Ayuntamiento de Madrid",
+        "https://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Notas-de-prensa/El-Ayuntamiento-aprueba-destinar-15-4-millones-de-euros-a-una-nueva-convocatoria-de-ayudas-por-nacimiento-o-adopcion/?vgnextchannel=6091317d3d2a7010VgnVCM100000dc0ca8c0RCRD&vgnextfmt=default&vgnextoid=0db3bf5bab261a10VgnVCM200000f921e388RCRD"
+      ]
+    ],
+    "categoria": "Familia y nacimiento",
+    "pend": true,
+    "estadoManual": "Convocatoria 2026-2027 abierta. La compatibilidad queda pendiente de verificar el empadronamiento ininterrumpido y las condiciones particulares.",
+    "consultado": "2026-11-13"
+  },
+  {
+    "id": 54,
+    "perfil": "personal",
+    "tipo": "Ayuda",
+    "titulo": "Ayuda económica mensual por gestación, nacimiento o adopción · Comunidad de Madrid",
+    "organo": "Comunidad de Madrid · Consejería de Familia, Juventud y Asuntos Sociales",
+    "ambito": "Autonómico · Comunidad de Madrid",
+    "plazo": "Solicitud permanente durante el ejercicio, condicionada a la declaración de crédito presupuestario disponible.",
+    "perm": true,
+    "permTxt": "En plazo permanente · ejercicio 2026 sujeto a crédito presupuestario disponible",
+    "importe": "500 €/mes por hijo, hasta que cumpla 24 meses o hasta 24 meses desde la inscripción de la adopción, según el supuesto",
+    "resumen": "Ayuda económica mensual para personas de hasta 30 años por gestación desde la semana 21, nacimiento o adopción. La sede electrónica indica que el trámite está permanentemente en plazo, pero el pago requiere crédito presupuestario disponible.",
+    "reqs": {
+      "familia": "si",
+      "familiaEvento": {
+        "oneOf": [
+          "primer_hijo",
+          "otro_hijo",
+          "embarazo"
+        ]
+      },
+      "ccaa": "Comunidad de Madrid",
+      "edad": {
+        "max": 30
+      },
+      "residenciaLegal": {
+        "oneOf": [
+          "si",
+          "no_aplica"
+        ]
+      }
+    },
+    "requisitos": [
+      "Tener 30 años o menos en el momento de la solicitud.",
+      "Ser mujer embarazada desde la semana 21, madre de un hijo menor de 24 meses o persona que haya adoptado un menor desde enero de 2022.",
+      "Tener nacionalidad española o residencia legal en España.",
+      "Residir y estar empadronada/o en la Comunidad de Madrid; acreditar al menos cinco años de residencia en uno o varios municipios de la Comunidad dentro de los diez años anteriores.",
+      "Mantener la residencia en la Comunidad de Madrid mientras se percibe la ayuda.",
+      "Renta anual inferior a 30.000 € individual o 36.200 € como unidad familiar.",
+      "La concesión y el pago requieren crédito presupuestario disponible para el ejercicio correspondiente."
+    ],
+    "docs": [
+      "Certificados de empadronamiento histórico y actual.",
+      "DNI/NIE o documentación acreditativa de residencia legal.",
+      "Informe médico acreditativo de la semana 21 o más de gestación, cuando se solicite por embarazo.",
+      "Certificado de nacimiento o inscripción de adopción, según el supuesto.",
+      "IRPF o certificado negativo de renta del último periodo impositivo vencido, cuando corresponda."
+    ],
+    "eval": "El test puede comprobar edad, situación familiar y comunidad autónoma. Deben verificarse por separado el periodo de residencia, los ingresos según modalidad individual o conjunta y la disponibilidad presupuestaria.",
+    "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-economicas-natalidad",
+    "links": [
+      [
+        "Trámite oficial y solicitud · sede electrónica",
+        "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-economicas-natalidad"
+      ],
+      [
+        "Requisitos y explicación de la ayuda · Comunidad de Madrid",
+        "https://www.comunidad.madrid/asuntos-sociales/ayudas-economicas-natalidad"
+      ],
+      [
+        "Preguntas frecuentes oficiales",
+        "https://www.comunidad.madrid/asuntos-sociales/preguntas-frecuentes-ayuda-economica-natalidad-0"
+      ]
+    ],
+    "categoria": "Familia y nacimiento",
+    "pend": true,
+    "estadoManual": "Solicitud permanente; comprobar crédito presupuestario disponible y requisitos económicos y de residencia antes de considerar la ayuda concedible.",
+    "consultado": "2026-11-13"
+  },
+  {
+    "id": 55,
+    "tipo": "Subvención",
+    "titulo": "Ayuda a autónomos para contratar una persona sustituta durante permisos o bajas · Comunidad de Madrid",
+    "organo": "Comunidad de Madrid · Consejería de Economía, Hacienda y Empleo",
+    "ambito": "Autonómico · Comunidad de Madrid",
+    "plazo": "Próxima convocatoria anunciada: solicitudes del 01/01/2027 al 28/02/2027. Se tendrán en cuenta contrataciones de 2026.",
+    "importe": "Hasta 1.250 €/mes, con el coste de contratación como límite",
+    "resumen": "Ayuda para que una persona autónoma mantenga su negocio durante una ausencia por nacimiento, adopción, guarda, acogimiento, riesgo durante el embarazo o lactancia, o incapacidad temporal superior a 120 días, mediante la contratación de una persona desempleada.",
+    "reqs": {
+      "madrid": "si",
+      "alta": "si"
+    },
+    "requisitos": [
+      "Trabajar por cuenta propia en la Comunidad de Madrid y estar de alta en RETA o en una mutualidad alternativa.",
+      "Contratar a una persona inscrita como demandante de empleo en las oficinas de empleo de la Comunidad de Madrid.",
+      "Supuestos: permiso por nacimiento, adopción, guarda con fines de adopción o acogimiento; riesgo durante el embarazo o lactancia natural; o incapacidad temporal superior a 120 días.",
+      "La ayuda cubre el periodo en que coincidan la vigencia del contrato y la ausencia de la persona autónoma.",
+      "En los casos de conciliación familiar, máximo de seis meses.",
+      "La jornada puede ser completa o parcial; si es parcial, debe alcanzar al menos el 50 % y la ayuda se reduce proporcionalmente.",
+      "Concesión por orden de presentación hasta agotar el presupuesto."
+    ],
+    "docs": [
+      "Acreditación del alta en RETA o mutualidad alternativa.",
+      "Contrato de la persona sustituta y acreditación de su inscripción como demandante de empleo.",
+      "Documentación acreditativa del permiso, riesgo o incapacidad temporal.",
+      "Justificantes del coste de contratación y demás documentos que establezcan las bases y convocatoria."
+    ],
+    "eval": "Programa anunciado oficialmente y con calendario previsto para 2027, pero pendiente de publicación de las bases y convocatoria formal. No presentar solicitudes antes de la apertura oficial ni dar por confirmada la elegibilidad hasta revisar las bases.",
+    "link": "https://www.comunidad.madrid/noticias/2026/11/11/comunidad-madrid-destinara-4-millones-euros-ayudas-autonomos-mantengan-su-negocio-baja-o-permiso-nacimiento",
+    "links": [
+      [
+        "Anuncio oficial del programa · Comunidad de Madrid, 11/11/2026",
+        "https://www.comunidad.madrid/noticias/2026/11/11/comunidad-madrid-destinara-4-millones-euros-ayudas-autonomos-mantengan-su-negocio-baja-o-permiso-nacimiento"
+      ]
+    ],
+    "categoria": "Autónomos · Conciliación y mantenimiento de actividad",
+    "pend": true,
+    "estadoManual": "Próxima convocatoria anunciada para 2027; bases y convocatoria formal pendientes de publicación.",
+    "consultado": "2026-11-13"
+  },
+  {
+    "id": 56,
+    "tipo": "Subvención",
+    "titulo": "Ayuda a autónomos para el pago de cuotas durante incapacidad temporal · Comunidad de Madrid",
+    "organo": "Comunidad de Madrid · Consejería de Economía, Hacienda y Empleo",
+    "ambito": "Autonómico · Comunidad de Madrid",
+    "plazo": "Próxima convocatoria anunciada: solicitudes del 01/01/2027 al 28/02/2027. Se tendrán en cuenta cotizaciones de 2026.",
+    "importe": "Hasta 1.606 €/mes, durante los primeros 60 días de incapacidad temporal",
+    "resumen": "Ayuda para sufragar las cotizaciones a la Seguridad Social que deba abonar la persona autónoma durante los días de incapacidad temporal, con el límite de los primeros 60 días de baja.",
+    "reqs": {
+      "madrid": "si",
+      "alta": "si"
+    },
+    "requisitos": [
+      "Trabajar por cuenta propia en la Comunidad de Madrid y estar de alta en RETA o en una mutualidad alternativa.",
+      "Encontrarse en situación de incapacidad temporal.",
+      "La ayuda cubre las cotizaciones correspondientes a los días de incapacidad temporal, con un límite de los primeros 60 días de baja.",
+      "La cuantía anunciada es de hasta 1.606 €/mes.",
+      "Concesión por orden de presentación hasta agotar el presupuesto."
+    ],
+    "docs": [
+      "Acreditación del alta en RETA o mutualidad alternativa.",
+      "Documentación acreditativa de la situación y duración de la incapacidad temporal.",
+      "Justificantes de las cotizaciones a la Seguridad Social.",
+      "Documentación adicional que establezcan las bases y convocatoria."
+    ],
+    "eval": "Programa anunciado oficialmente y con calendario previsto para 2027, pero pendiente de publicación de las bases y convocatoria formal. La cuantía final se ajustará a las cotizaciones y condiciones que establezcan las bases.",
+    "link": "https://www.comunidad.madrid/noticias/2026/11/11/comunidad-madrid-destinara-4-millones-euros-ayudas-autonomos-mantengan-su-negocio-baja-o-permiso-nacimiento",
+    "links": [
+      [
+        "Anuncio oficial del programa · Comunidad de Madrid, 11/11/2026",
+        "https://www.comunidad.madrid/noticias/2026/11/11/comunidad-madrid-destinara-4-millones-euros-ayudas-autonomos-mantengan-su-negocio-baja-o-permiso-nacimiento"
+      ]
+    ],
+    "categoria": "Autónomos · Incapacidad temporal y cotizaciones",
+    "pend": true,
+    "estadoManual": "Próxima convocatoria anunciada para 2027; bases y convocatoria formal pendientes de publicación.",
+    "consultado": "2026-11-13"
   }
 ]
