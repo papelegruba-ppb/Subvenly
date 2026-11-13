@@ -1,8 +1,8 @@
 {
- "fecha": "2026-11-12",
+ "fecha": "2026-11-13",
  "ficheros": 1,
- "encontradas": 27,
- "guardadas": 1693,
+ "encontradas": 50,
+ "guardadas": 1419,
  "fuentes_correctas": [
   "agregadas"
  ],
@@ -12,17 +12,17 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "PRC/2026/0000101062",
-  "titulo": "Reforma integral de edificio acceso, dotación de control de acceso y aparcamiento público, y mejora de urbanización de la Consejería de Agricultura, Ganadería y Medio Natural en Badajoz",
-  "organo": "Consejería de Agricultura, Ganadería y Medio Natural",
-  "territorio": "Badajoz",
-  "nuts": "ES431",
-  "tipo": "Obras",
-  "cpv": "45210000",
-  "presupuesto": 131518,
+  "id": "9-01-2026=CA=(3204/2026)",
+  "titulo": "Otorgamiento de concesión demanial para la recuperación, adecuación, conservación y la explotación de las instalaciones deportivas municipales ubicadas en la parcela SRD-5",
+  "organo": "Alcaldía del Ayuntamiento de Finestrat",
+  "territorio": "",
+  "nuts": "ES521",
+  "tipo": "Otros",
+  "cpv": "92610000",
+  "presupuesto": 265314,
   "cierre": "2026-11-23",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=L%2BThAf2AMI4S7pcxhTeWOg%3D%3D",
-  "visto": "2026-11-12",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=lVI8rr4DKGHXOjazN1Dw9Q%3D%3D",
+  "visto": "2026-11-13",
   "actualizada": "2026-10-26"
  }
 }

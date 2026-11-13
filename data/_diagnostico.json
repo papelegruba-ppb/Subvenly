@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-12",
- "recibidas": 1513,
- "relevantes": 1221,
+ "fecha": "2026-11-13",
+ "recibidas": 1845,
+ "relevantes": 1454,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-09-03",
- "retroceso_hasta": "2026-09-09",
+ "retroceso_desde": "2026-08-27",
+ "retroceso_hasta": "2026-09-02",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1143144,
+  "id": 1143458,
   "mrr": false,
-  "numeroConvocatoria": "941583",
-  "descripcion": "Subvención a las cámaras de comercio por realización de actuaciones en materia de innovación y digitalización",
-  "descripcionLeng": "Subvenció a les cambres de comerç per realització d'actuacions en matèria d'innovació i digitalització",
-  "fechaRecepcion": "2026-11-12",
+  "numeroConvocatoria": "941897",
+  "descripcion": "Subvención directa al Consejo Insular de Menorca para dotar de personal al Centro de Crisis Veronique ubicat a l'illa de Menorca - 2026",
+  "descripcionLeng": "Subvenció directa al Consell Insular de Menorca per a dotar de personal al Centre de Crisi Veronique ubicat a l'illa de Menorca - 2026",
+  "fechaRecepcion": "2026-11-13",
   "nivel1": "AUTONOMICA",
   "nivel2": "ILLES BALEARS",
-  "nivel3": "DIRECCIÓN GENERAL DE INVESTIGACIÓN, INNOVACIÓN Y TRANSFORMACIÓN DIGITAL",
+  "nivel3": "INSTITUTO BALEAR DE LA MUJER",
   "codigoInvente": null
  }
 }
