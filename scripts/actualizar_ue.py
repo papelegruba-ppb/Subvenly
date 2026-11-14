@@ -11,7 +11,7 @@ import json, os, sys, time, uuid, datetime as dt
 import urllib.request, urllib.parse, urllib.error
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from actualizar import leer, escribir, iso, RETENCION_DIAS, NUEVA_DIAS, MAX_ITEMS  # noqa: E402
+from actualizar import leer, escribir, iso, RETENCION_DIAS, NUEVA_DIAS  # noqa: E402
 
 API = "https://api.tech.ec.europa.eu/search-api/prod/rest/search"
 TOPIC = "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/{}"
@@ -141,11 +141,11 @@ def main():
     else:
         errores_actualizacion = previo_doc.get("erroresActualizacion", [])
     salida = {"actualizado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
-        "estadoActualizacion": estado_actualizacion, "items": items[:MAX_ITEMS]}
+        "estadoActualizacion": estado_actualizacion, "items": items}
     if errores_actualizacion:
         salida["erroresActualizacion"] = errores_actualizacion
     escribir("novedades.json", salida, compacto=True)
-    print(f"Guardadas {min(len(items), MAX_ITEMS)} novedades en total.")
+    print(f"Guardadas {len(items)} novedades en total.")
     return 0
 
 if __name__ == "__main__":

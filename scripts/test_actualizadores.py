@@ -322,28 +322,24 @@ class TestLicitaciones(unittest.TestCase):
 
 
 class TestRetencionNovedades(unittest.TestCase):
-    def test_ue_no_recorta_registros_cido_al_guardar_el_catalogo(self):
-        hoy = dt.date.today()
+    def _catalogo_grande(self, hoy):
         reciente = hoy.isoformat()
         fecha_cido = (hoy - dt.timedelta(days=30)).isoformat()
         items = []
-
-        # Reproduce el reparto observado en producción antes del límite global:
-        # 1.612 BDNS, 223 UE y 1.127 CIDO (2.962 registros; volumen sintético basado en el diagnóstico actual).
-        for i in range(1612):
+        for i in range(2851):
+            ident = str(900000 + i)
             items.append({
-                "id": str(900000 + i), "fuente": "BDNS", "fecha": reciente,
+                "id": ident, "fuente": "BDNS", "fecha": reciente,
                 "visto": reciente, "titulo": f"Ayuda BDNS {i}",
-                "link": f"https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/{900000 + i}",
+                "link": f"https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/{ident}",
             })
-        for i in range(223):
+        for i in range(230):
             items.append({
                 "id": f"UE-ANTERIOR-{i}", "fuente": "Comisión Europea",
                 "fecha": reciente, "visto": reciente, "titulo": f"Convocatoria UE {i}",
                 "link": f"https://ec.europa.eu/info/funding-tenders/topic-details/test-{i}",
             })
-
-        ids_cido = {f"cido-{i:04d}" for i in range(1127)}
+        ids_cido = {f"cido-{i:04d}" for i in range(1139)}
         for ident in ids_cido:
             items.append({
                 "id": ident, "fuente": "CIDO", "fecha": fecha_cido,
@@ -351,7 +347,43 @@ class TestRetencionNovedades(unittest.TestCase):
                 "link": f"https://cido.diba.cat/subvencions/{ident[5:]}",
                 "estadoConvocatoria": "por verificar",
             })
+        return items, ids_cido
 
+    def test_bdns_no_recorta_catalogo_superior_a_4000(self):
+        hoy = dt.date.today()
+        items, ids_cido = self._catalogo_grande(hoy)
+        fixture = [{
+            "numeroConvocatoria": "9999999",
+            "descripcion": "Subvención de prueba para empresas",
+            "descripcionLeng": "Subvenció de prova per a empreses",
+            "nivel1": "ESTATAL",
+            "nivel2": "ESPAÑA",
+            "nivel3": "Administración de prueba",
+            "fechaRecepcion": hoy.isoformat(),
+        }]
+
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp) / "novedades.json").write_text(
+                json.dumps({"estadoActualizacion": "correcta", "items": items}),
+                encoding="utf-8",
+            )
+            fixture_path = Path(tmp) / "bdns-fixture.json"
+            fixture_path.write_text(json.dumps({"content": fixture}), encoding="utf-8")
+            with patch.object(actualizar, "DATA", tmp), \
+                 patch.object(actualizar, "MAX_DETALLES", 0), \
+                 patch.object(sys, "argv", ["actualizar.py", "--fixture", str(fixture_path)]):
+                self.assertEqual(actualizar.main(), 0)
+
+            salida = json.loads((Path(tmp) / "novedades.json").read_text(encoding="utf-8"))
+            ids_guardados = {item["id"] for item in salida["items"]}
+            self.assertEqual(len(salida["items"]), 4221)
+            self.assertTrue(ids_cido.issubset(ids_guardados))
+            self.assertIn("9999999", ids_guardados)
+
+    def test_ue_no_recorta_registros_cido_al_superar_4000(self):
+        hoy = dt.date.today()
+        items, ids_cido = self._catalogo_grande(hoy)
+        reciente = hoy.isoformat()
         respuesta = {"results": [{
             "metadata": {
                 "identifier": ["HORIZON-TEST-NEW"],
@@ -375,8 +407,9 @@ class TestRetencionNovedades(unittest.TestCase):
 
             salida = json.loads((Path(tmp) / "novedades.json").read_text(encoding="utf-8"))
             ids_guardados = {item["id"] for item in salida["items"]}
-            self.assertEqual(len(salida["items"]), 2963)
+            self.assertEqual(len(salida["items"]), 4221)
             self.assertTrue(ids_cido.issubset(ids_guardados))
+            self.assertIn("UE-HORIZON-TEST-NEW", ids_guardados)
 
 
 if __name__ == "__main__":
