@@ -20,7 +20,6 @@ RETENCION_DIAS = 90       # cuánto tiempo se conserva una novedad
 NUEVA_DIAS = 7             # durante cuántos días lleva la etiqueta "Nuevo"
 PAGINA = 200
 MAX_PAGINAS = 40
-MAX_ITEMS = 4000  # margen para conservar BDNS, CIDO y UE en el catálogo combinado
 MAX_DETALLES = 100        # presupuesto prudente de detalles nuevos y revisiones por ejecución
 DIAS_RETROCESO = 90       # cobertura histórica progresiva dentro de la ventana retenida
 BLOQUE_RETROCESO = 7      # días por lote histórico para no disparar el tiempo de ejecución
@@ -338,9 +337,9 @@ def main():
         "error_retroceso": error_retroceso,
         "claves_primer_elemento": sorted(raw[0].keys()) if raw else [], "ejemplo": raw[0] if raw else None})
     escribir("novedades.json", {"actualizado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
-        "estadoActualizacion": estado_actualizacion, "items": items[:MAX_ITEMS]}, compacto=True)
+        "estadoActualizacion": estado_actualizacion, "items": items}, compacto=True)
     escribir("estado.json", {"ultima": hoy.isoformat(), "retrocesoHasta": retroceso_hasta_siguiente})
-    print(f"Guardadas {min(len(items), MAX_ITEMS)} novedades; actualización {estado_actualizacion}.")
+    print(f"Guardadas {len(items)} novedades; actualización {estado_actualizacion}.")
     return 2 if estado_actualizacion == "parcial" else 0
 
 if __name__ == "__main__":
