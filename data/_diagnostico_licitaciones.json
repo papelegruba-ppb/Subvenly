@@ -1,28 +1,27 @@
 {
- "fecha": "2026-11-13",
+ "fecha": "2026-11-14",
  "ficheros": 1,
- "encontradas": 50,
- "guardadas": 1419,
+ "encontradas": 82,
+ "guardadas": 1328,
  "fuentes_correctas": [
+  "perfiles",
   "agregadas"
  ],
- "fuentes_parciales": [
-  "perfiles"
- ],
+ "fuentes_parciales": [],
  "errores": [],
- "estado": "parcial",
+ "estado": "completa",
  "ejemplo": {
-  "id": "9-01-2026=CA=(3204/2026)",
-  "titulo": "Otorgamiento de concesión demanial para la recuperación, adecuación, conservación y la explotación de las instalaciones deportivas municipales ubicadas en la parcela SRD-5",
-  "organo": "Alcaldía del Ayuntamiento de Finestrat",
-  "territorio": "",
-  "nuts": "ES521",
-  "tipo": "Otros",
-  "cpv": "92610000",
-  "presupuesto": 265314,
-  "cierre": "2026-11-23",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=lVI8rr4DKGHXOjazN1Dw9Q%3D%3D",
-  "visto": "2026-11-13",
+  "id": "LICT/99/139/2025/0194",
+  "titulo": "Contratación del suministro de sistema para cirugías de columna cervical (anterior y posterior),de sistema para cifoplastias/vertebroplastias y rizolisis para los Hospitales de FREMAP, Mutua Colaboradora con la Seguridad Social nº 61.",
+  "organo": "Director Gerente de FREMAP",
+  "territorio": "ESPAÑA",
+  "nuts": "ES",
+  "tipo": "Suministros",
+  "cpv": "33184100",
+  "presupuesto": 419027,
+  "cierre": "2026-11-27",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=mzFgJNU8IQceIBJRHQiPkQ%3D%3D",
+  "visto": "2026-11-14",
   "actualizada": "2026-10-26"
  }
 }

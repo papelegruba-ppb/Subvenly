@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-13",
- "recibidas": 1845,
- "relevantes": 1454,
+ "fecha": "2026-11-14",
+ "recibidas": 1714,
+ "relevantes": 1327,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-08-27",
- "retroceso_hasta": "2026-09-02",
+ "retroceso_desde": "2026-08-20",
+ "retroceso_hasta": "2026-08-26",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1143458,
+  "id": 1143704,
   "mrr": false,
-  "numeroConvocatoria": "941897",
-  "descripcion": "Subvención directa al Consejo Insular de Menorca para dotar de personal al Centro de Crisis Veronique ubicat a l'illa de Menorca - 2026",
-  "descripcionLeng": "Subvenció directa al Consell Insular de Menorca per a dotar de personal al Centre de Crisi Veronique ubicat a l'illa de Menorca - 2026",
+  "numeroConvocatoria": "942143",
+  "descripcion": "SUBVENCIÓN A FAVOR DE LA ASOCIACIÓN ASOCIACIÓN GALEGA DE XORNALISTAS DO DEPORTE AGAXORDE PARA LA REALIZACIÓN DE EL EVENTO ?JORNADAS NACIONALES DE PERIODISMO DEPORTIVO?. EXPTE. 25756/333.",
+  "descripcionLeng": "SUBVENCIÓN A FAVOR DA ENTIDADE ASOCIACIÓN GALEGA DE XORNALISTAS DO DEPORTE AGAXORDE PARA A REALIZACIÓN DO EVENTO ?XORNADAS NACIONAIS DE PERIODISMO DEPORTIVO?. EXPTE. 25756/333.",
   "fechaRecepcion": "2026-11-13",
-  "nivel1": "AUTONOMICA",
-  "nivel2": "ILLES BALEARS",
-  "nivel3": "INSTITUTO BALEAR DE LA MUJER",
+  "nivel1": "LOCAL",
+  "nivel2": "VIGO",
+  "nivel3": "AYUNTAMIENTO DE VIGO",
   "codigoInvente": null
  }
 }
