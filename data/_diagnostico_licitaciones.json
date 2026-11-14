@@ -1,27 +1,27 @@
 {
  "fecha": "2026-11-14",
- "ficheros": 1,
- "encontradas": 82,
- "guardadas": 1328,
- "fuentes_correctas": [
+ "ficheros": 2,
+ "encontradas": 254,
+ "guardadas": 1565,
+ "fuentes_correctas": [],
+ "fuentes_parciales": [
   "perfiles",
   "agregadas"
  ],
- "fuentes_parciales": [],
  "errores": [],
- "estado": "completa",
+ "estado": "parcial",
  "ejemplo": {
-  "id": "LICT/99/139/2025/0194",
-  "titulo": "Contratación del suministro de sistema para cirugías de columna cervical (anterior y posterior),de sistema para cifoplastias/vertebroplastias y rizolisis para los Hospitales de FREMAP, Mutua Colaboradora con la Seguridad Social nº 61.",
-  "organo": "Director Gerente de FREMAP",
-  "territorio": "ESPAÑA",
-  "nuts": "ES",
+  "id": "802/2026",
+  "titulo": "Ejecución de un sistema de generación de energía eléctrica de fuentes renovables por medio de la implantación de plantas solares fotovoltaicas, la asistencia técnica para la constitución de una comunidad energética como modalidad de autoconsumo colectivo y el suministro de energía eléctrica proceden",
+  "organo": "Pleno del Ayuntamiento de Villarrubia de Santiago",
+  "territorio": "Toledo",
+  "nuts": "ES425",
   "tipo": "Suministros",
-  "cpv": "33184100",
-  "presupuesto": 419027,
-  "cierre": "2026-11-27",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=mzFgJNU8IQceIBJRHQiPkQ%3D%3D",
+  "cpv": "09300000",
+  "presupuesto": 949485,
+  "cierre": "2026-12-28",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=FzZj0aDfcxdWhbmkna2nXQ%3D%3D",
   "visto": "2026-11-14",
-  "actualizada": "2026-10-26"
+  "actualizada": "2026-11-13"
  }
 }
