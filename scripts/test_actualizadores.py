@@ -277,12 +277,29 @@ class TestLicitaciones(unittest.TestCase):
         return ET.fromstring(xml)
 
     def test_parsea_licitacion_publicada_en_plazo(self):
-        item = actualizar_licitaciones.entrada(self.make_entry(), dt.date(2026, 10, 22))
+        item = actualizar_licitaciones.entrada(self.make_entry(), dt.date(2026, 10, 22), feed="perfiles")
         self.assertIsNotNone(item)
         self.assertEqual(item["id"], "EXP-123")
         self.assertEqual(item["cierre"], "2026-11-16")
         self.assertEqual(item["presupuesto"], 1000)
         self.assertEqual(item["link"], "https://example.test/licitacion")
+        self.assertEqual(item["fuente"], "example.test")
+        self.assertEqual(item["feed"], "perfiles")
+        self.assertEqual(item["estadoEnCaptura"], "PUB")
+
+    def test_normaliza_procedencia_de_registros_historicos(self):
+        item = {"id": "EXP-ANTERIOR", "link": "https://www.contractaciopublica.cat/licitacio/123"}
+        actualizar_licitaciones.normalizar_procedencia(item)
+        self.assertEqual(item["fuente"], "contractaciopublica.cat")
+        self.assertEqual(item["feed"], "historico_sin_identificar")
+        self.assertEqual(item["estadoEnCaptura"], "PUB")
+
+    def test_no_inventa_dominio_si_el_enlace_no_es_valido(self):
+        item = {"id": "EXP-SIN-URL", "link": ""}
+        actualizar_licitaciones.normalizar_procedencia(item)
+        self.assertEqual(item["fuente"], "no_identificada")
+        self.assertEqual(item["feed"], "historico_sin_identificar")
+        self.assertEqual(item["estadoEnCaptura"], "PUB")
 
     def test_excluye_licitacion_no_publicada_o_vencida(self):
         hoy = dt.date(2026, 10, 22)
@@ -292,7 +309,8 @@ class TestLicitaciones(unittest.TestCase):
     def test_recorrer_fixture_atom_sin_red(self):
         entry = ET.tostring(self.make_entry(), encoding="utf-8")
         atom = b'<feed xmlns="http://www.w3.org/2005/Atom">' + entry + b'</feed>'
-        rows, pages, next_url, complete = actualizar_licitaciones.recorrer("fixture", "2026-10-01", dt.date(2026, 10, 22), raiz_local=atom)
+        rows, pages, next_url, complete = actualizar_licitaciones.recorrer("fixture", "2026-10-01", dt.date(2026, 10, 22), raiz_local=atom, feed="agregadas")
+        self.assertEqual(rows[0]["feed"], "agregadas")
         self.assertEqual(pages, 1)
         self.assertEqual(next_url, "")
         self.assertTrue(complete)
