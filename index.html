@@ -259,6 +259,9 @@ function opcionesPregunta(k){
     situacionPersonal:[["familia","Nacimiento, adopción o crianza"],["desempleo","Estoy en paro o he agotado el paro"],["ingresos","Tengo ingresos bajos o dificultades económicas"],["retorno","He regresado del extranjero o quiero volver"],["extranjeria","Mi situación es de extranjería o residencia"],["vivienda","Vivienda, alquiler o suministros"],["discapacidad","Discapacidad, dependencia o cuidados"],["estudios","Estudios, formación o juventud"],["otra","Otra situación personal"]],
     familiaEvento:[["primer_hijo","Acabo de tener mi primer hijo"],["otro_hijo","He tenido otro hijo o una adopción"],["embarazo","Estoy embarazada o espero una adopción"],["crianza","Tengo hijos y busco ayudas para criarlos"],["titulo_familiar","Quiero solicitar, renovar o revisar un título de familia numerosa o monoparental"]],
     familiaComposicion:[["dos_progenitores","Dos progenitores (pareja o unidad biparental)"],["monoparental_custodia","Una sola persona progenitora con guarda y custodia"],["custodia_exclusiva_sin_alimentos","Custodia exclusiva y sin derecho a pensión de alimentos"],["violencia_genero","Una progenitora víctima de violencia de género con guarda/custodia"],["ausencia_progenitor","Ausencia forzada del otro progenitor durante al menos un año"],["tutela_acogimiento","Una persona tutora, acogedora o guardadora"],["separados_tres_hijos","Progenitor separado/divorciado con tres o más hijos económicamente dependientes"],["hermanos_huerfanos","Hermanos huérfanos que conviven y cumplen los requisitos legales"]],
+    hijosEdad:[["menores_21","Todos son menores de 21 años"],["21_25_estudian","Alguno tiene entre 21 y 25 años y estudia"],["21_25_no_estudia","Alguno tiene entre 21 y 25 años y no estudia"],["mayores_discapacidad","Hay hijos mayores de 25 años con discapacidad o incapacidad para trabajar"],["mixto","Se combinan varias situaciones de edad"],["nose","No lo sé; necesito comprobarlo"]],
+    hijosDependencia:[["si","Sí, conviven y dependen económicamente"],["no","No todos cumplen esas condiciones"],["nose","No lo sé; necesito comprobar ingresos y convivencia"]],
+    familiaCategoria:[["general","Categoría general"],["especial","Categoría especial"],["tramite","Solicitud en trámite"],["caducado","Título caducado"],["nose","No lo sé"]],
     hijosDiscapacidad:[["si","Sí"],["no","No"],["nose","No lo sé / pendiente de reconocimiento"]],
     progenitorDiscapacidad:[["si","Sí"],["no","No"],["nose","No lo sé / pendiente de reconocimiento"]],
     partoMultiple:[["si","Sí"],["no","No"],["nose","No lo sé"]],
@@ -491,6 +494,9 @@ Object.assign(QUESTIONS,{
  familiaNumerosa:"¿Tienes reconocido un título de familia numerosa?",
  familiaComposicion:"¿Qué composición o situación familiar describe mejor vuestro caso?",
  hijosTotal:"¿Cuántos hijos o personas asimiladas computarían en la unidad familiar?",
+ hijosEdad:"¿Qué situación de edad y estudios tienen los hijos que quieres incluir?",
+ hijosDependencia:"¿Los hijos cumplen las condiciones de convivencia y dependencia económica exigidas?",
+ familiaCategoria:"¿Qué categoría figura en el título actual de familia numerosa?",
  hijosDiscapacidad:"¿Alguno de los hijos tiene reconocida discapacidad igual o superior al 33% o incapacidad para trabajar equivalente a absoluta/gran incapacidad?",
  progenitorDiscapacidad:"¿Alguno de los progenitores tiene reconocida discapacidad igual o superior al 33% o incapacidad para trabajar equivalente a absoluta/gran incapacidad?",
  partoMultiple:"¿Hay hijos procedentes de un mismo parto, adopción o acogimiento múltiple?",
@@ -547,7 +553,7 @@ function anadirRutaPersonal(l){
   if(A.familia==="si"&&A.familiaEvento){
    if(["primer_hijo","otro_hijo","embarazo"].indexOf(A.familiaEvento)>=0)l.push("nacimientoFecha");
    if(["otro_hijo","crianza"].indexOf(A.familiaEvento)>=0)l.push("menores");
-   l=l.concat(["#Composición familiar y títulos","familiaComposicion","hijosTotal","hijosDiscapacidad","progenitorDiscapacidad","partoMultiple","familiaNumerosa","familiaMonoparental","edad","unidad","ingresos","ingresosPorMiembro","menores14SinDni","tsiMenor","nacionalidad","residenciaLegal","unidadFamiliar","tramitar"]);
+   l=l.concat(["#Composición familiar y títulos","familiaComposicion","hijosTotal","hijosEdad","hijosDependencia","hijosDiscapacidad","progenitorDiscapacidad","partoMultiple","familiaNumerosa","familiaCategoria","familiaMonoparental","edad","unidad","ingresos","ingresosPorMiembro","menores14SinDni","tsiMenor","nacionalidad","residenciaLegal","unidadFamiliar","tramitar"]);
   }
  }
  if(A.situacionPersonal==="desempleo"){
@@ -610,7 +616,8 @@ function mostrar(k){
  if(k==="familiaEvento"&&(A.situacionPersonal!=="familia"||A.familia!=="si"))return false;
  if(k==="nacimientoFecha"&&(A.situacionPersonal!=="familia"||A.familia!=="si"||["primer_hijo","otro_hijo","embarazo"].indexOf(A.familiaEvento)<0))return false;
  if(k==="menores"&&(A.situacionPersonal!=="familia"||A.familia!=="si"||["otro_hijo","crianza"].indexOf(A.familiaEvento)<0))return false;
- if(["familiaComposicion","hijosTotal","hijosDiscapacidad","progenitorDiscapacidad","partoMultiple","familiaNumerosa","familiaMonoparental","ingresosPorMiembro","menores14SinDni"].indexOf(k)>=0&&(A.situacionPersonal!=="familia"||A.familia!=="si"||!A.familiaEvento))return false;
+ if(["familiaComposicion","hijosTotal","hijosEdad","hijosDependencia","hijosDiscapacidad","progenitorDiscapacidad","partoMultiple","familiaNumerosa","familiaMonoparental","ingresosPorMiembro","menores14SinDni"].indexOf(k)>=0&&(A.situacionPersonal!=="familia"||A.familia!=="si"||!A.familiaEvento))return false;
+ if(k==="familiaCategoria"&&A.familiaNumerosa!=="si")return false;
  if(k==="ingresosPorMiembro"&&Number(A.hijosTotal)!==3)return false;
  if(k==="tsiMenor"&&(A.ccaa!=="Cataluña"||A.menores14SinDni!=="si"))return false;
  if(k==="alquiler"&&A.situacionPersonal!=="vivienda")return false;
@@ -722,12 +729,17 @@ function renderProfile(){
   fam.appendChild(txt("p","El Real Decreto-ley 35/2026 se publicó el 11 de noviembre de 2026. Las modificaciones de familia numerosa y el nuevo título estatal de familia monoparental producen efectos desde el 1 de enero de 2027. Hasta esa fecha, comprueba los requisitos actualmente aplicables en tu comunidad autónoma."));
   fam.appendChild(txt("p","Desde el 1 de enero de 2027, la familia numerosa incluirá, entre otros supuestos, unidades con tres o más hijos; categoría especial para cuatro o más, tres con al menos dos procedentes de parto/adopción/acogimiento múltiple, o tres cuando la renta anual por miembro no supere el 150% del IPREM con pagas extraordinarias. Cada hijo con discapacidad reconocida igual o superior al 33% o incapacidad para trabajar equivalente a absoluta/gran incapacidad computará como dos para determinar la categoría."));
   fam.appendChild(txt("p","También se equiparan determinados supuestos con dos hijos: discapacidad o incapacidad para trabajar de un hijo; discapacidad o incapacidad para trabajar de uno de los progenitores en los términos legales; o una sola persona progenitora con dos hijos. Los progenitores separados o divorciados con tres o más hijos económicamente dependientes podrán acogerse conforme a las condiciones legales; con custodia compartida, los hijos podrán figurar en ambos títulos."));
-  fam.appendChild(txt("p","El nuevo título estatal de familia monoparental exige encajar en los supuestos legales de guarda/custodia, tutela, acogimiento o situaciones protegidas equivalentes, además de los requisitos de edad, convivencia y dependencia económica. La categoría especial comprende, entre otros casos, dos o más hijos, o un hijo con discapacidad o progenitor con discapacidad en los términos legales."));
+  fam.appendChild(txt("p","El nuevo título estatal de familia monoparental exige encajar en los supuestos legales de guarda/custodia, tutela, acogimiento o situaciones protegidas equivalentes, además de los requisitos de edad, convivencia y dependencia económica. Como regla general, los hijos deben ser menores de 21 años; el límite puede ampliarse a 26 años en supuestos de estudios o violencia de género, y no opera igual para hijos con discapacidad o incapacidad para trabajar. La categoría especial comprende dos o más hijos, o un hijo cuando se cumplan los umbrales de renta o discapacidad/incapacidad previstos en la norma."));
+  fam.appendChild(txt("p","El título de familia numerosa expedido por una comunidad autónoma tiene validez en toda España. La competencia para expedirlo, renovarlo o modificarlo corresponde a la comunidad de residencia. El formato digital tiene la misma validez que el físico cuando lo expide la administración competente. Si cambias de comunidad, no pierdes automáticamente la validez del título, pero debes comunicar el cambio y comprobar qué administración tramita las modificaciones y renovaciones."));
+  fam.appendChild(txt("p","Si ya tienes título general, revisa la disposición transitoria del Real Decreto-ley: determinados títulos pasarán automáticamente a categoría especial (por ejemplo, con cuatro hijos o tres con al menos dos procedentes de parto/adopción/acogimiento múltiple, y ciertos supuestos de dos hijos del nuevo artículo 33). Para tres hijos que alcancen la categoría especial por renta, hay que solicitar la reclasificación y acreditar el límite."));
   var ley=el("a","btn alt","Consultar Real Decreto-ley 35/2026 en el BOE");ley.href="https://www.boe.es/eli/es/rdl/2026/11/10/35";ley.target="_blank";ley.rel="noopener";fam.appendChild(ley);
   if(A.ccaa==="Cataluña"){
    fam.appendChild(txt("p","Cataluña: el trámite vigente pide identificar con TSI a los menores de 14 años que no tengan DNI/NIE. Si aún no tienes la tarjeta física, consulta CatSalut para obtener el CIP y confirma con el órgano gestor si admite el resguardo provisional. El libro de familia o certificado literal acredita la filiación, pero no sustituye por sí solo la identificación TSI exigida actualmente en este trámite."));
    var cat=el("a","btn alt","Trámite oficial del título en Cataluña");cat.href="https://tramits.gencat.cat/es/tramits/tramits-temes/Titol-de-familia-nombrosa?moda=1";cat.target="_blank";cat.rel="noopener";fam.appendChild(cat);
    var tsi=el("a","btn alt","Solicitar la primera TSI en CatSalut");tsi.href="https://catsalut.gencat.cat/ca/coneix-catsalut/acces-sistema-salut/la-tsi/obtencio-tsi/";tsi.target="_blank";tsi.rel="noopener";fam.appendChild(tsi);
+  }else if(A.ccaa==="Comunidad de Madrid"||A.ccaa==="Aragón"||A.ccaa==="Andalucía"||A.ccaa==="Comunitat Valenciana"){
+   var enlaces={"Comunidad de Madrid":"https://sede.comunidad.madrid/autorizaciones-licencias-permisos-carnes/titulo-familia-numerosa","Aragón":"https://www.aragon.es/tramitador/-/tramite/primera-emision-titulo-familia-numerosa","Andalucía":"https://www.juntadeandalucia.es/organismos/serviciossocialesfamiliaseigualdad/areas/familias/familia-numerosa/paginas/familia-numerosa-solicitud.html","Comunitat Valenciana":"https://sede.gva.es/es/detall-tramit?id_proc=377"};
+   var tr=el("a","btn alt","Abrir trámite oficial de "+A.ccaa);tr.href=enlaces[A.ccaa];tr.target="_blank";tr.rel="noopener";fam.appendChild(tr);
   }else if(A.ccaa){
    fam.appendChild(txt("p","La identificación documental de menores y la acreditación de convivencia dependen del procedimiento autonómico. No se debe exigir la TSI/CIP catalana como requisito general fuera de Cataluña. Comprueba el listado oficial de documentos de tu comunidad."));
   }
