@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "actualizado": "2026-11-06",
-  "nota": "Registro ampliado de fuentes oficiales y portales de referencia de las 17 comunidades autónomas y Ceuta/Melilla. La BDNS ofrece cobertura transversal, pero los portales territoriales complementan la detección; monitorizar una página no equivale a extraer todas sus convocatorias. WIZBII Money y sus categorías se registran como fuentes privadas secundarias de descubrimiento y benchmark; sus datos nunca sustituyen la verificación oficial.",
+  "actualizado": "2026-11-15",
+  "nota": "Registro ampliado de fuentes oficiales y portales de referencia de las 17 comunidades autónomas y Ceuta/Melilla. La BDNS ofrece cobertura transversal, pero los portales territoriales complementan la detección; monitorizar una página no equivale a extraer todas sus convocatorias. WIZBII Money y sus categorías se registran como fuentes privadas secundarias de descubrimiento y benchmark; sus datos nunca sustituyen la verificación oficial. Se incorporan fuentes oficiales específicas sobre títulos de familia numerosa, monoparental y TSI; la reforma estatal publicada en noviembre de 2026 tiene efectos principales desde el 01/01/2027.",
   "fuentes": [
     {
       "id": "bdns",
@@ -1194,6 +1194,96 @@
       "monitor": true,
       "oficial": false,
       "nota": "Simuladores orientativos de IMV, becas y prestaciones SEPE. No usar sus resultados como prueba de elegibilidad ni como fuente de cuantías oficiales; contrastar con el organismo gestor."
+    },
+    {
+      "id": "boe-rdl-35-2026-familias",
+      "nombre": "BOE · Real Decreto-ley 35/2026: familias monoparentales y numerosas",
+      "ambito": "Estatal",
+      "categoria": "Normativa de familia",
+      "url": "https://www.boe.es/eli/es/rdl/2026/11/10/35",
+      "monitor": false,
+      "nota": "Norma estatal publicada el 11/11/2026. Las modificaciones de la Ley 40/2003 y el nuevo título estatal de familia monoparental producen efectos desde el 01/01/2027. Verificar vigencia, convalidación y desarrollo antes de aplicar.",
+      "oficial": true
+    },
+    {
+      "id": "boe-ley-40-2003-familias-numerosas",
+      "nombre": "BOE · Ley 40/2003 de protección a las familias numerosas",
+      "ambito": "Estatal",
+      "categoria": "Normativa de familia",
+      "url": "https://www.boe.es/eli/es/l/2003/11/18/40/con",
+      "monitor": false,
+      "nota": "Texto consolidado informativo; para interpretación jurídica debe acudirse a la publicación oficial de cada modificación. Actualizado con efectos previstos desde 01/01/2027.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-titulo-familia-numerosa",
+      "nombre": "Generalitat de Catalunya · Título de familia numerosa",
+      "ambito": "Cataluña",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://tramits.gencat.cat/es/tramits/tramits-temes/Titol-de-familia-nombrosa?moda=1",
+      "monitor": false,
+      "nota": "Trámite oficial, documentación, identificación de menores de 14 años mediante TSI cuando no tienen DNI/NIE, formatos digitales y renovación. Contrastar los criterios transitorios con la reforma estatal desde 01/01/2027.",
+      "oficial": true
+    },
+    {
+      "id": "catsalut-tsi-menores",
+      "nombre": "CatSalut · Obtención de la tarjeta sanitaria individual (TSI)",
+      "ambito": "Cataluña",
+      "categoria": "Identificación sanitaria",
+      "url": "https://catsalut.gencat.cat/ca/coneix-catsalut/acces-sistema-salut/la-tsi/obtencio-tsi/",
+      "monitor": false,
+      "nota": "Información oficial para solicitar la primera TSI. Para recién nacidos, comprobar el alta como beneficiario y las vías de solicitud del CIP/resguardo.",
+      "oficial": true
+    },
+    {
+      "id": "madrid-titulo-familia-numerosa",
+      "nombre": "Comunidad de Madrid · Título de familia numerosa",
+      "ambito": "Comunidad de Madrid",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://sede.comunidad.madrid/autorizaciones-licencias-permisos-carnes/titulo-familia-numerosa",
+      "monitor": false,
+      "nota": "Trámite oficial, documentación y acreditación. La información de categorías puede reflejar el régimen anterior; aplicar la reforma estatal desde 01/01/2027 cuando corresponda.",
+      "oficial": true
+    },
+    {
+      "id": "aragon-titulo-familia-numerosa",
+      "nombre": "Gobierno de Aragón · Gestión del título y carnets de familia numerosa",
+      "ambito": "Aragón",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://www.aragon.es/tramitador/-/tramite/primera-emision-titulo-familia-numerosa",
+      "monitor": false,
+      "nota": "Trámite oficial de nueva expedición y renovación, documentación y formas de presentación.",
+      "oficial": true
+    },
+    {
+      "id": "andalucia-titulo-familia-numerosa",
+      "nombre": "Junta de Andalucía · Solicitud del título de familia numerosa",
+      "ambito": "Andalucía",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://www.juntadeandalucia.es/organismos/serviciossocialesfamiliaseigualdad/areas/familias/familia-numerosa/paginas/familia-numerosa-solicitud.html",
+      "monitor": false,
+      "nota": "Trámite oficial, presentación y documentación. Revisar la aplicación autonómica de la reforma estatal y sus instrucciones actualizadas.",
+      "oficial": true
+    },
+    {
+      "id": "valencia-titulo-familia-numerosa",
+      "nombre": "Generalitat Valenciana · Alta o renovación del título de familia numerosa",
+      "ambito": "Comunitat Valenciana",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://sede.gva.es/es/detall-tramit?id_proc=377",
+      "monitor": false,
+      "nota": "Trámite oficial, requisitos, documentación y presentación telemática o presencial.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-familias-titulos",
+      "nombre": "Generalitat de Catalunya · Ayudas y títulos de familias numerosas y monoparentales",
+      "ambito": "Cataluña",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://dretssocials.gencat.cat/ca/ambits_tematics/families/ajudes-prestacions/",
+      "monitor": false,
+      "nota": "Portal oficial de información de títulos y ayudas para familias numerosas y monoparentales. Comprobar actualización autonómica de la nueva regulación estatal.",
+      "oficial": true
     }
   ],
   "coberturaTerritorial": [
