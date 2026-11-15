@@ -733,6 +733,7 @@ function renderProfile(){
   fam.appendChild(txt("p","El título de familia numerosa expedido por una comunidad autónoma tiene validez en toda España. La competencia para expedirlo, renovarlo o modificarlo corresponde a la comunidad de residencia. El formato digital tiene la misma validez que el físico cuando lo expide la administración competente. Si cambias de comunidad, no pierdes automáticamente la validez del título, pero debes comunicar el cambio y comprobar qué administración tramita las modificaciones y renovaciones."));
   fam.appendChild(txt("p","Si ya tienes título general, revisa la disposición transitoria del Real Decreto-ley: determinados títulos pasarán automáticamente a categoría especial (por ejemplo, con cuatro hijos o tres con al menos dos procedentes de parto/adopción/acogimiento múltiple, y ciertos supuestos de dos hijos del nuevo artículo 33). Para tres hijos que alcancen la categoría especial por renta, hay que solicitar la reclasificación y acreditar el límite."));
   var ley=el("a","btn alt","Consultar Real Decreto-ley 35/2026 en el BOE");ley.href="https://www.boe.es/eli/es/rdl/2026/11/10/35";ley.target="_blank";ley.rel="noopener";fam.appendChild(ley);
+  var ccaaFamilia=(A.perfil==="ambos"&&A.direccionIgual==="no")?A.ccaaResidencia:A.ccaa;
   var rutas={
    "Andalucía":{titulo:"https://www.juntadeandalucia.es/organismos/serviciossocialesfamiliaseigualdad/areas/familias/familia-numerosa/paginas/familia-numerosa-solicitud.html",salud:"https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ciudadania/tarjeta-sanitaria-de-andalucia",organismo:"Servicio Andaluz de Salud (SAS)",pasos:"La primera tarjeta se solicita en el centro de atención primaria. Para menores se admite libro de familia; la cobertura pública debe estar reconocida y el menor registrado en los sistemas sanitarios. La tarjeta virtual se activa después de disponer de la física."},
    "Aragón":{titulo:"https://www.aragon.es/tramitador/-/tramite/primera-emision-titulo-familia-numerosa",salud:"https://www.saludinforma.es/portalsi/web/salud/servicios-prestaciones/derecho-tarjeta/tarjeta-sanitaria-en-aragon",organismo:"Salud Informa · Servicio Aragonés de Salud",pasos:"La primera tarjeta se gestiona en el centro de salud. Para menores se admite libro de familia o documento que acredite el parentesco. Se entrega resguardo provisional con validez de tres meses."},
@@ -754,17 +755,17 @@ function renderProfile(){
    "Ceuta":{titulo:"https://sede.ceuta.es/controlador/controlador?cmd=tramite&modulo=tramites&tramite=TDFN",salud:"https://ingesa.sanidad.gob.es/ceuta/",organismo:"Instituto Nacional de Gestión Sanitaria (INGESA)",pasos:"En Ceuta, la asistencia sanitaria pública se gestiona por INGESA. Para la TSI o incidencias, contacta con tu centro de salud o con el área sanitaria de INGESA; el título de familia numerosa se tramita ante la Ciudad Autónoma."},
    "Melilla":{titulo:"https://sede.melilla.es/sta/Relec/CatalogDetail?action=make&dboidProcedure=6262600972301176007187&dboidRequest=6269000972450356207187&urlBack=NO",salud:"https://ingesa.sanidad.gob.es/melilla/",organismo:"Instituto Nacional de Gestión Sanitaria (INGESA)",pasos:"En Melilla, la asistencia sanitaria pública se gestiona por INGESA. Para la TSI o incidencias, contacta con tu centro de salud o con el área sanitaria de INGESA; el título de familia numerosa se tramita ante la Ciudad Autónoma."}
   };
-  if(A.ccaa&&rutas[A.ccaa]){
-   var ruta=rutas[A.ccaa];
-   fam.appendChild(txt("p","Información administrativa para "+A.ccaa+". La TSI/TIS es emitida por el servicio sanitario competente de tu territorio: "+ruta.organismo+". "+ruta.pasos));
-   var t=el("a","btn alt","Tramitar el título de familia numerosa en "+A.ccaa);t.href=ruta.titulo;t.target="_blank";t.rel="noopener";fam.appendChild(t);
-   var h=el("a","btn alt","Solicitar u obtener la tarjeta sanitaria en "+A.ccaa);h.href=ruta.salud;h.target="_blank";h.rel="noopener";fam.appendChild(h);
+  if(ccaaFamilia&&rutas[ccaaFamilia]){
+   var ruta=rutas[ccaaFamilia];
+   fam.appendChild(txt("p","Información administrativa para "+ccaaFamilia+". La TSI/TIS es emitida por el servicio sanitario competente de tu territorio: "+ruta.organismo+". "+ruta.pasos));
+   var t=el("a","btn alt","Tramitar el título de familia numerosa en "+ccaaFamilia);t.href=ruta.titulo;t.target="_blank";t.rel="noopener";fam.appendChild(t);
+   var h=el("a","btn alt","Solicitar u obtener la tarjeta sanitaria en "+ccaaFamilia);h.href=ruta.salud;h.target="_blank";h.rel="noopener";fam.appendChild(h);
   }
   fam.appendChild(txt("p","Antes de solicitar la tarjeta sanitaria, comprueba que el menor tiene reconocido el derecho a asistencia sanitaria pública y, cuando corresponda, figura como beneficiario. El INSS reconoce ese derecho en los supuestos de su competencia; algunas situaciones ya lo tienen reconocido automáticamente. Para un recién nacido menor de tres meses, la Seguridad Social permite incluirlo como beneficiario mediante Tu Seguridad Social o en un CAISS. No todas las familias necesitan realizar un alta manual adicional."));
   var inss=el("a","btn alt","Comprobar o añadir beneficiarios en la Seguridad Social");inss.href="https://prestaciones.seg-social.es/";inss.target="_blank";inss.rel="noopener";fam.appendChild(inss);
   var inssfaq=el("a","btn alt","Información oficial del INSS para recién nacidos");inssfaq.href="https://www.seg-social.es/wps/portal/wss/internet/FAQ/48581";inssfaq.target="_blank";inssfaq.rel="noopener";fam.appendChild(inssfaq);
   fam.appendChild(txt("p","La tarjeta sanitaria emitida por una comunidad o por INGESA acredita el acceso al Sistema Nacional de Salud y puede utilizarse en desplazamientos por España. Si el desplazamiento es temporal y necesitas seguimiento o asignación sanitaria ordinaria en el territorio de destino, consulta el procedimiento específico de personas desplazadas. Si has cambiado tu residencia habitual y empadronamiento, actualiza el domicilio y solicita el alta o tarjeta del servicio de salud de destino."));
-  if(A.ccaa==="Comunidad de Madrid"){
+  if(ccaaFamilia==="Comunidad de Madrid"){
    var dad=el("a","btn alt","Madrid: Documento de Asistencia a Desplazados (DAD)");dad.href="https://sede.comunidad.madrid/prestacion-social/asistencia-sanitaria-ambito-nacional";dad.target="_blank";dad.rel="noopener";fam.appendChild(dad);
   }
 
