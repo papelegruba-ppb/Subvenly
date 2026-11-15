@@ -1,26 +1,27 @@
 {
  "fecha": "2026-11-15",
  "ficheros": 2,
- "encontradas": 248,
- "guardadas": 1795,
- "fuentes_correctas": [],
- "fuentes_parciales": [
-  "perfiles",
+ "encontradas": 216,
+ "guardadas": 1998,
+ "fuentes_correctas": [
   "agregadas"
+ ],
+ "fuentes_parciales": [
+  "perfiles"
  ],
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "U1918615T",
-  "titulo": "instalación fotovoltaica de autoconsumo compartido con excedentes a través de red exterior en suelo para abastecer al ayuntamiento de Binéfar.",
-  "organo": "Alcaldía del Ayuntamiento de Binéfar",
-  "territorio": "Huesca",
-  "nuts": "ES241",
-  "tipo": "Obras",
-  "cpv": "45310000",
-  "presupuesto": 136364,
-  "cierre": "2026-12-03",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=D5SDB0thsQZ%2FP7lJ7Fu0SA%3D%3D",
+  "id": "SUM/2026/0000219736",
+  "titulo": "Suministro de equipamiento microinformatico para el personal de la Secretaria General Tecnica de Universidades, Ciencia e Innovacion y Cultura.",
+  "organo": "Secretaría General Técnica de la Consejería de Universidades, Ciencia e Innovación y Cultura del Gobierno de Canarias",
+  "territorio": "Canarias",
+  "nuts": "ES70",
+  "tipo": "Suministros",
+  "cpv": "30200000",
+  "presupuesto": 19900,
+  "cierre": "2026-11-27",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=pBwD3TidCz%2FLIx6q1oPaMg%3D%3D",
   "visto": "2026-11-15",
   "actualizada": "2026-11-13"
  }

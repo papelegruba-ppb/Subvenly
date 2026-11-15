@@ -1,14 +1,16 @@
 {
  "ultima": "2026-11-15",
- "fuentes": [],
+ "fuentes": [
+  "agregadas"
+ ],
  "feeds": {
   "perfiles": {
    "corte": "2026-11-13",
-   "next": "https://contrataciondelestado.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3_20261113_202142_1.atom"
+   "next": "https://contrataciondelestado.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3_20261113_202142_2.atom"
   },
   "agregadas": {
    "corte": "2026-11-13",
-   "next": "https://contrataciondelestado.es/sindicacion/sindicacion_1044/PlataformasAgregadasSinMenores_20261114_030035_1.atom"
+   "completo": true
   }
  }
 }
