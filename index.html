@@ -183,7 +183,12 @@ var QUESTIONS={
   retorno:"¿Has regresado a España después de vivir en el extranjero?",
   nacionalidad:"¿Cuál es tu situación de nacionalidad?",
   residenciaLegal:"Si eres extranjero, ¿tienes residencia legal o una autorización que te permita residir/trabajar en España?",
-  demandaEmpleo:"¿Estás inscrito como demandante de empleo en tu comunidad autónoma?",
+  demandaEmpleo:"¿Estás inscrito como demandante de empleo en tu servicio público de empleo?",
+  inscripcionAnterior:"¿Has estado inscrito anteriormente como demandante de empleo en el SEPE o en el servicio autonómico?",
+  datosEmpleoActualizados:"¿Tienes tus datos personales y de contacto actualizados en el servicio público de empleo?",
+  cobroAnterior:"¿Has cobrado anteriormente una prestación o subsidio por desempleo?",
+  identificacionDigital:"¿Qué sistema de identificación electrónica tienes disponible?",
+  accesoCotizaciones:"¿Puedes consultar tu vida laboral y tus bases de cotización actualizadas?",
   finTrabajo:"¿En qué fecha terminó tu último trabajo?",
   motivoFin:"¿Cómo terminó tu último trabajo?",
   cotizados:"¿Cuántos días has cotizado por desempleo en los últimos 6 años, aproximadamente?",
@@ -269,6 +274,11 @@ function opcionesPregunta(k){
     menores14SinDni:[["si","Sí"],["no","No"],["nose","No lo sé"]],
     tsiMenor:[["si","Sí, tengo la TSI o el resguardo con CIP"],["no","No tengo TSI ni CIP"],["pendiente","La TSI está solicitada y pendiente"],["nose","No lo sé"]],
     empleoSituacion:[["asalariado","He perdido un empleo por cuenta ajena"],["agotado","He agotado el paro"],["insuficiente","He cotizado menos de un año"],["autonomo","Soy autónomo o he cesado mi actividad"],["sin_trabajo","Busco empleo y no he trabajado recientemente"],["retornado","He regresado del extranjero"]],
+    inscripcionAnterior:[["si","Sí"],["no","No"],["nose","No lo recuerdo"]],
+    datosEmpleoActualizados:[["si","Sí, están actualizados"],["no","No, necesito actualizarlos"],["nose","No estoy seguro/a"]],
+    cobroAnterior:[["si","Sí, prestación contributiva o subsidio"],["no","No, nunca he cobrado"],["nose","No lo recuerdo"]],
+    identificacionDigital:[["clave","Cl@ve (PIN o Permanente)"],["certificado","Certificado digital"],["dnie","DNI electrónico"],["varios","Tengo varios sistemas"],["ninguno","No tengo ninguno"],["nose","No lo sé"]],
+    accesoCotizaciones:[["si","Sí, tengo acceso a ambas"],["parcial","Solo tengo una de ellas"],["no","No tengo acceso"],["nose","No lo sé"]],
     motivoFin:[["despido","Despido"],["fin_contrato","Fin de contrato"],["ere","ERE/ERTE u otra suspensión"],["baja_voluntaria","Baja voluntaria"],["cese_autonomo","Cese de actividad como autónomo"],["otro","Otra situación"]],
     nacionalidad:[["espanola","Nacionalidad española"],["ue","Nacionalidad UE/EEE/Suiza"],["extracomunitaria","Nacionalidad de fuera de la UE"],["otra","Otra situación"]],
     residenciaLegal:[["no_aplica","No aplica: tengo nacionalidad española"],["si","Sí, tengo residencia o autorización válida"],["no","No tengo residencia/autorización vigente"],["nose","No lo sé o necesito comprobarlo"]],
@@ -557,13 +567,13 @@ function anadirRutaPersonal(l){
   }
  }
  if(A.situacionPersonal==="desempleo"){
-  l=l.concat(["#Empleo y prestaciones","nacionalidad","residenciaLegal","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cargasFamiliares","edad","ingresosPersonales","unidadFamiliar"]);
+  l=l.concat(["#Empleo y prestaciones","nacionalidad","residenciaLegal","empleoSituacion","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cobroAnterior","cargasFamiliares","edad","ingresosPersonales","unidadFamiliar","#Inscripción e identificación para los trámites","demandaEmpleo","inscripcionAnterior","datosEmpleoActualizados","identificacionDigital","accesoCotizaciones"]);
   if(Number(A.edad)>=52)l.push("cotizacionDesempleo6");
   l.push("tramitar");
  }
  if(A.situacionPersonal==="retorno"){
   l=l.concat(["#Retorno a España","retorno","nacionalidad","residenciaLegal","trabajoExtranjero"]);
-  if(A.retorno==="si")l=l.concat(["fechaRetorno","paisProcedencia","mesesTrabajoExtranjero","cotizadosAntesEmigrar","empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","ingresosPersonales","cirbeNecesidad"]);
+  if(A.retorno==="si")l=l.concat(["fechaRetorno","paisProcedencia","mesesTrabajoExtranjero","cotizadosAntesEmigrar","empleoSituacion","demandaEmpleo","inscripcionAnterior","datosEmpleoActualizados","identificacionDigital","accesoCotizaciones","cobroAnterior","finTrabajo","motivoFin","ingresosPersonales","cirbeNecesidad"]);
   l.push("tramitar");
  }
  if(A.situacionPersonal==="extranjeria")l=l.concat(["#Residencia y situación administrativa","nacionalidad","residenciaLegal","ingresosPersonales","unidadFamiliar","tramitar"]);
@@ -633,10 +643,10 @@ function mostrar(k){
  if(k==="fechaAgotamiento"&&A.paroPrevio!=="si")return false;
  if(k==="trabajoExtranjero"&&A.situacionPersonal!=="retorno")return false;
  if(k==="fechaRetorno"&&A.retorno!=="si")return false;
- if(["empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cargasFamiliares"].indexOf(k)>=0&&["desempleo","retorno"].indexOf(A.situacionPersonal)<0)return false;
+ if(["empleoSituacion","demandaEmpleo","inscripcionAnterior","datosEmpleoActualizados","cobroAnterior","identificacionDigital","accesoCotizaciones","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cargasFamiliares"].indexOf(k)>=0&&["desempleo","retorno"].indexOf(A.situacionPersonal)<0)return false;
  if(["ingresosPersonales","unidadFamiliar"].indexOf(k)>=0&&["ingresos","retorno","extranjeria","vivienda","discapacidad","estudios","otra","desempleo"].indexOf(A.situacionPersonal)<0)return false;
  if(["nacionalidad","residenciaLegal"].indexOf(k)>=0&&["retorno","extranjeria","familia","ingresos","vivienda","discapacidad","estudios","otra","desempleo"].indexOf(A.situacionPersonal)<0&&A.social!=="si")return false;
- if(["empleoSituacion","demandaEmpleo","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cargasFamiliares","trabajoExtranjero","fechaRetorno","cirbeNecesidad"].indexOf(k)>=0&&["desempleo","retorno"].indexOf(A.situacionPersonal)<0)return false;
+ if(["empleoSituacion","demandaEmpleo","inscripcionAnterior","datosEmpleoActualizados","cobroAnterior","identificacionDigital","accesoCotizaciones","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cargasFamiliares","trabajoExtranjero","fechaRetorno","cirbeNecesidad"].indexOf(k)>=0&&["desempleo","retorno"].indexOf(A.situacionPersonal)<0)return false;
  if(["ingresosPersonales","unidadFamiliar"].indexOf(k)>=0&&["ingresos","retorno","extranjeria","vivienda","discapacidad","estudios","otra","desempleo"].indexOf(A.situacionPersonal)<0)return false;
  if(k==="tramitar"&&!A.situacionPersonal)return false;
  return true;
@@ -793,6 +803,18 @@ function renderProfile(){
    var cirbe=el("a","btn alt","Solicitar informe CIRBE en el Banco de España");cirbe.href="https://sedeelectronica.bde.es/sede/es/tramites/solicitud-informes-riesgos-cirbe-p58.html";cirbe.target="_blank";cirbe.rel="noopener";docs.appendChild(cirbe);
   }
   p.appendChild(docs);
+ }
+  if(personal&&["desempleo","retorno"].indexOf(A.situacionPersonal)>=0){
+  var wa=el("div","miss m");
+  wa.appendChild(txt("strong","¿Quieres que estudiemos tu derecho al paro o a un subsidio?"));
+  wa.appendChild(txt("p","Preparamos un mensaje con las respuestas que has facilitado. Antes de enviarlo podrás revisarlo y editarlo en WhatsApp. El estudio cuesta 35 € si tienes derecho a una prestación o subsidio y 10 € si, tras revisar tu caso, no tienes derecho. El reconocimiento definitivo corresponde al organismo gestor."));
+  var waLabels={si:"Sí",no:"No",nose:"No lo sé",parcial:"Parcialmente",clave:"Cl@ve",certificado:"Certificado digital",dnie:"DNI electrónico",varios:"Varios sistemas",ninguno:"Ninguno",asalariado:"He perdido un empleo por cuenta ajena",agotado:"He agotado el paro",insuficiente:"He cotizado menos de un año",autonomo:"Soy autónomo/a o he cesado mi actividad",sin_trabajo:"Busco empleo y no he trabajado recientemente",retornado:"He regresado del extranjero",despido:"Despido",fin_contrato:"Fin de contrato",ere:"ERE/ERTE u otra suspensión",baja_voluntaria:"Baja voluntaria",cese_autonomo:"Cese de actividad como autónomo",otro:"Otra situación",espanola:"Nacionalidad española",ue:"Nacionalidad UE/EEE/Suiza",extracomunitaria:"Nacionalidad de fuera de la UE"};
+  function respuestaWA(k){var v=A[k];if(v===undefined||v===null||v==="")return "No indicado";if(waLabels[v])return waLabels[v];var os=opcionesPregunta(k)||[];var op=os.find(function(x){return x[0]===v});return op?op[1]:String(v)}
+  var ks=["empleoSituacion","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cobroAnterior","cargasFamiliares","edad","ingresosPersonales","demandaEmpleo","inscripcionAnterior","datosEmpleoActualizados","identificacionDigital","accesoCotizaciones","nacionalidad","residenciaLegal","trabajoExtranjero","paisProcedencia","mesesTrabajoExtranjero","cotizadosAntesEmigrar","cotizacionDesempleo6"];
+  var lineas=ks.filter(function(k){return A[k]!==undefined&&A[k]!=="";}).map(function(k){return (QUESTIONS[k]||k)+" "+respuestaWA(k)});
+  var mensaje="Hola, quiero solicitar un estudio para saber si tengo derecho a cobrar el paro o algún subsidio.\n\nMis respuestas del test de Subvenly:\n"+(lineas.length?lineas.join("\n"):"Todavía no he completado todas las respuestas.")+"\n\nQuiero que reviséis si puedo acceder a una prestación o subsidio y, si corresponde, que calculéis cuánto podría cobrar.\n\nHe leído las condiciones del servicio: 35 € si tengo derecho a una prestación o subsidio y 10 € si, tras estudiar mi caso, no tengo derecho.\n\nGracias.";
+  var boton=el("a","btn","Revisar mensaje de WhatsApp");boton.href="https://wa.me/34652916014?text="+encodeURIComponent(mensaje);boton.target="_blank";boton.rel="noopener";wa.appendChild(boton);
+  wa.appendChild(txt("p","WhatsApp abrirá el mensaje ya rellenado. Podrás modificarlo y enviarlo tú; Subvenly no lo envía automáticamente."));p.appendChild(wa);
  }
 }
 function estado(a){
