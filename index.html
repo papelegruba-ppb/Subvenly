@@ -573,7 +573,7 @@ function anadirRutaPersonal(l){
  }
  if(A.situacionPersonal==="retorno"){
   l=l.concat(["#Retorno a España","retorno","nacionalidad","residenciaLegal","trabajoExtranjero"]);
-  if(A.retorno==="si")l=l.concat(["fechaRetorno","paisProcedencia","mesesTrabajoExtranjero","cotizadosAntesEmigrar","empleoSituacion","demandaEmpleo","inscripcionAnterior","datosEmpleoActualizados","identificacionDigital","accesoCotizaciones","finTrabajo","motivoFin","ingresosPersonales","cirbeNecesidad"]);
+  if(A.retorno==="si")l=l.concat(["fechaRetorno","paisProcedencia","mesesTrabajoExtranjero","cotizadosAntesEmigrar","empleoSituacion","demandaEmpleo","inscripcionAnterior","datosEmpleoActualizados","identificacionDigital","accesoCotizaciones","cobroAnterior","finTrabajo","motivoFin","ingresosPersonales","cirbeNecesidad"]);
   l.push("tramitar");
  }
  if(A.situacionPersonal==="extranjeria")l=l.concat(["#Residencia y situación administrativa","nacionalidad","residenciaLegal","ingresosPersonales","unidadFamiliar","tramitar"]);
@@ -813,7 +813,7 @@ function renderProfile(){
   function respuestaWA(k){var v=A[k];if(v===undefined||v===null||v==="")return "No indicado";if(waLabels[v])return waLabels[v];var os=opcionesPregunta(k)||[];var op=os.find(function(x){return x[0]===v});return op?op[1]:String(v)}
   var ks=["empleoSituacion","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cobroAnterior","cargasFamiliares","edad","ingresosPersonales","demandaEmpleo","inscripcionAnterior","datosEmpleoActualizados","identificacionDigital","accesoCotizaciones","nacionalidad","residenciaLegal","trabajoExtranjero","paisProcedencia","mesesTrabajoExtranjero","cotizadosAntesEmigrar","cotizacionDesempleo6"];
   var lineas=ks.filter(function(k){return A[k]!==undefined&&A[k]!=="";}).map(function(k){return (QUESTIONS[k]||k)+" "+respuestaWA(k)});
-  var mensaje="Hola, quiero solicitar un estudio para saber si tengo derecho a cobrar el paro o algún subsidio.\\n\\nMis respuestas del test de Subvenly:\\n"+(lineas.length?lineas.join("\\n"):"Todavía no he completado todas las respuestas.")+"\\n\\nQuiero que reviséis si puedo acceder a una prestación o subsidio y, si corresponde, que calculéis cuánto podría cobrar.\\n\\nHe leído las condiciones del servicio: 35 € si tengo derecho a una prestación o subsidio y 10 € si, tras estudiar mi caso, no tengo derecho.\\n\\nGracias.";
+  var mensaje="Hola, quiero solicitar un estudio para saber si tengo derecho a cobrar el paro o algún subsidio.\n\nMis respuestas del test de Subvenly:\n"+(lineas.length?lineas.join("\n"):"Todavía no he completado todas las respuestas.")+"\n\nQuiero que reviséis si puedo acceder a una prestación o subsidio y, si corresponde, que calculéis cuánto podría cobrar.\n\nHe leído las condiciones del servicio: 35 € si tengo derecho a una prestación o subsidio y 10 € si, tras estudiar mi caso, no tengo derecho.\n\nGracias.";
   var boton=el("a","btn","Revisar mensaje de WhatsApp");boton.href="https://wa.me/34652916014?text="+encodeURIComponent(mensaje);boton.target="_blank";boton.rel="noopener";wa.appendChild(boton);
   wa.appendChild(txt("p","WhatsApp abrirá el mensaje ya rellenado. Podrás modificarlo y enviarlo tú; Subvenly no lo envía automáticamente."));p.appendChild(wa);
  }
