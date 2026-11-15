@@ -1,8 +1,8 @@
 {
  "fecha": "2026-11-15",
- "ficheros": 2,
- "encontradas": 216,
- "guardadas": 1998,
+ "ficheros": 1,
+ "encontradas": 124,
+ "guardadas": 2111,
  "fuentes_correctas": [
   "agregadas"
  ],
@@ -12,16 +12,16 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "SUM/2026/0000219736",
-  "titulo": "Suministro de equipamiento microinformatico para el personal de la Secretaria General Tecnica de Universidades, Ciencia e Innovacion y Cultura.",
-  "organo": "Secretaría General Técnica de la Consejería de Universidades, Ciencia e Innovación y Cultura del Gobierno de Canarias",
-  "territorio": "Canarias",
-  "nuts": "ES70",
-  "tipo": "Suministros",
-  "cpv": "30200000",
-  "presupuesto": 19900,
-  "cierre": "2026-11-27",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=pBwD3TidCz%2FLIx6q1oPaMg%3D%3D",
+  "id": "889/2026",
+  "titulo": "Instalación en Media Tensión para la conexión de la Instalación Fotovoltaica del Ecoparque Gran Canaria Norte",
+  "organo": "Dirección General del Consejo Insular de la Energía de Gran Canaria",
+  "territorio": "Gran Canaria",
+  "nuts": "ES705",
+  "tipo": "Obras",
+  "cpv": "45315500",
+  "presupuesto": 226778,
+  "cierre": "2026-12-03",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Yl2%2BUIcnaeu5HQrHoP3G5A%3D%3D",
   "visto": "2026-11-15",
   "actualizada": "2026-11-13"
  }
