@@ -246,18 +246,28 @@ function selMunicipio(){var r=el("div","q");r.appendChild(txt("span",A.perfil===
   s.value=A.municipio||"";s.disabled=!p;
   s.onchange=function(){if(s.value)A.municipio=s.value;else delete A.municipio;save();renderProfile();refrescar()};r.appendChild(s);return r}
 function controlPregunta(k){
-  var tipos={nacimientoFecha:"date",finTrabajo:"date",fechaAgotamiento:"date",fechaRetorno:"date",menores:"number",edad:"number",unidad:"number",ingresos:"number",ingresosPersonales:"number",unidadFamiliar:"number",cotizados:"number",mesesTrabajoExtranjero:"number",cotizadosAntesEmigrar:"number"};
+  var tipos={nacimientoFecha:"date",finTrabajo:"date",fechaAgotamiento:"date",fechaRetorno:"date",menores:"number",hijosTotal:"number",edad:"number",unidad:"number",ingresos:"number",ingresosPersonales:"number",unidadFamiliar:"number",cotizados:"number",mesesTrabajoExtranjero:"number",cotizadosAntesEmigrar:"number"};
   if(!tipos[k])return null;
   var input=el("input","fld");input.type=tipos[k];input.setAttribute("aria-label",QUESTIONS[k]||k);
   input.value=A[k]===undefined?"":A[k];
-  if(tipos[k]==="number"){input.min="0";input.step=(k==="ingresos"||k==="ingresosPersonales")?"0.01":"1";if(k==="edad")input.max="120";if(["menores","unidad","unidadFamiliar"].indexOf(k)>=0)input.max="30";if(k==="cotizados"||k==="cotizadosAntesEmigrar")input.max="2190";if(k==="mesesTrabajoExtranjero")input.max="1200"}
+  if(tipos[k]==="number"){input.min="0";input.step=(k==="ingresos"||k==="ingresosPersonales")?"0.01":"1";if(k==="edad")input.max="120";if(["menores","hijosTotal","unidad","unidadFamiliar"].indexOf(k)>=0)input.max="30";if(k==="cotizados"||k==="cotizadosAntesEmigrar")input.max="2190";if(k==="mesesTrabajoExtranjero")input.max="1200"}
   input.onchange=function(){if(input.value==="")delete A[k];else A[k]=input.value;save();renderProfile();refrescar()};
   return input;
 }
 function opcionesPregunta(k){
   var opts={
     situacionPersonal:[["familia","Nacimiento, adopción o crianza"],["desempleo","Estoy en paro o he agotado el paro"],["ingresos","Tengo ingresos bajos o dificultades económicas"],["retorno","He regresado del extranjero o quiero volver"],["extranjeria","Mi situación es de extranjería o residencia"],["vivienda","Vivienda, alquiler o suministros"],["discapacidad","Discapacidad, dependencia o cuidados"],["estudios","Estudios, formación o juventud"],["otra","Otra situación personal"]],
-    familiaEvento:[["primer_hijo","Acabo de tener mi primer hijo"],["otro_hijo","He tenido otro hijo o una adopción"],["embarazo","Estoy embarazada o espero una adopción"],["crianza","Tengo hijos y busco ayudas para criarlos"]],
+    familiaEvento:[["primer_hijo","Acabo de tener mi primer hijo"],["otro_hijo","He tenido otro hijo o una adopción"],["embarazo","Estoy embarazada o espero una adopción"],["crianza","Tengo hijos y busco ayudas para criarlos"],["titulo_familiar","Quiero solicitar, renovar o revisar un título de familia numerosa o monoparental"]],
+    familiaComposicion:[["dos_progenitores","Dos progenitores (pareja o unidad biparental)"],["monoparental_custodia","Una sola persona progenitora con guarda y custodia"],["custodia_exclusiva_sin_alimentos","Custodia exclusiva y sin derecho a pensión de alimentos"],["violencia_genero","Una progenitora víctima de violencia de género con guarda/custodia"],["ausencia_progenitor","Ausencia forzada del otro progenitor durante al menos un año"],["tutela_acogimiento","Una persona tutora, acogedora o guardadora"],["separados_tres_hijos","Progenitor separado/divorciado con tres o más hijos económicamente dependientes"],["custodia_compartida","Progenitores separados/divorciados con custodia compartida"],["hermanos_huerfanos","Hermanos huérfanos que conviven y cumplen los requisitos legales"]],
+    hijosEdad:[["menores_21","Todos son menores de 21 años"],["21_25_estudian","Alguno tiene entre 21 y 25 años y estudia"],["21_25_no_estudia","Alguno tiene entre 21 y 25 años y no estudia"],["mayores_discapacidad","Hay hijos mayores de 25 años con discapacidad o incapacidad para trabajar"],["mixto","Se combinan varias situaciones de edad"],["nose","No lo sé; necesito comprobarlo"]],
+    hijosDependencia:[["si","Sí, conviven y dependen económicamente"],["no","No todos cumplen esas condiciones"],["nose","No lo sé; necesito comprobar ingresos y convivencia"]],
+    familiaCategoria:[["general","Categoría general"],["especial","Categoría especial"],["tramite","Solicitud en trámite"],["caducado","Título caducado"],["nose","No lo sé"]],
+    hijosDiscapacidad:[["si","Sí"],["no","No"],["nose","No lo sé / pendiente de reconocimiento"]],
+    progenitorDiscapacidad:[["si","Sí"],["no","No"],["nose","No lo sé / pendiente de reconocimiento"]],
+    partoMultiple:[["si","Sí"],["no","No"],["nose","No lo sé"]],
+    ingresosPorMiembro:[["si","Sí, no supera ese límite"],["no","No, lo supera"],["nose","No lo sé; necesito calcularlo"]],
+    menores14SinDni:[["si","Sí"],["no","No"],["nose","No lo sé"]],
+    tsiMenor:[["si","Sí, tengo la TSI o el resguardo con CIP"],["no","No tengo TSI ni CIP"],["pendiente","La TSI está solicitada y pendiente"],["nose","No lo sé"]],
     empleoSituacion:[["asalariado","He perdido un empleo por cuenta ajena"],["agotado","He agotado el paro"],["insuficiente","He cotizado menos de un año"],["autonomo","Soy autónomo o he cesado mi actividad"],["sin_trabajo","Busco empleo y no he trabajado recientemente"],["retornado","He regresado del extranjero"]],
     motivoFin:[["despido","Despido"],["fin_contrato","Fin de contrato"],["ere","ERE/ERTE u otra suspensión"],["baja_voluntaria","Baja voluntaria"],["cese_autonomo","Cese de actividad como autónomo"],["otro","Otra situación"]],
     nacionalidad:[["espanola","Nacionalidad española"],["ue","Nacionalidad UE/EEE/Suiza"],["extracomunitaria","Nacionalidad de fuera de la UE"],["otra","Otra situación"]],
@@ -480,8 +490,19 @@ Object.assign(QUESTIONS,{
  contratoAlquiler:"¿Tienes contrato de alquiler de vivienda habitual o habitación?",
  empadronamiento:"¿Estás empadronado en la vivienda alquilada?",
  residenciaLegal:"¿Cumples los requisitos de residencia legal y efectiva en España cuando la ayuda lo exige?",
- familiaMonoparental:"¿Tienes reconocida la condición de familia monoparental?",
- familiaNumerosa:"¿Tienes reconocida la condición de familia numerosa?",
+ familiaMonoparental:"¿Tienes reconocido un título de familia monoparental?",
+ familiaNumerosa:"¿Tienes reconocido un título de familia numerosa?",
+ familiaComposicion:"¿Qué composición o situación familiar describe mejor vuestro caso?",
+ hijosTotal:"¿Cuántos hijos o personas asimiladas computarían en la unidad familiar?",
+ hijosEdad:"¿Qué situación de edad y estudios tienen los hijos que quieres incluir?",
+ hijosDependencia:"¿Los hijos cumplen las condiciones de convivencia y dependencia económica exigidas?",
+ familiaCategoria:"¿Qué categoría figura en el título actual de familia numerosa?",
+ hijosDiscapacidad:"¿Alguno de los hijos tiene reconocida discapacidad igual o superior al 33% o incapacidad para trabajar equivalente a absoluta/gran incapacidad?",
+ progenitorDiscapacidad:"¿Alguno de los progenitores tiene reconocida discapacidad igual o superior al 33% o incapacidad para trabajar equivalente a absoluta/gran incapacidad?",
+ partoMultiple:"¿Hay hijos procedentes de un mismo parto, adopción o acogimiento múltiple?",
+ ingresosPorMiembro:"¿Los ingresos anuales divididos entre los miembros de la familia no superan el 150% del IPREM anual (incluidas pagas extra) por persona?",
+ menores14SinDni:"¿Hay menores de 14 años que no tengan DNI/NIE?",
+ tsiMenor:"Si resides en Cataluña, ¿dispones de la TSI o del resguardo con el CIP de esos menores?",
  social:"¿Quieres comprobar prestaciones sociales, incluido el ingreso mínimo vital?",
  fiscal:"¿Quieres comprobar deducciones y beneficios fiscales personales?",
  emergencias:"¿Has sufrido daños personales o en tu vivienda por una DANA, inundación, incendio u otra catástrofe?",
@@ -532,7 +553,7 @@ function anadirRutaPersonal(l){
   if(A.familia==="si"&&A.familiaEvento){
    if(["primer_hijo","otro_hijo","embarazo"].indexOf(A.familiaEvento)>=0)l.push("nacimientoFecha");
    if(["otro_hijo","crianza"].indexOf(A.familiaEvento)>=0)l.push("menores");
-   l=l.concat(["familiaMonoparental","familiaNumerosa","edad","unidad","ingresos","nacionalidad","residenciaLegal","unidadFamiliar","tramitar"]);
+   l=l.concat(["#Composición familiar y títulos","familiaComposicion","hijosTotal","hijosEdad","hijosDependencia","hijosDiscapacidad","progenitorDiscapacidad","partoMultiple","familiaNumerosa","familiaCategoria","familiaMonoparental","edad","unidad","ingresos","ingresosPorMiembro","menores14SinDni","tsiMenor","nacionalidad","residenciaLegal","unidadFamiliar","tramitar"]);
   }
  }
  if(A.situacionPersonal==="desempleo"){
@@ -595,6 +616,10 @@ function mostrar(k){
  if(k==="familiaEvento"&&(A.situacionPersonal!=="familia"||A.familia!=="si"))return false;
  if(k==="nacimientoFecha"&&(A.situacionPersonal!=="familia"||A.familia!=="si"||["primer_hijo","otro_hijo","embarazo"].indexOf(A.familiaEvento)<0))return false;
  if(k==="menores"&&(A.situacionPersonal!=="familia"||A.familia!=="si"||["otro_hijo","crianza"].indexOf(A.familiaEvento)<0))return false;
+ if(["familiaComposicion","hijosTotal","hijosEdad","hijosDependencia","hijosDiscapacidad","progenitorDiscapacidad","partoMultiple","familiaNumerosa","familiaMonoparental","ingresosPorMiembro","menores14SinDni"].indexOf(k)>=0&&(A.situacionPersonal!=="familia"||A.familia!=="si"||!A.familiaEvento))return false;
+ if(k==="familiaCategoria"&&A.familiaNumerosa!=="si")return false;
+ if(k==="ingresosPorMiembro"&&Number(A.hijosTotal)!==3&&!(Number(A.hijosTotal)===1&&["monoparental_custodia","custodia_exclusiva_sin_alimentos","violencia_genero","ausencia_progenitor"].indexOf(A.familiaComposicion)>=0))return false;
+ if(k==="tsiMenor"&&(A.ccaa!=="Cataluña"||A.menores14SinDni!=="si"))return false;
  if(k==="alquiler"&&A.situacionPersonal!=="vivienda")return false;
  if(k==="residenciaLegal"&&A.nacionalidad==="espanola")return false;
  if(["paisProcedencia","mesesTrabajoExtranjero","cotizadosAntesEmigrar"].indexOf(k)>=0&&(A.situacionPersonal!=="retorno"||A.retorno!=="si"||A.trabajoExtranjero!=="si"))return false;
@@ -689,7 +714,7 @@ function renderProfile(){
   var r=el("div","q");r.appendChild(txt("span",QUESTIONS[k]||k));
   var opts=typeof opcionesPregunta==="function"?opcionesPregunta(k):null;
   var control=opts?selectPregunta(k,opts):controlPregunta(k);
-  if(!control&&["edad","unidad","ingresos","menores","nacimientoFecha"].indexOf(k)>=0){
+  if(!control&&["edad","unidad","ingresos","menores","hijosTotal","nacimientoFecha"].indexOf(k)>=0){
    control=el("input","fld");control.type=k==="nacimientoFecha"?"date":"number";
    if(control.type==="number"){control.min="0";control.step=k==="ingresos"?"0.01":"1"}
    control.value=A[k]||"";control.setAttribute("aria-label",QUESTIONS[k]||k);
@@ -698,6 +723,54 @@ function renderProfile(){
   r.appendChild(control||seg(k,function(){renderProfile();refrescar()}));p.appendChild(r);
  });
  var personal=["particular","autonomo","ambos"].indexOf(A.perfil)>=0;
+ if(personal&&A.situacionPersonal==="familia"&&A.familia==="si"&&A.familiaEvento){
+  var fam=el("div","miss m");
+  fam.appendChild(txt("strong","Orientación sobre títulos familiares · normativa estatal"));
+  fam.appendChild(txt("p","El Real Decreto-ley 35/2026 se publicó el 11 de noviembre de 2026 y entró en vigor, con carácter general, el día 12. Las modificaciones de familia numerosa y el nuevo título estatal de familia monoparental producen efectos desde el 1 de enero de 2027. Como todo real decreto-ley, está sujeto a convalidación por el Congreso en el plazo constitucional de 30 días; comprueba su situación parlamentaria y el desarrollo autonómico antes de iniciar el trámite. Hasta el 31/12/2026, comprueba los requisitos actualmente aplicables en tu comunidad autónoma."));
+  fam.appendChild(txt("p","Desde el 1 de enero de 2027, la familia numerosa incluirá, entre otros supuestos, unidades con tres o más hijos; categoría especial para cuatro o más, tres con al menos dos procedentes de parto/adopción/acogimiento múltiple, o tres cuando la renta anual por miembro no supere el 150% del IPREM con pagas extraordinarias. Cada hijo con discapacidad reconocida igual o superior al 33% o incapacidad para trabajar equivalente a absoluta/gran incapacidad computará como dos para determinar la categoría."));
+  fam.appendChild(txt("p","También se equiparan determinados supuestos con dos hijos: discapacidad o incapacidad para trabajar de un hijo; discapacidad o incapacidad para trabajar de uno de los progenitores en los términos legales; o una sola persona progenitora con dos hijos. Los progenitores separados o divorciados con tres o más hijos económicamente dependientes podrán acogerse conforme a las condiciones legales; con custodia compartida, los hijos podrán figurar en ambos títulos."));
+  fam.appendChild(txt("p","El nuevo título estatal de familia monoparental exige encajar en los supuestos legales de guarda/custodia, tutela, acogimiento o situaciones protegidas equivalentes, además de los requisitos de edad, convivencia y dependencia económica. Como regla general, los hijos deben ser menores de 21 años; el límite puede ampliarse a 26 años en supuestos de estudios o violencia de género, y no opera igual para hijos con discapacidad o incapacidad para trabajar. La categoría especial comprende dos o más hijos, o un hijo cuando se cumplan los umbrales de renta o discapacidad/incapacidad previstos en la norma."));
+  fam.appendChild(txt("p","El título de familia numerosa expedido por una comunidad autónoma tiene validez en toda España. La competencia para expedirlo, renovarlo o modificarlo corresponde a la comunidad de residencia. El formato digital tiene la misma validez que el físico cuando lo expide la administración competente. Si cambias de comunidad, no pierdes automáticamente la validez del título, pero debes comunicar el cambio y comprobar qué administración tramita las modificaciones y renovaciones."));
+  fam.appendChild(txt("p","Si ya tienes título general, revisa la disposición transitoria del Real Decreto-ley: determinados títulos pasarán automáticamente a categoría especial (por ejemplo, con cuatro hijos o tres con al menos dos procedentes de parto/adopción/acogimiento múltiple, y ciertos supuestos de dos hijos del nuevo artículo 33). Para tres hijos que alcancen la categoría especial por renta, hay que solicitar la reclasificación y acreditar el límite."));
+  var ley=el("a","btn alt","Consultar Real Decreto-ley 35/2026 en el BOE");ley.href="https://www.boe.es/eli/es/rdl/2026/11/10/35";ley.target="_blank";ley.rel="noopener";fam.appendChild(ley);
+  var ccaaFamilia=(A.perfil==="ambos"&&A.direccionIgual==="no")?A.ccaaResidencia:A.ccaa;
+  var rutas={
+   "Andalucía":{titulo:"https://www.juntadeandalucia.es/organismos/serviciossocialesfamiliaseigualdad/areas/familias/familia-numerosa/paginas/familia-numerosa-solicitud.html",salud:"https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ciudadania/tarjeta-sanitaria-de-andalucia",organismo:"Servicio Andaluz de Salud (SAS)",pasos:"La primera tarjeta se solicita en el centro de atención primaria. Para menores se admite libro de familia; la cobertura pública debe estar reconocida y el menor registrado en los sistemas sanitarios. La tarjeta virtual se activa después de disponer de la física."},
+   "Aragón":{titulo:"https://www.aragon.es/tramitador/-/tramite/primera-emision-titulo-familia-numerosa",salud:"https://www.saludinforma.es/portalsi/web/salud/servicios-prestaciones/derecho-tarjeta/tarjeta-sanitaria-en-aragon",organismo:"Salud Informa · Servicio Aragonés de Salud",pasos:"La primera tarjeta se gestiona en el centro de salud. Para menores se admite libro de familia o documento que acredite el parentesco. Se entrega resguardo provisional con validez de tres meses."},
+   "Asturias":{titulo:"https://miprincipado.asturias.es/ast/-/dboid-6269000005416730807573",salud:"https://www.astursalud.es/noticias/-/noticias/obtencion-de-la-tarjeta-sanitaria-individu-3",organismo:"Servicio de Salud del Principado de Asturias (SESPA)",pasos:"La solicitud se presenta en el centro de salud correspondiente al domicilio. El resguardo de solicitud sirve para identificarse y acceder a los servicios sanitarios mientras llega la tarjeta."},
+   "Illes Balears":{titulo:"https://www.caib.es/sites/M170613081930629/f/329748",salud:"https://www.ibsalut.es/es/info-ciudadania/tarjeta-sanitaria-individual/sustitucion-y-renovacion-de-la-tarjeta-sanitaria",organismo:"IB-Salut",pasos:"La TSI puede solicitarse digitalmente con certificado, DNIe o Cl@ve, o presencialmente en el centro de salud de referencia con cita de INFOSALUT CONNECTA. La expedición del título familiar corresponde al consejo insular competente según la isla; confirma allí el procedimiento concreto."},
+   "Canarias":{titulo:"https://sede.gobiernodecanarias.org/sede/tramites/2058",salud:"https://www3.gobiernodecanarias.org/sanidad/scs/contenidoGenerico.jsp?idCarpeta=0428f5bb-8968-11dd-b7e9-158e12a49309&idDocument=9090ca1f-a9bb-11de-ae50-15aa3b9230b7",organismo:"Servicio Canario de la Salud (SCS)",pasos:"Para obtener la TSI por primera vez, contacta con el centro de salud que corresponde al domicilio. El SCS emite la tarjeta a quienes tienen reconocido el derecho a asistencia sanitaria."},
+   "Cantabria":{titulo:"https://sede.cantabria.es/sede/catalogo-de-tramites/tramite/reconocimiento-de-la-condicion-de-familia-numerosa-y-expedicion-y-renovacion-del-titulo-que-acredita-tal-condicion/777",salud:"https://www.saludcantabria.es/tarjeta-sanitaria-faq",organismo:"Servicio Cántabro de Salud (SCS)",pasos:"La solicitud y las incidencias de la tarjeta se tramitan en el centro de salud. Tras validar la solicitud, la tarjeta se remite por correo al domicilio."},
+   "Castilla-La Mancha":{titulo:"https://bienestarsocial.castillalamancha.es/actuaciones/titulo-de-familia-numerosa",salud:"https://sanidad.castillalamancha.es/ciudadanos/preguntasfrecuentes/Tarjeta%20Sanitaria",organismo:"SESCAM",pasos:"La solicitud de tarjeta sanitaria puede presentarse electrónicamente en la sede de la Junta o en papel en el centro de salud correspondiente al domicilio."},
+   "Castilla y León":{titulo:"https://familia.jcyl.es/web/es/familia/titulo-familia-numerosa.html",salud:"https://www.saludcastillayleon.es/ciudadanos/es/serviciosonline/tarjeta-sanitaria/informacion-procedimiento",organismo:"SACYL",pasos:"La primera tarjeta se solicita en el centro de salud del domicilio. Para menores que no tengan DNI/NIE se admite libro de familia; se solicita acreditar el derecho a asistencia sanitaria."},
+   "Cataluña":{titulo:"https://tramits.gencat.cat/es/tramits/tramits-temes/Titol-de-familia-nombrosa?moda=1",salud:"https://catsalut.gencat.cat/ca/coneix-catsalut/acces-sistema-salut/la-tsi/obtencio-tsi/",organismo:"CatSalut",pasos:"Para el título de familia numerosa, el trámite vigente publicado exige identificar mediante TSI a los menores de 14 años que no tengan DNI/NIE. Si no tienes la tarjeta física, consulta cómo obtener el CIP y pregunta si aceptan el resguardo provisional. La TSI se solicita por el canal de CatSalut o en el CAP."},
+   "Comunitat Valenciana":{titulo:"https://sede.gva.es/es/detall-tramit?id_proc=377",salud:"https://www.san.gva.es/es/web/tarjeta-sanitaria/tramites-tarjeta-sip",organismo:"Conselleria de Sanitat · SIP",pasos:"El alta o reactivación en el Sistema de Información Poblacional (SIP) puede tramitarse telemáticamente con certificado o Cl@ve, y la tarjeta se recoge en el centro de salud. También puedes acudir al centro para que revisen tu documentación."},
+   "Extremadura":{titulo:"https://www.juntaex.es/es/w/1717",salud:"https://saludextremadura.ses.es/web/preguntas-frecuentes",organismo:"Servicio Extremeño de Salud (SES)",pasos:"La primera tarjeta o alta en el sistema sanitario se solicita en la unidad administrativa del centro de salud correspondiente al domicilio."},
+   "Galicia":{titulo:"https://sede.xunta.gal/es/detalle-procedemento?codtram=BS423A",salud:"https://www.sergas.gal/Tarxeta-sanitaria?idcatgrupo=11287&idioma=es",organismo:"Servizo Galego de Saúde (SERGAS)",pasos:"La primera tarjeta puede solicitarse online con certificado digital o presencialmente en el mostrador de atención al paciente del centro de salud. Comprueba la documentación de empadronamiento indicada por SERGAS."},
+   "La Rioja":{titulo:"https://web.larioja.org/oficina-electronica/tramite?n=00438",salud:"https://www.riojasalud.es/ciudadanos/informacion/tarjeta-sanitaria",organismo:"Servicio Riojano de Salud · Rioja Salud",pasos:"La tarjeta se solicita gratuitamente en el centro de salud. Para dudas sobre emisión y CIP, Rioja Salud facilita el teléfono Salud Responde."},
+   "Comunidad de Madrid":{titulo:"https://sede.comunidad.madrid/autorizaciones-licencias-permisos-carnes/titulo-familia-numerosa",salud:"https://sede.comunidad.madrid/prestacion-social/tarjeta-sanitaria",organismo:"Servicio Madrileño de Salud (SERMAS)",pasos:"La primera tarjeta puede solicitarse online o en el centro de salud, con derecho a asistencia sanitaria reconocido por el INSS y empadronamiento en Madrid. Comprueba los avisos de disponibilidad de la sede antes de iniciar el trámite. Si resides habitualmente en otra comunidad y estás temporalmente en Madrid, existe el Documento de Asistencia a Desplazados (DAD), no una nueva TSI de residencia."},
+   "Región de Murcia":{titulo:"https://sede.carm.es/web/pagina?IDCONTENIDO=668&IDTIPO=240",salud:"https://www.murciasalud.es/web/atencion-usuarios-de-servicios-sanitario/tarjeta-sanitaria",organismo:"Servicio Murciano de Salud",pasos:"La primera tarjeta se solicita en la unidad administrativa del centro de salud correspondiente al domicilio. La tarjeta sanitaria virtual se gestiona en el Portal del Paciente o en la aplicación oficial."},
+   "Navarra":{titulo:"https://www.navarra.es/es/tramites/on/-/line/Acreditacion-de-familia-numerosa",salud:"https://www.navarra.es/es/tramites/on/-/line/Solicitud-de-la-tarjeta-individual-sanitaria-TIS?back=true&pageBackId=5722676",organismo:"Servicio Navarro de Salud · Osasunbidea",pasos:"La TIS puede solicitarse mediante el trámite online si la persona está empadronada en Navarra y tiene reconocido el derecho a asistencia sanitaria pública. Si no consta ese derecho, debe consultarse primero con el INSS o con el centro de salud según la situación."},
+   "País Vasco":{titulo:"https://www.euskadi.eus/familia-numerosa/web01-a2famil/es/",salud:"https://www.euskadi.eus/informacion/tarjeta-individual-sanitaria/web01-a2inform/es/",organismo:"Osakidetza · TIS",pasos:"La TIS se solicita en el centro de salud. Para menores se pide libro de familia y documento del INSS que acredita el derecho al aseguramiento sanitario; en recién nacidos puede aportarse el justificante de inscripción de nacimiento tramitada en el hospital."},
+   "Ceuta":{titulo:"https://sede.ceuta.es/controlador/controlador?cmd=tramite&modulo=tramites&tramite=TDFN",salud:"https://ingesa.sanidad.gob.es/ceuta/",organismo:"Instituto Nacional de Gestión Sanitaria (INGESA)",pasos:"En Ceuta, la asistencia sanitaria pública se gestiona por INGESA. Para la TSI o incidencias, contacta con tu centro de salud o con el área sanitaria de INGESA; el título de familia numerosa se tramita ante la Ciudad Autónoma."},
+   "Melilla":{titulo:"https://sede.melilla.es/sta/Relec/CatalogDetail?action=make&dboidProcedure=6262600972301176007187&dboidRequest=6269000972450356207187&urlBack=NO",salud:"https://ingesa.sanidad.gob.es/melilla/",organismo:"Instituto Nacional de Gestión Sanitaria (INGESA)",pasos:"En Melilla, la asistencia sanitaria pública se gestiona por INGESA. Para la TSI o incidencias, contacta con tu centro de salud o con el área sanitaria de INGESA; el título de familia numerosa se tramita ante la Ciudad Autónoma."}
+  };
+  if(ccaaFamilia&&rutas[ccaaFamilia]){
+   var ruta=rutas[ccaaFamilia];
+   fam.appendChild(txt("p","Información administrativa para "+ccaaFamilia+". La TSI/TIS es emitida por el servicio sanitario competente de tu territorio: "+ruta.organismo+". "+ruta.pasos));
+   var t=el("a","btn alt","Tramitar el título de familia numerosa en "+ccaaFamilia);t.href=ruta.titulo;t.target="_blank";t.rel="noopener";fam.appendChild(t);
+   var h=el("a","btn alt","Solicitar u obtener la tarjeta sanitaria en "+ccaaFamilia);h.href=ruta.salud;h.target="_blank";h.rel="noopener";fam.appendChild(h);
+  }
+  fam.appendChild(txt("p","Antes de solicitar la tarjeta sanitaria, comprueba que el menor tiene reconocido el derecho a asistencia sanitaria pública y, cuando corresponda, figura como beneficiario. El INSS reconoce ese derecho en los supuestos de su competencia; algunas situaciones ya lo tienen reconocido automáticamente. Para un recién nacido menor de tres meses, la Seguridad Social permite incluirlo como beneficiario mediante Tu Seguridad Social o en un CAISS. No todas las familias necesitan realizar un alta manual adicional."));
+  var inss=el("a","btn alt","Comprobar o añadir beneficiarios en la Seguridad Social");inss.href="https://prestaciones.seg-social.es/";inss.target="_blank";inss.rel="noopener";fam.appendChild(inss);
+  var inssfaq=el("a","btn alt","Información oficial del INSS para recién nacidos");inssfaq.href="https://www.seg-social.es/wps/portal/wss/internet/FAQ/48581";inssfaq.target="_blank";inssfaq.rel="noopener";fam.appendChild(inssfaq);
+  fam.appendChild(txt("p","La tarjeta sanitaria emitida por una comunidad o por INGESA acredita el acceso al Sistema Nacional de Salud y puede utilizarse en desplazamientos por España. Si el desplazamiento es temporal y necesitas seguimiento o asignación sanitaria ordinaria en el territorio de destino, consulta el procedimiento específico de personas desplazadas. Si has cambiado tu residencia habitual y empadronamiento, actualiza el domicilio y solicita el alta o tarjeta del servicio de salud de destino."));
+  if(ccaaFamilia==="Comunidad de Madrid"){
+   var dad=el("a","btn alt","Madrid: Documento de Asistencia a Desplazados (DAD)");dad.href="https://sede.comunidad.madrid/prestacion-social/asistencia-sanitaria-ambito-nacional";dad.target="_blank";dad.rel="noopener";fam.appendChild(dad);
+  }
+
+  p.appendChild(fam);
+ }
  if(personal&&["desempleo","retorno"].indexOf(A.situacionPersonal)>=0&&A.demandaEmpleo==="no"){
   var aviso=el("div","miss m");aviso.appendChild(txt("strong","Antes de solicitar una prestación del SEPE, inscríbete como demandante de empleo."));
   aviso.appendChild(txt("p","La inscripción se realiza en el servicio autonómico de empleo. Abre el portal oficial y comprueba el trámite de inscripción inicial o reactivación."));
