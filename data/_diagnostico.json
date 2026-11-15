@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-14",
- "recibidas": 1018,
- "relevantes": 783,
+ "fecha": "2026-11-15",
+ "recibidas": 2115,
+ "relevantes": 1612,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-08-16",
- "retroceso_hasta": "2026-08-19",
+ "retroceso_desde": "2026-11-05",
+ "retroceso_hasta": "2026-11-11",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1143704,
+  "id": 1143714,
   "mrr": false,
-  "numeroConvocatoria": "942143",
-  "descripcion": "SUBVENCIÓN A FAVOR DE LA ASOCIACIÓN ASOCIACIÓN GALEGA DE XORNALISTAS DO DEPORTE AGAXORDE PARA LA REALIZACIÓN DE EL EVENTO ?JORNADAS NACIONALES DE PERIODISMO DEPORTIVO?. EXPTE. 25756/333.",
-  "descripcionLeng": "SUBVENCIÓN A FAVOR DA ENTIDADE ASOCIACIÓN GALEGA DE XORNALISTAS DO DEPORTE AGAXORDE PARA A REALIZACIÓN DO EVENTO ?XORNADAS NACIONAIS DE PERIODISMO DEPORTIVO?. EXPTE. 25756/333.",
-  "fechaRecepcion": "2026-11-13",
+  "numeroConvocatoria": "942153",
+  "descripcion": "Propuesta convenio entre CCPP Virgen del Rocío n.15 y el Instituto Municipal de la Vivienda, Excmo. Ayuntamiento de Málaga, para\ncanalizar la subvención directa destinada a la rehabilitación del edificio sito en c/Virgen del Rocío, 15 de Málaga.",
+  "descripcionLeng": null,
+  "fechaRecepcion": "2026-11-14",
   "nivel1": "LOCAL",
-  "nivel2": "VIGO",
-  "nivel3": "AYUNTAMIENTO DE VIGO",
-  "codigoInvente": null
+  "nivel2": "MÁLAGA",
+  "nivel3": "INSTITUTO MUNICIPAL DE LA VIVIENDA (AYTO. MALAGA)",
+  "codigoInvente": "INV00003722"
  }
 }

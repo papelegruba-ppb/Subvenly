@@ -1,8 +1,8 @@
 {
- "fecha": "2026-11-14",
+ "fecha": "2026-11-15",
  "ficheros": 2,
- "encontradas": 254,
- "guardadas": 1565,
+ "encontradas": 248,
+ "guardadas": 1795,
  "fuentes_correctas": [],
  "fuentes_parciales": [
   "perfiles",
@@ -11,17 +11,17 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "802/2026",
-  "titulo": "Ejecución de un sistema de generación de energía eléctrica de fuentes renovables por medio de la implantación de plantas solares fotovoltaicas, la asistencia técnica para la constitución de una comunidad energética como modalidad de autoconsumo colectivo y el suministro de energía eléctrica proceden",
-  "organo": "Pleno del Ayuntamiento de Villarrubia de Santiago",
-  "territorio": "Toledo",
-  "nuts": "ES425",
-  "tipo": "Suministros",
-  "cpv": "09300000",
-  "presupuesto": 949485,
-  "cierre": "2026-12-28",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=FzZj0aDfcxdWhbmkna2nXQ%3D%3D",
-  "visto": "2026-11-14",
+  "id": "U1918615T",
+  "titulo": "instalación fotovoltaica de autoconsumo compartido con excedentes a través de red exterior en suelo para abastecer al ayuntamiento de Binéfar.",
+  "organo": "Alcaldía del Ayuntamiento de Binéfar",
+  "territorio": "Huesca",
+  "nuts": "ES241",
+  "tipo": "Obras",
+  "cpv": "45310000",
+  "presupuesto": 136364,
+  "cierre": "2026-12-03",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=D5SDB0thsQZ%2FP7lJ7Fu0SA%3D%3D",
+  "visto": "2026-11-15",
   "actualizada": "2026-11-13"
  }
 }
