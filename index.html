@@ -500,7 +500,7 @@ Object.assign(QUESTIONS,{
  hijosDiscapacidad:"¿Alguno de los hijos tiene reconocida discapacidad igual o superior al 33% o incapacidad para trabajar equivalente a absoluta/gran incapacidad?",
  progenitorDiscapacidad:"¿Alguno de los progenitores tiene reconocida discapacidad igual o superior al 33% o incapacidad para trabajar equivalente a absoluta/gran incapacidad?",
  partoMultiple:"¿Hay hijos procedentes de un mismo parto, adopción o acogimiento múltiple?",
- ingresosPorMiembro:"Si sois tres hijos, ¿los ingresos anuales divididos entre todos los miembros no superan el 150% del IPREM anual (incluidas pagas extra) por persona?",
+ ingresosPorMiembro:"¿Los ingresos anuales divididos entre los miembros de la familia no superan el 150% del IPREM anual (incluidas pagas extra) por persona?",
  menores14SinDni:"¿Hay menores de 14 años que no tengan DNI/NIE?",
  tsiMenor:"Si resides en Cataluña, ¿dispones de la TSI o del resguardo con el CIP de esos menores?",
  social:"¿Quieres comprobar prestaciones sociales, incluido el ingreso mínimo vital?",
@@ -618,7 +618,7 @@ function mostrar(k){
  if(k==="menores"&&(A.situacionPersonal!=="familia"||A.familia!=="si"||["otro_hijo","crianza"].indexOf(A.familiaEvento)<0))return false;
  if(["familiaComposicion","hijosTotal","hijosEdad","hijosDependencia","hijosDiscapacidad","progenitorDiscapacidad","partoMultiple","familiaNumerosa","familiaMonoparental","ingresosPorMiembro","menores14SinDni"].indexOf(k)>=0&&(A.situacionPersonal!=="familia"||A.familia!=="si"||!A.familiaEvento))return false;
  if(k==="familiaCategoria"&&A.familiaNumerosa!=="si")return false;
- if(k==="ingresosPorMiembro"&&Number(A.hijosTotal)!==3)return false;
+ if(k==="ingresosPorMiembro"&&Number(A.hijosTotal)!==3&&!(Number(A.hijosTotal)===1&&["monoparental_custodia","custodia_exclusiva_sin_alimentos","violencia_genero","ausencia_progenitor"].indexOf(A.familiaComposicion)>=0))return false;
  if(k==="tsiMenor"&&(A.ccaa!=="Cataluña"||A.menores14SinDni!=="si"))return false;
  if(k==="alquiler"&&A.situacionPersonal!=="vivienda")return false;
  if(k==="residenciaLegal"&&A.nacionalidad==="espanola")return false;
@@ -738,7 +738,7 @@ function renderProfile(){
    var cat=el("a","btn alt","Trámite oficial del título en Cataluña");cat.href="https://tramits.gencat.cat/es/tramits/tramits-temes/Titol-de-familia-nombrosa?moda=1";cat.target="_blank";cat.rel="noopener";fam.appendChild(cat);
    var tsi=el("a","btn alt","Solicitar la primera TSI en CatSalut");tsi.href="https://catsalut.gencat.cat/ca/coneix-catsalut/acces-sistema-salut/la-tsi/obtencio-tsi/";tsi.target="_blank";tsi.rel="noopener";fam.appendChild(tsi);
   }else if(A.ccaa==="Comunidad de Madrid"||A.ccaa==="Aragón"||A.ccaa==="Andalucía"||A.ccaa==="Comunitat Valenciana"){
-   var enlaces={"Comunidad de Madrid":"https://sede.comunidad.madrid/autorizaciones-licencias-permisos-carnes/titulo-familia-numerosa","Aragón":"https://www.aragon.es/tramitador/-/tramite/primera-emision-titulo-familia-numerosa","Andalucía":"https://www.juntadeandalucia.es/organismos/serviciossocialesfamiliaseigualdad/areas/familias/familia-numerosa/paginas/familia-numerosa-solicitud.html","Comunitat Valenciana":"https://sede.gva.es/es/detall-tramit?id_proc=377"};
+   var enlaces={"Comunidad de Madrid":"https://sede.comunidad.madrid/autorizaciones-licencias-permisos-carnes/titulo-familia-numerosa","Aragón":"https://www.aragon.es/tramitador/-/tramite/primera-emision-titulo-familia-numerosa","Andalucía":"https://www.juntadeandalucia.es/organismos/serviciossocialesfamiliaseigualdad/areas/familias/familia-numerosa/paginas/familia-numerosa-solicitud.html","Comunitat Valenciana":"https://sede.gva.es/es/detall-tramit?id_proc=377","Asturias":"https://miprincipado.asturias.es/ast/-/dboid-6269000005416730807573","Canarias":"https://sede.gobiernodecanarias.org/sede/tramites/2058","Cantabria":"https://sede.cantabria.es/sede/catalogo-de-tramites/tramite/reconocimiento-de-la-condicion-de-familia-numerosa-y-expedicion-y-renovacion-del-titulo-que-acredita-tal-condicion/777","Castilla-La Mancha":"https://bienestarsocial.castillalamancha.es/actuaciones/titulo-de-familia-numerosa","Extremadura":"https://www.juntaex.es/es/w/1717","Galicia":"https://sede.xunta.gal/es/detalle-procedemento?codtram=BS423A","Illes Balears":"https://www.caib.es/sites/M170613081930629/f/329748","La Rioja":"https://web.larioja.org/oficina-electronica/tramite?n=00438","Navarra":"https://www.navarra.es/es/tramites/on/-/line/Acreditacion-de-familia-numerosa","País Vasco":"https://www.euskadi.eus/familia-numerosa/web01-a2famil/es/","Región de Murcia":"https://sede.carm.es/web/pagina?IDCONTENIDO=668&IDTIPO=240"};
    var tr=el("a","btn alt","Abrir trámite oficial de "+A.ccaa);tr.href=enlaces[A.ccaa];tr.target="_blank";tr.rel="noopener";fam.appendChild(tr);
   }else if(A.ccaa){
    fam.appendChild(txt("p","La identificación documental de menores y la acreditación de convivencia dependen del procedimiento autonómico. No se debe exigir la TSI/CIP catalana como requisito general fuera de Cataluña. Comprueba el listado oficial de documentos de tu comunidad."));
