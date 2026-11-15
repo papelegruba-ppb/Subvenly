@@ -1284,6 +1284,116 @@
       "monitor": false,
       "nota": "Portal oficial de información de títulos y ayudas para familias numerosas y monoparentales. Comprobar actualización autonómica de la nueva regulación estatal.",
       "oficial": true
+    },
+    {
+      "id": "asturias-titulo-familia-numerosa",
+      "nombre": "Principado de Asturias · Reconocimiento de la condición de familia numerosa",
+      "ambito": "Asturias",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://miprincipado.asturias.es/ast/-/dboid-6269000005416730807573",
+      "monitor": false,
+      "nota": "Trámite oficial de reconocimiento, expedición y renovación. Comprobar adaptación a la reforma estatal de 2026 y sus efectos desde 01/01/2027.",
+      "oficial": true
+    },
+    {
+      "id": "canarias-titulo-familia-numerosa",
+      "nombre": "Gobierno de Canarias · Reconocimiento del título de familia numerosa",
+      "ambito": "Canarias",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://sede.gobiernodecanarias.org/sede/tramites/2058",
+      "monitor": false,
+      "nota": "Trámite oficial electrónico y presencial. Comprobar adaptación a la reforma estatal de 2026 y sus efectos desde 01/01/2027.",
+      "oficial": true
+    },
+    {
+      "id": "cantabria-titulo-familia-numerosa",
+      "nombre": "Gobierno de Cantabria · Reconocimiento y expedición/renovación del título",
+      "ambito": "Cantabria",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://sede.cantabria.es/sede/catalogo-de-tramites/tramite/reconocimiento-de-la-condicion-de-familia-numerosa-y-expedicion-y-renovacion-del-titulo-que-acredita-tal-condicion/777",
+      "monitor": false,
+      "nota": "Ficha oficial de procedimiento del ICASS. Comprobar adaptación a la reforma estatal de 2026 y sus efectos desde 01/01/2027.",
+      "oficial": true
+    },
+    {
+      "id": "clm-titulo-familia-numerosa",
+      "nombre": "Junta de Castilla-La Mancha · Título de familia numerosa",
+      "ambito": "Castilla-La Mancha",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://bienestarsocial.castillalamancha.es/actuaciones/titulo-de-familia-numerosa",
+      "monitor": false,
+      "nota": "Información oficial y descarga de título digital. Comprobar adaptación a la reforma estatal de 2026 y sus efectos desde 01/01/2027.",
+      "oficial": true
+    },
+    {
+      "id": "extremadura-titulo-familia-numerosa",
+      "nombre": "Junta de Extremadura · Expedición, modificación o renovación del título",
+      "ambito": "Extremadura",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://www.juntaex.es/es/w/1717",
+      "monitor": false,
+      "nota": "Trámite oficial permanente, documentación y órgano gestor. Comprobar adaptación a la reforma estatal de 2026 y sus efectos desde 01/01/2027.",
+      "oficial": true
+    },
+    {
+      "id": "galicia-titulo-familia-numerosa",
+      "nombre": "Xunta de Galicia · Título de familia numerosa (BS423A)",
+      "ambito": "Galicia",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://sede.xunta.gal/es/detalle-procedemento?codtram=BS423A",
+      "monitor": false,
+      "nota": "Trámite oficial de solicitud, renovación, modificación y duplicado. Comprobar adaptación a la reforma estatal de 2026 y sus efectos desde 01/01/2027.",
+      "oficial": true
+    },
+    {
+      "id": "navarra-titulo-familia-numerosa",
+      "nombre": "Gobierno de Navarra · Acreditación de familia numerosa",
+      "ambito": "Navarra",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://www.navarra.es/es/tramites/on/-/line/Acreditacion-de-familia-numerosa",
+      "monitor": false,
+      "nota": "Trámite oficial de acreditación, con presentación electrónica o presencial. Comprobar adaptación a la reforma estatal de 2026 y sus efectos desde 01/01/2027.",
+      "oficial": true
+    },
+    {
+      "id": "rioja-titulo-familia-numerosa",
+      "nombre": "Gobierno de La Rioja · Reconocimiento de familia numerosa",
+      "ambito": "La Rioja",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://web.larioja.org/oficina-electronica/tramite?n=00438",
+      "monitor": false,
+      "nota": "Trámite oficial de expedición de título. Comprobar adaptación a la reforma estatal de 2026 y sus efectos desde 01/01/2027.",
+      "oficial": true
+    },
+    {
+      "id": "euskadi-titulo-familia-numerosa",
+      "nombre": "Gobierno Vasco · Familia numerosa",
+      "ambito": "País Vasco",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://www.euskadi.eus/familia-numerosa/web01-a2famil/es/",
+      "monitor": false,
+      "nota": "Información oficial; la expedición y renovación corresponde a las diputaciones forales. Comprobar adaptación a la reforma estatal de 2026 y sus efectos desde 01/01/2027.",
+      "oficial": true
+    },
+    {
+      "id": "murcia-titulo-familia-numerosa",
+      "nombre": "Región de Murcia · Reconocimiento y renovación del título de familia numerosa",
+      "ambito": "Región de Murcia",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://sede.carm.es/web/pagina?IDCONTENIDO=668&IDTIPO=240",
+      "monitor": false,
+      "nota": "Trámite oficial; incluye gestión digital y consulta de datos. Comprobar adaptación a la reforma estatal de 2026 y sus efectos desde 01/01/2027.",
+      "oficial": true
+    },
+    {
+      "id": "baleares-titulo-familia-numerosa",
+      "nombre": "Illes Balears · Normativa y competencia insular sobre títulos familiares",
+      "ambito": "Illes Balears",
+      "categoria": "Título y acreditación familiar",
+      "url": "https://www.caib.es/sites/M170613081930629/f/329748",
+      "monitor": false,
+      "nota": "Referencia normativa autonómica; la competencia de expedición se ejerce por los consejos insulares. Consultar el procedimiento de la isla de empadronamiento. Comprobar adaptación a la reforma estatal de 2026 y sus efectos desde 01/01/2027.",
+      "oficial": true
     }
   ],
   "coberturaTerritorial": [
