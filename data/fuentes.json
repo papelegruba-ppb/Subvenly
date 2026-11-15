@@ -1476,16 +1476,6 @@
       "oficial": true
     },
     {
-      "id": "salud-tsi-cataluna",
-      "nombre": "CatSalut · Obtención de la tarjeta sanitaria individual",
-      "ambito": "Cataluña",
-      "categoria": "Tarjeta sanitaria y títulos familiares",
-      "url": "https://catsalut.gencat.cat/ca/coneix-catsalut/acces-sistema-salut/la-tsi/obtencio-tsi/",
-      "monitor": false,
-      "nota": "Solicitud de primera TSI, canales y acceso al CIP.",
-      "oficial": true
-    },
-    {
       "id": "salud-tsi-valencia",
       "nombre": "Generalitat Valenciana · Trámites tarjeta SIP",
       "ambito": "Comunitat Valenciana",
