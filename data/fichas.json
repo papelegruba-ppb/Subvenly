@@ -1868,5 +1868,201 @@
     "pend": true,
     "estadoManual": "Según la comunicación municipal recibida el 06/11/2026, el plazo está condicionado al agotamiento del crédito y finaliza como máximo el 10/11/2026. Confirmar que queda crédito disponible en el trámite oficial.",
     "consultado": "2026-11-06"
+  },
+  {
+    "id": 53,
+    "tipo": "Ayuda",
+    "titulo": "Ayuda económica para mujeres víctimas de violencia de género (art. 27)",
+    "organo": "Generalitat de Catalunya · Departament d’Igualtat i Feminismes",
+    "ambito": "Cataluña",
+    "plazo": "Tramitación según vigencia de la acreditación; comprobar condiciones actuales",
+    "importe": "Cuantía vinculada al subsidio por desempleo; puede incrementarse según circunstancias familiares y discapacidad",
+    "resumen": "Ayuda económica de pago único para mujeres víctimas de violencia de género con rentas limitadas y especiales dificultades para obtener empleo. No es automática por el mero hecho de ser víctima: exige acreditar la situación y cumplir los requisitos económicos y laborales.",
+    "reqs": {
+      "situacionPersonal": "violencia_genero",
+      "acreditacionViolencia": {
+        "oneOf": [
+          "orden",
+          "sentencia",
+          "fiscal",
+          "administrativa",
+          "servicios"
+        ]
+      },
+      "dificultadEmpleo": {
+        "oneOf": [
+          "si",
+          "nose"
+        ]
+      },
+      "ingresosAyuda27": {
+        "max": 0.75
+      }
+    },
+    "requisitos": [
+      "Residir y estar empadronada en Cataluña, según el trámite vigente.",
+      "Acreditar violencia de género en el ámbito de la pareja o expareja mediante alguno de los medios admitidos legalmente.",
+      "Acreditar especiales dificultades para obtener empleo mediante informe del servicio público de empleo competente.",
+      "Cumplir el límite de rentas aplicable. La ficha oficial y la normativa deben comprobarse antes de calcularlo: existe discrepancia entre referencias al IPREM y al SMI.",
+      "Revisar incompatibilidades con prestaciones y subsidios antes de solicitarla; no asumir que todas las ayudas sociales son incompatibles."
+    ],
+    "docs": [
+      "DNI/NIE o documento identificativo admitido.",
+      "Documento de acreditación de la situación de violencia.",
+      "Informe del SOC sobre especiales dificultades de inserción laboral.",
+      "Justificantes de ingresos y, cuando proceda, cargas familiares o discapacidad.",
+      "Documento bancario de titularidad de la cuenta."
+    ],
+    "eval": "Resultado orientativo. La elegibilidad final depende de la acreditación aceptada, el informe del SOC, el cálculo de rentas y las incompatibilidades vigentes. Subvenly debe derivar al trámite oficial y no emitir una concesión automática.",
+    "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/20283-Ajuts-de-mesures-de-proteccio-integral-contra-la-violencia-de-genere?moda=1",
+    "links": [
+      [
+        "Trámite oficial Generalitat",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/20283-Ajuts-de-mesures-de-proteccio-integral-contra-la-violencia-de-genere?moda=1"
+      ],
+      [
+        "Ley Orgánica 1/2004 · BOE",
+        "https://www.boe.es/buscar/act.php?id=BOE-A-2004-21760"
+      ]
+    ],
+    "categoria": "Violencia machista y protección",
+    "perfil": "personal",
+    "estadoManual": "Por verificar: revisar límite de rentas, compatibilidades y documentación en la ficha oficial antes de presentar como encaje confirmado.",
+    "verificacionPendiente": true
+  },
+  {
+    "id": 54,
+    "tipo": "Ayuda",
+    "titulo": "Ayuda económica para víctimas de violencias sexuales (Cataluña)",
+    "organo": "Generalitat de Catalunya · Departament d’Igualtat i Feminismes",
+    "ambito": "Cataluña",
+    "plazo": "Consultar plazo individual y fecha del documento acreditativo",
+    "importe": "Cuantía vinculada al subsidio por desempleo; posibles ampliaciones por discapacidad y cargas familiares",
+    "resumen": "Ayuda económica para mujeres, niñas y adolescentes víctimas de violencias sexuales que residan en Cataluña. Tiene requisitos de acreditación y rentas propios, y no debe confundirse con la ayuda del artículo 27 para violencia de género en la pareja.",
+    "reqs": {
+      "situacionPersonal": "violencia_sexual",
+      "acreditacionViolencia": {
+        "oneOf": [
+          "orden",
+          "sentencia",
+          "fiscal",
+          "administrativa",
+          "servicios"
+        ]
+      },
+      "residenciaCatalunya": "si"
+    },
+    "requisitos": [
+      "Residir en Cataluña; la ficha indica que no se exige nacionalidad española ni situación administrativa regular.",
+      "Acreditar los hechos mediante alguno de los documentos admitidos en la normativa y ficha oficial.",
+      "Cumplir el límite de ingresos y, si procede, los límites ampliados por personas a cargo.",
+      "Comprobar el plazo de cinco años desde la resolución o documento acreditativo, así como la fecha de los hechos y el régimen transitorio aplicable.",
+      "No acumular por los mismos hechos esta ayuda con la del artículo 27; estudiar cuál corresponde."
+    ],
+    "docs": [
+      "Documento identificativo, si se dispone de él.",
+      "Resolución judicial, informe fiscal, informe de servicios sociales o especializados u otra acreditación admitida.",
+      "Justificantes de ingresos de la solicitante y, cuando proceda, de la unidad familiar.",
+      "Documentación de hijos, personas dependientes o discapacidad, si corresponde.",
+      "Datos bancarios para el pago."
+    ],
+    "eval": "La compatibilidad con IMV, RGC y determinados subsidios debe revisarse conforme a la ficha vigente. No presentar como compatible con cualquier prestación sin comprobar el caso concreto.",
+    "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/24681-V-sexuals",
+    "links": [
+      [
+        "Trámite oficial Generalitat",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/24681-V-sexuals"
+      ]
+    ],
+    "categoria": "Violencia machista y protección",
+    "perfil": "personal",
+    "estadoManual": "Consultar ficha oficial: verificar requisitos, plazo y cuantía vigentes.",
+    "verificacionPendiente": true
+  },
+  {
+    "id": 55,
+    "tipo": "Ayuda",
+    "titulo": "Prestaciones de urgencia por deuda de alquiler y pérdida de vivienda (Barcelona)",
+    "organo": "Consorci de l’Habitatge de Barcelona · Serveis Socials",
+    "ambito": "Barcelona ciudad",
+    "plazo": "Según modalidad y disponibilidad; consulta y valoración por servicios sociales",
+    "importe": "Según deuda acreditada y modalidad; consultar límites vigentes",
+    "resumen": "Prestaciones municipales para prevenir la pérdida de vivienda o facilitar la continuidad residencial. La violencia machista puede ser una circunstancia relevante, pero no sustituye los requisitos de empadronamiento, ingresos, contrato, deuda y valoración social.",
+    "reqs": {
+      "situacionPersonal": {
+        "oneOf": [
+          "violencia_genero",
+          "violencia_sexual",
+          "violencia_otra",
+          "vivienda"
+        ]
+      },
+      "municipioBarcelona": "si"
+    },
+    "requisitos": [
+      "Estar empadronada en Barcelona, cuando así lo exija la modalidad.",
+      "Acreditar residencia habitual y título de ocupación o contrato exigido por la prestación.",
+      "Aportar deuda o situación de riesgo habitacional y cumplir los límites económicos aplicables.",
+      "Obtener valoración e informe de servicios sociales.",
+      "Comprobar las condiciones específicas de cada modalidad; no todas están dirigidas exclusivamente a víctimas."
+    ],
+    "docs": [
+      "DNI/NIE o documento identificativo.",
+      "Certificado de empadronamiento.",
+      "Contrato de alquiler y recibos o justificantes de deuda.",
+      "Justificantes de ingresos de la unidad de convivencia.",
+      "Informe o valoración de servicios sociales y acreditación de violencia, cuando proceda."
+    ],
+    "eval": "La elegibilidad depende de la modalidad concreta y de la valoración de servicios sociales. No extrapolar los importes ni requisitos de una prestación municipal a otra.",
+    "link": "https://lesmevesajudes.barcelona.cat/es/listado-de-ayudas/prestacions-economiques-despecial-urgencia-per-a-lhabitatge-al-municipi-de-barcelona-situacions-de-perdua-de-lhabitatge-desnonament-o-execucio-hipotecaria/",
+    "links": [
+      [
+        "Prestaciones de urgencia por vivienda",
+        "https://lesmevesajudes.barcelona.cat/es/listado-de-ayudas/prestacions-economiques-despecial-urgencia-per-a-lhabitatge-al-municipi-de-barcelona-situacions-de-perdua-de-lhabitatge-desnonament-o-execucio-hipotecaria/"
+      ],
+      [
+        "Consorci de l’Habitatge de Barcelona",
+        "https://www.consorcihabitatge.barcelona/es/prestaciones-municipales-derivadas-de-la-mediacion"
+      ]
+    ],
+    "categoria": "Vivienda y emergencia social",
+    "perfil": "personal",
+    "estadoManual": "Consultar modalidad y condiciones municipales vigentes.",
+    "verificacionPendiente": true
+  },
+  {
+    "id": 56,
+    "tipo": "Beca",
+    "titulo": "Beca del SOC para mujeres víctimas de violencia de género en formación",
+    "organo": "Servei Públic d’Ocupació de Catalunya (SOC)",
+    "ambito": "Cataluña",
+    "plazo": "Convocatoria 2026 cerrada; vigilar próxima convocatoria",
+    "importe": "10 € por día de asistencia, según convocatoria 2026",
+    "resumen": "Beca vinculada a la asistencia a acciones de formación profesional para el empleo para mujeres desempleadas víctimas de violencia de género. La convocatoria de 2026 tuvo un plazo concreto y no debe mostrarse como abierta.",
+    "reqs": {
+      "situacionPersonal": "violencia_genero",
+      "ccaa": "Cataluña",
+      "demandaEmpleo": "si"
+    },
+    "requisitos": [
+      "Estar desempleada e inscrita como demandante de empleo en el SOC al incorporarse a la formación.",
+      "Acreditar la condición de víctima ante la oficina de trabajo antes de solicitar la beca.",
+      "Cumplir las obligaciones tributarias y con la Seguridad Social.",
+      "No percibir otra ayuda por el mismo concepto.",
+      "Consultar las fechas y bases de la nueva convocatoria: la convocatoria 2026 ya está cerrada."
+    ],
+    "docs": [
+      "Acreditación de víctima de violencia de género.",
+      "Inscripción como demandante de empleo no ocupada.",
+      "Justificante de participación y asistencia a la formación.",
+      "Documentación exigida en la convocatoria vigente."
+    ],
+    "eval": "Ficha informativa de convocatoria cerrada. Mantener visible como próxima oportunidad, no como solicitud abierta.",
+    "link": "https://serveiocupacio.gencat.cat/es/persones/vull-formar-me/beques-ajuts/beques-per-a-dones-victimes-de-violencia-de-genere/index.html",
+    "categoria": "Formación y empleo",
+    "perfil": "personal",
+    "cerrada": true,
+    "permTxt": "Cerrada",
+    "estadoManual": "Convocatoria 2026 cerrada; revisar nueva edición."
   }
 ]
