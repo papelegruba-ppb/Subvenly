@@ -2426,5 +2426,47 @@
     "categoria": "Familia y nacimiento",
     "pend": true,
     "estadoManual": "Fuera de plazo · convocatoria 2026 cerrada"
+  },
+  {
+    "id": 65,
+    "perfil": "personal",
+    "tipo": "Ayuda autonómica",
+    "titulo": "Ayuda económica a familias numerosas (Castilla-La Mancha)",
+    "organo": "Junta de Comunidades de Castilla-La Mancha · Bienestar Social",
+    "ambito": "Castilla-La Mancha",
+    "plazo": "Consultar el periodo y la convocatoria aplicable en la sede electrónica; la ficha informativa describe una ayuda renovable de dos años",
+    "importe": "Cuantía mensual calculada según el número de hijos del título; mínimo publicado de 15 €/hijo/mes. Abono anual en junio y diciembre",
+    "resumen": "Ayuda económica de crianza para familias numerosas con rentas limitadas. La cuantía depende del número de hijos que figuran en el título y se abona por los hijos menores de edad. Exige residencia efectiva y domicilio fiscal en Castilla-La Mancha, antigüedad de residencia y requisitos escolares.",
+    "reqs": {
+      "familiaNumerosa": "si",
+      "ccaa": "Castilla-La Mancha"
+    },
+    "requisitos": [
+      "Disponer de título oficial de familia numerosa en vigor.",
+      "Los hijos por los que se percibe la ayuda deben ser menores de 18 años.",
+      "Todos los miembros incluidos en el título deben tener domicilio fiscal en Castilla-La Mancha y residencia efectiva en la comunidad durante al menos los dos años anteriores a la solicitud.",
+      "Los hijos en edad de escolarización obligatoria deben haber estado escolarizados durante los dos cursos anteriores y no haber incurrido en absentismo escolar en los términos exigidos.",
+      "Los ingresos de la unidad familiar del año anterior no deben superar los límites por IPREM establecidos según el número de hijos del título: 3 IPREM para uno o dos hijos, 4 para tres, 5 para cuatro, y así sucesivamente.",
+      "La cuantía se calcula conforme al número de hijos del título, aunque se abona por los hijos menores de edad. El mínimo publicado es 15 € por hijo/mes; pago efectivo en dos abonos anuales, junio y diciembre.",
+      "La ayuda tiene vigencia de dos años y debe renovarse durante los seis meses anteriores a su vencimiento."
+    ],
+    "docs": [
+      "Título oficial de familia numerosa en vigor",
+      "Certificados de empadronamiento/residencia de todos los miembros incluidos en el título",
+      "Acreditación de domicilio fiscal en Castilla-La Mancha",
+      "Documentación de ingresos del ejercicio anterior",
+      "Certificados de escolarización cuando proceda"
+    ],
+    "eval": "La ficha informativa autonómica describe los requisitos y la cuantía mínima, pero debe comprobarse el periodo de presentación y el importe resultante según la composición familiar y la convocatoria vigente. No calcular una cuantía final con el mínimo de 15 € como si fuera importe universal.",
+    "link": "https://bienestarsocial.castillalamancha.es/actuaciones/ayuda-economica-familias-numerosas",
+    "links": [
+      [
+        "Requisitos y solicitud (Junta de Castilla-La Mancha)",
+        "https://bienestarsocial.castillalamancha.es/actuaciones/ayuda-economica-familias-numerosas"
+      ]
+    ],
+    "categoria": "Familia y crianza",
+    "pend": true,
+    "estadoManual": "Comprobar periodo de solicitud y convocatoria vigente"
   }
 ]
