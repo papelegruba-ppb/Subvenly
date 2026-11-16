@@ -124,7 +124,7 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
 
   <section class="panel" aria-labelledby="tt">
     <h2 id="tt">Cuéntame quién eres</h2>
-    <p class="sub">Puedes contestar «No sé». Te diré qué comprobar.</p>
+    <p class="sub">Puedes contestar «No sé» o dejar preguntas en blanco. Las respuestas sobre violencia se mantienen solo durante esta sesión y no se guardan en el almacenamiento local.</p>
     <div id="profile"></div>
     <div class="row"><button class="btn alt" id="reset">Empezar de nuevo</button></div>
   </section>
@@ -178,6 +178,13 @@ var QUESTIONS={
   bcn:"¿Esa persona está empadronada en la ciudad de Barcelona?",
   joven:"¿Esa persona tiene menos de 30 años y está inscrita en Garantía Juvenil?",
   situacionPersonal:"¿Qué situación describe mejor lo que necesitas?",
+  tipoViolencia:"¿Qué situación de violencia quieres consultar? (Puedes no responder)",
+  acreditacionViolencia:"¿Qué documento de acreditación tienes? (Puedes no responder)",
+  dificultadEmpleo:"¿Tienes un informe del SOC sobre dificultades especiales para encontrar empleo?",
+  ingresosAyuda27:"¿Tus ingresos están por debajo del límite indicado en la ficha oficial? (No calculamos este límite hasta verificarlo)",
+  residenciaCatalunya:"¿Resides en Cataluña?",
+  municipioBarcelona:"¿Estás empadronada en Barcelona ciudad?",
+  demandaEmpleo:"¿Estás inscrita como demandante de empleo en el SOC?",
   familiaEvento:"¿Qué situación familiar se aplica?",
   empleoSituacion:"¿Cuál es tu situación laboral actual?",
   retorno:"¿Has regresado a España después de vivir en el extranjero?",
@@ -224,7 +231,9 @@ var AIDS=[],NOV={items:[]},LIC={items:[]},VIG={};
 var A={},tipo="Todas",est="Todas",busquedaAyuda="",ambitoAyuda="",organoAyuda="",compatAyuda="",categoriaAyuda="";
 var LS={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 try{A=JSON.parse(LS.get("ans_subvenly")||"{}")||{}}catch(e){A={}}
-function save(){LS.set("ans_subvenly",JSON.stringify(A))}
+SENSITIVE_KEYS.forEach(function(k){delete A[k]});
+var SENSITIVE_KEYS=["tipoViolencia","acreditacionViolencia","dificultadEmpleo","ingresosAyuda27","residenciaCatalunya","municipioBarcelona"];
+function save(){var safe=Object.assign({},A);SENSITIVE_KEYS.forEach(function(k){delete safe[k]});LS.set("ans_subvenly",JSON.stringify(safe))}
 function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
 function txt(tag,s){var e=el(tag);e.textContent=s;return e}
 function fmt(d){var p=d.split("-");return p[2]+"/"+p[1]+"/"+p[0]}
@@ -261,7 +270,13 @@ function controlPregunta(k){
 }
 function opcionesPregunta(k){
   var opts={
-    situacionPersonal:[["familia","Nacimiento, adopción o crianza"],["desempleo","Estoy en paro o he agotado el paro"],["ingresos","Tengo ingresos bajos o dificultades económicas"],["retorno","He regresado del extranjero o quiero volver"],["extranjeria","Mi situación es de extranjería o residencia"],["vivienda","Vivienda, alquiler o suministros"],["discapacidad","Discapacidad, dependencia o cuidados"],["estudios","Estudios, formación o juventud"],["otra","Otra situación personal"]],
+    situacionPersonal:[["familia","Nacimiento, adopción o crianza"],["violencia","Violencia de género, sexual o machista; quiero conocer mis derechos"],["desempleo","Estoy en paro o he agotado el paro"],["ingresos","Tengo ingresos bajos o dificultades económicas"],["retorno","He regresado del extranjero o quiero volver"],["extranjeria","Mi situación es de extranjería o residencia"],["vivienda","Vivienda, alquiler o suministros"],["discapacidad","Discapacidad, dependencia o cuidados"],["estudios","Estudios, formación o juventud"],["otra","Otra situación personal"]],
+    tipoViolencia:[["violencia_genero","Violencia de género por pareja o expareja"],["violencia_sexual","Violencia sexual"],["violencia_otra","Otra forma de violencia machista"],["nose","Prefiero no especificarlo / No lo sé"]],
+    acreditacionViolencia:[["orden","Orden de protección o resolución cautelar"],["sentencia","Sentencia judicial"],["fiscal","Informe del Ministerio Fiscal"],["administrativa","Acreditación administrativa"],["servicios","Informe de servicios sociales o especializados"],["no","No tengo acreditación todavía"],["nose","No lo sé / Prefiero no responder"]],
+    dificultadEmpleo:[["si","Sí, tengo informe del SOC"],["no","No"],["nose","No lo sé"]],
+    ingresosAyuda27:[["si","Sí, creo que estoy por debajo"],["no","No, creo que lo supero"],["nose","No lo sé; necesito comprobarlo"]],
+    residenciaCatalunya:[["si","Sí"],["no","No"],["nose","No lo sé"]],
+    municipioBarcelona:[["si","Sí"],["no","No"],["nose","No lo sé"]],
     familiaEvento:[["primer_hijo","Acabo de tener mi primer hijo"],["otro_hijo","He tenido otro hijo o una adopción"],["embarazo","Estoy embarazada o espero una adopción"],["crianza","Tengo hijos y busco ayudas para criarlos"],["titulo_familiar","Quiero solicitar, renovar o revisar un título de familia numerosa o monoparental"]],
     familiaComposicion:[["dos_progenitores","Dos progenitores (pareja o unidad biparental)"],["monoparental_custodia","Una sola persona progenitora con guarda y custodia"],["custodia_exclusiva_sin_alimentos","Custodia exclusiva y sin derecho a pensión de alimentos"],["violencia_genero","Una progenitora víctima de violencia de género con guarda/custodia"],["ausencia_progenitor","Ausencia forzada del otro progenitor durante al menos un año"],["tutela_acogimiento","Una persona tutora, acogedora o guardadora"],["separados_tres_hijos","Progenitor separado/divorciado con tres o más hijos económicamente dependientes"],["custodia_compartida","Progenitores separados/divorciados con custodia compartida"],["hermanos_huerfanos","Hermanos huérfanos que conviven y cumplen los requisitos legales"]],
     hijosEdad:[["menores_21","Todos son menores de 21 años"],["21_25_estudian","Alguno tiene entre 21 y 25 años y estudia"],["21_25_no_estudia","Alguno tiene entre 21 y 25 años y no estudia"],["mayores_discapacidad","Hay hijos mayores de 25 años con discapacidad o incapacidad para trabajar"],["mixto","Se combinan varias situaciones de edad"],["nose","No lo sé; necesito comprobarlo"]],
@@ -535,7 +550,7 @@ FALTA.bases="comprobar las bases oficiales completas, los requisitos que faltan 
 function valorAid(k,a){
  if(a.perfil==="personal"&&["particular","autonomo","ambos"].indexOf(A.perfil)>=0){
   // Si la persona ha elegido otra ruta, no se dejan ayudas de familia o alquiler como "por confirmar".
-  if(k==="familia"&&A.situacionPersonal!=="familia")return "no";
+  if(k==="familia"&&A.situacionPersonal!=="familia"&&A.situacionPersonal!=="violencia")return "no";
   if(k==="alquiler"&&A.situacionPersonal!=="vivienda")return "no";
   if(["autonomo","ambos"].indexOf(A.perfil)>=0){
    var ccaaRes=A.direccionIgual==="si"?A.ccaa:A.ccaaResidencia;
@@ -565,6 +580,11 @@ function anadirRutaPersonal(l){
    if(["otro_hijo","crianza"].indexOf(A.familiaEvento)>=0)l.push("menores");
    l=l.concat(["#Composición familiar y títulos","familiaComposicion","hijosTotal","hijosEdad","hijosDependencia","hijosDiscapacidad","progenitorDiscapacidad","partoMultiple","familiaNumerosa","familiaCategoria","familiaMonoparental","edad","unidad","ingresos","ingresosPorMiembro","menores14SinDni","tsiMenor","nacionalidad","residenciaLegal","unidadFamiliar","tramitar"]);
   }
+ }
+ if(A.situacionPersonal==="violencia"){
+  l=l.concat(["#Violencia y derechos (respuestas opcionales)","tipoViolencia","acreditacionViolencia"]);
+  if(A.tipoViolencia==="violencia_genero")l=l.concat(["dificultadEmpleo","ingresosAyuda27"]);
+  l=l.concat(["residenciaCatalunya","municipioBarcelona","#Situación laboral y acceso a recursos","empleoSituacion","demandaEmpleo","familia","alquiler","ingresosPersonales","unidadFamiliar","tramitar"]);
  }
  if(A.situacionPersonal==="desempleo"){
   l=l.concat(["#Empleo y prestaciones","nacionalidad","residenciaLegal","empleoSituacion","finTrabajo","motivoFin","cotizados","paro","desempleado","paroPrevio","fechaAgotamiento","cobroAnterior","cargasFamiliares","edad","ingresosPersonales","unidadFamiliar","#Inscripción e identificación para los trámites","demandaEmpleo","inscripcionAnterior","datosEmpleoActualizados","identificacionDigital","accesoCotizaciones"]);
@@ -622,7 +642,7 @@ function mostrar(k){
  if(k==="municipioResidencia"&&!A.provinciaResidencia)return false;
  if(k==="amb"&&A.provincia!=="Barcelona")return false;
  if(["lleida","centre","ponent"].indexOf(k)>=0&&A.provincia!=="Lleida")return false;
- if(k==="familia"&&A.situacionPersonal!=="familia")return false;
+ if(k==="familia"&&A.situacionPersonal!=="familia"&&A.situacionPersonal!=="violencia")return false;
  if(k==="familiaEvento"&&(A.situacionPersonal!=="familia"||A.familia!=="si"))return false;
  if(k==="nacimientoFecha"&&(A.situacionPersonal!=="familia"||A.familia!=="si"||["primer_hijo","otro_hijo","embarazo"].indexOf(A.familiaEvento)<0))return false;
  if(k==="menores"&&(A.situacionPersonal!=="familia"||A.familia!=="si"||["otro_hijo","crianza"].indexOf(A.familiaEvento)<0))return false;
@@ -630,7 +650,8 @@ function mostrar(k){
  if(k==="familiaCategoria"&&A.familiaNumerosa!=="si")return false;
  if(k==="ingresosPorMiembro"&&Number(A.hijosTotal)!==3&&!(Number(A.hijosTotal)===1&&["monoparental_custodia","custodia_exclusiva_sin_alimentos","violencia_genero","ausencia_progenitor"].indexOf(A.familiaComposicion)>=0))return false;
  if(k==="tsiMenor"&&(A.ccaa!=="Cataluña"||A.menores14SinDni!=="si"))return false;
- if(k==="alquiler"&&A.situacionPersonal!=="vivienda")return false;
+ if(k==="alquiler"&&A.situacionPersonal!=="vivienda"&&A.situacionPersonal!=="violencia")return false;
+ if(["tipoViolencia","acreditacionViolencia","dificultadEmpleo","ingresosAyuda27","residenciaCatalunya","municipioBarcelona"].indexOf(k)>=0&&A.situacionPersonal!=="violencia")return false;
  if(k==="residenciaLegal"&&A.nacionalidad==="espanola")return false;
  if(["paisProcedencia","mesesTrabajoExtranjero","cotizadosAntesEmigrar"].indexOf(k)>=0&&(A.situacionPersonal!=="retorno"||A.retorno!=="si"||A.trabajoExtranjero!=="si"))return false;
  if(k==="cotizacionDesempleo6"&&(A.situacionPersonal!=="desempleo"||Number(A.edad)<52))return false;
@@ -657,7 +678,7 @@ function impl(k){
  if(k==="perfil")return A.perfil;
  if(k==="sl"&&A.perfil==="empresa"){if(!A.forma)return undefined;return A.forma==="sl"?"si":"no";}
  if(k==="forma")return A.forma;
- if(k==="municipioBarcelona")return A.municipio?(nrm(A.municipio)==="barcelona"?"si":"no"):undefined;
+ if(k==="municipioBarcelona")return A.municipioBarcelona|| (A.municipio?(nrm(A.municipio)==="barcelona"?"si":"no"):undefined);
  if(k==="municipioMadrid")return A.municipio?(A.ccaa==="Comunidad de Madrid"&&nrm(A.municipio)==="madrid"?"si":"no"):undefined;
  if(A.ccaa){if(k==="catalunya")return A.ccaa==="Cataluña"?"si":"no";if(k==="madrid")return A.ccaa==="Comunidad de Madrid"?"si":"no"}
  if(k==="amb"&&A.provincia&&A.provincia!=="Barcelona")return "no";
