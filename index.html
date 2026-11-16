@@ -538,7 +538,7 @@ Object.assign(QUESTIONS,{
  perfil:"¿Para quién buscas ayudas?",
  forma:"¿Qué forma jurídica tiene o tendrá el negocio?",
  familia:"¿Buscas ayudas relacionadas con nacimiento, adopción o hijos a cargo?",
- nacimientoFecha:"¿En qué fecha nació o se prevé el nacimiento/adopción/acogida?",
+ nacimientoFecha:"¿En qué fecha nació el menor o se dictó la resolución de adopción/acogimiento? Si estás embarazada, déjalo sin responder.",
  menores:"¿Cuántos menores tienes a cargo?",
  alquiler:"¿Buscas ayudas para pagar el alquiler de tu vivienda habitual?",
  edad:"¿Qué edad tienes?",
@@ -627,7 +627,7 @@ function anadirRutaPersonal(l){
  if(A.situacionPersonal==="familia"){
   l=l.concat(["#Nacimiento, adopción y crianza","familia","familiaEvento"]);
   if(A.familia==="si"&&A.familiaEvento){
-   if(["primer_hijo","otro_hijo","embarazo"].indexOf(A.familiaEvento)>=0)l.push("nacimientoFecha");
+   if(["primer_hijo","otro_hijo"].indexOf(A.familiaEvento)>=0)l.push("nacimientoFecha");
    if(["otro_hijo","crianza"].indexOf(A.familiaEvento)>=0)l.push("menores");
    l=l.concat(["#Composición familiar y títulos","familiaComposicion","hijosTotal","hijosEdad","hijosDependencia","hijosDiscapacidad","progenitorDiscapacidad","partoMultiple","familiaNumerosa","familiaCategoria","familiaMonoparental","edad","unidad","ingresos","ingresosPorMiembro","menores14SinDni","tsiMenor","nacionalidad","residenciaLegal","unidadFamiliar"]);
    if(A.ccaa==="Cataluña")l=l.concat(["#Ayuda autonómica por nacimiento (Cataluña)","catalunyaResidencia5","catalunyaRenta"]);
@@ -700,14 +700,14 @@ function mostrar(k){
  if(["lleida","centre","ponent"].indexOf(k)>=0&&A.provincia!=="Lleida")return false;
  if(k==="familia"&&A.situacionPersonal!=="familia"&&A.situacionPersonal!=="violencia")return false;
  if(k==="familiaEvento"&&(A.situacionPersonal!=="familia"||A.familia!=="si"))return false;
- if(k==="nacimientoFecha"&&(A.situacionPersonal!=="familia"||A.familia!=="si"||["primer_hijo","otro_hijo","embarazo"].indexOf(A.familiaEvento)<0))return false;
+ if(k==="nacimientoFecha"&&(A.situacionPersonal!=="familia"||A.familia!=="si"||["primer_hijo","otro_hijo"].indexOf(A.familiaEvento)<0))return false;
  if(k==="menores"&&(A.situacionPersonal!=="familia"||A.familia!=="si"||["otro_hijo","crianza"].indexOf(A.familiaEvento)<0))return false;
  if(["familiaComposicion","hijosTotal","hijosEdad","hijosDependencia","hijosDiscapacidad","progenitorDiscapacidad","partoMultiple","familiaNumerosa","familiaMonoparental","ingresosPorMiembro","menores14SinDni"].indexOf(k)>=0&&(A.situacionPersonal!=="familia"||A.familia!=="si"||!A.familiaEvento))return false;
  if(k==="familiaCategoria"&&A.familiaNumerosa!=="si")return false;
  if(["maternidadAltaNacimiento","maternidadParoNacimiento","maternidad30Dias"].indexOf(k)>=0&&A.maternidadHijoMenor3!=="si")return false;
  if(k==="maternidad30Dias"&&(A.maternidadAltaNacimiento==="si"||A.maternidadParoNacimiento==="si"))return false;
  if(k==="maternidadTitular"&&A.maternidadHijoMenor3!=="si")return false;
- if(k==="embarazoSemana"&&!(A.ccaa==="Galicia"&&A.familiaEvento==="embarazo"))return false;
+ if(k==="embarazoSemana"&&!(["Galicia","Comunidad de Madrid"].indexOf(A.ccaa)>=0&&A.familiaEvento==="embarazo"))return false;
  if(["catalunyaResidencia5","catalunyaRenta"].indexOf(k)>=0&&A.ccaa!=="Cataluña")return false;
  if(["madridNatalidadEdad","madridNatalidadResidencia","madridNatalidadRenta","madridHijoMenor24"].indexOf(k)>=0&&A.ccaa!=="Comunidad de Madrid")return false;
  if(["galiciaRenta","galiciaMunicipio"].indexOf(k)>=0&&A.ccaa!=="Galicia")return false;
