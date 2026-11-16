@@ -212,6 +212,7 @@ var QUESTIONS={
   unidadFamiliar:"¿Cuántas personas forman tu unidad de convivencia?",
   nacimientoTipo:"¿Qué situación familiar se aplica?",
   maternidadHijoMenor3:"¿Tienes un hijo menor de 3 años (incluido adopción o acogimiento)?",
+  maternidadTitular:"¿Quién solicita la deducción por maternidad?",
   maternidadAltaNacimiento:"En la fecha del nacimiento, ¿estabas de alta en la Seguridad Social o mutualidad?",
   maternidadParoNacimiento:"En la fecha del nacimiento, ¿percibías prestación contributiva o asistencial por desempleo del SEPE?",
   maternidad30Dias:"Si no estabas de alta ni cobrabas desempleo en el nacimiento, ¿te has dado de alta después y has cotizado al menos 30 días?",
@@ -290,6 +291,7 @@ function opcionesPregunta(k){
     hijosDependencia:[["si","Sí, conviven y dependen económicamente"],["no","No todos cumplen esas condiciones"],["nose","No lo sé; necesito comprobar ingresos y convivencia"]],
     familiaCategoria:[["general","Categoría general"],["especial","Categoría especial"],["tramite","Solicitud en trámite"],["caducado","Título caducado"],["nose","No lo sé"]],
     maternidadHijoMenor3:[["si","Sí"],["no","No"],["nose","No lo sé"]],
+    maternidadTitular:[["madre","Madre"],["progenitores_mismo_sexo","Ambos progenitores de una pareja del mismo sexo"],["padre_fallecimiento","Padre o tutor por fallecimiento de la madre"],["padre_custodia","Padre o tutor con guarda y custodia exclusiva"],["otro","Otro supuesto / necesito comprobarlo"]],
     maternidadAltaNacimiento:[["si","Sí"],["no","No"],["nose","No lo sé"]],
     maternidadParoNacimiento:[["si","Sí, prestación contributiva o subsidio asistencial"],["no","No"],["nose","No lo sé"]],
     maternidad30Dias:[["si","Sí, alta posterior y al menos 30 días cotizados"],["no","No"],["nose","No lo sé"]],
@@ -569,8 +571,8 @@ function valorAid(k,a){
   if(k==="perfilFiscalEligible")return ["particular","autonomo","ambos"].indexOf(A.perfil)>=0?"si":"no";
   if(k==="familiaCategoriaElegible")return ["general","especial"].indexOf(A.familiaCategoria)>=0?"si":A.familiaCategoria==="tramite"||A.familiaCategoria==="caducado"?"no":undefined;
   if(k==="maternidadRequisitos"){
-   var menor=A.maternidadHijoMenor3, viaNacimiento=A.maternidadAltaNacimiento==="si"||A.maternidadParoNacimiento==="si", viaPosterior=A.maternidad30Dias==="si";
-   return menor==="si"&&(viaNacimiento||viaPosterior)?"si":menor==="no"?"no":(menor==="si"&&(A.maternidadAltaNacimiento==="no"&&A.maternidadParoNacimiento==="no"&&A.maternidad30Dias==="no")?"no":undefined);
+   var menor=A.maternidadHijoMenor3, titular=["madre","progenitores_mismo_sexo","padre_fallecimiento","padre_custodia"].indexOf(A.maternidadTitular)>=0, viaNacimiento=A.maternidadAltaNacimiento==="si"||A.maternidadParoNacimiento==="si", viaPosterior=A.maternidad30Dias==="si";
+   return menor==="no"||A.maternidadTitular==="otro"?"no":menor==="si"&&titular&&(viaNacimiento||viaPosterior)?"si":(menor==="si"&&titular&&A.maternidadAltaNacimiento==="no"&&A.maternidadParoNacimiento==="no"&&A.maternidad30Dias==="no"?"no":undefined);
   }
   if(k==="familiaNumerosaRequisitos"){
    if(A.familiaNumerosaSituacion==="ninguna")return "no";
@@ -678,6 +680,7 @@ function mostrar(k){
  if(k==="familiaCategoria"&&A.familiaNumerosa!=="si")return false;
  if(["maternidadAltaNacimiento","maternidadParoNacimiento","maternidad30Dias"].indexOf(k)>=0&&A.maternidadHijoMenor3!=="si")return false;
  if(k==="maternidad30Dias"&&(A.maternidadAltaNacimiento==="si"||A.maternidadParoNacimiento==="si"))return false;
+ if(k==="maternidadTitular"&&A.maternidadHijoMenor3!=="si")return false;
  if(["familiaNumerosaSituacion","familiaNumerosaRequisitos","modelo143Modalidad"].indexOf(k)>=0&&A.familiaNumerosa!=="si")return false;
  if(k==="ingresosPorMiembro"&&Number(A.hijosTotal)!==3&&!(Number(A.hijosTotal)===1&&["monoparental_custodia","custodia_exclusiva_sin_alimentos","violencia_genero","ausencia_progenitor"].indexOf(A.familiaComposicion)>=0))return false;
  if(k==="tsiMenor"&&(A.ccaa!=="Cataluña"||A.menores14SinDni!=="si"))return false;
