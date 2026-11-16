@@ -211,6 +211,13 @@ var QUESTIONS={
   ingresosPersonales:"¿Cuáles son aproximadamente tus ingresos mensuales actuales (euros)?",
   unidadFamiliar:"¿Cuántas personas forman tu unidad de convivencia?",
   nacimientoTipo:"¿Qué situación familiar se aplica?",
+  maternidadHijoMenor3:"¿Tienes un hijo menor de 3 años (incluido adopción o acogimiento)?",
+  maternidadAltaNacimiento:"En la fecha del nacimiento, ¿estabas de alta en la Seguridad Social o mutualidad?",
+  maternidadParoNacimiento:"En la fecha del nacimiento, ¿percibías prestación contributiva o asistencial por desempleo del SEPE?",
+  maternidad30Dias:"Si no estabas de alta ni cobrabas desempleo en el nacimiento, ¿te has dado de alta después y has cotizado al menos 30 días?",
+  familiaNumerosaSituacion:"¿Qué situación laboral o de ingresos habilitante tienes actualmente?",
+  familiaNumerosaRequisitos:"¿Cumples los requisitos de actividad/cotización mensual o percibes desempleo o pensión pública?",
+  modelo143Modalidad:"¿Cómo preferirías solicitar el abono anticipado si tienes derecho?",
   cirbeNecesidad:"¿Necesitas obtener un informe de riesgos CIRBE?",
   tramitar:"¿Quieres que te ayudemos a tramitar las ayudas para las que puedas cumplir los requisitos?"
 };
@@ -282,6 +289,13 @@ function opcionesPregunta(k){
     hijosEdad:[["menores_21","Todos son menores de 21 años"],["21_25_estudian","Alguno tiene entre 21 y 25 años y estudia"],["21_25_no_estudia","Alguno tiene entre 21 y 25 años y no estudia"],["mayores_discapacidad","Hay hijos mayores de 25 años con discapacidad o incapacidad para trabajar"],["mixto","Se combinan varias situaciones de edad"],["nose","No lo sé; necesito comprobarlo"]],
     hijosDependencia:[["si","Sí, conviven y dependen económicamente"],["no","No todos cumplen esas condiciones"],["nose","No lo sé; necesito comprobar ingresos y convivencia"]],
     familiaCategoria:[["general","Categoría general"],["especial","Categoría especial"],["tramite","Solicitud en trámite"],["caducado","Título caducado"],["nose","No lo sé"]],
+    maternidadHijoMenor3:[["si","Sí"],["no","No"],["nose","No lo sé"]],
+    maternidadAltaNacimiento:[["si","Sí"],["no","No"],["nose","No lo sé"]],
+    maternidadParoNacimiento:[["si","Sí, prestación contributiva o subsidio asistencial"],["no","No"],["nose","No lo sé"]],
+    maternidad30Dias:[["si","Sí, alta posterior y al menos 30 días cotizados"],["no","No"],["nose","No lo sé"]],
+    familiaNumerosaSituacion:[["actividad","Trabajo por cuenta propia o ajena y estoy de alta"],["desempleo","Cobro prestación contributiva o asistencial por desempleo"],["pension","Cobro pensión pública"],["ninguna","Ninguna de estas situaciones"],["nose","No lo sé"]],
+    familiaNumerosaRequisitos:[["si","Sí, cumplo los periodos mínimos de alta/cotización o cobro desempleo/pensión"],["no","No"],["nose","No lo sé; necesito comprobar mi jornada y cotización"]],
+    modelo143Modalidad:[["individual","Individual"],["colectiva","Colectiva: ceder el derecho a una persona"],["nose","Necesito que me orienten"]],
     hijosDiscapacidad:[["si","Sí"],["no","No"],["nose","No lo sé / pendiente de reconocimiento"]],
     progenitorDiscapacidad:[["si","Sí"],["no","No"],["nose","No lo sé / pendiente de reconocimiento"]],
     partoMultiple:[["si","Sí"],["no","No"],["nose","No lo sé"]],
@@ -551,6 +565,16 @@ function valorAid(k,a){
  if(a.perfil==="personal"&&["particular","autonomo","ambos"].indexOf(A.perfil)>=0){
   // Si la persona ha elegido otra ruta, no se dejan ayudas de familia o alquiler como "por confirmar".
   if(k==="familia"&&A.situacionPersonal!=="familia"&&A.situacionPersonal!=="violencia")return "no";
+  if(k==="maternidadRequisitos"){
+   var menor=A.maternidadHijoMenor3, viaNacimiento=A.maternidadAltaNacimiento==="si"||A.maternidadParoNacimiento==="si", viaPosterior=A.maternidad30Dias==="si";
+   return menor==="si"&&(viaNacimiento||viaPosterior)?"si":menor==="no"?"no":(menor==="si"&&(A.maternidadAltaNacimiento==="no"&&A.maternidadParoNacimiento==="no"&&A.maternidad30Dias==="no")?"no":undefined);
+  }
+  if(k==="familiaNumerosaRequisitos"){
+   if(A.familiaNumerosaSituacion==="ninguna")return "no";
+   if(A.familiaNumerosaSituacion==="desempleo"||A.familiaNumerosaSituacion==="pension")return "si";
+   if(A.familiaNumerosaSituacion==="actividad")return A.familiaNumerosaRequisitos;
+   return undefined;
+  }
   if(k==="alquiler"&&A.situacionPersonal!=="vivienda"&&A.situacionPersonal!=="violencia")return "no";
   if(["autonomo","ambos"].indexOf(A.perfil)>=0){
    var ccaaRes=A.direccionIgual==="si"?A.ccaa:A.ccaaResidencia;
@@ -578,7 +602,8 @@ function anadirRutaPersonal(l){
   if(A.familia==="si"&&A.familiaEvento){
    if(["primer_hijo","otro_hijo","embarazo"].indexOf(A.familiaEvento)>=0)l.push("nacimientoFecha");
    if(["otro_hijo","crianza"].indexOf(A.familiaEvento)>=0)l.push("menores");
-   l=l.concat(["#Composición familiar y títulos","familiaComposicion","hijosTotal","hijosEdad","hijosDependencia","hijosDiscapacidad","progenitorDiscapacidad","partoMultiple","familiaNumerosa","familiaCategoria","familiaMonoparental","edad","unidad","ingresos","ingresosPorMiembro","menores14SinDni","tsiMenor","nacionalidad","residenciaLegal","unidadFamiliar","tramitar"]);
+   l=l.concat(["#Composición familiar y títulos","familiaComposicion","hijosTotal","hijosEdad","hijosDependencia","hijosDiscapacidad","progenitorDiscapacidad","partoMultiple","familiaNumerosa","familiaCategoria","familiaMonoparental","edad","unidad","ingresos","ingresosPorMiembro","menores14SinDni","tsiMenor","nacionalidad","residenciaLegal","unidadFamiliar"]);
+   l=l.concat(["#Deducciones fiscales por maternidad y familia numerosa","maternidadHijoMenor3","maternidadAltaNacimiento","maternidadParoNacimiento","maternidad30Dias","familiaNumerosaSituacion","familiaNumerosaRequisitos","modelo143Modalidad","tramitar"]);
   }
  }
  if(A.situacionPersonal==="violencia"){
@@ -648,6 +673,9 @@ function mostrar(k){
  if(k==="menores"&&(A.situacionPersonal!=="familia"||A.familia!=="si"||["otro_hijo","crianza"].indexOf(A.familiaEvento)<0))return false;
  if(["familiaComposicion","hijosTotal","hijosEdad","hijosDependencia","hijosDiscapacidad","progenitorDiscapacidad","partoMultiple","familiaNumerosa","familiaMonoparental","ingresosPorMiembro","menores14SinDni"].indexOf(k)>=0&&(A.situacionPersonal!=="familia"||A.familia!=="si"||!A.familiaEvento))return false;
  if(k==="familiaCategoria"&&A.familiaNumerosa!=="si")return false;
+ if(["maternidadAltaNacimiento","maternidadParoNacimiento","maternidad30Dias"].indexOf(k)>=0&&A.maternidadHijoMenor3!=="si")return false;
+ if(k==="maternidad30Dias"&&(A.maternidadAltaNacimiento==="si"||A.maternidadParoNacimiento==="si"))return false;
+ if(["familiaNumerosaSituacion","familiaNumerosaRequisitos","modelo143Modalidad"].indexOf(k)>=0&&A.familiaNumerosa!=="si")return false;
  if(k==="ingresosPorMiembro"&&Number(A.hijosTotal)!==3&&!(Number(A.hijosTotal)===1&&["monoparental_custodia","custodia_exclusiva_sin_alimentos","violencia_genero","ausencia_progenitor"].indexOf(A.familiaComposicion)>=0))return false;
  if(k==="tsiMenor"&&(A.ccaa!=="Cataluña"||A.menores14SinDni!=="si"))return false;
  if(k==="alquiler"&&A.situacionPersonal!=="vivienda"&&A.situacionPersonal!=="violencia")return false;
