@@ -230,7 +230,7 @@ var AIDS=[],NOV={items:[]},LIC={items:[]},VIG={};
 // ===== LÓGICA =====
 var A={},tipo="Todas",est="Todas",busquedaAyuda="",ambitoAyuda="",organoAyuda="",compatAyuda="",categoriaAyuda="";
 var LS={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
-var SENSITIVE_KEYS=["situacionPersonal","tipoViolencia","acreditacionViolencia","dificultadEmpleo","ingresosAyuda27","residenciaCatalunya","municipioBarcelona","empleoSituacion","demandaEmpleo","familia","alquiler","ingresosPersonales","unidadFamiliar"];
+var SENSITIVE_KEYS=["situacionPersonal","tipoViolencia","acreditacionViolencia","dificultadEmpleo","ingresosAyuda27","residenciaCatalunya","municipioBarcelona","empleoSituacion","demandaEmpleo","familia","alquiler","ingresosPersonales","unidadFamiliar","ccaa","provincia","municipio"];
 try{A=JSON.parse(LS.get("ans_subvenly")||"{}")||{}}catch(e){A={}}
 if(A.situacionPersonal==="violencia"){SENSITIVE_KEYS.forEach(function(k){delete A[k]});}
 function save(){var safe=Object.assign({},A);if(A.situacionPersonal==="violencia"){SENSITIVE_KEYS.forEach(function(k){delete safe[k]});}LS.set("ans_subvenly",JSON.stringify(safe))}
@@ -732,6 +732,7 @@ function selMunicipioResidencia(){
 }
 function renderProfile(){
  var p=document.getElementById("profile");p.innerHTML="";
+ if(A.situacionPersonal==="violencia"){var safeBox=el("div","notice");safeBox.textContent="Privacidad: las respuestas de esta ruta no se guardan en este dispositivo ni se envían a terceros. La salida rápida abre Google, pero no borra el historial del navegador.";var exit=el("a","btn alt","Salir rápidamente");exit.href="https://www.google.com/";exit.rel="noopener";exit.style.marginBottom="12px";p.appendChild(exit);p.appendChild(safeBox);}
  secuencia().forEach(function(k){
   if(k[0]==="#"){p.appendChild(el("h3","gh",k.slice(1)));return}
   if(!mostrar(k))return;
