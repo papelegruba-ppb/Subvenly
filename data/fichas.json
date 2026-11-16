@@ -1879,7 +1879,8 @@
     "importe": "Cuantía vinculada al subsidio por desempleo; puede incrementarse según circunstancias familiares y discapacidad",
     "resumen": "Ayuda económica de pago único para mujeres víctimas de violencia de género con rentas limitadas y especiales dificultades para obtener empleo. No es automática por el mero hecho de ser víctima: exige acreditar la situación y cumplir los requisitos económicos y laborales.",
     "reqs": {
-      "situacionPersonal": "violencia_genero",
+      "situacionPersonal": "violencia",
+      "tipoViolencia": "violencia_genero",
       "acreditacionViolencia": {
         "oneOf": [
           "orden",
@@ -1896,7 +1897,10 @@
         ]
       },
       "ingresosAyuda27": {
-        "max": 0.75
+        "oneOf": [
+          "si",
+          "nose"
+        ]
       }
     },
     "requisitos": [
@@ -1940,7 +1944,8 @@
     "importe": "Cuantía vinculada al subsidio por desempleo; posibles ampliaciones por discapacidad y cargas familiares",
     "resumen": "Ayuda económica para mujeres, niñas y adolescentes víctimas de violencias sexuales que residan en Cataluña. Tiene requisitos de acreditación y rentas propios, y no debe confundirse con la ayuda del artículo 27 para violencia de género en la pareja.",
     "reqs": {
-      "situacionPersonal": "violencia_sexual",
+      "situacionPersonal": "violencia",
+      "tipoViolencia": "violencia_sexual",
       "acreditacionViolencia": {
         "oneOf": [
           "orden",
@@ -1950,7 +1955,7 @@
           "servicios"
         ]
       },
-      "residenciaCatalunya": "si"
+      "ccaa": "Cataluña"
     },
     "requisitos": [
       "Residir en Cataluña; la ficha indica que no se exige nacionalidad española ni situación administrativa regular.",
@@ -1989,12 +1994,13 @@
     "importe": "Según deuda acreditada y modalidad; consultar límites vigentes",
     "resumen": "Prestaciones municipales para prevenir la pérdida de vivienda o facilitar la continuidad residencial. La violencia machista puede ser una circunstancia relevante, pero no sustituye los requisitos de empadronamiento, ingresos, contrato, deuda y valoración social.",
     "reqs": {
-      "situacionPersonal": {
+      "situacionPersonal": "violencia",
+      "tipoViolencia": {
         "oneOf": [
           "violencia_genero",
           "violencia_sexual",
           "violencia_otra",
-          "vivienda"
+          "nose"
         ]
       },
       "municipioBarcelona": "si"
@@ -2040,7 +2046,8 @@
     "importe": "10 € por día de asistencia, según convocatoria 2026",
     "resumen": "Beca vinculada a la asistencia a acciones de formación profesional para el empleo para mujeres desempleadas víctimas de violencia de género. La convocatoria de 2026 tuvo un plazo concreto y no debe mostrarse como abierta.",
     "reqs": {
-      "situacionPersonal": "violencia_genero",
+      "situacionPersonal": "violencia",
+      "tipoViolencia": "violencia_genero",
       "ccaa": "Cataluña",
       "demandaEmpleo": "si"
     },
