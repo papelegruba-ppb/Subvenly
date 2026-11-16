@@ -2072,5 +2072,110 @@
     "cerrada": true,
     "permTxt": "Cerrada",
     "estadoManual": "Convocatoria 2026 cerrada; revisar nueva edición."
+  },
+  {
+    "id": 57,
+    "tipo": "Deducción fiscal",
+    "titulo": "Deducción por maternidad (Modelo 140)",
+    "organo": "Agencia Estatal de Administración Tributaria (AEAT)",
+    "ambito": "Estatal",
+    "plazo": "Solicitud de abono anticipado mientras se cumplan los requisitos; también puede aplicarse en la declaración anual del IRPF",
+    "importe": "Hasta 1.200 € al año por cada hijo menor de 3 años (100 €/mes)",
+    "resumen": "Deducción estatal del IRPF para mujeres con hijos menores de 3 años que cumplan los requisitos. El Modelo 140 permite solicitar el cobro anticipado mensual; no es una subvención independiente. Si no se solicita el anticipo, la deducción puede aplicarse en la declaración de la Renta. Puede existir además un incremento por gastos de custodia en guardería o centro autorizado, sujeto a sus propias condiciones.",
+    "reqs": {
+      "perfil": {
+        "oneOf": [
+          "particular",
+          "autonomo",
+          "ambos"
+        ]
+      },
+      "maternidadRequisitos": "si"
+    },
+    "requisitos": [
+      "Ser mujer con derecho al mínimo por descendientes por el hijo menor de 3 años (incluidos supuestos de adopción o acogimiento).",
+      "En el momento del nacimiento, estar de alta en la Seguridad Social o mutualidad, o percibir una prestación contributiva o asistencial del sistema de protección por desempleo.",
+      "Alternativamente, haberse dado de alta en la Seguridad Social o mutualidad en cualquier momento posterior al nacimiento y alcanzar un mínimo de 30 días cotizados.",
+      "La deducción puede alcanzar 1.200 € anuales por hijo; se calcula proporcionalmente a los meses en que se cumplen los requisitos.",
+      "El Modelo 140 solicita el abono anticipado. Si no se pide, se puede aplicar la deducción en el IRPF anual. No se puede cobrar dos veces por el mismo periodo."
+    ],
+    "docs": [
+      "NIF de la solicitante y, si dispone de él, NIF del menor.",
+      "Datos de filiación/adopción/acogimiento y fecha de nacimiento.",
+      "Datos bancarios para el abono anticipado.",
+      "Datos de alta/cotización o prestación por desempleo, que la AEAT puede comprobar."
+    ],
+    "eval": "El test ofrece una orientación inicial. La AEAT comprueba el derecho y los meses exactos. Si se alcanza el periodo mínimo de 30 días cotizados después del nacimiento, la cuantía correspondiente al mes en que se alcanza ese mínimo se incrementa en 150 €. Si algún progenitor percibe el Complemento de Ayuda para la Infancia del IMV por ese menor, puede existir incompatibilidad durante esos meses, con la excepción legal indicada por la AEAT.",
+    "link": "https://sede.agenciatributaria.gob.es/Sede/ciudadanos-familias-personas-discapacidad/deducciones-relacionadas-hijos-descendientes/deduccion-maternidad/abono-anticipado-deduccion.html",
+    "links": [
+      [
+        "Modelo 140 · abono anticipado (AEAT)",
+        "https://sede.agenciatributaria.gob.es/Sede/ciudadanos-familias-personas-discapacidad/deducciones-relacionadas-hijos-descendientes/deduccion-maternidad/abono-anticipado-deduccion.html"
+      ],
+      [
+        "Quién tiene derecho y requisitos (AEAT)",
+        "https://sede.agenciatributaria.gob.es/Sede/ciudadanos-familias-personas-discapacidad/deducciones-relacionadas-hijos-descendientes/deduccion-maternidad/quien-corresponde-deduccion.html"
+      ]
+    ],
+    "categoria": "Familia y fiscalidad",
+    "perfil": "personal"
+  },
+  {
+    "id": 58,
+    "tipo": "Deducción fiscal",
+    "titulo": "Deducción por familia numerosa (Modelo 143)",
+    "organo": "Agencia Estatal de Administración Tributaria (AEAT)",
+    "ambito": "Estatal",
+    "plazo": "Solicitud de abono anticipado mientras se cumplan los requisitos; también puede aplicarse en la declaración anual del IRPF",
+    "importe": "Hasta 1.200 €/año (100 €/mes) categoría general; hasta 2.400 €/año (200 €/mes) categoría especial; incremento de hasta 600 €/año por cada hijo que exceda del mínimo exigido",
+    "resumen": "Deducción estatal del IRPF para quienes formen parte de una familia numerosa y cumplan los requisitos fiscales. El Modelo 143 permite cobrarla anticipadamente por transferencia mensual. No es una subvención independiente. Si no se solicita el anticipo, puede aplicarse en la declaración de la Renta.",
+    "reqs": {
+      "perfil": {
+        "oneOf": [
+          "particular",
+          "autonomo",
+          "ambos"
+        ]
+      },
+      "familiaNumerosa": "si",
+      "familiaCategoria": {
+        "oneOf": [
+          "general",
+          "especial"
+        ]
+      },
+      "familiaNumerosaRequisitos": "si"
+    },
+    "requisitos": [
+      "Formar parte de una familia numerosa reconocida oficialmente y disponer del título en vigor para solicitar el abono anticipado.",
+      "Ser ascendiente o hermano huérfano de padre y madre que forme parte de la familia numerosa.",
+      "Tener actividad por cuenta propia o ajena con alta en Seguridad Social/mutualidad, percibir prestación contributiva o asistencial por desempleo, o percibir una pensión pública que dé derecho a la deducción.",
+      "Para el abono anticipado cuando se trabaja, se aplican periodos mínimos de alta/cotización que dependen del régimen y de la jornada. En tiempo parcial del Régimen General se exige, con carácter general, jornada de al menos el 50 % y alta durante todo el mes.",
+      "Categoría general: hasta 1.200 € anuales. Categoría especial: hasta 2.400 € anuales. Se incrementa hasta 600 € anuales por cada hijo que exceda del mínimo legal para la categoría.",
+      "La solicitud individual se divide entre las personas con derecho; la colectiva cede el derecho a favor del primer solicitante, que recibe el importe íntegro."
+    ],
+    "docs": [
+      "Título oficial de familia numerosa en vigor expedido por la comunidad autónoma.",
+      "NIF de las personas solicitantes y de los familiares que deban constar en el modelo.",
+      "Datos bancarios y, en su caso, datos de alta/cotización, prestación por desempleo o pensión."
+    ],
+    "eval": "La categoría general o especial depende de la composición familiar y de los supuestos legales. El test no sustituye la comprobación del título ni de los periodos mínimos de cotización. El abono anticipado se regulariza en el IRPF; no se debe volver a restar en la declaración el importe ya cobrado por adelantado.",
+    "link": "https://sede.agenciatributaria.gob.es/Sede/ciudadanos-familias-personas-discapacidad/deducciones-relacionadas-hijos-descendientes/deduccion-familia-numerosa/solicitud-cesion-abono-anticipado.html",
+    "links": [
+      [
+        "Modelo 143 · solicitud y cesión (AEAT)",
+        "https://sede.agenciatributaria.gob.es/Sede/ciudadanos-familias-personas-discapacidad/deducciones-relacionadas-hijos-descendientes/deduccion-familia-numerosa/solicitud-cesion-abono-anticipado.html"
+      ],
+      [
+        "Quién tiene derecho (AEAT)",
+        "https://sede.agenciatributaria.gob.es/Sede/ciudadanos-familias-personas-discapacidad/deducciones-relacionadas-hijos-descendientes/deduccion-familia-numerosa/quien-corresponde-deduccion.html"
+      ],
+      [
+        "Importe de la deducción (AEAT)",
+        "https://sede.agenciatributaria.gob.es/Sede/ciudadanos-familias-personas-discapacidad/deducciones-relacionadas-hijos-descendientes/deduccion-familia-numerosa/importe-deduccion.html"
+      ]
+    ],
+    "categoria": "Familia y fiscalidad",
+    "perfil": "personal"
   }
 ]
