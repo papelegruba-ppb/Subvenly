@@ -2081,13 +2081,13 @@
     "ambito": "Estatal",
     "plazo": "Solicitud de abono anticipado mientras se cumplan los requisitos; también puede aplicarse en la declaración anual del IRPF",
     "importe": "Hasta 1.200 € al año por cada hijo menor de 3 años (100 €/mes)",
-    "resumen": "Deducción estatal del IRPF para mujeres con hijos menores de 3 años que cumplan los requisitos. El Modelo 140 permite solicitar el cobro anticipado mensual; no es una subvención independiente. Si no se solicita el anticipo, la deducción puede aplicarse en la declaración de la Renta. Puede existir además un incremento por gastos de custodia en guardería o centro autorizado, sujeto a sus propias condiciones.",
+    "resumen": "Deducción estatal del IRPF para mujeres con hijos menores de 3 años que cumplan los requisitos. El Modelo 140 permite solicitar el cobro anticipado mensual; no es una subvención independiente. Si no se solicita el anticipo, la deducción puede aplicarse en la declaración de la Renta. Puede existir además un incremento por gastos de custodia en guardería o centro autorizado, sujeto a sus propias condiciones. También pueden tener derecho ambos progenitores si son del mismo sexo, o el padre/tutor en los supuestos legales de fallecimiento de la madre o guarda y custodia exclusiva.",
     "reqs": {
       "maternidadRequisitos": "si",
       "perfilFiscalEligible": "si"
     },
     "requisitos": [
-      "Ser mujer con derecho al mínimo por descendientes por el hijo menor de 3 años (incluidos supuestos de adopción o acogimiento).",
+      "Ser mujer con derecho al mínimo por descendientes por el hijo menor de 3 años (incluidos adopción o acogimiento). También pueden aplicar la deducción ambos progenitores si son del mismo sexo, o el padre/tutor si fallece la madre o tiene atribuida la guarda y custodia exclusiva.",
       "En el momento del nacimiento, estar de alta en la Seguridad Social o mutualidad, o percibir una prestación contributiva o asistencial del sistema de protección por desempleo.",
       "Alternativamente, haberse dado de alta en la Seguridad Social o mutualidad en cualquier momento posterior al nacimiento y alcanzar un mínimo de 30 días cotizados.",
       "La deducción puede alcanzar 1.200 € anuales por hijo; se calcula proporcionalmente a los meses en que se cumplen los requisitos.",
@@ -2099,7 +2099,7 @@
       "Datos bancarios para el abono anticipado.",
       "Datos de alta/cotización o prestación por desempleo, que la AEAT puede comprobar."
     ],
-    "eval": "El test ofrece una orientación inicial. La AEAT comprueba el derecho y los meses exactos. Si se alcanza el periodo mínimo de 30 días cotizados después del nacimiento, la cuantía correspondiente al mes en que se alcanza ese mínimo se incrementa en 150 €. Si algún progenitor percibe el Complemento de Ayuda para la Infancia del IMV por ese menor, puede existir incompatibilidad durante esos meses, con la excepción legal indicada por la AEAT.",
+    "eval": "El test ofrece una orientación inicial. La AEAT comprueba el derecho y los meses exactos. Si se alcanza el periodo mínimo de 30 días cotizados después del nacimiento, la cuantía correspondiente al mes en que se alcanza ese mínimo se incrementa en 150 €. Si algún progenitor percibe el Complemento de Ayuda para la Infancia del IMV por ese menor, puede existir incompatibilidad durante esos meses, con la excepción legal indicada por la AEAT. La deducción también puede corresponder a ambos progenitores de una pareja del mismo sexo, o al padre/tutor en los supuestos legales de fallecimiento de la madre o guarda y custodia exclusiva. La deducción por maternidad puede coexistir con la deducción por familia numerosa si se cumplen por separado los requisitos de ambas.",
     "link": "https://sede.agenciatributaria.gob.es/Sede/ciudadanos-familias-personas-discapacidad/deducciones-relacionadas-hijos-descendientes/deduccion-maternidad/abono-anticipado-deduccion.html",
     "links": [
       [
@@ -2142,7 +2142,7 @@
       "NIF de las personas solicitantes y de los familiares que deban constar en el modelo.",
       "Datos bancarios y, en su caso, datos de alta/cotización, prestación por desempleo o pensión."
     ],
-    "eval": "La categoría general o especial depende de la composición familiar y de los supuestos legales. El test no sustituye la comprobación del título ni de los periodos mínimos de cotización. El abono anticipado se regulariza en el IRPF; no se debe volver a restar en la declaración el importe ya cobrado por adelantado.",
+    "eval": "La categoría general o especial depende de la composición familiar y de los supuestos legales. El test no sustituye la comprobación del título ni de los periodos mínimos de cotización. El abono anticipado se regulariza en el IRPF; no se debe volver a restar en la declaración el importe ya cobrado por adelantado. Esta deducción es compatible con la deducción por maternidad si se cumplen por separado los requisitos de ambas.",
     "link": "https://sede.agenciatributaria.gob.es/Sede/ciudadanos-familias-personas-discapacidad/deducciones-relacionadas-hijos-descendientes/deduccion-familia-numerosa/solicitud-cesion-abono-anticipado.html",
     "links": [
       [
