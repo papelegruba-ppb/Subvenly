@@ -212,6 +212,18 @@ var QUESTIONS={
   unidadFamiliar:"¿Cuántas personas forman tu unidad de convivencia?",
   nacimientoTipo:"¿Qué situación familiar se aplica?",
   maternidadHijoMenor3:"¿Tienes un hijo menor de 3 años (incluido adopción o acogimiento)?",
+  catalunyaResidencia5:"¿Uno de los progenitores ha residido legalmente en Cataluña al menos 5 años, con 2 inmediatamente anteriores a la solicitud?",
+  catalunyaRenta:"¿La renta familiar está dentro del límite aplicable de la prestación catalana según el número de miembros?",
+  madridNatalidadEdad:"¿Tienes 30 años o menos?",
+  madridNatalidadResidencia:"¿Has residido y estado empadronada/o en la Comunidad de Madrid al menos 5 años dentro de los últimos 10?",
+  madridNatalidadRenta:"¿La renta anual es inferior a 30.000 € individual o 36.200 € como unidad familiar?",
+  madridHijoMenor24:"¿El hijo tiene 24 meses o menos, o estás embarazada de al menos 21 semanas / has adoptado un menor desde enero de 2022?",
+  galiciaRenta:"¿La renta familiar es ≤45.000 €, o si supera esa cifra, la renta por persona no supera 13.500 €?",
+  galiciaMunicipio:"¿Resides en un municipio gallego de menos de 5.000 habitantes?",
+  embarazoSemana:"¿De cuántas semanas de gestación estás?",
+  asturiasResidencia:"¿Has residido habitualmente en Asturias durante al menos los 12 meses anteriores a la convocatoria?",
+  asturiasRenta:"¿Los ingresos fiscales anuales conjuntos de los progenitores/adoptantes no superan 45.000 €?",
+  asturiasMunicipio:"¿Resides en un concejo asturiano incluido en las zonas de riesgo de despoblación?",
   maternidadTitular:"¿Quién solicita la deducción por maternidad?",
   maternidadAltaNacimiento:"En la fecha del nacimiento, ¿estabas de alta en la Seguridad Social o mutualidad?",
   maternidadParoNacimiento:"En la fecha del nacimiento, ¿percibías prestación contributiva o asistencial por desempleo del SEPE?",
@@ -268,7 +280,7 @@ function selMunicipio(){var r=el("div","q");r.appendChild(txt("span",A.perfil===
   s.value=A.municipio||"";s.disabled=!p;
   s.onchange=function(){if(s.value)A.municipio=s.value;else delete A.municipio;save();renderProfile();refrescar()};r.appendChild(s);return r}
 function controlPregunta(k){
-  var tipos={nacimientoFecha:"date",finTrabajo:"date",fechaAgotamiento:"date",fechaRetorno:"date",menores:"number",hijosTotal:"number",edad:"number",unidad:"number",ingresos:"number",ingresosPersonales:"number",unidadFamiliar:"number",cotizados:"number",mesesTrabajoExtranjero:"number",cotizadosAntesEmigrar:"number"};
+  var tipos={nacimientoFecha:"date",embarazoSemana:"number",finTrabajo:"date",fechaAgotamiento:"date",fechaRetorno:"date",menores:"number",hijosTotal:"number",edad:"number",unidad:"number",ingresos:"number",ingresosPersonales:"number",unidadFamiliar:"number",cotizados:"number",mesesTrabajoExtranjero:"number",cotizadosAntesEmigrar:"number"};
   if(!tipos[k])return null;
   var input=el("input","fld");input.type=tipos[k];input.setAttribute("aria-label",QUESTIONS[k]||k);
   input.value=A[k]===undefined?"":A[k];
@@ -286,6 +298,10 @@ function opcionesPregunta(k){
     residenciaCatalunya:[["si","Sí"],["no","No"],["nose","No lo sé"]],
     municipioBarcelona:[["si","Sí"],["no","No"],["nose","No lo sé"]],
     familiaEvento:[["primer_hijo","Acabo de tener mi primer hijo"],["otro_hijo","He tenido otro hijo o una adopción"],["embarazo","Estoy embarazada o espero una adopción"],["crianza","Tengo hijos y busco ayudas para criarlos"],["titulo_familiar","Quiero solicitar, renovar o revisar un título de familia numerosa o monoparental"]],
+    catalunyaResidencia5:[["si","Sí"],["no","No"],["nose","No lo sé"]],catalunyaRenta:[["si","Sí"],["no","No"],["nose","No lo sé; necesito calcularla"]],
+    madridNatalidadEdad:[["si","Sí"],["no","No"],["nose","No lo sé"]],madridNatalidadResidencia:[["si","Sí"],["no","No"],["nose","No lo sé"]],madridNatalidadRenta:[["si","Sí"],["no","No"],["nose","No lo sé"]],madridHijoMenor24:[["si","Sí"],["no","No"],["nose","No lo sé"]],
+    galiciaRenta:[["si","Sí"],["no","No"],["nose","No lo sé; necesito calcularla"]],galiciaMunicipio:[["si","Sí"],["no","No"],["nose","No lo sé"]],
+    asturiasResidencia:[["si","Sí"],["no","No"],["nose","No lo sé"]],asturiasRenta:[["si","Sí"],["no","No"],["nose","No lo sé"]],asturiasMunicipio:[["si","Sí"],["no","No"],["nose","No lo sé"]],
     familiaComposicion:[["dos_progenitores","Dos progenitores (pareja o unidad biparental)"],["monoparental_custodia","Una sola persona progenitora con guarda y custodia"],["custodia_exclusiva_sin_alimentos","Custodia exclusiva y sin derecho a pensión de alimentos"],["violencia_genero","Una progenitora víctima de violencia de género con guarda/custodia"],["ausencia_progenitor","Ausencia forzada del otro progenitor durante al menos un año"],["tutela_acogimiento","Una persona tutora, acogedora o guardadora"],["separados_tres_hijos","Progenitor separado/divorciado con tres o más hijos económicamente dependientes"],["custodia_compartida","Progenitores separados/divorciados con custodia compartida"],["hermanos_huerfanos","Hermanos huérfanos que conviven y cumplen los requisitos legales"]],
     hijosEdad:[["menores_21","Todos son menores de 21 años"],["21_25_estudian","Alguno tiene entre 21 y 25 años y estudia"],["21_25_no_estudia","Alguno tiene entre 21 y 25 años y no estudia"],["mayores_discapacidad","Hay hijos mayores de 25 años con discapacidad o incapacidad para trabajar"],["mixto","Se combinan varias situaciones de edad"],["nose","No lo sé; necesito comprobarlo"]],
     hijosDependencia:[["si","Sí, conviven y dependen económicamente"],["no","No todos cumplen esas condiciones"],["nose","No lo sé; necesito comprobar ingresos y convivencia"]],
@@ -562,13 +578,19 @@ Object.assign(FALTA,{
  ccaa:"residir o desarrollar la actividad en la comunidad autónoma indicada",municipioBarcelona:"residir en Barcelona ciudad si la convocatoria lo exige",municipioMadrid:"residir en Madrid ciudad si la convocatoria lo exige",
  familia:"tener una situación familiar contemplada en las bases",nacimientoFecha:"cumplir el plazo correspondiente a la fecha del nacimiento/adopción",menores:"tener menores a cargo según las condiciones",alquiler:"tener gastos de alquiler subvencionables",edad:"cumplir el tramo de edad de la convocatoria",unidad:"cumplir los requisitos de la unidad de convivencia",ingresos:"cumplir los límites de ingresos",contratoAlquiler:"disponer del contrato exigido",empadronamiento:"cumplir el requisito de empadronamiento si lo exige la convocatoria",residenciaLegal:"cumplir los requisitos de residencia",familiaMonoparental:"tener reconocida la condición si se solicita ese supuesto",familiaNumerosa:"tener reconocida la condición si se solicita ese supuesto",social:"cumplir los requisitos de la prestación concreta",fiscal:"cumplir los requisitos fiscales del beneficio concreto",emergencias:"estar dentro del ámbito territorial y acreditar los daños personales o en la vivienda",emergenciasActividad:"estar dentro del ámbito territorial y acreditar los daños sufridos por el negocio o centro de actividad",transporte:"pertenecer al sector y cumplir las condiciones de la medida de combustible"
 });
-Object.assign(FALTA,{maternidadRequisitos:"tener un hijo menor de 3 años y cumplir una de las vías de alta/cotización o prestación por desempleo previstas por la AEAT",familiaNumerosaRequisitos:"tener título oficial en vigor y cumplir los requisitos fiscales y de cotización, desempleo o pensión",perfilFiscalEligible:"estar buscando ayudas como persona particular, autónoma o en ambas situaciones",familiaCategoriaElegible:"tener título oficial de familia numerosa en vigor con categoría general o especial"});
+Object.assign(FALTA,{catalunyaResidencia5:"acreditar 5 años de residencia legal en Cataluña, incluidos 2 inmediatamente anteriores",catalunyaRenta:"no superar el límite de renta de la unidad familiar aplicable en 2026",madridNatalidadRequisitos:"cumplir simultáneamente edad máxima, residencia de 5 años en los últimos 10, renta y supuesto de embarazo/nacimiento/adopción",galiciaBenvidaRequisitos:"residir en Galicia, cumplir el supuesto de gestación/nacimiento/adopción de 2026 y los límites de renta",asturiasNatalidadRequisitos:"cumplir periodo de nacimiento/adopción, 12 meses de residencia e ingresos máximos de la convocatoria",maternidadRequisitos:"tener un hijo menor de 3 años y cumplir una de las vías de alta/cotización o prestación por desempleo previstas por la AEAT",familiaNumerosaRequisitos:"tener título oficial en vigor y cumplir los requisitos fiscales y de cotización, desempleo o pensión",perfilFiscalEligible:"estar buscando ayudas como persona particular, autónoma o en ambas situaciones",familiaCategoriaElegible:"tener título oficial de familia numerosa en vigor con categoría general o especial"});
 FALTA.bases="comprobar las bases oficiales completas, los requisitos que faltan y el estado vigente de la convocatoria";
 function valorAid(k,a){
  if(a.perfil==="personal"&&["particular","autonomo","ambos"].indexOf(A.perfil)>=0){
   // Si la persona ha elegido otra ruta, no se dejan ayudas de familia o alquiler como "por confirmar".
   if(k==="familia"&&A.situacionPersonal!=="familia"&&A.situacionPersonal!=="violencia")return "no";
   if(k==="perfilFiscalEligible")return ["particular","autonomo","ambos"].indexOf(A.perfil)>=0?"si":"no";
+  if(k==="catalunyaResidencia5")return A.catalunyaResidencia5;
+  if(k==="catalunyaRenta")return A.catalunyaRenta;
+  if(k==="madridNatalidadRequisitos")return A.madridNatalidadEdad==="no"||A.madridNatalidadResidencia==="no"||A.madridNatalidadRenta==="no"||A.madridHijoMenor24==="no"?"no":[A.madridNatalidadEdad,A.madridNatalidadResidencia,A.madridNatalidadRenta,A.madridHijoMenor24].every(v=>v==="si")?"si":undefined;
+  if(k==="galiciaBenvidaRequisitos")return A.galiciaRenta==="no"?"no":(A.familiaEvento==="embarazo"?(Number(A.embarazoSemana)>=21&&A.galiciaRenta==="si"?"si":Number(A.embarazoSemana)>0&&Number(A.embarazoSemana)<21?"no":undefined):(A.nacimientoFecha&&A.nacimientoFecha.slice(0,4)==="2026"&&A.galiciaRenta==="si"?"si":A.nacimientoFecha&&A.nacimientoFecha.slice(0,4)!=="2026"?"no":undefined));
+  if(k==="asturiasNatalidadRequisitos")return A.asturiasResidencia==="no"||A.asturiasRenta==="no"||A.asturiasMunicipio==="no"?"no":(A.nacimientoFecha&&A.nacimientoFecha>="2025-10-01"&&A.nacimientoFecha<="2026-09-30"&&A.asturiasResidencia==="si"&&A.asturiasRenta==="si"&&A.asturiasMunicipio!=="nose"?"si":A.nacimientoFecha&& (A.nacimientoFecha<"2025-10-01"||A.nacimientoFecha>"2026-09-30")?"no":undefined);
+
   if(k==="familiaCategoriaElegible")return ["general","especial"].indexOf(A.familiaCategoria)>=0?"si":A.familiaCategoria==="tramite"||A.familiaCategoria==="caducado"?"no":undefined;
   if(k==="maternidadRequisitos"){
    var menor=A.maternidadHijoMenor3, titular=["madre","progenitores_mismo_sexo","padre_fallecimiento","padre_custodia"].indexOf(A.maternidadTitular)>=0, viaNacimiento=A.maternidadAltaNacimiento==="si"||A.maternidadParoNacimiento==="si", viaPosterior=A.maternidad30Dias==="si";
@@ -608,6 +630,10 @@ function anadirRutaPersonal(l){
    if(["primer_hijo","otro_hijo","embarazo"].indexOf(A.familiaEvento)>=0)l.push("nacimientoFecha");
    if(["otro_hijo","crianza"].indexOf(A.familiaEvento)>=0)l.push("menores");
    l=l.concat(["#Composición familiar y títulos","familiaComposicion","hijosTotal","hijosEdad","hijosDependencia","hijosDiscapacidad","progenitorDiscapacidad","partoMultiple","familiaNumerosa","familiaCategoria","familiaMonoparental","edad","unidad","ingresos","ingresosPorMiembro","menores14SinDni","tsiMenor","nacionalidad","residenciaLegal","unidadFamiliar"]);
+   if(A.ccaa==="Cataluña")l=l.concat(["#Ayuda autonómica por nacimiento (Cataluña)","catalunyaResidencia5","catalunyaRenta"]);
+   if(A.ccaa==="Comunidad de Madrid")l=l.concat(["#Ayuda autonómica por gestación, nacimiento o adopción (Madrid)","madridNatalidadEdad","madridHijoMenor24","madridNatalidadResidencia","madridNatalidadRenta"]);
+   if(A.ccaa==="Galicia")l=l.concat(["#Tarjeta Benvida (Galicia)","embarazoSemana","galiciaRenta","galiciaMunicipio"]);
+   if(A.ccaa==="Asturias")l=l.concat(["#Ayuda autonómica por nacimiento o adopción (Asturias)","asturiasResidencia","asturiasRenta","asturiasMunicipio"]);
    l=l.concat(["#Deducciones fiscales por maternidad y familia numerosa","maternidadHijoMenor3","maternidadTitular","maternidadAltaNacimiento","maternidadParoNacimiento","maternidad30Dias","familiaNumerosaSituacion","familiaNumerosaRequisitos","modelo143Modalidad","tramitar"]);
   }
  }
@@ -681,6 +707,11 @@ function mostrar(k){
  if(["maternidadAltaNacimiento","maternidadParoNacimiento","maternidad30Dias"].indexOf(k)>=0&&A.maternidadHijoMenor3!=="si")return false;
  if(k==="maternidad30Dias"&&(A.maternidadAltaNacimiento==="si"||A.maternidadParoNacimiento==="si"))return false;
  if(k==="maternidadTitular"&&A.maternidadHijoMenor3!=="si")return false;
+ if(k==="embarazoSemana"&&!(A.ccaa==="Galicia"&&A.familiaEvento==="embarazo"))return false;
+ if(["catalunyaResidencia5","catalunyaRenta"].indexOf(k)>=0&&A.ccaa!=="Cataluña")return false;
+ if(["madridNatalidadEdad","madridNatalidadResidencia","madridNatalidadRenta","madridHijoMenor24"].indexOf(k)>=0&&A.ccaa!=="Comunidad de Madrid")return false;
+ if(["galiciaRenta","galiciaMunicipio"].indexOf(k)>=0&&A.ccaa!=="Galicia")return false;
+ if(["asturiasResidencia","asturiasRenta","asturiasMunicipio"].indexOf(k)>=0&&A.ccaa!=="Asturias")return false;
  if(["familiaNumerosaSituacion","familiaNumerosaRequisitos","modelo143Modalidad"].indexOf(k)>=0&&A.familiaNumerosa!=="si")return false;
  if(k==="ingresosPorMiembro"&&Number(A.hijosTotal)!==3&&!(Number(A.hijosTotal)===1&&["monoparental_custodia","custodia_exclusiva_sin_alimentos","violencia_genero","ausencia_progenitor"].indexOf(A.familiaComposicion)>=0))return false;
  if(k==="tsiMenor"&&(A.ccaa!=="Cataluña"||A.menores14SinDni!=="si"))return false;
