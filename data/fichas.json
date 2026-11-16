@@ -2300,5 +2300,131 @@
       ]
     ],
     "categoria": "Familia y nacimiento"
+  },
+  {
+    "id": 62,
+    "perfil": "personal",
+    "tipo": "Prestación autonómica",
+    "titulo": "Ayudas por crianza y nacimiento (Gobierno Vasco)",
+    "organo": "Gobierno Vasco · Bienestar, Juventud y Reto Demográfico",
+    "ambito": "País Vasco",
+    "plazo": "Convocatoria 2026: solicitudes 0-4 años y 4-7 años hasta el 31/12/2026 en los supuestos indicados; plazo ordinario de 3 meses para cobrar retroactividad completa",
+    "importe": "200 €/mes por menor de 0 a 4 años; 100 €/mes de 4 a 7 años para tercer hijo o sucesivos y familias monoparentales oficiales. Se duplica por discapacidad ≥33 % o dependencia",
+    "resumen": "Ayudas mensuales para familias con hijos por nacimiento, adopción, tutela o guarda. En 2026 se amplía hasta los 4 años la ayuda general de 200 €/mes. Entre 4 y 7 años, 100 €/mes para terceras o sucesivas hijas/os y familias monoparentales con título oficial. Las cuantías se duplican si el menor tiene discapacidad reconocida ≥33 % o dependencia. Incluye pago único extraordinario en partos/adopciones múltiples.",
+    "reqs": {
+      "familia": "si",
+      "ccaa": "País Vasco",
+      "euskadiNatalidadRequisitos": "si"
+    },
+    "requisitos": [
+      "Para hijos de 0 a 4 años: 200 €/mes desde el mes de nacimiento hasta el anterior a cumplir 4 años; en adopción/tutela/guarda, máximo de 4 años desde la inscripción o resolución.",
+      "Para hijos de 4 a 7 años: 100 €/mes únicamente si es tercer hijo o sucesivo, o si pertenece a una familia monoparental con certificado oficial del Gobierno Vasco.",
+      "Si el menor tiene discapacidad reconocida igual o superior al 33 % o dependencia, la cuantía mensual se duplica.",
+      "Existe una ayuda extraordinaria de pago único para parto múltiple, adopción nacional múltiple, tutela/guarda múltiple y adopción internacional; la cuantía depende de la renta familiar estandarizada.",
+      "Plazo ordinario: 3 meses para cobrar la ayuda completa; si se presenta después, se reconoce desde el mes de solicitud. En 2026 hay plazo excepcional hasta el 31/12/2026 con efectos retroactivos desde 01/01/2026 o desde cuando corresponda.",
+      "En custodia compartida debe existir acuerdo expreso sobre qué progenitor solicita la ayuda."
+    ],
+    "docs": [
+      "Documento identificativo de la persona solicitante",
+      "Certificado de nacimiento o resolución de adopción, tutela o guarda",
+      "Documentación de custodia compartida, cuando proceda",
+      "Certificado oficial de familia monoparental, si se solicita la ayuda de 4 a 7 años por ese supuesto",
+      "Resolución de discapacidad o dependencia, si se solicita duplicación"
+    ],
+    "eval": "La ficha oficial establece ayudas mensuales y un pago único extraordinario por supuestos múltiples. La Administración comprueba los requisitos y la renta familiar estandarizada cuando corresponda. Para 2026, consultar las instrucciones de solicitud y el plazo excepcional vigente.",
+    "link": "https://www.euskadi.eus/ayuda_subvencion/2026/ayudas-mensuales-a-familias-con-hijas-o-hijos/web01-tramite/es/",
+    "links": [
+      [
+        "Ficha y solicitud oficial 2026 (Gobierno Vasco)",
+        "https://www.euskadi.eus/ayuda_subvencion/2026/ayudas-mensuales-a-familias-con-hijas-o-hijos/web01-tramite/es/"
+      ],
+      [
+        "Información general y cambios 2026",
+        "https://www.euskadi.eus/web01-a2famil/es/contenidos/informacion/familia_dirulaguntzaberria_4/es_def/index.shtml"
+      ]
+    ],
+    "categoria": "Familia y nacimiento"
+  },
+  {
+    "id": 63,
+    "perfil": "personal",
+    "tipo": "Ayuda autonómica",
+    "titulo": "Ayudas por partos múltiples y tercer hijo (Andalucía)",
+    "organo": "Junta de Andalucía · Servicios Sociales, Familias e Igualdad",
+    "ambito": "Andalucía",
+    "plazo": "La información oficial indica un año desde el nacimiento/adopción/acogimiento; confirmar con la Delegación Territorial la operatividad y el procedimiento vigente antes de solicitar",
+    "importe": "600 €/año por cada hijo menor de 3 años cuando nace el tercero o sucesivo; parto múltiple: 1.200 € (gemelos), 2.400 € (trillizos), 3.600 € (cuatrillizos), 4.800 € (cinco o más), pago anual durante 3 años sujeto a mantenimiento de requisitos",
+    "resumen": "Programa autonómico dirigido a familias andaluzas en dos supuestos: nacimiento del tercer hijo o sucesivo cuando ya hay otro hijo menor de 3 años, y partos múltiples. La Junta publica requisitos de renta por tramos del IPREM y compatibilidad entre ambas modalidades. La información procede del portal oficial; conviene confirmar que la vía de presentación está operativa para el ejercicio concreto.",
+    "reqs": {
+      "familia": "si",
+      "ccaa": "Andalucía",
+      "andaluciaNatalidadRequisitos": "si"
+    },
+    "requisitos": [
+      "Residencia/empadronamiento de la unidad familiar en un municipio de Andalucía.",
+      "Supuesto 1: nacimiento del tercer hijo o sucesivo cuando ya existe otro u otros hijos menores de 3 años; ayuda de 600 € anuales por cada uno de esos otros hijos menores de 3 años hasta que cumplan esa edad.",
+      "Supuesto 2: parto múltiple; pago anual durante los tres años posteriores, sujeto al mantenimiento de requisitos: 1.200 € por gemelos, 2.400 € por trillizos, 3.600 € por cuatrillizos y 4.800 € por cinco o más.",
+      "Los ingresos familiares se comparan con tramos del IPREM vigente: hasta 1 IPREM, 120 % de la cuantía; hasta 2 IPREM, 110 %; hasta 4 IPREM, 100 %; hasta 6 IPREM, 50 %; por encima de 6 IPREM, exclusión.",
+      "La Junta publica un plazo de un año desde el nacimiento, adopción o acogimiento para presentar la solicitud.",
+      "Las ayudas por menores y partos múltiples son compatibles entre sí."
+    ],
+    "docs": [
+      "DNI/NIE/pasaporte si no se autoriza la consulta",
+      "Libro de familia o documento que acredite filiación, patria potestad, acogimiento o guarda con fines de adopción",
+      "Certificado de empadronamiento colectivo",
+      "Declaraciones de IRPF o justificantes de ingresos de los miembros de la unidad familiar",
+      "Certificado bancario de titularidad de la cuenta"
+    ],
+    "eval": "La página autonómica describe la regulación y cuantías, pero no equivale por sí sola a una convocatoria anual abierta. Subvenly debe mostrarla como ayuda a verificar y recomendar confirmar con la Delegación Territorial la vigencia operativa y el formulario disponible.",
+    "link": "https://www.juntadeandalucia.es/organismos/serviciossocialesfamiliaseigualdad/areas/familias/ayudas-partos.html",
+    "links": [
+      [
+        "Requisitos, cuantías y solicitud (Junta de Andalucía)",
+        "https://www.juntadeandalucia.es/organismos/serviciossocialesfamiliaseigualdad/areas/familias/ayudas-partos.html"
+      ],
+      [
+        "Catálogo de procedimiento nº 81",
+        "https://www.juntadeandalucia.es/servicios/sede/tramites/procedimientos/detalle/81.html"
+      ]
+    ],
+    "categoria": "Familia y nacimiento",
+    "pend": true,
+    "estadoManual": "Vigencia/operatividad de la solicitud a confirmar con la Junta"
+  },
+  {
+    "id": 64,
+    "perfil": "personal",
+    "tipo": "Ayuda autonómica",
+    "titulo": "Ayudas por partos y adopciones múltiples (Aragón · convocatoria 2026)",
+    "organo": "Gobierno de Aragón · Instituto Aragonés de Servicios Sociales",
+    "ambito": "Aragón",
+    "plazo": "Convocatoria 2026 cerrada: del 01/10/2026 al 30/10/2026",
+    "importe": "Según línea de ayuda y bases de la convocatoria; consultar resolución oficial",
+    "resumen": "Convocatoria autonómica para familias con partos múltiples o adopciones múltiples. La convocatoria 2026 estuvo abierta del 1 al 30 de octubre y está cerrada a fecha de revisión (16/11/2026). Se conserva como referencia para seguimiento de futuras convocatorias o expedientes ya presentados.",
+    "reqs": {
+      "familia": "si",
+      "ccaa": "Aragón",
+      "partoMultiple": "si"
+    },
+    "requisitos": [
+      "La convocatoria 2026 se dirigió a familias con partos o adopciones múltiples, incluidos determinados supuestos de nacimientos dobles y triples o superiores.",
+      "El plazo de presentación fue del 01/10/2026 al 30/10/2026; a fecha de revisión está fuera de plazo.",
+      "No presentar una nueva solicitud fuera de plazo salvo que la sede habilite expresamente un trámite de subsanación o aportación documental para un expediente ya iniciado."
+    ],
+    "docs": [
+      "Consultar las bases y documentación específica de la convocatoria correspondiente",
+      "Para expedientes presentados: justificante de registro y comunicaciones de la Administración"
+    ],
+    "eval": "Convocatoria 2026 cerrada. No mostrar como ayuda solicitables actualmente; mantener como antecedente y revisar la siguiente convocatoria anual.",
+    "link": "https://www.aragon.es/tramitador/-/tramite/solicitud-ayudas-partos-adopciones-multiples-1/convocatoria-2026",
+    "links": [
+      [
+        "Convocatoria 2026 y estado del trámite (Gobierno de Aragón)",
+        "https://www.aragon.es/tramitador/-/tramite/solicitud-ayudas-partos-adopciones-multiples-1/convocatoria-2026"
+      ]
+    ],
+    "categoria": "Familia y nacimiento",
+    "pend": true,
+    "estadoManual": "Fuera de plazo · convocatoria 2026 cerrada"
   }
 ]
