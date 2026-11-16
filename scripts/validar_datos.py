@@ -114,6 +114,10 @@ def main():
            'UE_DIAG_STATE=$(read_diag_state "_diagnostico_ue.json")' in workflow and
            '"${UE_DIAG_STATE}" != "correcta"' in workflow,
            "El resumen automático debe avisar también cuando un importador termina con código cero pero su diagnóstico es parcial o desconocido")
+    exigir('MONITOR_SOURCES=$(read_monitor_counts "vigilancia_fuentes.json" "fuentes")' in workflow and
+           'MONITOR_FICHAS=$(read_monitor_counts "vigilancia.json" "fichas")' in workflow and
+           'MONITOR_SOURCES_UNVERIFIED' in workflow and 'MONITOR_FICHAS_UNVERIFIED' in workflow,
+           "El resumen debe mostrar cambios y páginas no verificables de la vigilancia de fuentes y fichas")
     exigir("timeout-minutes: 6" in workflow and
            "timeout --kill-after=10s 300s python -u scripts/actualizar_licitaciones.py" in workflow,
            "La importación de licitaciones debe tener un límite de tiempo ampliado y salida sin búfer para diagnosticar bloqueos")
