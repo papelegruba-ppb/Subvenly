@@ -692,10 +692,9 @@
     "titulo": "Ayuda por nacimiento, adopción, tutela o acogimiento (Cataluña)",
     "organo": "Generalitat de Catalunya",
     "ambito": "Cataluña",
-    "plazo": "Plazo según fecha del nacimiento o hecho causante; consultar la ficha oficial",
-    "estadoManual": "Plazo y requisitos sujetos a la ficha oficial vigente",
-    "importe": "Consultar condiciones oficiales; no se usa como filtro",
-    "resumen": "Prestación de la Generalitat para familias que han tenido un hijo por nacimiento, adopción, tutela o acogimiento y no superan el límite de ingresos. Es una ayuda para personas y familias, no para sociedades.",
+    "plazo": "3 meses desde el día siguiente al nacimiento/adopción/tutela/acogimiento para hechos causantes desde el 14/07/2026; 1 mes para los anteriores",
+    "importe": "650 € por menor; 750 € si el título de familia numerosa o monoparental está vigente o solicitado antes de pedir la prestación",
+    "resumen": "Prestación autonómica de pago único para familias residentes en Cataluña que hayan tenido un hijo por nacimiento, adopción, tutela o acogimiento y cumplan requisitos de residencia y renta. En 2026: 650 € por menor o 750 € si se acredita familia numerosa o monoparental. Compatible con otras ayudas familiares públicas.",
     "reqs": {
       "familia": "si",
       "ccaa": "Cataluña",
@@ -704,27 +703,39 @@
           "primer_hijo",
           "otro_hijo"
         ]
-      }
+      },
+      "catalunyaResidencia5": "si",
+      "catalunyaRenta": "si"
     },
     "requisitos": [
-      "Dirigida a personas y familias; no a sociedades mercantiles",
-      "Residencia legal en Cataluña y condiciones de residencia previa previstas en el trámite",
-      "Límite de ingresos de la unidad familiar según su composición",
-      "El plazo depende de la fecha del nacimiento, adopción, tutela o acogimiento; comprobar el plazo vigente antes de tramitar"
+      "Residencia legal en Cataluña de las personas solicitantes y convivencia de la unidad familiar con el menor.",
+      "Uno de los progenitores debe acreditar al menos 5 años de residencia legal en Cataluña, de los cuales 2 inmediatamente anteriores a la solicitud, salvo excepciones legales para personas retornadas.",
+      "Límite de ingresos de la unidad familiar: 2,9 veces el IRSC. En 2026: hasta 27.904,32 € para 3 personas; 36.275,62 € para 4; 44.646,91 € para 5; 53.018,21 € para 6; 61.389,50 € para 7; 69.760,80 € para 8; 78.132,10 € para 9 y 86.503,39 € para 10.",
+      "Se aplica el límite correspondiente a un miembro más si algún miembro tiene discapacidad reconocida igual o superior al 33 %. En familias monoparentales se aplica el límite de un miembro más y un mínimo de cuatro miembros.",
+      "Importe de 650 € por menor; 750 € si existe título vigente de familia numerosa o monoparental relativo al menor, o se ha solicitado antes de pedir esta prestación.",
+      "Plazo: para hechos causantes desde el 14/07/2026, 3 meses desde el día siguiente; para hechos causantes hasta el 13/07/2026, 1 mes desde el día siguiente.",
+      "Es compatible con cualquier otra ayuda familiar concedida por administraciones públicas."
     ],
     "docs": [
-      "DNI/NIE de la persona solicitante y documentación familiar indicada por la Generalitat",
-      "Datos y documentación de la unidad familiar que exija el trámite",
-      "Documentación adicional según el supuesto (tutela, acogimiento, familia monoparental o numerosa)"
+      "DNI/NIE vigente de la persona solicitante",
+      "Datos identificativos y fecha de nacimiento del menor (DNI/NIE o TSI, según proceda)",
+      "Datos del otro progenitor, si corresponde",
+      "IBAN de una cuenta de la que la persona solicitante sea titular",
+      "Acreditación de residencia, ingresos y título de familia numerosa/monoparental cuando la Administración no pueda consultarlos"
     ],
-    "eval": "La ficha se muestra para descubrir la prestación; verificar residencia, ingresos, plazo y documentación en el trámite oficial.",
+    "eval": "El test debe comprobar por separado residencia, composición de la unidad familiar, renta y plazo. La Generalitat resuelve el derecho; la ficha no garantiza concesión. Fuente oficial actualizada el 03/11/2026.",
     "links": [
       [
-        "Trámite oficial de la Generalitat",
-        "https://tramits.gencat.cat/ca/tramits/tramits-temes/Prestacio-per-a-families-amb-infants"
+        "Trámite oficial y solicitud (Generalitat)",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/Prestacio-per-a-families-amb-infants?moda=1"
+      ],
+      [
+        "Ayudas y prestaciones de apoyo a las familias (Generalitat)",
+        "https://dretssocials.gencat.cat/ca/ambits_tematics/families/ajudes-prestacions/"
       ]
     ],
-    "categoria": "Familia y nacimiento"
+    "categoria": "Familia y nacimiento",
+    "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/Prestacio-per-a-families-amb-infants?moda=1"
   },
   {
     "id": 24,
@@ -2160,5 +2171,134 @@
     ],
     "categoria": "Familia y fiscalidad",
     "perfil": "personal"
+  },
+  {
+    "id": 59,
+    "perfil": "personal",
+    "tipo": "Ayuda autonómica",
+    "titulo": "Ayudas por gestación, nacimiento o adopción (Comunidad de Madrid)",
+    "organo": "Comunidad de Madrid · Dirección General de Infancia, Familia y Fomento de la Natalidad",
+    "ambito": "Comunidad de Madrid",
+    "plazo": "Abierto de forma permanente; la percepción depende de crédito presupuestario disponible",
+    "importe": "500 €/mes durante 24 meses (hasta 12.000 €)",
+    "resumen": "Ayuda mensual para mujeres desde la semana 21 de embarazo, madres con hijos de hasta 24 meses y personas adoptantes de menores. En 2026, la ficha oficial mantiene el procedimiento abierto de forma permanente y exige edad máxima de 30 años, residencia y límites de renta.",
+    "reqs": {
+      "familia": "si",
+      "ccaa": "Comunidad de Madrid",
+      "madridNatalidadRequisitos": "si"
+    },
+    "requisitos": [
+      "Tener hasta 30 años en el momento exigido por la convocatoria.",
+      "Ser mujer con embarazo de al menos 21 semanas, madre de un menor de hasta 24 meses o persona que haya adoptado un menor desde enero de 2022, conforme a los supuestos de la ficha.",
+      "Tener residencia legal en España y residir/estar empadronada en la Comunidad de Madrid durante al menos 5 años dentro de los 10 anteriores a la solicitud; mantener residencia en la comunidad mientras se percibe la ayuda.",
+      "Renta anual inferior a 30.000 € individual o 36.200 € como unidad familiar.",
+      "El trámite figura en plazo permanente, pero el pago requiere crédito presupuestario disponible.",
+      "La ficha oficial consultada indica 500 € mensuales durante 24 meses."
+    ],
+    "docs": [
+      "Certificados de empadronamiento histórico y actual",
+      "Informe médico que acredite semana 21 o posterior de gestación, si procede",
+      "Certificado de nacimiento o documentación de adopción",
+      "Declaración IRPF o certificado negativo de renta si no se autoriza consulta",
+      "NIF/NIE/TIE cuando no pueda consultarse"
+    ],
+    "eval": "El test orienta sobre edad, residencia, renta y situación de embarazo/nacimiento/adopción. La Administración verifica los requisitos y la disponibilidad presupuestaria. Revisar siempre la ficha oficial antes de presentar.",
+    "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-economicas-natalidad",
+    "links": [
+      [
+        "Ficha y solicitud oficial (Comunidad de Madrid)",
+        "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-economicas-natalidad"
+      ]
+    ],
+    "categoria": "Familia y nacimiento"
+  },
+  {
+    "id": 60,
+    "perfil": "personal",
+    "tipo": "Ayuda autonómica",
+    "titulo": "Tarjeta Benvida · apoyo a la natalidad (Galicia)",
+    "organo": "Xunta de Galicia · Consellería de Política Social e Igualdad",
+    "ambito": "Galicia",
+    "plazo": "Convocatoria 2026 abierta del 06/02/2026 al 31/03/2027; solicitud en plazo específico según embarazo, nacimiento o resolución de adopción/acogimiento",
+    "importe": "1.200 € primer año; 2.400 € si es tercer hijo o posterior; +25 % en municipios de menos de 5.000 habitantes. Posible extensión segundo y tercer año si renta familiar ≤22.000 €",
+    "resumen": "Tarjeta monedero para gastos de crianza destinada a familias residentes en Galicia. Puede solicitarse desde la semana 21 de embarazo o tras nacimiento, adopción, guarda con fines adoptivos o acogimiento permanente. En 2026 la convocatoria está abierta y cubre hechos causantes de ese año.",
+    "reqs": {
+      "familia": "si",
+      "ccaa": "Galicia",
+      "galiciaBenvidaRequisitos": "si"
+    },
+    "requisitos": [
+      "Residencia y empadronamiento efectivo en Galicia.",
+      "Embarazo de al menos 21 semanas durante 2026, o nacimiento durante 2026, o adopción/guarda con fines adoptivos/acogimiento permanente de menor de hasta 3 años en los supuestos y fechas de la convocatoria.",
+      "Renta familiar ≤45.000 €; si supera esa cantidad, la renta per cápita no puede superar 13.500 €. Para determinadas cuantías y ampliaciones se exige renta familiar ≤22.000 €.",
+      "Cuantía general del primer año: 1.200 €. Si el menor es el tercero o posterior: 2.400 €. En municipios de menos de 5.000 habitantes, incremento del 25 %.",
+      "Si la renta familiar es ≤22.000 €, puede existir extensión para segundo y tercer año: 600 €/año primer hijo, 1.200 €/año segundo y 2.400 €/año tercero o sucesivos; con incremento rural del 25 %.",
+      "El plazo de solicitud tras nacimiento/adopción/guarda/acogimiento es de 2 meses; durante el embarazo puede solicitarse al alcanzar la semana 21. Se presenta una única solicitud, durante gestación o después del hecho causante, no ambas."
+    ],
+    "docs": [
+      "DNI/NIE y empadronamiento en Galicia",
+      "Libro de familia o certificados de nacimiento para acreditar orden de descendencia",
+      "Informe médico que acredite semana 21 o posterior si se solicita durante el embarazo (salvo consulta directa al Sergas)",
+      "Resolución de adopción, guarda con fines adoptivos o acogimiento, si procede",
+      "Acreditación de ingresos cuando no se autorice su consulta",
+      "Número de teléfono móvil para activar la tarjeta"
+    ],
+    "eval": "El importe se entrega mediante tarjeta monedero y no se puede retirar en efectivo ni usar para compras por internet. La ficha oficial de 2026 fija la convocatoria abierta hasta 31/03/2027, pero conserva plazos individuales de dos meses tras nacimiento/adopción. No se debe presentar una segunda solicitud si ya se pidió durante el embarazo.",
+    "link": "https://sede.xunta.gal/es/detalle-procedemento?ano=2026&codtram=BS403B&lang=es",
+    "links": [
+      [
+        "Trámite oficial BS403B · Tarjeta Benvida",
+        "https://sede.xunta.gal/es/detalle-procedemento?ano=2026&codtram=BS403B&lang=es"
+      ],
+      [
+        "Importes y preguntas frecuentes (Xunta)",
+        "https://politicasocial.xunta.gal/gl/recursos/plans-e-programas/tarxeta-benvida"
+      ]
+    ],
+    "categoria": "Familia y nacimiento"
+  },
+  {
+    "id": 61,
+    "perfil": "personal",
+    "tipo": "Ayuda autonómica",
+    "titulo": "Ayudas por nacimiento o adopción (Principado de Asturias · 2026)",
+    "organo": "Principado de Asturias · Servicio de Impulso Demográfico",
+    "ambito": "Asturias",
+    "plazo": "Del 01/04/2026 al 30/11/2026; hechos causantes entre 01/10/2025 y 30/09/2026, con plazos individuales de dos meses en los supuestos indicados",
+    "importe": "1.200 € primer hijo; 1.700 € segundo o sucesivos; 2.200 € en concejos en riesgo de despoblación, con independencia del orden",
+    "resumen": "Ayuda económica autonómica por nacimiento o adopción para familias residentes en Asturias. La convocatoria 2026 permanece abierta hasta el 30 de noviembre de 2026, pero solo cubre nacimientos/adopciones dentro del periodo definido y exige residencia previa e ingresos familiares máximos.",
+    "reqs": {
+      "familia": "si",
+      "ccaa": "Asturias",
+      "asturiasNatalidadRequisitos": "si"
+    },
+    "requisitos": [
+      "Nacimiento o adopción entre el 01/10/2025 y el 30/09/2026.",
+      "Residencia habitual en Asturias durante al menos los 12 meses ininterrumpidos anteriores a la publicación de la convocatoria.",
+      "Ingresos fiscales anuales conjuntos de los progenitores/adoptantes no superiores a 45.000 €.",
+      "Importe: 1.200 € por primer hijo; 1.700 € por segundo o sucesivos; 2.200 € si la familia reside en concejo en riesgo de despoblación, con independencia del orden.",
+      "Plazo general de la convocatoria: hasta el 30/11/2026; para hechos causantes anteriores a la publicación se aplicó un plazo de dos meses desde el día siguiente a su publicación, y para hechos posteriores hasta el 30/09/2026, dos meses desde el nacimiento/adopción.",
+      "Debe existir convivencia efectiva y demostrable con el menor. Solo se admite una solicitud por menor, salvo custodia compartida."
+    ],
+    "docs": [
+      "Certificado de empadronamiento histórico de los municipios de residencia",
+      "Documento acreditativo del nacimiento o adopción",
+      "Documentación de todos los hijos para acreditar el orden del nacimiento",
+      "Declaración de renta o certificado de no declarante, si no se autoriza consulta",
+      "Ficha de acreedores si no existe cuenta bancaria validada"
+    ],
+    "eval": "La convocatoria 2026 está abierta hasta 30/11/2026, pero el plazo individual puede haber vencido antes según la fecha del nacimiento/adopción. El test debe contrastar ambas fechas y no mostrar como solicitables los casos fuera del periodo. Consultar el código AYUD0408T01 en la sede del Principado.",
+    "link": "https://miprincipado.asturias.es/ast/-/dboid-6269000076025486507573",
+    "links": [
+      [
+        "Ficha oficial AYUD0408T01 (miPrincipado)",
+        "https://miprincipado.asturias.es/ast/-/dboid-6269000076025486507573"
+      ],
+      [
+        "Convocatoria e importes 2026 (Gobierno de Asturias)",
+        "https://juventud.asturias.es/-/ayudas-para-el-fomento-de-la-natalidad-y-la-adopci%C3%B3n-en-el-principado-de-asturias%C2%A0%C2%A0.-2025"
+      ]
+    ],
+    "categoria": "Familia y nacimiento"
   }
 ]
