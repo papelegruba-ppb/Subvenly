@@ -1,27 +1,26 @@
 {
  "fecha": "2026-11-16",
  "ficheros": 1,
- "encontradas": 98,
- "guardadas": 2190,
+ "encontradas": 104,
+ "guardadas": 2281,
  "fuentes_correctas": [
+  "perfiles",
   "agregadas"
  ],
- "fuentes_parciales": [
-  "perfiles"
- ],
+ "fuentes_parciales": [],
  "errores": [],
- "estado": "parcial",
+ "estado": "completa",
  "ejemplo": {
-  "id": "393/2026",
-  "titulo": "La ejecución de las obras contenidas en el Proyecto Básico y de Ejecución de \"Rehabilitación Integral del Edificio Municipal del Ayuntamiento de Tórtola de Henares\"",
-  "organo": "Alcaldía del Ayuntamiento de Tórtola de Henares",
-  "territorio": "Guadalajara",
-  "nuts": "ES424",
-  "tipo": "Obras",
-  "cpv": "45213150",
-  "presupuesto": 361367,
-  "cierre": "2026-12-03",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=FCDTH0AppXbL1rX3q%2FMAPA%3D%3D",
+  "id": "2026-01462",
+  "titulo": "Contratación de los servicios servicios de formación en metodologías ágiles (certificación oficial CSM de Scrum Alliance) y servicios de gestión de exámenes oficiales de Isdefe, S.A, S.M.E, M.P.",
+  "organo": "Consejero Delegado de Ingeniería de Sistemas para la Defensa de España S.A., S.M.E. y M.P.",
+  "territorio": "Madrid",
+  "nuts": "ES300",
+  "tipo": "Servicios",
+  "cpv": "80510000",
+  "presupuesto": 32000,
+  "cierre": "2026-12-01",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=FfxjGBOU7qycCF8sV%2BqtYA%3D%3D",
   "visto": "2026-11-16",
   "actualizada": "2026-11-13"
  }
