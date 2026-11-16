@@ -565,6 +565,8 @@ function valorAid(k,a){
  if(a.perfil==="personal"&&["particular","autonomo","ambos"].indexOf(A.perfil)>=0){
   // Si la persona ha elegido otra ruta, no se dejan ayudas de familia o alquiler como "por confirmar".
   if(k==="familia"&&A.situacionPersonal!=="familia"&&A.situacionPersonal!=="violencia")return "no";
+  if(k==="perfilFiscalEligible")return ["particular","autonomo","ambos"].indexOf(A.perfil)>=0?"si":"no";
+  if(k==="familiaCategoriaElegible")return ["general","especial"].indexOf(A.familiaCategoria)>=0?"si":A.familiaCategoria==="tramite"||A.familiaCategoria==="caducado"?"no":undefined;
   if(k==="maternidadRequisitos"){
    var menor=A.maternidadHijoMenor3, viaNacimiento=A.maternidadAltaNacimiento==="si"||A.maternidadParoNacimiento==="si", viaPosterior=A.maternidad30Dias==="si";
    return menor==="si"&&(viaNacimiento||viaPosterior)?"si":menor==="no"?"no":(menor==="si"&&(A.maternidadAltaNacimiento==="no"&&A.maternidadParoNacimiento==="no"&&A.maternidad30Dias==="no")?"no":undefined);
