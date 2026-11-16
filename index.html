@@ -230,10 +230,10 @@ var AIDS=[],NOV={items:[]},LIC={items:[]},VIG={};
 // ===== LÓGICA =====
 var A={},tipo="Todas",est="Todas",busquedaAyuda="",ambitoAyuda="",organoAyuda="",compatAyuda="",categoriaAyuda="";
 var LS={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+var SENSITIVE_KEYS=["situacionPersonal","tipoViolencia","acreditacionViolencia","dificultadEmpleo","ingresosAyuda27","residenciaCatalunya","municipioBarcelona","empleoSituacion","demandaEmpleo","familia","alquiler","ingresosPersonales","unidadFamiliar"];
 try{A=JSON.parse(LS.get("ans_subvenly")||"{}")||{}}catch(e){A={}}
-SENSITIVE_KEYS.forEach(function(k){delete A[k]});
-var SENSITIVE_KEYS=["tipoViolencia","acreditacionViolencia","dificultadEmpleo","ingresosAyuda27","residenciaCatalunya","municipioBarcelona"];
-function save(){var safe=Object.assign({},A);SENSITIVE_KEYS.forEach(function(k){delete safe[k]});LS.set("ans_subvenly",JSON.stringify(safe))}
+if(A.situacionPersonal==="violencia"){SENSITIVE_KEYS.forEach(function(k){delete A[k]});}
+function save(){var safe=Object.assign({},A);if(A.situacionPersonal==="violencia"){SENSITIVE_KEYS.forEach(function(k){delete safe[k]});}LS.set("ans_subvenly",JSON.stringify(safe))}
 function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
 function txt(tag,s){var e=el(tag);e.textContent=s;return e}
 function fmt(d){var p=d.split("-");return p[2]+"/"+p[1]+"/"+p[0]}
@@ -551,7 +551,7 @@ function valorAid(k,a){
  if(a.perfil==="personal"&&["particular","autonomo","ambos"].indexOf(A.perfil)>=0){
   // Si la persona ha elegido otra ruta, no se dejan ayudas de familia o alquiler como "por confirmar".
   if(k==="familia"&&A.situacionPersonal!=="familia"&&A.situacionPersonal!=="violencia")return "no";
-  if(k==="alquiler"&&A.situacionPersonal!=="vivienda")return "no";
+  if(k==="alquiler"&&A.situacionPersonal!=="vivienda"&&A.situacionPersonal!=="violencia")return "no";
   if(["autonomo","ambos"].indexOf(A.perfil)>=0){
    var ccaaRes=A.direccionIgual==="si"?A.ccaa:A.ccaaResidencia;
    var municipioRes=A.direccionIgual==="si"?A.municipio:A.municipioResidencia;
@@ -679,6 +679,7 @@ function impl(k){
  if(k==="sl"&&A.perfil==="empresa"){if(!A.forma)return undefined;return A.forma==="sl"?"si":"no";}
  if(k==="forma")return A.forma;
  if(k==="municipioBarcelona")return A.municipioBarcelona|| (A.municipio?(nrm(A.municipio)==="barcelona"?"si":"no"):undefined);
+ if(k==="residenciaCatalunya")return A.residenciaCatalunya||(A.ccaa==="Cataluña"?"si":undefined);
  if(k==="municipioMadrid")return A.municipio?(A.ccaa==="Comunidad de Madrid"&&nrm(A.municipio)==="madrid"?"si":"no"):undefined;
  if(A.ccaa){if(k==="catalunya")return A.ccaa==="Cataluña"?"si":"no";if(k==="madrid")return A.ccaa==="Comunidad de Madrid"?"si":"no"}
  if(k==="amb"&&A.provincia&&A.provincia!=="Barcelona")return "no";
