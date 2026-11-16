@@ -1,8 +1,8 @@
 {
- "fecha": "2026-11-15",
+ "fecha": "2026-11-16",
  "ficheros": 1,
- "encontradas": 124,
- "guardadas": 2111,
+ "encontradas": 98,
+ "guardadas": 2190,
  "fuentes_correctas": [
   "agregadas"
  ],
@@ -12,17 +12,17 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "889/2026",
-  "titulo": "Instalación en Media Tensión para la conexión de la Instalación Fotovoltaica del Ecoparque Gran Canaria Norte",
-  "organo": "Dirección General del Consejo Insular de la Energía de Gran Canaria",
-  "territorio": "Gran Canaria",
-  "nuts": "ES705",
+  "id": "393/2026",
+  "titulo": "La ejecución de las obras contenidas en el Proyecto Básico y de Ejecución de \"Rehabilitación Integral del Edificio Municipal del Ayuntamiento de Tórtola de Henares\"",
+  "organo": "Alcaldía del Ayuntamiento de Tórtola de Henares",
+  "territorio": "Guadalajara",
+  "nuts": "ES424",
   "tipo": "Obras",
-  "cpv": "45315500",
-  "presupuesto": 226778,
+  "cpv": "45213150",
+  "presupuesto": 361367,
   "cierre": "2026-12-03",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Yl2%2BUIcnaeu5HQrHoP3G5A%3D%3D",
-  "visto": "2026-11-15",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=FCDTH0AppXbL1rX3q%2FMAPA%3D%3D",
+  "visto": "2026-11-16",
   "actualizada": "2026-11-13"
  }
 }
