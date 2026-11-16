@@ -2083,14 +2083,8 @@
     "importe": "Hasta 1.200 € al año por cada hijo menor de 3 años (100 €/mes)",
     "resumen": "Deducción estatal del IRPF para mujeres con hijos menores de 3 años que cumplan los requisitos. El Modelo 140 permite solicitar el cobro anticipado mensual; no es una subvención independiente. Si no se solicita el anticipo, la deducción puede aplicarse en la declaración de la Renta. Puede existir además un incremento por gastos de custodia en guardería o centro autorizado, sujeto a sus propias condiciones.",
     "reqs": {
-      "perfil": {
-        "oneOf": [
-          "particular",
-          "autonomo",
-          "ambos"
-        ]
-      },
-      "maternidadRequisitos": "si"
+      "maternidadRequisitos": "si",
+      "perfilFiscalEligible": "si"
     },
     "requisitos": [
       "Ser mujer con derecho al mínimo por descendientes por el hijo menor de 3 años (incluidos supuestos de adopción o acogimiento).",
@@ -2130,21 +2124,10 @@
     "importe": "Hasta 1.200 €/año (100 €/mes) categoría general; hasta 2.400 €/año (200 €/mes) categoría especial; incremento de hasta 600 €/año por cada hijo que exceda del mínimo exigido",
     "resumen": "Deducción estatal del IRPF para quienes formen parte de una familia numerosa y cumplan los requisitos fiscales. El Modelo 143 permite cobrarla anticipadamente por transferencia mensual. No es una subvención independiente. Si no se solicita el anticipo, puede aplicarse en la declaración de la Renta.",
     "reqs": {
-      "perfil": {
-        "oneOf": [
-          "particular",
-          "autonomo",
-          "ambos"
-        ]
-      },
       "familiaNumerosa": "si",
-      "familiaCategoria": {
-        "oneOf": [
-          "general",
-          "especial"
-        ]
-      },
-      "familiaNumerosaRequisitos": "si"
+      "familiaNumerosaRequisitos": "si",
+      "perfilFiscalEligible": "si",
+      "familiaCategoriaElegible": "si"
     },
     "requisitos": [
       "Formar parte de una familia numerosa reconocida oficialmente y disponer del título en vigor para solicitar el abono anticipado.",
