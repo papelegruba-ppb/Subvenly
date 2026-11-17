@@ -2575,8 +2575,8 @@
     "organo": "Agència Tributària de Catalunya",
     "ambito": "Cataluña",
     "plazo": "En la declaración del IRPF del ejercicio correspondiente",
-    "importe": "20 % del alquiler, máximo 1.000 €/año; 25 % y máximo 1.200 € si hay discapacidad ≥65 % o hijo/a menor a cargo",
-    "resumen": "Deducción autonómica del IRPF para contribuyentes que acrediten la condición de víctima de violencia machista y hayan satisfecho alquiler por su vivienda habitual. El límite de base imponible y los medios de acreditación deben comprobarse en la normativa del ejercicio.",
+    "importe": "20 % de las cantidades pagadas por alquiler, máximo 1.000 €/ejercicio. Se eleva al 25 % y 1.200 € si la contribuyente tiene discapacidad ≥65 % o un hijo/a menor a cargo.",
+    "resumen": "Deducción autonómica del IRPF de Cataluña para mujeres que acrediten ser víctimas de violencia machista conforme a la Ley 5/2008 y hayan pagado alquiler de su vivienda habitual. No exige que la violencia sea necesariamente de pareja. Límite de base imponible: 30.000 € anuales, una vez restado el mínimo personal y familiar.",
     "reqs": {
       "situacionPersonal": "violencia",
       "tipoViolencia": {
@@ -2589,28 +2589,29 @@
       "ccaa": "Cataluña"
     },
     "requisitos": [
-      "Acreditar la condición de víctima de violencia machista conforme a la Ley catalana 5/2008; no se limita necesariamente a violencia en la pareja.",
-      "Haber pagado cantidades por el alquiler de la vivienda habitual durante el ejercicio fiscal.",
-      "La base imponible total menos el mínimo personal y familiar no puede superar 30.000 € anuales.",
-      "Deducción del 20 % con máximo de 1.000 €; se eleva al 25 % y 1.200 € si existe discapacidad ≥65 % o un hijo/a menor de edad a cargo.",
+      "Acreditar la condición de víctima de violencia machista conforme a la Ley catalana 5/2008.",
+      "Haber satisfecho cantidades por el alquiler de la vivienda habitual durante el ejercicio fiscal.",
+      "La base imponible total, menos el mínimo personal y familiar, no puede superar 30.000 € anuales.",
+      "Deducción del 20 %, con máximo de 1.000 € anuales.",
+      "El porcentaje y el límite suben al 25 % y 1.200 € si la contribuyente tiene discapacidad igual o superior al 65 % o tiene algún hijo/a menor de edad a cargo.",
       "Puede aplicarse como máximo durante tres ejercicios consecutivos."
     ],
     "docs": [
-      "Contrato de alquiler de la vivienda habitual y justificantes de pago.",
+      "Contrato de alquiler de la vivienda habitual y justificantes de los pagos realizados durante el ejercicio.",
       "Declaración del IRPF del ejercicio correspondiente.",
-      "Documento de acreditación de violencia admitido por la Ley 5/2008; la ATC enumera varios medios judiciales, policiales, sanitarios y administrativos."
+      "Documento que acredite la condición de víctima. La ATC admite, entre otros: sentencia aunque no sea firme, orden de protección vigente, informe de Inspección de Trabajo, medidas cautelares vigentes, atestado policial con percepción directa, informe del Ministerio Fiscal, informe médico o psicológico colegiado, informe de servicios públicos competentes o del Institut Català de les Dones, y otros medios legalmente previstos."
     ],
-    "eval": "No es una subvención ni un pago mensual: reduce la cuota autonómica del IRPF en la declaración. La titularidad del contrato y demás condiciones fiscales deben revisarse en el ejercicio correspondiente.",
+    "eval": "Es una deducción de la cuota autonómica del IRPF, no una subvención ni un pago mensual. La ATC incluye entre los medios de acreditación tanto resoluciones judiciales como informes profesionales y acreditaciones de servicios públicos; no debe exigirse exclusivamente una orden de protección. Comprobar los datos y la normativa del ejercicio fiscal que se declara.",
     "link": "https://atc.gencat.cat/es/tributs/irpf/deduccions-tram-irpf/",
     "links": [
       [
-        "Deducciones IRPF · ATC",
-        "https://atc.gencat.cat/es/tributs/irpf/deduccions-tram-irpf/"
+        "Deducciones IRPF · Agencia Tributaria de Cataluña",
+        "https://atc.gencat.cat/es/tributs/irpf/deduccions-tram-irpf#11--por-alquiler-de-la-vivienda-habitual-por-parte-de-victimas-de-violencia-machista"
       ]
     ],
     "categoria": "Violencia machista y protección",
     "perfil": "personal",
-    "estadoManual": "Verificado en la Agencia Tributaria de Cataluña el 17/11/2026."
+    "estadoManual": "Verificado en la Agencia Tributaria de Cataluña el 17/11/2026. La página consultada presenta las deducciones del ejercicio 2025 y enlaza las previstas para 2026; revisar el ejercicio de devengo al presentar la declaración."
   },
   {
     "id": 69,
@@ -3027,5 +3028,135 @@
     "categoria": "Violencia machista y protección",
     "perfil": "personal",
     "estadoManual": "Trámite permanente, con plazo máximo de cinco años según modalidad. Fuente oficial actualizada el 13/04/2026; importes 2026 con cambio de fórmula desde 11/07/2026."
+  },
+  {
+    "id": 78,
+    "tipo": "Prestación económica",
+    "titulo": "Fondo de garantía de pensiones y prestaciones alimentarias o compensatorias impagadas (Cataluña)",
+    "organo": "Departament de Drets Socials i Inclusió · Direcció General de Prestacions Socials",
+    "ambito": "Cataluña",
+    "plazo": "Puede solicitarse una vez transcurrido un mes desde la fecha de la ejecutoria judicial que ordena el pago de las cantidades impagadas.",
+    "importe": "Anticipo mensual. El máximo general es el 50 % del IRSC mensual; en pensiones alimenticias de menores o mayores con discapacidad se descuenta lo reconocido por el Fondo estatal. Duración máxima: 18 meses, continuos o discontinuos.",
+    "resumen": "Anticipo público para familias con recursos limitados cuando no se cobra una pensión de alimentos o compensatoria reconocida judicialmente y ya se ha reclamado su ejecución. Puede ser especialmente relevante tras una separación o situación de violencia económica, aunque no es una ayuda exclusiva para víctimas de violencia machista.",
+    "reqs": {
+      "situacionPersonal": "violencia",
+      "ccaa": "Cataluña"
+    },
+    "requisitos": [
+      "Tener una resolución judicial que reconozca el derecho a percibir una pensión de alimentos y/o compensatoria.",
+      "Haber reclamado judicialmente el pago y no haberlo cobrado; debe existir demanda ejecutiva y resolución despachando ejecución.",
+      "Residir legalmente en Cataluña y haber residido allí cinco años, dos inmediatamente anteriores a la solicitud. Hay excepción para personas retornadas que cumplan la Ley 25/2002.",
+      "Mantener residencia efectiva e ininterrumpida en Cataluña durante el cobro, con las excepciones de ausencias inferiores a 90 días por año natural.",
+      "Tener ingresos inferiores a 1,5 veces el IRSC, incrementándose el límite en 0,3 por cada carga familiar conviviente reconocida en el trámite.",
+      "Para alimentos de hijos menores o mayores con discapacidad, acreditar, cuando proceda, el derecho al Fondo estatal de garantía del pago de alimentos.",
+      "La persona con guarda y custodia de los hijos puede solicitarlo si no ha cobrado la pensión; los hijos deben ser menores o mayores con discapacidad igual o superior al 65 %."
+    ],
+    "docs": [
+      "Resolución judicial que reconoce la pensión alimenticia o compensatoria.",
+      "Demanda ejecutiva y resolución judicial que despacha la ejecución.",
+      "Certificado del letrado o letrada de la Administración de Justicia que acredita el impago.",
+      "Documento de identidad.",
+      "Certificado histórico de residencia y convivencia del padrón.",
+      "Declaración de la renta u otros justificantes de ingresos de la persona solicitante y familiares a cargo.",
+      "Certificado de discapacidad ≥65 %, si procede y no se autoriza la consulta.",
+      "Para pensiones alimenticias: resolución que reconoce el derecho al Fondo estatal y libro de familia o documento de filiación."
+    ],
+    "eval": "La prestación se paga mensualmente por transferencia. El máximo de cobro es de 18 meses, de forma continua o discontinua. El plazo máximo para resolver es de seis meses; el silencio es desestimatorio y cabe recurso de alzada en un mes. Es un anticipo: si la persona obligada paga la deuda judicial, la persona beneficiaria debe devolver las cantidades anticipadas. El importe estatal y el catalán no se duplican por el mismo concepto; se complementan en los términos indicados por la Generalitat. Los límites de ingresos publicados en la ficha consultada usan el IRSC 2025 (9.341,92 €/año), por lo que deben recalcularse con el IRSC vigente al solicitar.",
+    "link": "https://tramits.gencat.cat/ca/tramits/tramits-temes/Fons-per-cobrir-limpagament-de-pensions-i-prestacions-alimentaries-o-compensatories",
+    "links": [
+      [
+        "Fondo de garantía de pensiones y prestaciones · Generalitat",
+        "https://tramits.gencat.cat/ca/tramits/tramits-temes/Fons-per-cobrir-limpagament-de-pensions-i-prestacions-alimentaries-o-compensatories"
+      ]
+    ],
+    "categoria": "Violencia machista y protección",
+    "perfil": "personal",
+    "estadoManual": "Verificado en Tràmits Gencat el 17/11/2026. El trámite publica límites económicos calculados con IRSC 2025; recalcular con el indicador vigente."
+  },
+  {
+    "id": 79,
+    "tipo": "Ayuda económica",
+    "titulo": "Ayuda para gastos de sepelio, traslado o repatriación de víctimas mortales de violencia machista (Cataluña)",
+    "organo": "Departament d'Igualtat i Feminisme · Secretaria de Feminismes",
+    "ambito": "Cataluña",
+    "plazo": "El derecho a cobrarla caduca a los dos años del fallecimiento o desde que las autoridades determinan que la muerte fue causada por violencia machista.",
+    "importe": "Hasta 4.000 € por sepelio; hasta 6.000 € si incluye traslado dentro de España; hasta 8.000 € si incluye traslado fuera de España. Se abona según factura y límites.",
+    "resumen": "Ayuda puntual dirigida a la familia de una mujer fallecida por violencia machista para cubrir los gastos funerarios y, cuando corresponda, el traslado o la repatriación del cuerpo al país de origen.",
+    "reqs": {
+      "situacionPersonal": "violencia",
+      "ccaa": "Cataluña"
+    },
+    "requisitos": [
+      "Puede solicitarla cualquier persona de la red familiar o representante de la víctima asesinada como consecuencia de violencia machista.",
+      "No pueden solicitarla las personas agresoras ni quienes hayan participado en la agresión.",
+      "Las facturas no deben estar cubiertas por una póliza de seguro, bonificación o gratuidad de la Administración local.",
+      "Debe presentarse dentro de los dos años siguientes al fallecimiento o a la determinación oficial de que la muerte fue causada por violencia machista.",
+      "Si las despesas aún no se han pagado, se presenta presupuesto funerario y después factura y justificante de pago en el plazo de un mes desde el pago."
+    ],
+    "docs": [
+      "Formulario específico de solicitud.",
+      "Si ya se pagaron los gastos: factura a nombre de la persona solicitante y justificante de pago.",
+      "Si no se han pagado: presupuesto de la funeraria a nombre de la persona solicitante.",
+      "Formulario bancario SEPA y certificado de titularidad de la cuenta.",
+      "Acreditación de parentesco o representación cuando proceda.",
+      "Si no se autoriza la consulta administrativa: certificado de empadronamiento de la víctima o prueba de que trabajaba en Cataluña, y certificado de defunción."
+    ],
+    "eval": "La solicitud es electrónica y requiere idCAT Mòbil o certificado digital. No sirve la petición genérica. SIE, SIAD y determinadas Oficinas de Atención Ciudadana pueden ayudar a tramitarla. Plazo máximo de resolución: un mes; el silencio se entiende desestimatorio. Si el gasto aún no se ha pagado, la factura y el justificante deben aportarse dentro de un mes desde el pago.",
+    "link": "https://tramits.gencat.cat/ca/tramits/tramits-temes/23769-ajut-sepeli?category=763e7a0a-a82c-11e3-a972-000c29052e2c&moda=1",
+    "links": [
+      [
+        "Ayuda para sepelio, traslado o repatriación · Generalitat",
+        "https://tramits.gencat.cat/ca/tramits/tramits-temes/23769-ajut-sepeli?category=763e7a0a-a82c-11e3-a972-000c29052e2c&moda=1"
+      ]
+    ],
+    "categoria": "Violencia machista y protección",
+    "perfil": "personal",
+    "estadoManual": "Verificado en Tràmits Gencat; página actualizada el 02/04/2024. Confirmar vigencia de cuantías y procedimiento antes de solicitar."
+  },
+  {
+    "id": 80,
+    "tipo": "Servicio de atención",
+    "titulo": "Servicios de atención especializada a mujeres y familias (SIE, SIAD y SIEDI) · Cataluña",
+    "organo": "Departament d'Igualtat i Feminisme",
+    "ambito": "Cataluña",
+    "plazo": "Acceso mediante contacto o derivación según el recurso; atención continuada.",
+    "importe": "Servicio gratuito.",
+    "resumen": "Red pública de apoyo, orientación y recuperación para mujeres, niñas, niños y adolescentes afectados por violencias machistas. Incluye atención psicológica, social, educativa y asesoramiento jurídico; el SIEDI aborda específicamente las violencias digitales.",
+    "reqs": {
+      "situacionPersonal": "violencia",
+      "ccaa": "Cataluña"
+    },
+    "requisitos": [
+      "SIE: mujeres jóvenes y adultas, hijos e hijas afectados por procesos de violencia machista y otras personas del entorno que sean testigos o víctimas.",
+      "El SIE atiende violencia en pareja/expareja, familiar, laboral, social o comunitaria, digital, educativa e institucional.",
+      "SIEDI: mujeres que han sufrido violencia machista digital y su entorno; ofrece atención tecnológica, jurídica y psicológica especializada.",
+      "La línea 900 900 120 es gratuita, confidencial y funciona las 24 horas de todos los días del año."
+    ],
+    "docs": [
+      "No se indica documentación general obligatoria para pedir información o contactar con los servicios. La vía de acceso puede variar según el recurso."
+    ],
+    "eval": "SIE: atención integral y continuada, acompañamiento social y educativo, atención psicológica a mujeres e hijos/as y asesoramiento jurídico. SIEDI: análisis de riesgos tecnológicos, protección de dispositivos e identidad digital, preservación de prueba digital, asesoramiento jurídico y contención psicológica breve. Contacto SIEDI: 670 70 70 90 (llamada, WhatsApp o Telegram), lunes a jueves 9–19 h y viernes 9–15 h; atencio.siedigital.igualtat@gencat.cat. Para encontrar un SIE, usar el directorio oficial territorial.",
+    "link": "https://igualtat.gencat.cat/ca/ambits-dactuacio/violencies-masclistes/",
+    "links": [
+      [
+        "Directorio de violencias machistas · Igualdad y Feminismo",
+        "https://igualtat.gencat.cat/ca/ambits-dactuacio/violencies-masclistes/"
+      ],
+      [
+        "Servicios de intervención especializada (SIE)",
+        "https://igualtat.gencat.cat/ca/ambits-dactuacio/violencies-masclistes/serveis-dintervencio-especialitzada-en-violencia-masclista-SIE-/"
+      ],
+      [
+        "Servicio especializado en violencias digitales (SIEDI)",
+        "https://igualtat.gencat.cat/ca/ambits-dactuacio/violencies-masclistes/serveis-dintervencio-especialitzada-en-labordatge-de-les-violencies-masclistes-digitals-siedi/"
+      ],
+      [
+        "Contacto SIEDI",
+        "https://siedigital.gencat.cat/es/contacto/"
+      ]
+    ],
+    "categoria": "Violencia machista y protección",
+    "perfil": "personal",
+    "estadoManual": "Verificado en el portal del Departament d'Igualtat i Feminisme el 17/11/2026."
   }
 ]
