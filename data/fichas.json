@@ -2600,5 +2600,84 @@
     "categoria": "Violencia machista y protección",
     "perfil": "personal",
     "estadoManual": "Verificado en la Agencia Tributaria de Cataluña el 17/11/2026."
+  },
+  {
+    "id": 69,
+    "tipo": "Servicio",
+    "titulo": "Atención integral, emergencia, acogida y recursos especializados por comunidad autónoma",
+    "organo": "Servicios sociales autonómicos y locales · Delegación del Gobierno contra la Violencia de Género",
+    "ambito": "Estatal",
+    "plazo": "Atención y derivación durante todo el año; disponibilidad y acceso según territorio y valoración profesional",
+    "importe": "Servicio público gratuito; no es una prestación económica",
+    "resumen": "Todas las comunidades autónomas y ciudades de Ceuta y Melilla organizan recursos de información, atención social, apoyo psicológico y jurídico, emergencia y acogida. Los servicios concretos, requisitos y plazas varían por territorio y municipio. El 016 y el buscador oficial permiten localizar el recurso adecuado sin asumir que exista una ayuda económica idéntica en todas las comunidades.",
+    "reqs": {
+      "situacionPersonal": "violencia"
+    },
+    "requisitos": [
+      "Contactar con el 016 para orientación confidencial y derivación al servicio especializado más adecuado.",
+      "Servicios sociales municipales, SIAD/CMAM u organismo autonómico pueden valorar ayudas de emergencia, vivienda, manutención, acogida y apoyo a menores.",
+      "Las ayudas económicas locales o autonómicas dependen de las bases, presupuesto, empadronamiento y valoración social; no se deben dar por concedidas automáticamente.",
+      "En caso de peligro inmediato, llamar al 112. El 016 no sustituye a emergencias."
+    ],
+    "docs": [
+      "No se exige aportar una orden de protección para recibir información u orientación inicial.",
+      "Para ayudas económicas o recursos residenciales concretos pueden solicitar documentación de identidad, empadronamiento, ingresos, composición familiar y acreditación de violencia según el servicio."
+    ],
+    "eval": "El buscador oficial WRAP permite localizar recursos por comunidad autónoma, provincia y tipo de atención. La guía estatal describe derechos y servicios autonómicos; confirma requisitos con el servicio que gestione el recurso.",
+    "link": "https://wrap.igualdad.gob.es/recursos-vdg/search/SearchForm.action",
+    "links": [
+      [
+        "Buscador oficial de recursos WRAP",
+        "https://wrap.igualdad.gob.es/recursos-vdg/search/SearchForm.action"
+      ],
+      [
+        "Guía estatal de derechos",
+        "https://violenciagenero.igualdad.gob.es/informacion-3/derechos/"
+      ],
+      [
+        "Recursos autonómicos oficiales",
+        "https://violenciagenero.igualdad.gob.es/violenciaencifras/recursos-autonomicos/"
+      ],
+      [
+        "016 · recursos y atención",
+        "https://violenciagenero.igualdad.gob.es/informacion-3/recursos/"
+      ]
+    ],
+    "categoria": "Violencia machista y protección",
+    "perfil": "personal",
+    "estadoManual": "Recurso estatal de derivación; la prestación concreta se determina por comunidad autónoma y municipio."
+  },
+  {
+    "id": 70,
+    "tipo": "Servicio de protección",
+    "titulo": "ATENPRO · Servicio telefónico de atención y protección",
+    "organo": "Ministerio de Igualdad · Federación Española de Municipios y Provincias",
+    "ambito": "Estatal",
+    "plazo": "Solicitud a través de servicios sociales municipales o servicio especializado",
+    "importe": "Servicio gratuito de atención y protección",
+    "resumen": "Servicio telefónico de atención y protección para víctimas de violencia contra las mujeres. Puede facilitar atención inmediata y seguimiento, según los requisitos y el procedimiento de alta vigentes.",
+    "reqs": {
+      "situacionPersonal": "violencia"
+    },
+    "requisitos": [
+      "No convivir con la persona o personas que han ejercido el maltrato.",
+      "Participar en los programas de atención especializada para víctimas de violencia contra las mujeres existentes en el territorio autonómico.",
+      "Solicitar el alta a través de los servicios sociales del ayuntamiento o del servicio especializado correspondiente."
+    ],
+    "docs": [
+      "La documentación y valoración se gestionan a través de servicios sociales o del recurso especializado.",
+      "Teléfono de información ATENPRO: 900 22 22 92."
+    ],
+    "eval": "ATENPRO no es una ayuda económica ni sustituye a los servicios de emergencia. La concesión del servicio requiere cumplir las condiciones y completar la solicitud con el recurso municipal o especializado.",
+    "link": "https://violenciagenero.igualdad.gob.es/informacion-3/recursos/servicioTecnico/",
+    "links": [
+      [
+        "Información oficial ATENPRO",
+        "https://violenciagenero.igualdad.gob.es/informacion-3/recursos/servicioTecnico/"
+      ]
+    ],
+    "categoria": "Violencia machista y protección",
+    "perfil": "personal",
+    "estadoManual": "Servicio estatal vigente; confirmar valoración y alta con servicios sociales."
   }
 ]
