@@ -1883,53 +1883,41 @@
   {
     "id": 53,
     "tipo": "Ayuda",
-    "titulo": "Ayuda económica para mujeres víctimas de violencia de género (art. 27)",
+    "titulo": "Ayuda de protección integral contra la violencia de género (Cataluña)",
     "organo": "Generalitat de Catalunya · Departament d’Igualtat i Feminismes",
     "ambito": "Cataluña",
     "plazo": "Tramitación según vigencia de la acreditación; comprobar condiciones actuales",
-    "importe": "Cuantía vinculada al subsidio por desempleo; puede incrementarse según circunstancias familiares y discapacidad",
-    "resumen": "Ayuda económica de pago único para mujeres víctimas de violencia de género con rentas limitadas y especiales dificultades para obtener empleo. No es automática por el mero hecho de ser víctima: exige acreditar la situación y cumplir los requisitos económicos y laborales.",
+    "importe": "Pago único: 6 meses de subsidio; 12, 18 o 24 meses según discapacidad y responsabilidades familiares",
+    "resumen": "Ayuda autonómica para mujeres víctimas de violencia en la pareja o expareja, empadronadas en Cataluña, con ingresos inferiores al 75 % del IPREM mensual (sin pagas extra) y dificultades especiales para encontrar empleo. Requiere informe del SOC. Es distinta de la ayuda estatal del artículo 27.",
     "reqs": {
       "situacionPersonal": "violencia",
       "tipoViolencia": "violencia_genero",
-      "acreditacionViolencia": {
-        "oneOf": [
-          "orden",
-          "sentencia",
-          "fiscal",
-          "administrativa",
-          "servicios"
-        ]
-      },
       "dificultadEmpleo": {
         "oneOf": [
           "si",
           "nose"
         ]
       },
-      "ingresosAyuda27": {
-        "oneOf": [
-          "si",
-          "nose"
-        ]
-      },
+      "ingresosCatalunya": "si",
+      "prestacionesCatalunya": "no",
       "ccaa": "Cataluña"
     },
     "requisitos": [
-      "Residir y estar empadronada en Cataluña, según el trámite vigente.",
-      "Acreditar violencia de género en el ámbito de la pareja o expareja mediante alguno de los medios admitidos legalmente.",
-      "Acreditar especiales dificultades para obtener empleo mediante informe del servicio público de empleo competente.",
-      "Cumplir el límite de rentas aplicable. La ficha oficial y la normativa deben comprobarse antes de calcularlo: existe discrepancia entre referencias al IPREM y al SMI.",
-      "Revisar incompatibilidades con prestaciones y subsidios antes de solicitarla; no asumir que todas las ayudas sociales son incompatibles."
+      "Estar empadronada en cualquier municipio de Cataluña.",
+      "Acreditar violencia de género en el ámbito de la pareja o expareja mediante orden de protección vigente, sentencia, resolución judicial con medidas de protección, informe del Ministerio Fiscal o acreditación administrativa admitida por el trámite.",
+      "Tener ingresos mensuales totales inferiores al 75 % del IPREM mensual, sin computar las dos pagas extraordinarias.",
+      "Acreditar dificultades especiales para encontrar trabajo mediante informe del SOC.",
+      "No percibir las prestaciones incompatibles que enumera el trámite: paro, RAI por violencia de género, subsidio de desempleo para víctimas, RGC u otras pensiones contributivas. Comprobar el texto vigente antes de presentar."
     ],
     "docs": [
-      "DNI/NIE o documento identificativo admitido.",
-      "Documento de acreditación de la situación de violencia.",
-      "Informe del SOC sobre especiales dificultades de inserción laboral.",
-      "Justificantes de ingresos y, cuando proceda, cargas familiares o discapacidad.",
-      "Documento bancario de titularidad de la cuenta."
+      "Documento de acreditación de la violencia admitido por el trámite.",
+      "Informe del SOC sobre dificultades especiales para encontrar empleo.",
+      "Justificantes de ingresos y rendimientos.",
+      "Datos de convivencia y unidad familiar; libro de familia o Registro Civil si hay hijos a cargo.",
+      "Documento SEPA y certificado de titularidad bancaria.",
+      "DNI/NIE o documento identificativo; certificado de discapacidad si procede."
     ],
-    "eval": "Resultado orientativo. La elegibilidad final depende de la acreditación aceptada, el informe del SOC, el cálculo de rentas y las incompatibilidades vigentes. Subvenly debe derivar al trámite oficial y no emitir una concesión automática.",
+    "eval": "El encaje es orientativo. El trámite oficial exige todos los requisitos simultáneamente. La cuantía ordinaria equivale a seis meses de subsidio y puede ampliarse a 12, 18 o 24 meses en los supuestos de discapacidad y responsabilidades familiares previstos. Se solicita en cualquier momento mientras estén vigentes las medidas de protección o exista acreditación admitida.",
     "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/20283-Ajuts-de-mesures-de-proteccio-integral-contra-la-violencia-de-genere?moda=1",
     "links": [
       [
@@ -1937,14 +1925,14 @@
         "https://tramits.gencat.cat/es/tramits/tramits-temes/20283-Ajuts-de-mesures-de-proteccio-integral-contra-la-violencia-de-genere?moda=1"
       ],
       [
-        "Ley Orgánica 1/2004 · BOE",
-        "https://www.boe.es/buscar/act.php?id=BOE-A-2004-21760"
+        "Decreto 80/2015 · Portal Jurídic",
+        "https://portaljuridic.gencat.cat/eli/es-ct/d/2015/05/26/80"
       ]
     ],
     "categoria": "Violencia machista y protección",
     "perfil": "personal",
-    "estadoManual": "Por verificar: revisar límite de rentas, compatibilidades y documentación en la ficha oficial antes de presentar como encaje confirmado.",
-    "verificacionPendiente": true
+    "estadoManual": "Verificado en Tràmits Gencat el 17/11/2026. Revisar documentación y compatibilidades en la ficha oficial antes de presentar.",
+    "verificacionPendiente": false
   },
   {
     "id": 54,
@@ -2468,5 +2456,149 @@
     "categoria": "Familia y crianza",
     "pend": true,
     "estadoManual": "Comprobar periodo de solicitud y convocatoria vigente"
+  },
+  {
+    "id": 66,
+    "tipo": "Ayuda",
+    "titulo": "Ayuda estatal de pago único para víctimas de violencia de género (artículo 27)",
+    "organo": "Administración autonómica competente en servicios sociales · financiación estatal",
+    "ambito": "Estatal",
+    "plazo": "Según procedimiento de la comunidad autónoma; solicitar con la acreditación y el informe de empleo",
+    "importe": "6 meses de subsidio; 12 meses por discapacidad ≥33 %; hasta 18 o 24 meses con responsabilidades familiares según supuestos legales",
+    "resumen": "Ayuda económica de pago único para mujeres víctimas de violencia de género con rentas propias no superiores al 75 % del SMI mensual (sin pagas extra) y especiales dificultades para obtener empleo. La concede la administración competente en servicios sociales, con informe del servicio público de empleo. Es distinta de la ayuda autonómica catalana.",
+    "reqs": {
+      "situacionPersonal": "violencia",
+      "tipoViolencia": "violencia_genero",
+      "dificultadEmpleo": {
+        "oneOf": [
+          "si",
+          "nose"
+        ]
+      },
+      "ingresosArt27": "si"
+    },
+    "requisitos": [
+      "Ingresos propios mensuales no superiores al 75 % del SMI vigente, excluida la parte proporcional de dos pagas extraordinarias.",
+      "Acreditar especiales dificultades para obtener empleo mediante informe del servicio público de empleo competente.",
+      "Acreditar la violencia mediante sentencia condenatoria, orden de protección, resolución judicial cautelar o informe del Ministerio Fiscal; también acreditación administrativa cuando la normativa sectorial la admita.",
+      "No exige por sí misma estar inscrita como demandante de empleo: requiere informe sobre especiales dificultades de empleabilidad y que los programas de inserción no vayan a mejorar sustancialmente la empleabilidad.",
+      "La cuantía y los incrementos dependen de discapacidad y responsabilidades familiares. La administración autonómica tramita y concede."
+    ],
+    "docs": [
+      "Documento de acreditación de la violencia admitido por la normativa.",
+      "Informe del servicio público de empleo sobre especiales dificultades de empleabilidad.",
+      "Justificantes de rentas e ingresos propios.",
+      "Documentación de discapacidad y responsabilidades familiares, si procede.",
+      "Documento de identidad y datos bancarios."
+    ],
+    "eval": "No confundir el límite estatal del 75 % del SMI con el límite del 75 % del IPREM que aplica el trámite catalán. La concesión corresponde al órgano autonómico de servicios sociales. Esta ayuda es compatible con las ayudas de la Ley 35/1995 y con ayudas económicas autonómicas o locales por la situación de violencia, conforme al artículo 27.5.",
+    "link": "https://www.boe.es/buscar/act.php?id=BOE-A-2004-21760",
+    "links": [
+      [
+        "Artículo 27 · Ley Orgánica 1/2004 · BOE",
+        "https://www.boe.es/buscar/act.php?id=BOE-A-2004-21760"
+      ],
+      [
+        "Real Decreto 1452/2005 · BOE",
+        "https://www.boe.es/buscar/act.php?id=BOE-A-2005-20788"
+      ]
+    ],
+    "categoria": "Violencia machista y protección",
+    "perfil": "personal",
+    "estadoManual": "Derecho estatal vigente; procedimiento y órgano de solicitud dependen de la comunidad autónoma."
+  },
+  {
+    "id": 67,
+    "tipo": "Subsidio",
+    "titulo": "Subsidio por desempleo para víctimas de violencia de género o sexual (SEPE)",
+    "organo": "Servicio Público de Empleo Estatal (SEPE)",
+    "ambito": "Estatal",
+    "plazo": "Como regla general, dentro de los 6 meses siguientes al hecho causante; existen excepciones si las medidas siguen vigentes",
+    "importe": "95 % del IPREM los primeros 180 días; 90 % del día 181 al 360; 80 % desde el día 361. Duración máxima ordinaria: 30 meses",
+    "resumen": "Subsidio específico para víctimas de violencia de género o sexual que se encuentren desempleadas o trabajen a tiempo parcial y cumplan los requisitos de carencia de rentas o responsabilidades familiares. No es la antigua RAI: el régimen actual del SEPE es el subsidio específico.",
+    "reqs": {
+      "situacionPersonal": "violencia",
+      "tipoViolencia": {
+        "oneOf": [
+          "violencia_genero",
+          "violencia_sexual"
+        ]
+      },
+      "demandaEmpleo": "si"
+    },
+    "requisitos": [
+      "Estar totalmente desempleada o trabajando a tiempo parcial.",
+      "No tener derecho a prestación contributiva por desempleo.",
+      "Estar inscrita como demandante de empleo al reconocerse el subsidio y suscribir el acuerdo de actividad.",
+      "Cumplir el requisito de carencia de rentas propias y, cuando proceda por tener cónyuge/pareja o hijos en los términos legales, responsabilidades familiares.",
+      "Acreditar la condición de víctima mediante alguno de los documentos admitidos por el SEPE.",
+      "Revisar el plazo general de seis meses desde el hecho causante y sus excepciones cuando continúen vigentes las medidas de protección."
+    ],
+    "docs": [
+      "Solicitud oficial del SEPE y declaración responsable de rentas.",
+      "DNI/NIE o documento identificativo en vigor.",
+      "Documento acreditativo de la condición de víctima según el tipo de violencia y la documentación que admite el SEPE.",
+      "Documentación de cónyuge/pareja e hijos si se alegan responsabilidades familiares.",
+      "Documento bancario de una cuenta de titularidad de la solicitante."
+    ],
+    "eval": "El SEPE fija una duración máxima ordinaria de 30 meses, reducida en determinados supuestos de derechos anteriores de RAI por la misma causa. Se solicita prórroga cada tres meses. Si se inicia trabajo por cuenta ajena desde el 1/06/2025, puede operar el complemento de apoyo al empleo (CAE), conforme a las reglas vigentes.",
+    "link": "https://www.sepe.es/HomeSepe/prestaciones-desempleo/subsidio-desempleo/victimas-violencia-genero-o-sexual.html",
+    "links": [
+      [
+        "Ficha oficial SEPE",
+        "https://www.sepe.es/HomeSepe/prestaciones-desempleo/subsidio-desempleo/victimas-violencia-genero-o-sexual.html"
+      ],
+      [
+        "Sede electrónica SEPE",
+        "https://sede.sepe.gob.es/"
+      ]
+    ],
+    "categoria": "Violencia machista y protección",
+    "perfil": "personal",
+    "estadoManual": "Requisitos, cuantías y plazo contrastados con la ficha oficial del SEPE el 17/11/2026."
+  },
+  {
+    "id": 68,
+    "tipo": "Deducción fiscal",
+    "titulo": "Deducción autonómica por alquiler de vivienda habitual para víctimas de violencia machista (Cataluña)",
+    "organo": "Agència Tributària de Catalunya",
+    "ambito": "Cataluña",
+    "plazo": "En la declaración del IRPF del ejercicio correspondiente",
+    "importe": "20 % del alquiler, máximo 1.000 €/año; 25 % y máximo 1.200 € si hay discapacidad ≥65 % o hijo/a menor a cargo",
+    "resumen": "Deducción autonómica del IRPF para contribuyentes que acrediten la condición de víctima de violencia machista y hayan satisfecho alquiler por su vivienda habitual. El límite de base imponible y los medios de acreditación deben comprobarse en la normativa del ejercicio.",
+    "reqs": {
+      "situacionPersonal": "violencia",
+      "tipoViolencia": {
+        "oneOf": [
+          "violencia_genero",
+          "violencia_otra"
+        ]
+      },
+      "alquiler": "si",
+      "ccaa": "Cataluña"
+    },
+    "requisitos": [
+      "Acreditar la condición de víctima de violencia machista conforme a la Ley catalana 5/2008; no se limita necesariamente a violencia en la pareja.",
+      "Haber pagado cantidades por el alquiler de la vivienda habitual durante el ejercicio fiscal.",
+      "La base imponible total menos el mínimo personal y familiar no puede superar 30.000 € anuales.",
+      "Deducción del 20 % con máximo de 1.000 €; se eleva al 25 % y 1.200 € si existe discapacidad ≥65 % o un hijo/a menor de edad a cargo.",
+      "Puede aplicarse como máximo durante tres ejercicios consecutivos."
+    ],
+    "docs": [
+      "Contrato de alquiler de la vivienda habitual y justificantes de pago.",
+      "Declaración del IRPF del ejercicio correspondiente.",
+      "Documento de acreditación de violencia admitido por la Ley 5/2008; la ATC enumera varios medios judiciales, policiales, sanitarios y administrativos."
+    ],
+    "eval": "No es una subvención ni un pago mensual: reduce la cuota autonómica del IRPF en la declaración. La titularidad del contrato y demás condiciones fiscales deben revisarse en el ejercicio correspondiente.",
+    "link": "https://atc.gencat.cat/es/tributs/irpf/deduccions-tram-irpf/",
+    "links": [
+      [
+        "Deducciones IRPF · ATC",
+        "https://atc.gencat.cat/es/tributs/irpf/deduccions-tram-irpf/"
+      ]
+    ],
+    "categoria": "Violencia machista y protección",
+    "perfil": "personal",
+    "estadoManual": "Verificado en la Agencia Tributaria de Cataluña el 17/11/2026."
   }
 ]
