@@ -1764,6 +1764,36 @@
       "monitor": false,
       "nota": "Servicio telefónico de atención y protección y requisitos de acceso.",
       "oficial": true
+    },
+    {
+      "id": "madrid-ayuda-victimas",
+      "nombre": "Comunidad de Madrid · Ayudas de pago único a mujeres víctimas de violencia de género",
+      "ambito": "Comunidad de Madrid",
+      "categoria": "Violencia machista y protección",
+      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayuda-mujeres-victimas-violencia",
+      "monitor": false,
+      "nota": "Trámite permanente; requisitos y límite de rentas 2026.",
+      "oficial": true
+    },
+    {
+      "id": "euskadi-ayuda-victimas-2026",
+      "nombre": "Gobierno Vasco · Ayuda económica a víctimas de violencia de género 2026",
+      "ambito": "País Vasco",
+      "categoria": "Violencia machista y protección",
+      "url": "https://www.euskadi.eus/ayuda_subvencion/2026/ayuda_victimas_violencia_genero/web01-tramite/es/",
+      "monitor": false,
+      "nota": "Ayuda de pago único 2026; requisitos, acreditación e importes.",
+      "oficial": true
+    },
+    {
+      "id": "euskadi-ayuda-sexual-2026",
+      "nombre": "Gobierno Vasco · Ayuda económica a víctimas de violencia sexual 2026",
+      "ambito": "País Vasco",
+      "categoria": "Violencia machista y protección",
+      "url": "https://www.euskadi.eus/ayuda_subvencion/2026/ayuda_victimas_violencia_sexual/web01-tramite/es/",
+      "monitor": false,
+      "nota": "Ayuda económica 2026 para mujeres, niñas y niños víctimas de violencia sexual.",
+      "oficial": true
     }
   ],
   "coberturaTerritorial": [
