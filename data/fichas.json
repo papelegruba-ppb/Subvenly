@@ -2683,41 +2683,55 @@
   {
     "id": 71,
     "tipo": "Indemnización",
-    "titulo": "Indemnización para mujeres víctimas de violencia machista (Cataluña)",
+    "titulo": "Indemnizaciones por violencia machista, feminicidio y violencia vicaria (Cataluña)",
     "organo": "Generalitat de Catalunya · Departament d’Igualtat i Feminisme",
     "ambito": "Cataluña",
-    "plazo": "Hasta 5 años desde la notificación de la resolución judicial o administrativa que acredita la violencia",
-    "importe": "2026: 2 veces el IRSC anual; incremento del 25 % en los supuestos de discapacidad/VIH previstos. Cuantía específica para hijos/as en casos de feminicidio o violencia vicaria",
-    "resumen": "Indemnización económica de pago único para mujeres que han sufrido violencia machista y, en determinados supuestos, para hijos e hijas de mujeres fallecidas por feminicidio o para mujeres que han perdido un hijo o hija por violencia vicaria. No es una ayuda de alquiler ni exige demostrar especiales dificultades de empleo.",
+    "plazo": "Hasta 5 años: para mujeres, desde la notificación de la resolución judicial o administrativa acreditativa; para hijos/as por feminicidio y madres por violencia vicaria, desde la resolución judicial o diligencias policiales sobre los hechos.",
+    "importe": "2026 (solicitudes desde 11/07/2026): mujeres 2 × IRSC anual; +25 % por discapacidad/VIH. Hijos/as por feminicidio: 12 × IRSC anual. Madres por violencia vicaria: 6 × IRSC anual. Importes 2026 anteriores al 11/07: 4.009,25 €, 5.011,56 € (+25 %), 57.733,08 € y 57.733,08 €, respectivamente.",
+    "resumen": "La Generalitat reconoce cuatro supuestos diferenciados: mujeres víctimas de violencia machista; mujeres con discapacidad reconocida o VIH (incremento del 25 %); hijos e hijas de mujeres fallecidas por feminicidio; y mujeres que han perdido un hijo o hija por violencia vicaria. Es una indemnización de pago único, compatible con indemnizaciones judiciales y otras prestaciones públicas o privadas. El autor de la violencia nunca puede administrar el dinero.",
     "reqs": {
       "situacionPersonal": "violencia",
       "ccaa": "Cataluña"
     },
     "requisitos": [
-      "Vivir de manera estable en Cataluña. También se prevé excepcionalmente el derecho cuando la mujer trabaja en Cataluña y los hechos han ocurrido en Cataluña.",
-      "La situación de violencia debe estar comprendida en la Ley catalana 5/2008 y acreditarse mediante sentencia definitiva o acreditación administrativa admitida por el trámite.",
-      "Solicitar dentro de los cinco años desde la notificación de la resolución judicial o administrativa que acredita la violencia.",
-      "La indemnización se concede una sola vez y se abona en un único pago.",
-      "El importe para solicitudes presentadas desde el 11/07/2026 se calcula como dos veces el IRSC anual; puede incrementarse un 25 % en los supuestos de discapacidad/VIH previstos. Existen cuantías diferentes para hijos/as en casos de feminicidio y para violencia vicaria."
+      "Residir de manera estable en Cataluña. Se considera residencia estable el empadronamiento o cualquier medio de prueba admitido que acredite que se vive allí al presentar la solicitud.",
+      "Excepción territorial: también pueden tener derecho la mujer y, en su caso, sus hijos/as si la mujer trabajaba presencialmente en Cataluña y los hechos ocurrieron en Cataluña.",
+      "La situación debe estar incluida en la Ley catalana 5/2008. Para mujeres: sentencia definitiva o modelo común de acreditación administrativa de violencia de género o sexual admitido por el trámite. Una orden de protección por sí sola no es el único medio ni sustituye automáticamente los documentos específicos exigidos.",
+      "Plazo de cinco años: para mujeres, desde la notificación de la resolución judicial o administrativa acreditativa. Para hijos/as por feminicidio y madres por violencia vicaria, desde la resolución judicial o diligencias policiales relativas a los hechos.",
+      "Hijos e hijas de mujeres fallecidas por violencia machista: menores de 26 años y convivencia con la víctima al fallecer. Se admiten excepciones cuando la convivencia se interrumpió por la violencia o existió ausencia temporal por estudios, trabajo, tratamiento médico, rehabilitación, causas similares o fuerza mayor.",
+      "Las madres que han perdido un hijo o hija por violencia vicaria pueden ser beneficiarias de la modalidad específica.",
+      "Se concede una sola vez y se abona en un único pago. No tiene tasa y es compatible con indemnizaciones fijadas judicialmente y otras prestaciones económicas públicas o privadas.",
+      "El autor de la violencia o la persona que la haya provocado no puede administrar ni disponer de la indemnización."
     ],
     "docs": [
-      "Sentencia definitiva o modelo común de acreditación administrativa de la situación de violencia de género/sexual, según el caso.",
-      "Documento identificativo y, si procede, acreditación de residencia o trabajo en Cataluña.",
-      "Documento SEPA y certificado de titularidad bancaria.",
-      "Informe médico de VIH o acreditación de discapacidad, cuando corresponda al incremento.",
-      "Libro de familia o Registro Civil en solicitudes por hijos/as de víctimas mortales o violencia vicaria."
+      "Mujeres: sentencia definitiva o modelo común de acreditación administrativa de violencia de género o de violencias sexuales, según proceda.",
+      "Si corresponde el incremento: certificado del grado de discapacidad reconocido o informe médico que acredite VIH.",
+      "Formulario bancario SEPA de la Generalitat y certificado bancario de titularidad de la cuenta.",
+      "Si actúa representante legal o guardador/a de hecho: documento que acredite la representación o guarda.",
+      "Personas no empadronadas en Cataluña: documento identificativo y pruebas de residencia efectiva en Cataluña o de trabajo presencial en Cataluña; para los supuestos excepcionales, prueba de que los hechos ocurrieron allí.",
+      "Hijos/as por feminicidio y madres por violencia vicaria: resolución judicial que acredite la muerte por violencia machista. Si no pudo tramitarse procedimiento judicial contra el agresor porque ha fallecido, diligencias policiales.",
+      "Hijos/as: libro de familia completo o documento del Registro Civil que acredite filiación. Si la Administración no puede consultar los datos, certificado de convivencia con la víctima al fallecer y certificado de defunción.",
+      "Si la persona solicitante es menor no emancipada o tiene medidas de apoyo: documentación de tutor/a, representante legal o guardador/a de hecho."
     ],
-    "eval": "La fecha de inicio del plazo de cinco años depende del tipo de persona beneficiaria y del documento acreditativo. No usar una petición genérica: debe presentarse el trámite específico. La página oficial muestra importes 2026 y el cambio de fórmula a partir del 11 de julio de 2026.",
-    "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/Indemnitzacions-per-a-dones-victimes-de-violencia-masclista-i-per-a-fills-i-filles-de-dones-que-han-causat-mort-per-violencia-masclista?moda=1",
+    "eval": "Trámite 2026 actualizado por la Generalitat el 13/04/2026. Desde las solicitudes presentadas el 11/07/2026 se aplica la fórmula vinculada al IRSC anual: 2 veces para mujeres, con incremento del 25 % por discapacidad/VIH; 12 veces para hijos/as de víctimas de feminicidio; 6 veces para madres por violencia vicaria. Los importes fijos publicados para 2026 (4.009,25 €, 5.011,56 € y 57.733,08 €) corresponden a solicitudes sujetas a la cuantía anterior al cambio del 11/07/2026. No confundir el plazo de cinco años de cada modalidad: el hecho inicial de cómputo es distinto. La petición genérica no es válida. Puede tramitarse online con formulario específico, en oficinas de atención ciudadana con ayuda presencial, por registro y mediante videoatención. Resolución máxima: tres meses; silencio desestimatorio. Pago único.",
+    "link": "https://tramits.gencat.cat/ca/tramits/tramits-temes/Indemnitzacions-per-a-dones-victimes-de-violencia-masclista-i-per-a-fills-i-filles-de-dones-que-han-causat-mort-per-violencia-masclista?moda=1",
     "links": [
       [
-        "Trámite oficial de indemnización · Generalitat",
+        "Trámite oficial en catalán · Generalitat",
+        "https://tramits.gencat.cat/ca/tramits/tramits-temes/Indemnitzacions-per-a-dones-victimes-de-violencia-masclista-i-per-a-fills-i-filles-de-dones-que-han-causat-mort-per-violencia-masclista?moda=1"
+      ],
+      [
+        "Trámite oficial en castellano · Generalitat",
         "https://tramits.gencat.cat/es/tramits/tramits-temes/Indemnitzacions-per-a-dones-victimes-de-violencia-masclista-i-per-a-fills-i-filles-de-dones-que-han-causat-mort-per-violencia-masclista?moda=1"
+      ],
+      [
+        "Formulario SEPA · Generalitat",
+        "https://economia.gencat.cat/web/.content/70_tresoreria_pagaments/arxius/trans_banc_area_sepa.pdf"
       ]
     ],
     "categoria": "Violencia machista y protección",
     "perfil": "personal",
-    "estadoManual": "Trámite actualizado el 13/04/2026; importes 2026 contrastados el 17/11/2026."
+    "estadoManual": "Trámite permanente, con plazo máximo de cinco años según modalidad. Fuente oficial actualizada el 13/04/2026; importes 2026 con cambio de fórmula desde 11/07/2026."
   },
   {
     "id": 72,
@@ -2851,5 +2865,156 @@
     "categoria": "Violencia machista y protección",
     "perfil": "personal",
     "estadoManual": "Trámite 2026 contrastado el 17/11/2026."
+  },
+  {
+    "id": 75,
+    "tipo": "Indemnización",
+    "titulo": "Indemnización para mujeres víctimas de violencia machista (Cataluña)",
+    "organo": "Generalitat de Catalunya · Departament d’Igualtat i Feminisme",
+    "ambito": "Cataluña",
+    "plazo": "Hasta 5 años: para mujeres, desde la notificación de la resolución judicial o administrativa acreditativa; para hijos/as por feminicidio y madres por violencia vicaria, desde la resolución judicial o diligencias policiales sobre los hechos.",
+    "importe": "Desde 11/07/2026: 2 × IRSC anual; incremento del 25 % si se acredita discapacidad reconocida o VIH.",
+    "resumen": "Indemnización de pago único para mujeres víctimas de violencia machista. No exige especiales dificultades de empleo ni un límite de ingresos. Compatible con otras prestaciones e indemnizaciones judiciales.",
+    "reqs": {
+      "situacionPersonal": "violencia",
+      "ccaa": "Cataluña",
+      "indemnizacionModalidad": "dona",
+      "indemnizacionPlazo": "si",
+      "indemnizacionResidencia": "si"
+    },
+    "requisitos": [
+      "Residir de manera estable en Cataluña. Se considera residencia estable el empadronamiento o cualquier medio de prueba admitido que acredite que se vive allí al presentar la solicitud.",
+      "Excepción territorial: también pueden tener derecho la mujer y, en su caso, sus hijos/as si la mujer trabajaba presencialmente en Cataluña y los hechos ocurrieron en Cataluña.",
+      "La situación debe estar incluida en la Ley catalana 5/2008. Para mujeres: sentencia definitiva o modelo común de acreditación administrativa de violencia de género o sexual admitido por el trámite. Una orden de protección por sí sola no es el único medio ni sustituye automáticamente los documentos específicos exigidos.",
+      "Plazo de cinco años: para mujeres, desde la notificación de la resolución judicial o administrativa acreditativa. Para hijos/as por feminicidio y madres por violencia vicaria, desde la resolución judicial o diligencias policiales relativas a los hechos.",
+      "Se concede una sola vez y se abona en un único pago. No tiene tasa y es compatible con indemnizaciones fijadas judicialmente y otras prestaciones económicas públicas o privadas.",
+      "El autor de la violencia o la persona que la haya provocado no puede administrar ni disponer de la indemnización."
+    ],
+    "docs": [
+      "Mujeres: sentencia definitiva o modelo común de acreditación administrativa de violencia de género o de violencias sexuales, según proceda.",
+      "Si corresponde el incremento: certificado del grado de discapacidad reconocido o informe médico que acredite VIH.",
+      "Formulario bancario SEPA de la Generalitat y certificado bancario de titularidad de la cuenta.",
+      "Si actúa representante legal o guardador/a de hecho: documento que acredite la representación o guarda.",
+      "Personas no empadronadas en Cataluña: documento identificativo y pruebas de residencia efectiva en Cataluña o de trabajo presencial en Cataluña; para los supuestos excepcionales, prueba de que los hechos ocurrieron allí."
+    ],
+    "eval": "La acreditación se realiza con sentencia definitiva o modelo común de acreditación administrativa admitido. La orden de protección no es el único medio. Si se acredita discapacidad reconocida o VIH, el importe aumenta un 25 %. El plazo de cinco años se cuenta desde la notificación de la resolución judicial o administrativa que acredita la situación.",
+    "link": "https://tramits.gencat.cat/ca/tramits/tramits-temes/Indemnitzacions-per-a-dones-victimes-de-violencia-masclista-i-per-a-fills-i-filles-de-dones-que-han-causat-mort-per-violencia-masclista?moda=1",
+    "links": [
+      [
+        "Trámite oficial en catalán · Generalitat",
+        "https://tramits.gencat.cat/ca/tramits/tramits-temes/Indemnitzacions-per-a-dones-victimes-de-violencia-masclista-i-per-a-fills-i-filles-de-dones-que-han-causat-mort-per-violencia-masclista?moda=1"
+      ],
+      [
+        "Trámite oficial en castellano · Generalitat",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/Indemnitzacions-per-a-dones-victimes-de-violencia-masclista-i-per-a-fills-i-filles-de-dones-que-han-causat-mort-per-violencia-masclista?moda=1"
+      ],
+      [
+        "Formulario SEPA · Generalitat",
+        "https://economia.gencat.cat/web/.content/70_tresoreria_pagaments/arxius/trans_banc_area_sepa.pdf"
+      ]
+    ],
+    "categoria": "Violencia machista y protección",
+    "perfil": "personal",
+    "estadoManual": "Trámite permanente, con plazo máximo de cinco años según modalidad. Fuente oficial actualizada el 13/04/2026; importes 2026 con cambio de fórmula desde 11/07/2026."
+  },
+  {
+    "id": 76,
+    "tipo": "Indemnización",
+    "titulo": "Indemnización para hijos e hijas de mujeres fallecidas por feminicidio (Cataluña)",
+    "organo": "Generalitat de Catalunya · Departament d’Igualtat i Feminisme",
+    "ambito": "Cataluña",
+    "plazo": "5 años desde la resolución judicial o las diligencias policiales sobre los hechos",
+    "importe": "Desde 11/07/2026: 12 × IRSC anual. Cuantía 2026 anterior al cambio: 57.733,08 €.",
+    "resumen": "Indemnización de pago único para hijos e hijas menores de 26 años de mujeres fallecidas por violencia machista, siempre que se cumplan las condiciones de convivencia y vinculación territorial.",
+    "reqs": {
+      "situacionPersonal": "violencia",
+      "ccaa": "Cataluña",
+      "indemnizacionModalidad": "fill_feminicidi",
+      "indemnizacionPlazo": "si",
+      "indemnizacionResidencia": "si",
+      "indemnizacionEdadHijo": "si",
+      "indemnizacionConvivencia": "si"
+    },
+    "requisitos": [
+      "Residir de manera estable en Cataluña. Se considera residencia estable el empadronamiento o cualquier medio de prueba admitido que acredite que se vive allí al presentar la solicitud.",
+      "Excepción territorial: también pueden tener derecho la mujer y, en su caso, sus hijos/as si la mujer trabajaba presencialmente en Cataluña y los hechos ocurrieron en Cataluña.",
+      "Plazo de cinco años: para mujeres, desde la notificación de la resolución judicial o administrativa acreditativa. Para hijos/as por feminicidio y madres por violencia vicaria, desde la resolución judicial o diligencias policiales relativas a los hechos.",
+      "Hijos e hijas de mujeres fallecidas por violencia machista: menores de 26 años y convivencia con la víctima al fallecer. Se admiten excepciones cuando la convivencia se interrumpió por la violencia o existió ausencia temporal por estudios, trabajo, tratamiento médico, rehabilitación, causas similares o fuerza mayor.",
+      "Se concede una sola vez y se abona en un único pago. No tiene tasa y es compatible con indemnizaciones fijadas judicialmente y otras prestaciones económicas públicas o privadas."
+    ],
+    "docs": [
+      "Personas no empadronadas en Cataluña: documento identificativo y pruebas de residencia efectiva en Cataluña o de trabajo presencial en Cataluña; para los supuestos excepcionales, prueba de que los hechos ocurrieron allí.",
+      "Hijos/as por feminicidio y madres por violencia vicaria: resolución judicial que acredite la muerte por violencia machista. Si no pudo tramitarse procedimiento judicial contra el agresor porque ha fallecido, diligencias policiales.",
+      "Hijos/as: libro de familia completo o documento del Registro Civil que acredite filiación. Si la Administración no puede consultar los datos, certificado de convivencia con la víctima al fallecer y certificado de defunción.",
+      "Si la persona solicitante es menor no emancipada o tiene medidas de apoyo: documentación de tutor/a, representante legal o guardador/a de hecho."
+    ],
+    "eval": "La persona beneficiaria debe ser menor de 26 años y convivir con la madre al fallecer, con las excepciones legales por violencia, estudios, trabajo, salud o fuerza mayor. Si el agresor falleció y no pudo tramitarse procedimiento judicial contra él, pueden admitirse diligencias policiales. Plazo de cinco años desde resolución judicial o diligencias policiales.",
+    "link": "https://tramits.gencat.cat/ca/tramits/tramits-temes/Indemnitzacions-per-a-dones-victimes-de-violencia-masclista-i-per-a-fills-i-filles-de-dones-que-han-causat-mort-per-violencia-masclista?moda=1",
+    "links": [
+      [
+        "Trámite oficial en catalán · Generalitat",
+        "https://tramits.gencat.cat/ca/tramits/tramits-temes/Indemnitzacions-per-a-dones-victimes-de-violencia-masclista-i-per-a-fills-i-filles-de-dones-que-han-causat-mort-per-violencia-masclista?moda=1"
+      ],
+      [
+        "Trámite oficial en castellano · Generalitat",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/Indemnitzacions-per-a-dones-victimes-de-violencia-masclista-i-per-a-fills-i-filles-de-dones-que-han-causat-mort-per-violencia-masclista?moda=1"
+      ],
+      [
+        "Formulario SEPA · Generalitat",
+        "https://economia.gencat.cat/web/.content/70_tresoreria_pagaments/arxius/trans_banc_area_sepa.pdf"
+      ]
+    ],
+    "categoria": "Violencia machista y protección",
+    "perfil": "personal",
+    "estadoManual": "Trámite permanente, con plazo máximo de cinco años según modalidad. Fuente oficial actualizada el 13/04/2026; importes 2026 con cambio de fórmula desde 11/07/2026."
+  },
+  {
+    "id": 77,
+    "tipo": "Indemnización",
+    "titulo": "Indemnización para madres que han perdido hijos o hijas por violencia vicaria (Cataluña)",
+    "organo": "Generalitat de Catalunya · Departament d’Igualtat i Feminisme",
+    "ambito": "Cataluña",
+    "plazo": "5 años desde la resolución judicial o las diligencias policiales sobre los hechos",
+    "importe": "Desde 11/07/2026: 6 × IRSC anual. Cuantía 2026 anterior al cambio: 57.733,08 €.",
+    "resumen": "Indemnización de pago único para mujeres que han perdido un hijo o hija por violencia vicaria. Se exige acreditar judicialmente la muerte por violencia machista o, cuando no pudo tramitarse procedimiento judicial por fallecimiento del agresor, mediante diligencias policiales.",
+    "reqs": {
+      "situacionPersonal": "violencia",
+      "ccaa": "Cataluña",
+      "indemnizacionModalidad": "mare_vicaria",
+      "indemnizacionPlazo": "si",
+      "indemnizacionResidencia": "si"
+    },
+    "requisitos": [
+      "Residir de manera estable en Cataluña. Se considera residencia estable el empadronamiento o cualquier medio de prueba admitido que acredite que se vive allí al presentar la solicitud.",
+      "Excepción territorial: también pueden tener derecho la mujer y, en su caso, sus hijos/as si la mujer trabajaba presencialmente en Cataluña y los hechos ocurrieron en Cataluña.",
+      "Plazo de cinco años: para mujeres, desde la notificación de la resolución judicial o administrativa acreditativa. Para hijos/as por feminicidio y madres por violencia vicaria, desde la resolución judicial o diligencias policiales relativas a los hechos.",
+      "Las madres que han perdido un hijo o hija por violencia vicaria pueden ser beneficiarias de la modalidad específica.",
+      "Se concede una sola vez y se abona en un único pago. No tiene tasa y es compatible con indemnizaciones fijadas judicialmente y otras prestaciones económicas públicas o privadas."
+    ],
+    "docs": [
+      "Mujeres: sentencia definitiva o modelo común de acreditación administrativa de violencia de género o de violencias sexuales, según proceda.",
+      "Personas no empadronadas en Cataluña: documento identificativo y pruebas de residencia efectiva en Cataluña o de trabajo presencial en Cataluña; para los supuestos excepcionales, prueba de que los hechos ocurrieron allí.",
+      "Hijos/as por feminicidio y madres por violencia vicaria: resolución judicial que acredite la muerte por violencia machista. Si no pudo tramitarse procedimiento judicial contra el agresor porque ha fallecido, diligencias policiales.",
+      "Hijos/as: libro de familia completo o documento del Registro Civil que acredite filiación. Si la Administración no puede consultar los datos, certificado de convivencia con la víctima al fallecer y certificado de defunción."
+    ],
+    "eval": "El plazo de cinco años se cuenta desde la resolución judicial o las diligencias policiales sobre los hechos, no desde una resolución administrativa individual de acreditación de la mujer. La indemnización es compatible con otras prestaciones e indemnizaciones judiciales.",
+    "link": "https://tramits.gencat.cat/ca/tramits/tramits-temes/Indemnitzacions-per-a-dones-victimes-de-violencia-masclista-i-per-a-fills-i-filles-de-dones-que-han-causat-mort-per-violencia-masclista?moda=1",
+    "links": [
+      [
+        "Trámite oficial en catalán · Generalitat",
+        "https://tramits.gencat.cat/ca/tramits/tramits-temes/Indemnitzacions-per-a-dones-victimes-de-violencia-masclista-i-per-a-fills-i-filles-de-dones-que-han-causat-mort-per-violencia-masclista?moda=1"
+      ],
+      [
+        "Trámite oficial en castellano · Generalitat",
+        "https://tramits.gencat.cat/es/tramits/tramits-temes/Indemnitzacions-per-a-dones-victimes-de-violencia-masclista-i-per-a-fills-i-filles-de-dones-que-han-causat-mort-per-violencia-masclista?moda=1"
+      ],
+      [
+        "Formulario SEPA · Generalitat",
+        "https://economia.gencat.cat/web/.content/70_tresoreria_pagaments/arxius/trans_banc_area_sepa.pdf"
+      ]
+    ],
+    "categoria": "Violencia machista y protección",
+    "perfil": "personal",
+    "estadoManual": "Trámite permanente, con plazo máximo de cinco años según modalidad. Fuente oficial actualizada el 13/04/2026; importes 2026 con cambio de fórmula desde 11/07/2026."
   }
 ]
