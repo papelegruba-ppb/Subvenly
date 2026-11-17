@@ -185,6 +185,13 @@ var QUESTIONS={
   indemnizacionDiscapacidadVIH:"¿Puede acreditarse una discapacidad reconocida o VIH para solicitar el incremento del 25 %?",
   indemnizacionEdadHijo:"¿El hijo o hija beneficiario/a es menor de 26 años?",
   indemnizacionConvivencia:"¿El hijo o hija convivía con la madre cuando falleció, teniendo en cuenta las excepciones por violencia, estudios, trabajo, salud o fuerza mayor?",
+  pensionReconocida:"¿Existe una resolución judicial que reconozca una pensión de alimentos o compensatoria?",
+  pensionImpagada:"¿La otra persona ha dejado de pagar esa pensión?",
+  pensionEjecucion:"¿Has reclamado judicialmente el pago y existe una resolución que despacha ejecución?",
+  pensionResidencia:"¿Has residido legalmente en Cataluña durante cinco años, dos de ellos inmediatamente anteriores a la solicitud?",
+  pensionIngresos:"¿Los ingresos de tu unidad familiar están por debajo del límite de 1,5 veces el IRSC, con los incrementos por cargas familiares que correspondan?",
+  alquilerIRPFIngresos:"¿Tu base imponible total, una vez restado el mínimo personal y familiar, no supera 30.000 € anuales?",
+  alquilerMenorDiscapacidad:"¿Tienes algún hijo/a menor de edad a cargo o una discapacidad reconocida igual o superior al 65 %?",
   acreditacionViolencia:"¿Qué documento de acreditación tienes? (Puedes no responder)",
   dificultadEmpleo:"¿Tienes el informe del SOC o puedes solicitarlo para acreditar especiales dificultades para encontrar empleo?",
   ingresosAyuda27:"¿Tus ingresos están por debajo del límite indicado en la ficha oficial? (No calculamos este límite hasta verificarlo)",
@@ -262,7 +269,7 @@ var AIDS=[],NOV={items:[]},LIC={items:[]},VIG={};
 // ===== LÓGICA =====
 var A={},tipo="Todas",est="Todas",busquedaAyuda="",ambitoAyuda="",organoAyuda="",compatAyuda="",categoriaAyuda="";
 var LS={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
-var SENSITIVE_KEYS=["situacionPersonal","tipoViolencia","acreditacionViolencia","dificultadEmpleo","ingresosAyuda27","ingresosArt27","ingresosCatalunya","prestacionesCatalunya","contratoActual","indemnizacionModalidad","indemnizacionPlazo","indemnizacionResidencia","indemnizacionDiscapacidadVIH","indemnizacionEdadHijo","indemnizacionConvivencia","residenciaCatalunya","municipioBarcelona","empleoSituacion","demandaEmpleo","familia","alquiler","ingresosPersonales","unidadFamiliar","ccaa","provincia","municipio"];
+var SENSITIVE_KEYS=["situacionPersonal","tipoViolencia","acreditacionViolencia","dificultadEmpleo","ingresosAyuda27","ingresosArt27","ingresosCatalunya","prestacionesCatalunya","contratoActual","indemnizacionModalidad","indemnizacionPlazo","indemnizacionResidencia","indemnizacionDiscapacidadVIH","indemnizacionEdadHijo","indemnizacionConvivencia","pensionReconocida","pensionImpagada","pensionEjecucion","pensionResidencia","pensionIngresos","alquilerIRPFIngresos","alquilerMenorDiscapacidad","residenciaCatalunya","municipioBarcelona","empleoSituacion","demandaEmpleo","familia","alquiler","ingresosPersonales","unidadFamiliar","ccaa","provincia","municipio"];
 try{A=JSON.parse(LS.get("ans_subvenly")||"{}")||{}}catch(e){A={}}
 if(A.situacionPersonal==="violencia"){SENSITIVE_KEYS.forEach(function(k){delete A[k]});}
 function save(){var safe=Object.assign({},A);if(A.situacionPersonal==="violencia"){SENSITIVE_KEYS.forEach(function(k){delete safe[k]});}LS.set("ans_subvenly",JSON.stringify(safe))}
@@ -310,6 +317,13 @@ function opcionesPregunta(k){
     indemnizacionDiscapacidadVIH:[["si","Sí, existe acreditación"],["no","No"],["nose","Prefiero no responder / No lo sé"]],
     indemnizacionEdadHijo:[["si","Sí, es menor de 26 años"],["no","No, tiene 26 años o más"],["nose","No lo sé"]],
     indemnizacionConvivencia:[["si","Sí, o se aplica una excepción admitida"],["no","No"],["nose","No lo sé / Necesito comprobarlo"]],
+    pensionReconocida:[["si","Sí"],["no","No"],["nose","No lo sé / Necesito comprobarlo"]],
+    pensionImpagada:[["si","Sí, no se está pagando"],["no","No, se está pagando"],["nose","No lo sé"]],
+    pensionEjecucion:[["si","Sí, ya existe ejecución judicial"],["no","No, todavía no he reclamado judicialmente"],["nose","No lo sé / Necesito asesoramiento"]],
+    pensionResidencia:[["si","Sí"],["no","No"],["nose","No lo sé / Necesito comprobarlo"]],
+    pensionIngresos:[["si","Sí, estoy por debajo del límite"],["no","No, lo supero"],["nose","No lo sé; necesito calcularlo"]],
+    alquilerIRPFIngresos:[["si","Sí"],["no","No, lo supero"],["nose","No lo sé; necesito calcularlo"]],
+    alquilerMenorDiscapacidad:[["si","Sí"],["no","No"],["nose","No lo sé / Prefiero no responder"]],
     acreditacionViolencia:[["orden","Orden de protección o resolución cautelar"],["sentencia","Sentencia judicial"],["fiscal","Informe del Ministerio Fiscal"],["administrativa","Acreditación administrativa"],["servicios","Informe de servicios sociales o especializados"],["no","No tengo acreditación todavía"],["nose","No lo sé / Prefiero no responder"]],
     dificultadEmpleo:[["si","Sí, tengo informe del servicio público de empleo"],["no","No"],["nose","No lo sé"]],
     ingresosArt27:[["si","Sí, estoy por debajo del 75 % del SMI"],["no","No, lo supero"],["nose","No lo sé; necesito calcularlo"]],
@@ -670,6 +684,11 @@ function anadirRutaPersonal(l){
   if(A.ccaa==="Cataluña")l=l.concat(["#Indemnización catalana: modalidad y requisitos específicos","indemnizacionModalidad","indemnizacionPlazo","indemnizacionResidencia"]);
   if(A.ccaa==="Cataluña"&&A.indemnizacionModalidad==="dona")l.push("indemnizacionDiscapacidadVIH");
   if(A.ccaa==="Cataluña"&&A.indemnizacionModalidad==="fill_feminicidi")l=l.concat(["indemnizacionEdadHijo","indemnizacionConvivencia"]);
+  if(A.ccaa==="Cataluña")l=l.concat(["#Pensión de alimentos o compensatoria impagada","pensionReconocida"]);
+  if(A.ccaa==="Cataluña"&&A.pensionReconocida==="si")l=l.concat(["pensionImpagada"]);
+  if(A.ccaa==="Cataluña"&&A.pensionReconocida==="si"&&A.pensionImpagada==="si")l=l.concat(["pensionEjecucion","pensionResidencia","pensionIngresos"]);
+  if(A.ccaa==="Cataluña")l=l.concat(["#Deducción de alquiler en el IRPF para víctimas de violencia machista","alquiler"]);
+  if(A.ccaa==="Cataluña"&&A.alquiler==="si")l=l.concat(["alquilerIRPFIngresos","alquilerMenorDiscapacidad"]);
   if(A.ccaa==="País Vasco")l.push("contratoActual");
   l=l.concat(["residenciaCatalunya","municipioBarcelona","#Situación laboral y acceso a recursos","empleoSituacion","demandaEmpleo","familia","alquiler","ingresosPersonales","unidadFamiliar","tramitar"]);
  }
