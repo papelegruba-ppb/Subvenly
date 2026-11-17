@@ -1886,9 +1886,9 @@
     "titulo": "Ayuda de protección integral contra la violencia de género (Cataluña)",
     "organo": "Generalitat de Catalunya · Departament d’Igualtat i Feminismes",
     "ambito": "Cataluña",
-    "plazo": "Tramitación según vigencia de la acreditación; comprobar condiciones actuales",
-    "importe": "Pago único: 6 meses de subsidio; 12, 18 o 24 meses según discapacidad y responsabilidades familiares",
-    "resumen": "Ayuda autonómica para mujeres víctimas de violencia en la pareja o expareja, empadronadas en Cataluña, con ingresos inferiores al 75 % del IPREM mensual (sin pagas extra) y dificultades especiales para encontrar empleo. Requiere informe del SOC. Es distinta de la ayuda estatal del artículo 27.",
+    "plazo": "Puede solicitarse mientras estén vigentes las medidas de protección; si aún no existen, cuando la mujer esté acreditada como víctima por alguno de los medios admitidos. No consta un plazo anual de convocatoria.",
+    "importe": "Pago único equivalente a 6 meses del subsidio por desempleo; puede ampliarse a 12, 18 o 24 meses según discapacidad y responsabilidades familiares. La ficha oficial no publica una cifra fija en euros.",
+    "resumen": "Ayuda económica de pago único para mujeres víctimas de violencia de género por parte de su pareja o expareja, empadronadas en Cataluña, con ingresos mensuales totales inferiores al 75 % del IPREM (sin pagas extraordinarias) y especiales dificultades para encontrar empleo acreditadas mediante informe del SOC. Es una ayuda diferente de la indemnización catalana y de la ayuda estatal del artículo 27.",
     "reqs": {
       "situacionPersonal": "violencia",
       "tipoViolencia": "violencia_genero",
@@ -1903,35 +1903,46 @@
       "ccaa": "Cataluña"
     },
     "requisitos": [
+      "Ser mujer víctima de violencia de género ejercida por la pareja o expareja.",
       "Estar empadronada en cualquier municipio de Cataluña.",
-      "Acreditar violencia de género en el ámbito de la pareja o expareja mediante orden de protección vigente, sentencia, resolución judicial con medidas de protección, informe del Ministerio Fiscal o acreditación administrativa admitida por el trámite.",
-      "Tener ingresos mensuales totales inferiores al 75 % del IPREM mensual, sin computar las dos pagas extraordinarias.",
-      "Acreditar dificultades especiales para encontrar trabajo mediante informe del SOC.",
-      "No percibir las prestaciones incompatibles que enumera el trámite: paro, RAI por violencia de género, subsidio de desempleo para víctimas, RGC u otras pensiones contributivas. Comprobar el texto vigente antes de presentar."
+      "Tener ingresos mensuales totales inferiores al 75 % del IPREM mensual. No se computan las dos pagas extraordinarias.",
+      "Acreditar especiales dificultades para encontrar empleo mediante el informe del Servei Públic d’Ocupació de Catalunya (SOC), conforme al artículo 15 del Decreto 80/2015.",
+      "Tener medidas de protección vigentes o, si todavía no se han establecido, estar acreditada como víctima mediante sentencia, resolución judicial de medidas de protección, informe del Ministerio Fiscal con indicios de victimización o acreditación administrativa admitida.",
+      "No percibir las prestaciones que el trámite declara incompatibles: prestación contributiva por desempleo, Renta Garantizada de Ciudadanía, subsidio para víctimas de violencia de género (la ficha conserva la denominación histórica RAI), ni otras prestaciones o subsidios contributivos. La compatibilidad debe comprobarse con el órgano gestor antes de solicitar si existe otra ayuda o ingreso."
     ],
     "docs": [
-      "Documento de acreditación de la violencia admitido por el trámite.",
-      "Informe del SOC sobre dificultades especiales para encontrar empleo.",
-      "Justificantes de ingresos y rendimientos.",
-      "Datos de convivencia y unidad familiar; libro de familia o Registro Civil si hay hijos a cargo.",
-      "Documento SEPA y certificado de titularidad bancaria.",
-      "DNI/NIE o documento identificativo; certificado de discapacidad si procede."
+      "Anexo con los datos de las personas integrantes de la unidad familiar.",
+      "Documento de acreditación de violencia admitido: orden de protección vigente; sentencia que condene los hechos y establezca medidas de protección; informe del Ministerio Fiscal con indicios de victimización mientras no se establezcan medidas; o acreditación administrativa de la situación.",
+      "Informe del SOC sobre especiales dificultades para encontrar empleo, conforme al artículo 15 del Decreto 80/2015.",
+      "Formulario de transferencia bancaria SEPA de la Generalitat, con la solicitante como titular, y certificado bancario de titularidad.",
+      "Documentación identificativa (DNI/NIE o pasaporte, según proceda).",
+      "Si hay hijos/as a cargo: libro de familia o documento del Registro Civil que acredite la filiación.",
+      "Si existe discapacidad reconocida fuera de Cataluña: certificado del grado de discapacidad.",
+      "Si no se autoriza la consulta de datos por la Administración: certificado de convivencia y documento tributario que acredite los derechos o rendimientos."
     ],
-    "eval": "El encaje es orientativo. El trámite oficial exige todos los requisitos simultáneamente. La cuantía ordinaria equivale a seis meses de subsidio y puede ampliarse a 12, 18 o 24 meses en los supuestos de discapacidad y responsabilidades familiares previstos. Se solicita en cualquier momento mientras estén vigentes las medidas de protección o exista acreditación admitida.",
+    "eval": "La cuantía ordinaria equivale a seis meses de subsidio por desempleo y se paga de una sola vez. Se amplía a 12 meses si concurre discapacidad igual o superior al 33 % o un familiar/menor acogido; a 18 meses si hay dos o más familiares/menores acogidos, o discapacidad ≥33 % junto con familiar/menor acogido, o familiar/menor acogido con discapacidad >33 %; y a 24 meses en los supuestos específicos de discapacidad de la solicitante >65 % y familiares acogidos con discapacidad >33 % descritos por la Generalitat. No convertir estos múltiplos en euros sin verificar la base económica aplicable en la fecha de resolución. La solicitud debe hacerse con el formulario específico: la petición genérica no es válida. Se puede tramitar por internet con certificado digital o idCAT Mòbil, presencialmente con asistencia en oficinas habilitadas o por videoatención. El plazo máximo de resolución es de tres meses; el silencio es desestimatorio, sin impedir que la Administración resuelva después. Cabe recurso de alzada en un mes.",
     "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/20283-Ajuts-de-mesures-de-proteccio-integral-contra-la-violencia-de-genere?moda=1",
     "links": [
       [
-        "Trámite oficial Generalitat",
+        "Trámite oficial Generalitat (castellano)",
         "https://tramits.gencat.cat/es/tramits/tramits-temes/20283-Ajuts-de-mesures-de-proteccio-integral-contra-la-violencia-de-genere?moda=1"
+      ],
+      [
+        "Trámite oficial Generalitat (catalán)",
+        "https://tramits.gencat.cat/ca/tramits/tramits-temes/20283-Ajuts-de-mesures-de-proteccio-integral-contra-la-violencia-de-genere?moda=1"
       ],
       [
         "Decreto 80/2015 · Portal Jurídic",
         "https://portaljuridic.gencat.cat/eli/es-ct/d/2015/05/26/80"
+      ],
+      [
+        "Real Decreto 1452/2005 · BOE",
+        "https://www.boe.es/buscar/act.php?id=BOE-A-2005-20788"
       ]
     ],
     "categoria": "Violencia machista y protección",
     "perfil": "personal",
-    "estadoManual": "Verificado en Tràmits Gencat el 17/11/2026. Revisar documentación y compatibilidades en la ficha oficial antes de presentar.",
+    "estadoManual": "Revisada el 17/11/2026 con el trámite oficial de la Generalitat (actualización publicada en la página: 16/12/2024). La fuente tiene fecha antigua; comprobar con SOC/Generalitat la vigencia operativa de cuantías e incompatibilidades antes de presentar.",
     "verificacionPendiente": false
   },
   {
