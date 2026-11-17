@@ -118,6 +118,27 @@ def main():
            'MONITOR_FICHAS=$(read_monitor_counts "vigilancia.json" "fichas")' in workflow and
            'MONITOR_SOURCES_UNVERIFIED' in workflow and 'MONITOR_FICHAS_UNVERIFIED' in workflow,
            "El resumen debe mostrar cambios y páginas no verificables de la vigilancia de fuentes y fichas")
+    workflow_lines = workflow.splitlines()
+    summary_index = next((i for i, line in enumerate(workflow_lines)
+                          if line.strip() == "- name: Resumen de actualización y cobertura"), -1)
+    exigir(summary_index >= 0, "Falta el paso de resumen de actualización")
+    run_index = next((i for i in range(summary_index + 1, len(workflow_lines))
+                      if workflow_lines[i].strip() == "run: |"), -1)
+    exigir(run_index >= 0, "El resumen automático no tiene bloque run")
+    summary_lines = []
+    for line in workflow_lines[run_index + 1:]:
+        if line.startswith("      - "):
+            break
+        if line.startswith("          "):
+            summary_lines.append(line[10:])
+        elif not line.strip():
+            summary_lines.append("")
+        else:
+            break
+    summary_script = re.sub(r"\$\{\{.*?\}\}", "success", "\n".join(summary_lines))
+    shell_check = subprocess.run(["bash", "-n"], input=summary_script, capture_output=True, text=True)
+    exigir(shell_check.returncode == 0,
+           "Error de sintaxis en el resumen shell de GitHub Actions: " + shell_check.stderr)
     exigir("timeout-minutes: 6" in workflow and
            "timeout --kill-after=10s 300s python -u scripts/actualizar_licitaciones.py" in workflow,
            "La importación de licitaciones debe tener un límite de tiempo ampliado y salida sin búfer para diagnosticar bloqueos")
