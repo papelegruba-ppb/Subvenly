@@ -12,7 +12,7 @@ Uso:
   python scripts/actualizar_licitaciones.py --fixture ejemplo.atom   # prueba sin red
 """
 import json, os, sys, time, datetime as dt
-import urllib.request, urllib.error
+import urllib.request, urllib.error, urllib.parse
 import xml.etree.ElementTree as ET
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -84,7 +84,30 @@ def importe(v):
     except (TypeError, ValueError):
         return None
 
-def entrada(e, hoy):
+def fuente_host(enlace):
+    """Devuelve el dominio del enlace oficial, sin inferirlo a partir del título."""
+    try:
+        host = (urllib.parse.urlparse(enlace or "").hostname or "").lower()
+    except ValueError:
+        host = ""
+    return host[4:] if host.startswith("www.") else host
+
+
+def normalizar_procedencia(item):
+    """Completa metadatos trazables; los feeds históricos no se inventan."""
+    if not isinstance(item, dict):
+        return item
+    if not item.get("fuente"):
+        item["fuente"] = fuente_host(item.get("link")) or "no_identificada"
+    if not item.get("feed"):
+        item["feed"] = "historico_sin_identificar"
+    # El importador solo admite registros cuyo código original era PUB.
+    if not item.get("estadoEnCaptura"):
+        item["estadoEnCaptura"] = "PUB"
+    return item
+
+
+def entrada(e, hoy, feed=None):
     estado = txt(desc(e, "ContractFolderStatusCode"))
     if estado != "PUB":           # solo las que están en plazo de presentación de ofertas
         return None
@@ -104,13 +127,16 @@ def entrada(e, hoy):
     titulo = txt(hijo(proj, "Name")) or txt(hijo(e, "title"))
     if not ident or not titulo:
         return None
-    return {"id": ident, "titulo": titulo[:300], "organo": txt(desc(parte, "Name")),
-            "territorio": txt(desc(lugar, "CountrySubentity")), "nuts": txt(desc(lugar, "CountrySubentityCode")),
-            "tipo": TIPOS.get(txt(hijo(proj, "TypeCode")), "Otros"), "cpv": cpv[:8],
-            "presupuesto": importe(txt(desc(presup, "TaxExclusiveAmount")) or txt(desc(presup, "TotalAmount"))),
-            "cierre": cierre, "link": enlace, "visto": hoy.isoformat(), "actualizada": iso(txt(hijo(e, "updated")))}
+    return normalizar_procedencia({
+        "id": ident, "titulo": titulo[:300], "organo": txt(desc(parte, "Name")),
+        "territorio": txt(desc(lugar, "CountrySubentity")), "nuts": txt(desc(lugar, "CountrySubentityCode")),
+        "tipo": TIPOS.get(txt(hijo(proj, "TypeCode")), "Otros"), "cpv": cpv[:8],
+        "presupuesto": importe(txt(desc(presup, "TaxExclusiveAmount")) or txt(desc(presup, "TotalAmount"))),
+        "cierre": cierre, "link": enlace, "visto": hoy.isoformat(), "actualizada": iso(txt(hijo(e, "updated"))),
+        "feed": feed or "no_identificado", "estadoEnCaptura": estado
+    })
 
-def recorrer(url, corte, hoy, raiz_local=None):
+def recorrer(url, corte, hoy, raiz_local=None, feed=None):
     """Lee un lote y devuelve (registros, páginas, siguiente URL, completo)."""
     out, n = [], 0
     while url:
@@ -118,7 +144,7 @@ def recorrer(url, corte, hoy, raiz_local=None):
         raiz = ET.fromstring(raiz_local if raiz_local is not None else leer_url(url))
         entradas = [x for x in raiz if local(x.tag) == "entry"]
         for e in entradas:
-            r = entrada(e, hoy)
+            r = entrada(e, hoy, feed=feed)
             if r:
                 out.append(r)
         ultima = iso(txt(hijo(entradas[-1], "updated"))) if entradas else ""
@@ -142,7 +168,7 @@ def main():
     cursores_nuevos = dict(cursores_anteriores)
     if "--fixture" in sys.argv:
         datos = open(sys.argv[sys.argv.index("--fixture") + 1], "rb").read()
-        r, n, _, completo = recorrer("fixture", corte_base, hoy, raiz_local=datos)
+        r, n, _, completo = recorrer("fixture", corte_base, hoy, raiz_local=datos, feed="fixture")
         nuevas += r; ficheros += n; fuentes_ok.append("fixture")
     else:
         for nombre, url_base in FEEDS:
@@ -156,7 +182,7 @@ def main():
             url = previo.get("next") or url_base
             print(f"Fuente '{nombre}' desde {corte}; continuación: {'sí' if previo.get('next') else 'no'}")
             try:
-                r, n, siguiente, completo = recorrer(url, corte, hoy)
+                r, n, siguiente, completo = recorrer(url, corte, hoy, feed=nombre)
                 nuevas += r; ficheros += n
                 if completo:
                     fuentes_ok.append(nombre)
@@ -179,7 +205,11 @@ def main():
             escribir("estado_licitaciones.json", {"ultima": ultima or "", "fuentes": fuentes_ok, "feeds": cursores_nuevos})
         return 1
     previo_doc = leer("licitaciones.json", {"items": []})
-    previo = {i["id"]: i for i in previo_doc.get("items", [])}
+    previo = {}
+    for item in previo_doc.get("items", []):
+        if isinstance(item, dict) and item.get("id") is not None:
+            normalizado = normalizar_procedencia(dict(item))
+            previo[str(normalizado["id"])] = normalizado
     for r in nuevas:
         if r["id"] not in previo or (r["actualizada"] or "") >= (previo[r["id"]].get("actualizada") or ""):
             r["visto"] = previo.get(r["id"], r).get("visto", r["visto"])

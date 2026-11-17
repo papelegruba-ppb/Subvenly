@@ -109,6 +109,36 @@ def main():
     exigir("id: buscar_cido" in workflow and "CIDO_OUTCOME" in workflow and
            "def es_bdns(item)" in bdns_script and "if not es_bdns(item):" in bdns_script,
            "El flujo debe ejecutar CIDO y evitar consultar sus IDs como si fueran de BDNS")
+    exigir('BDNS_DIAG_STATE=$(read_diag_state "_diagnostico.json")' in workflow and
+           'CIDO_DIAG_STATE=$(read_diag_state "_diagnostico_cido.json")' in workflow and
+           'UE_DIAG_STATE=$(read_diag_state "_diagnostico_ue.json")' in workflow and
+           '"${UE_DIAG_STATE}" != "correcta"' in workflow,
+           "El resumen automático debe avisar también cuando un importador termina con código cero pero su diagnóstico es parcial o desconocido")
+    exigir('MONITOR_SOURCES=$(read_monitor_counts "vigilancia_fuentes.json" "fuentes")' in workflow and
+           'MONITOR_FICHAS=$(read_monitor_counts "vigilancia.json" "fichas")' in workflow and
+           'MONITOR_SOURCES_UNVERIFIED' in workflow and 'MONITOR_FICHAS_UNVERIFIED' in workflow,
+           "El resumen debe mostrar cambios y páginas no verificables de la vigilancia de fuentes y fichas")
+    workflow_lines = workflow.splitlines()
+    summary_index = next((i for i, line in enumerate(workflow_lines)
+                          if line.strip() == "- name: Resumen de actualización y cobertura"), -1)
+    exigir(summary_index >= 0, "Falta el paso de resumen de actualización")
+    run_index = next((i for i in range(summary_index + 1, len(workflow_lines))
+                      if workflow_lines[i].strip() == "run: |"), -1)
+    exigir(run_index >= 0, "El resumen automático no tiene bloque run")
+    summary_lines = []
+    for line in workflow_lines[run_index + 1:]:
+        if line.startswith("      - "):
+            break
+        if line.startswith("          "):
+            summary_lines.append(line[10:])
+        elif not line.strip():
+            summary_lines.append("")
+        else:
+            break
+    summary_script = re.sub(r"\$\{\{.*?\}\}", "success", "\n".join(summary_lines))
+    shell_check = subprocess.run(["bash", "-n"], input=summary_script, capture_output=True, text=True)
+    exigir(shell_check.returncode == 0,
+           "Error de sintaxis en el resumen shell de GitHub Actions: " + shell_check.stderr)
     exigir("timeout-minutes: 6" in workflow and
            "timeout --kill-after=10s 300s python -u scripts/actualizar_licitaciones.py" in workflow,
            "La importación de licitaciones debe tener un límite de tiempo ampliado y salida sin búfer para diagnosticar bloqueos")
@@ -187,15 +217,41 @@ def main():
            not equitat.get("estadoManual"),
            "La Beca Equitat debe usar fecha y hora de cierre estructuradas, no un estado manual permanente")
 
-    # Cada requisito usado por las fichas debe tener una pregunta visible en el test.
+    # Cada requisito debe tener una pregunta directa o derivarse de preguntas visibles.
     question_blocks = re.findall(r"var QUESTIONS\s*=\s*\{([\s\S]*?)\n\};", html)
     question_blocks += re.findall(r"Object\.assign\(QUESTIONS,\s*\{([\s\S]*?)\}\);", html)
     question_keys = set()
     for block in question_blocks:
         question_keys.update(re.findall(r"^\s*([A-Za-z_$][\w$]*):", block, flags=re.M))
     requirement_keys = {key for ficha in fichas for key in (ficha.get("reqs") or {})}
-    missing_questions = sorted(requirement_keys - question_keys)
-    exigir(not missing_questions, "Faltan preguntas visibles para requisitos de fichas: " + ", ".join(missing_questions))
+    # Requisitos compuestos calculados por valorAid(): sus dependencias, no el
+    # nombre interno del requisito, son las preguntas que debe mostrar el test.
+    derived_requirement_questions = {
+        "andaluciaNatalidadRequisitos": ("partoMultiple", "andaluciaTercerHijoMenor3"),
+        "asturiasNatalidadRequisitos": ("nacimientoFecha", "asturiasResidencia", "asturiasRenta"),
+        "euskadiNatalidadRequisitos": ("euskadiEdadMenor", "hijosTotal", "familiaMonoparental"),
+        "familiaCategoriaElegible": ("familiaCategoria",),
+        "galiciaBenvidaRequisitos": ("familiaEvento", "embarazoSemana", "galiciaRenta", "nacimientoFecha"),
+        "madridNatalidadRequisitos": ("madridNatalidadEdad", "madridNatalidadResidencia", "madridNatalidadRenta", "madridHijoMenor24"),
+        "maternidadRequisitos": ("maternidadHijoMenor3", "maternidadTitular", "maternidadAltaNacimiento", "maternidadParoNacimiento", "maternidad30Dias"),
+        "perfilFiscalEligible": ("perfil",),
+    }
+    valor_aid = ultima_funcion("valorAid")
+    missing_questions = []
+    for key in sorted(requirement_keys - question_keys):
+        dependencies = derived_requirement_questions.get(key)
+        if not dependencies:
+            missing_questions.append(key)
+            continue
+        visibles = all(
+            dependency in question_keys and
+            (dependency == "perfil" or f'"{dependency}"' in ruta_personal or f"'{dependency}'" in ruta_personal)
+            for dependency in dependencies
+        )
+        calculado = f'k==="{key}"' in valor_aid or f"k === '{key}'" in valor_aid
+        if not visibles or not calculado:
+            missing_questions.append(key)
+    exigir(not missing_questions, "Faltan preguntas visibles o cálculo para requisitos de fichas: " + ", ".join(missing_questions))
     scripts = re.findall(r"<script\b([^>]*)>(.*?)</script>", html, flags=re.I | re.S)
     inline = [code for attrs, code in scripts if not re.search(r"\bsrc\s*=", attrs, flags=re.I) and code.strip()]
     exigir(inline, "No se encontraron scripts JavaScript inline para validar")
