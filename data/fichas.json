@@ -2718,5 +2718,143 @@
     "categoria": "Violencia machista y protección",
     "perfil": "personal",
     "estadoManual": "Trámite actualizado el 13/04/2026; importes 2026 contrastados el 17/11/2026."
+  },
+  {
+    "id": 72,
+    "tipo": "Ayuda",
+    "titulo": "Ayuda de pago único para mujeres víctimas de violencia de género (Comunidad de Madrid)",
+    "organo": "Comunidad de Madrid · Dirección General de la Mujer",
+    "ambito": "Comunidad de Madrid",
+    "plazo": "Permanente; en plazo",
+    "importe": "En 2026: desde 3.420 €; puede aumentar según familiares a cargo y discapacidad, hasta 12.420 €",
+    "resumen": "Ayuda de pago único para mujeres víctimas de violencia de género con rentas limitadas y especiales dificultades para encontrar empleo. En 2026, la Comunidad de Madrid informa de un umbral mensual de 915,75 € (75 % del SMI sin pagas extra) y una cuantía mínima de 3.420 €.",
+    "reqs": {
+      "situacionPersonal": "violencia",
+      "tipoViolencia": "violencia_genero",
+      "ccaa": "Comunidad de Madrid",
+      "ingresosArt27": "si",
+      "dificultadEmpleo": {
+        "oneOf": [
+          "si",
+          "nose"
+        ]
+      }
+    },
+    "requisitos": [
+      "No haber sido beneficiaria anteriormente de esta misma ayuda.",
+      "Tener vigente el título que acredita la situación de violencia de género.",
+      "Residir en cualquier municipio de la Comunidad de Madrid.",
+      "No superar el 75 % del SMI mensual, excluida la parte proporcional de dos pagas extraordinarias; la ficha oficial indica 915,75 €/mes para 2026.",
+      "Acreditar especiales dificultades para obtener empleo mediante informe del Servicio Público de Empleo."
+    ],
+    "docs": [
+      "Acreditación vigente de la situación de violencia de género.",
+      "Justificantes de ingresos mensuales propios y de familiares a cargo, cuando proceda.",
+      "Libro de familia/certificados de nacimiento, tutela o acogimiento, si corresponde.",
+      "Permiso de residencia y/o trabajo, en su caso.",
+      "La Administración consulta DNI/NIE, empadronamiento e informe de empleo salvo oposición."
+    ],
+    "eval": "La convocatoria está en plazo permanente. La cuantía mínima y máxima comunicadas por la Comunidad en septiembre de 2026 son orientativas: el importe individual depende de las responsabilidades familiares y discapacidad reconocidas. Plazo máximo de resolución: tres meses; silencio desestimatorio.",
+    "link": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayuda-mujeres-victimas-violencia",
+    "links": [
+      [
+        "Trámite oficial Comunidad de Madrid",
+        "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayuda-mujeres-victimas-violencia"
+      ],
+      [
+        "Información de importes 2026",
+        "https://www.comunidad.madrid/noticias/2026/09/13/comunidad-madrid-amplia-25-millones-euros-inversion-ayudas-directas-mujeres-victimas-violencia"
+      ]
+    ],
+    "categoria": "Violencia machista y protección",
+    "perfil": "personal",
+    "estadoManual": "En plazo permanente. Requisitos y umbral contrastados el 17/11/2026."
+  },
+  {
+    "id": 73,
+    "tipo": "Ayuda",
+    "titulo": "Ayuda económica de pago único para mujeres víctimas de violencia de género (País Vasco, 2026)",
+    "organo": "Gobierno Vasco · Bienestar, Juventud y Reto Demográfico",
+    "ambito": "País Vasco",
+    "plazo": "Convocatoria/trámite 2026; comprobar disponibilidad y vigencia de la acreditación",
+    "importe": "3.420 € a 12.420 €, según discapacidad y personas a cargo",
+    "resumen": "Ayuda de pago único para mujeres víctimas de violencia de género por pareja o expareja que hayan finalizado la relación, estén desempleadas y cumplan el límite de rentas. El Gobierno Vasco publica importes diferenciados según discapacidad y cargas familiares.",
+    "reqs": {
+      "situacionPersonal": "violencia",
+      "tipoViolencia": "violencia_genero",
+      "ccaa": "País Vasco",
+      "ingresosArt27": "si",
+      "contratoActual": "no"
+    },
+    "requisitos": [
+      "Haber finalizado definitivamente la relación de pareja con el agresor o presunto agresor.",
+      "Estar empadronada en Euskadi en la fecha de solicitud.",
+      "Estar desempleada y no tener contrato de trabajo.",
+      "No superar el 75 % del SMI mensual, excluida la parte proporcional de dos pagas extraordinarias; se computan ingresos de la solicitante y personas económicamente a su cargo según las reglas del trámite.",
+      "Tener credencial de víctima vigente y cumplir la antigüedad máxima indicada: hasta dos años desde el inicio de vigencia de la credencial o acreditación administrativa con antigüedad no superior a seis meses.",
+      "No haber cobrado previamente la ayuda por el mismo victimario, ni la ayuda de violencia sexual, ni el subsidio específico incompatible indicado en el trámite."
+    ],
+    "docs": [
+      "Credencial o acreditación administrativa vigente de la situación de violencia.",
+      "Empadronamiento en Euskadi.",
+      "Justificantes de ingresos de la solicitante y personas a cargo.",
+      "Documentación de discapacidad y cargas familiares, si procede.",
+      "Documento bancario de titularidad de la cuenta."
+    ],
+    "eval": "La tabla oficial 2026 fija importes entre 3.420 € y 12.420 €. La ayuda se paga de una sola vez. Mantener todos los requisitos durante la tramitación y comunicar cambios. La acreditación, su vigencia y las incompatibilidades son especialmente relevantes.",
+    "link": "https://www.euskadi.eus/ayuda_subvencion/2026/ayuda_victimas_violencia_genero/web01-tramite/es/",
+    "links": [
+      [
+        "Trámite oficial Gobierno Vasco 2026",
+        "https://www.euskadi.eus/ayuda_subvencion/2026/ayuda_victimas_violencia_genero/web01-tramite/es/"
+      ],
+      [
+        "Decreto 5/2026 · normativa",
+        "https://www.euskadi.eus"
+      ]
+    ],
+    "categoria": "Violencia machista y protección",
+    "perfil": "personal",
+    "estadoManual": "Trámite 2026 contrastado el 17/11/2026."
+  },
+  {
+    "id": 74,
+    "tipo": "Ayuda",
+    "titulo": "Ayuda económica para víctimas de violencias sexuales (País Vasco, 2026)",
+    "organo": "Gobierno Vasco · Bienestar, Juventud y Reto Demográfico",
+    "ambito": "País Vasco",
+    "plazo": "Hasta 5 años desde el último título acreditativo; hechos desde el 07/10/2022",
+    "importe": "3.420 € a 12.420 €, según discapacidad y personas a cargo",
+    "resumen": "Ayuda económica para mujeres, niñas y niños víctimas de violencia sexual empadronados en Euskadi. Tiene requisitos de ingresos, acreditación y fecha de los hechos propios; no debe confundirse con la ayuda para violencia de género en la pareja.",
+    "reqs": {
+      "situacionPersonal": "violencia",
+      "tipoViolencia": "violencia_sexual",
+      "ccaa": "País Vasco"
+    },
+    "requisitos": [
+      "Estar empadronada/o en la Comunidad Autónoma de Euskadi en la fecha de solicitud.",
+      "No superar los límites de ingresos: como regla general, el SMI mensual sin pagas extra; para menores o personas dependientes se aplican límites de unidad familiar específicos.",
+      "Los hechos deben haber ocurrido a partir del 7 de octubre de 2022.",
+      "Solicitar dentro de los cinco años desde el último título acreditativo de la condición de víctima.",
+      "La cuantía depende de discapacidad y familiares o menores a cargo; puede pagarse de una vez o prorratearse en seis mensualidades."
+    ],
+    "docs": [
+      "Acreditación de violencia sexual admitida por la normativa.",
+      "Empadronamiento en Euskadi.",
+      "Justificantes de ingresos de la solicitante y, si procede, unidad familiar.",
+      "Documentación de discapacidad y personas a cargo.",
+      "Documento bancario de titularidad de la cuenta."
+    ],
+    "eval": "No confundir con la ayuda de pago único por violencia de género de pareja o expareja. La ayuda sexual tiene un límite de ingresos distinto y una ventana temporal vinculada a la Ley Orgánica 10/2022.",
+    "link": "https://www.euskadi.eus/ayuda_subvencion/2026/ayuda_victimas_violencia_sexual/web01-tramite/es/",
+    "links": [
+      [
+        "Trámite oficial Gobierno Vasco 2026",
+        "https://www.euskadi.eus/ayuda_subvencion/2026/ayuda_victimas_violencia_sexual/web01-tramite/es/"
+      ]
+    ],
+    "categoria": "Violencia machista y protección",
+    "perfil": "personal",
+    "estadoManual": "Trámite 2026 contrastado el 17/11/2026."
   }
 ]
