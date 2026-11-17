@@ -735,7 +735,8 @@
       ]
     ],
     "categoria": "Familia y nacimiento",
-    "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/Prestacio-per-a-families-amb-infants?moda=1"
+    "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/Prestacio-per-a-families-amb-infants?moda=1",
+    "estadoManual": "Plazo individual: 3 meses desde el día siguiente al hecho causante para hechos desde el 14/07/2026 y 1 mes para los anteriores. Verificar la fecha y el supuesto con la Generalitat antes de confirmar que está en plazo."
   },
   {
     "id": 24,
@@ -2123,7 +2124,8 @@
       ]
     ],
     "categoria": "Familia y fiscalidad",
-    "perfil": "personal"
+    "perfil": "personal",
+    "estadoManual": "Derecho y abono anticipado sujetos a requisitos personales y fiscales. Comprobar la situación concreta, titularidad y periodo aplicable en la AEAT antes de confirmar el acceso."
   },
   {
     "id": 58,
@@ -2170,7 +2172,8 @@
       ]
     ],
     "categoria": "Familia y fiscalidad",
-    "perfil": "personal"
+    "perfil": "personal",
+    "estadoManual": "Deducción sujeta a título de familia numerosa vigente y demás requisitos fiscales. Verificar categoría, titularidad y situación concreta con la AEAT antes de confirmar el acceso."
   },
   {
     "id": 59,
@@ -2210,7 +2213,8 @@
         "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-economicas-natalidad"
       ]
     ],
-    "categoria": "Familia y nacimiento"
+    "categoria": "Familia y nacimiento",
+    "estadoManual": "La ficha describe una ayuda de carácter permanente, sujeta a requisitos y crédito presupuestario disponible. Confirmar disponibilidad y condiciones en la sede antes de indicar que puede solicitarse."
   },
   {
     "id": 60,
@@ -2255,7 +2259,8 @@
         "https://politicasocial.xunta.gal/gl/recursos/plans-e-programas/tarxeta-benvida"
       ]
     ],
-    "categoria": "Familia y nacimiento"
+    "categoria": "Familia y nacimiento",
+    "estadoManual": "Convocatoria 2026 publicada hasta el 31/03/2027; el plazo individual depende del embarazo, nacimiento, adopción o acogimiento. Verificar la fecha causante y el supuesto."
   },
   {
     "id": 61,
@@ -2299,7 +2304,8 @@
         "https://juventud.asturias.es/-/ayudas-para-el-fomento-de-la-natalidad-y-la-adopci%C3%B3n-en-el-principado-de-asturias%C2%A0%C2%A0.-2025"
       ]
     ],
-    "categoria": "Familia y nacimiento"
+    "categoria": "Familia y nacimiento",
+    "estadoManual": "Convocatoria 2026 con plazo general hasta el 30/11/2026; determinados supuestos tienen plazo individual de dos meses. Verificar la fecha causante y el supuesto aplicable."
   },
   {
     "id": 62,
@@ -2343,7 +2349,8 @@
         "https://www.euskadi.eus/web01-a2famil/es/contenidos/informacion/familia_dirulaguntzaberria_4/es_def/index.shtml"
       ]
     ],
-    "categoria": "Familia y nacimiento"
+    "categoria": "Familia y nacimiento",
+    "estadoManual": "Convocatoria 2026 con solicitudes hasta el 31/12/2026 para los tramos y supuestos indicados; la retroactividad ordinaria tiene un plazo de tres meses. Verificar edad y fecha causante."
   },
   {
     "id": 63,
