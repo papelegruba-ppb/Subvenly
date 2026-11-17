@@ -126,22 +126,38 @@ jobs:
       - name: Resumen de actualización y cobertura
         if: always()
         run: |
-          LIC_DIAG_STATE=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_licitaciones.json"); print(json.loads(p.read_text(encoding="utf-8")).get("estado", "desconocida") if p.exists() else "desconocida")' 2>/dev/null || echo "desconocida")
+          read_diag_state() {
+            python -c 'import json,sys; from pathlib import Path; p=Path("data")/sys.argv[1]; print(json.loads(p.read_text(encoding="utf-8")).get("estado", "desconocida") if p.exists() else "desconocida")' "$1" 2>/dev/null || echo "desconocida"
+          }
+          BDNS_DIAG_STATE=$(read_diag_state "_diagnostico.json")
+          CIDO_DIAG_STATE=$(read_diag_state "_diagnostico_cido.json")
+          UE_DIAG_STATE=$(read_diag_state "_diagnostico_ue.json")
+          LIC_DIAG_STATE=$(read_diag_state "_diagnostico_licitaciones.json")
           LIC_PARTIAL=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_licitaciones.json"); d=json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}; print(", ".join(d.get("fuentes_parciales", [])))' 2>/dev/null || true)
           LIC_ERRORS=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_licitaciones.json"); d=json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}; print(", ".join(e.get("fuente", "desconocida") for e in d.get("errores", [])))' 2>/dev/null || true)
+          read_monitor_counts() {
+            python -c 'import json,sys; from pathlib import Path; p=Path("data")/sys.argv[1]; d=json.loads(p.read_text(encoding="utf-8")); v=list(d.get(sys.argv[2], {}).values()); print("igual={} cambio={} no_verificable={} inicializado={}".format(*(sum(x.get("estado")==s for x in v) for s in ("igual","cambio","no_verificable","inicializado"))))' "$1" "$2" 2>/dev/null || echo "desconocida"
+          }
+          read_monitor_unverified() {
+            python -c 'import json,sys; from pathlib import Path; p=Path("data")/sys.argv[1]; d=json.loads(p.read_text(encoding="utf-8")); print(sum(x.get("estado")=="no_verificable" for x in d.get(sys.argv[2], {}).values()))' "$1" "$2" 2>/dev/null || echo "desconocida"
+          }
+          MONITOR_SOURCES=$(read_monitor_counts "vigilancia_fuentes.json" "fuentes")
+          MONITOR_FICHAS=$(read_monitor_counts "vigilancia.json" "fichas")
+          MONITOR_SOURCES_UNVERIFIED=$(read_monitor_unverified "vigilancia_fuentes.json" "fuentes")
+          MONITOR_FICHAS_UNVERIFIED=$(read_monitor_unverified "vigilancia.json" "fichas")
           {
             echo "## Actualización de Subvenly"
             echo ""
             echo "- Publicación web: **${{ steps.deploy.outcome }}**"
-            echo "- BDNS: **${{ steps.buscar.outcome }}**"
-            echo "- Unión Europea: **${{ steps.buscar_ue.outcome }}**"
-            echo "- CIDO (convocatorias locales de Cataluña): **${{ steps.buscar_cido.outcome }}**"
+            echo "- BDNS: **${{ steps.buscar.outcome }} · diagnóstico ${BDNS_DIAG_STATE}**"
+            echo "- Unión Europea: **${{ steps.buscar_ue.outcome }} · diagnóstico ${UE_DIAG_STATE}**"
+            echo "- CIDO (convocatorias locales de Cataluña): **${{ steps.buscar_cido.outcome }} · diagnóstico ${CIDO_DIAG_STATE}**"
             echo "- Licitaciones: **${{ steps.buscar_lic.outcome }} · cobertura ${LIC_DIAG_STATE}**"
-            echo "- Vigilancia de fuentes: **${{ steps.vigilar_fuentes.outcome }}**"
-            echo "- Vigilancia de fichas: **${{ steps.vigilar.outcome }}**"
+            echo "- Vigilancia de fuentes: **${{ steps.vigilar_fuentes.outcome }} · ${MONITOR_SOURCES}**"
+            echo "- Vigilancia de fichas: **${{ steps.vigilar.outcome }} · ${MONITOR_FICHAS}**"
             echo ""
-            if [[ "${{ steps.buscar.outcome }}" != "success" || "${{ steps.buscar_ue.outcome }}" != "success" || "${{ steps.buscar_cido.outcome }}" != "success" || "${{ steps.buscar_lic.outcome }}" != "success" ]]; then
-              echo "> **Aviso:** una o más fuentes automáticas no se han actualizado correctamente. La web puede seguir publicada con datos anteriores o parciales. Consulta los diagnósticos data/_diagnostico*.json."
+            if [[ "${{ steps.buscar.outcome }}" != "success" || "${{ steps.buscar_ue.outcome }}" != "success" || "${{ steps.buscar_cido.outcome }}" != "success" || "${{ steps.buscar_lic.outcome }}" != "success" || "${BDNS_DIAG_STATE}" != "correcta" || "${UE_DIAG_STATE}" != "correcta" || "${CIDO_DIAG_STATE}" != "correcta" ]]; then
+              echo "> **Aviso:** una o más fuentes automáticas no se han actualizado correctamente o su diagnóstico es parcial/desconocido. La web puede seguir publicada con datos anteriores o parciales. Consulta los diagnósticos data/_diagnostico*.json."
               echo "::warning::Una o más fuentes de Subvenly no se han actualizado correctamente."
             elif [[ "${LIC_DIAG_STATE}" != "completa" ]]; then
               echo "> **Aviso de cobertura:** las licitaciones se han actualizado con los registros recibidos, pero su cobertura no es completa o no está confirmada."
@@ -151,8 +167,9 @@ jobs:
             else
               echo "Las búsquedas automáticas principales terminaron correctamente. Esto no significa que el catálogo sea exhaustivo ni que cada convocatoria esté verificada individualmente."
             fi
-            if [[ "${{ steps.vigilar_fuentes.outcome }}" != "success" || "${{ steps.vigilar.outcome }}" != "success" ]]; then
+            if [[ "${{ steps.vigilar_fuentes.outcome }}" != "success" || "${{ steps.vigilar.outcome }}" != "success" || "${MONITOR_SOURCES_UNVERIFIED}" != "0" || "${MONITOR_FICHAS_UNVERIFIED}" != "0" ]]; then
               echo ""
-              echo "> La vigilancia de una o más páginas oficiales encontró errores o no pudo verificarlas; consulta los diagnósticos antes de cambiar el estado de una ayuda."
+              echo "> La vigilancia encontró páginas no verificables o tareas de monitorización fallidas. Los cambios detectados requieren contraste con la fuente oficial antes de modificar requisitos, importes o plazos."
             fi
+          }
           } >> "$GITHUB_STEP_SUMMARY"
