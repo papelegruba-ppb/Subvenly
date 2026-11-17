@@ -188,11 +188,11 @@ def main():
            "La Beca Equitat debe usar fecha y hora de cierre estructuradas, no un estado manual permanente")
 
     # Cada requisito debe tener una pregunta directa o derivarse de preguntas visibles.
-    question_blocks = re.findall(r"var QUESTIONS\\s*=\\s*\\{([\\s\\S]*?)\\n\\};", html)
-    question_blocks += re.findall(r"Object\\.assign\\(QUESTIONS,\\s*\\{([\\s\\S]*?)\\}\\);", html)
+    question_blocks = re.findall(r"var QUESTIONS\s*=\s*\{([\s\S]*?)\n\};", html)
+    question_blocks += re.findall(r"Object\.assign\(QUESTIONS,\s*\{([\s\S]*?)\}\);", html)
     question_keys = set()
     for block in question_blocks:
-        question_keys.update(re.findall(r"^\\s*([A-Za-z_$][\\w$]*):", block, flags=re.M))
+        question_keys.update(re.findall(r"^\s*([A-Za-z_$][\w$]*):", block, flags=re.M))
     requirement_keys = {key for ficha in fichas for key in (ficha.get("reqs") or {})}
     # Requisitos compuestos calculados por valorAid(): sus dependencias, no el
     # nombre interno del requisito, son las preguntas que debe mostrar el test.
