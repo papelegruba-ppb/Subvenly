@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "actualizado": "2026-11-16",
+  "actualizado": "2026-11-17",
   "nota": "Registro ampliado de fuentes oficiales y portales de referencia de las 17 comunidades autónomas y Ceuta/Melilla. La BDNS ofrece cobertura transversal, pero los portales territoriales complementan la detección; monitorizar una página no equivale a extraer todas sus convocatorias. WIZBII Money y sus categorías se registran como fuentes privadas secundarias de descubrimiento y benchmark; sus datos nunca sustituyen la verificación oficial. Se incorporan fuentes oficiales específicas sobre títulos de familia numerosa, monoparental y TSI; la reforma estatal publicada en noviembre de 2026 tiene efectos principales desde el 01/01/2027.",
   "fuentes": [
     {
@@ -1693,6 +1693,76 @@
       "url": "https://igualtat.gencat.cat/ca/ambits-dactuacio/violencies-masclistes/linia-datencio-contra-la-violencia-masclista-900-900-120-/",
       "monitor": true,
       "nota": "Línea catalana gratuita y permanente de atención a mujeres en situación de violencia machista.",
+      "oficial": true
+    },
+    {
+      "id": "violencia-guia-derechos",
+      "nombre": "Delegación del Gobierno contra la Violencia de Género · Guía de derechos",
+      "ambito": "Estatal",
+      "categoria": "Violencia machista y protección",
+      "url": "https://violenciagenero.igualdad.gob.es/informacion-3/derechos/",
+      "monitor": false,
+      "nota": "Guía estatal de derechos, ayudas, acreditación y recursos de atención.",
+      "oficial": true
+    },
+    {
+      "id": "violencia-wrap",
+      "nombre": "Ministerio de Igualdad · Buscador de recursos WRAP",
+      "ambito": "Estatal / todas las CCAA, Ceuta y Melilla",
+      "categoria": "Violencia machista y protección",
+      "url": "https://wrap.igualdad.gob.es/recursos-vdg/search/SearchForm.action",
+      "monitor": false,
+      "nota": "Localizador oficial de recursos especializados por territorio y tipo de atención.",
+      "oficial": true
+    },
+    {
+      "id": "sepe-subsidio-victimas",
+      "nombre": "SEPE · Subsidio para víctimas de violencia de género o sexual",
+      "ambito": "Estatal",
+      "categoria": "Violencia machista y protección",
+      "url": "https://www.sepe.es/HomeSepe/prestaciones-desempleo/subsidio-desempleo/victimas-violencia-genero-o-sexual.html",
+      "monitor": false,
+      "nota": "Requisitos, cuantía, duración, documentación y plazo del subsidio específico.",
+      "oficial": true
+    },
+    {
+      "id": "boe-lo-1-2004",
+      "nombre": "BOE · Ley Orgánica 1/2004",
+      "ambito": "Estatal",
+      "categoria": "Violencia machista y protección",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2004-21760",
+      "monitor": false,
+      "nota": "Artículo 27: ayuda de pago único, umbral del 75 % del SMI y compatibilidades.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-indemnizacion-victimas",
+      "nombre": "Tràmits Gencat · Indemnización para víctimas de violencia machista",
+      "ambito": "Cataluña",
+      "categoria": "Violencia machista y protección",
+      "url": "https://tramits.gencat.cat/es/tramits/tramits-temes/Indemnitzacions-per-a-dones-victimes-de-violencia-masclista-i-per-a-fills-i-filles-de-dones-que-han-causat-mort-per-violencia-masclista?moda=1",
+      "monitor": false,
+      "nota": "Indemnización de pago único y plazo de cinco años desde la resolución acreditativa.",
+      "oficial": true
+    },
+    {
+      "id": "atc-deduccion-alquiler-victimas",
+      "nombre": "Agència Tributària de Catalunya · Deducción por alquiler para víctimas de violencia machista",
+      "ambito": "Cataluña",
+      "categoria": "Fiscalidad personal",
+      "url": "https://atc.gencat.cat/es/tributs/irpf/deduccions-tram-irpf/",
+      "monitor": false,
+      "nota": "Deducción autonómica del IRPF, límites y medios de acreditación.",
+      "oficial": true
+    },
+    {
+      "id": "atenpro",
+      "nombre": "Ministerio de Igualdad · Servicio ATENPRO",
+      "ambito": "Estatal",
+      "categoria": "Violencia machista y protección",
+      "url": "https://violenciagenero.igualdad.gob.es/informacion-3/recursos/servicioTecnico/",
+      "monitor": false,
+      "nota": "Servicio telefónico de atención y protección y requisitos de acceso.",
       "oficial": true
     }
   ],
