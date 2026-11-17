@@ -1750,7 +1750,7 @@
       "nombre": "Agència Tributària de Catalunya · Deducción por alquiler para víctimas de violencia machista",
       "ambito": "Cataluña",
       "categoria": "Fiscalidad personal",
-      "url": "https://atc.gencat.cat/es/tributs/irpf/deduccions-tram-irpf/",
+      "url": "https://atc.gencat.cat/es/tributs/irpf/deduccions-tram-irpf#11--por-alquiler-de-la-vivienda-habitual-por-parte-de-victimas-de-violencia-machista",
       "monitor": false,
       "nota": "Deducción autonómica del IRPF, límites y medios de acreditación.",
       "oficial": true
@@ -1793,6 +1793,36 @@
       "url": "https://www.euskadi.eus/ayuda_subvencion/2026/ayuda_victimas_violencia_sexual/web01-tramite/es/",
       "monitor": false,
       "nota": "Ayuda económica 2026 para mujeres, niñas y niños víctimas de violencia sexual.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-fondo-pensiones",
+      "nombre": "Generalitat · Fondo de garantía de pensiones y prestaciones impagadas",
+      "ambito": "Cataluña",
+      "categoria": "Familia y prestaciones",
+      "url": "https://tramits.gencat.cat/ca/tramits/tramits-temes/Fons-per-cobrir-limpagament-de-pensions-i-prestacions-alimentaries-o-compensatories",
+      "monitor": true,
+      "nota": "Anticipo mensual para pensiones alimenticias o compensatorias impagadas tras ejecución judicial; requisitos de residencia e ingresos, documentación, límites IRSC, máximo 18 meses y reintegro si paga el obligado.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-sepelio-victimas",
+      "nombre": "Generalitat · Ayuda para sepelio, traslado o repatriación de víctimas mortales de violencia machista",
+      "ambito": "Cataluña",
+      "categoria": "Violencia machista y protección",
+      "url": "https://tramits.gencat.cat/ca/tramits/tramits-temes/23769-ajut-sepeli?category=763e7a0a-a82c-11e3-a972-000c29052e2c&moda=1",
+      "monitor": true,
+      "nota": "Ayuda puntual a la familia; plazo de dos años, cuantías máximas 4.000/6.000/8.000 euros según sepelio y traslado, solicitud electrónica y asistencia SIE/SIAD. Página actualizada 02/04/2024.",
+      "oficial": true
+    },
+    {
+      "id": "gencat-sie-siedi",
+      "nombre": "Generalitat · Servicios SIE, SIAD y SIEDI",
+      "ambito": "Cataluña",
+      "categoria": "Atención y protección",
+      "url": "https://igualtat.gencat.cat/ca/ambits-dactuacio/violencies-masclistes/",
+      "monitor": true,
+      "nota": "Portal oficial de recursos y ayudas; SIE atención integral gratuita y SIEDI atención tecnológica, jurídica y psicológica a violencia digital. Línea 900 900 120 gratuita, confidencial y 24/7; SIEDI 670 70 70 90 y atencio.siedigital.igualtat@gencat.cat.",
       "oficial": true
     }
   ],
