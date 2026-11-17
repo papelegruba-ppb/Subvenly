@@ -171,5 +171,4 @@ jobs:
               echo ""
               echo "> La vigilancia encontró páginas no verificables o tareas de monitorización fallidas. Los cambios detectados requieren contraste con la fuente oficial antes de modificar requisitos, importes o plazos."
             fi
-          }
           } >> "$GITHUB_STEP_SUMMARY"
