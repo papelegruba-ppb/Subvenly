@@ -735,7 +735,8 @@
       ]
     ],
     "categoria": "Familia y nacimiento",
-    "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/Prestacio-per-a-families-amb-infants?moda=1"
+    "link": "https://tramits.gencat.cat/es/tramits/tramits-temes/Prestacio-per-a-families-amb-infants?moda=1",
+    "estadoManual": "Trámite permanente sujeto al plazo individual indicado para cada hecho causante; verificar los requisitos y el periodo aplicable en la sede de la Generalitat."
   },
   {
     "id": 24,
@@ -2122,7 +2123,8 @@
       ]
     ],
     "categoria": "Familia y fiscalidad",
-    "perfil": "personal"
+    "perfil": "personal",
+    "estadoManual": "Deducción fiscal vigente; el abono anticipado se solicita mientras se cumplan los requisitos. Verificar ejercicio fiscal y situación de alta al presentar."
   },
   {
     "id": 58,
@@ -2169,7 +2171,8 @@
       ]
     ],
     "categoria": "Familia y fiscalidad",
-    "perfil": "personal"
+    "perfil": "personal",
+    "estadoManual": "Deducción fiscal vigente; el abono anticipado se solicita mientras se cumplan los requisitos. Verificar título de familia numerosa, cotización y modalidad aplicable."
   },
   {
     "id": 59,
@@ -2209,7 +2212,8 @@
         "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-economicas-natalidad"
       ]
     ],
-    "categoria": "Familia y nacimiento"
+    "categoria": "Familia y nacimiento",
+    "estadoManual": "Trámite permanente; la concesión está condicionada a los requisitos y al crédito presupuestario disponible."
   },
   {
     "id": 60,
@@ -2254,7 +2258,8 @@
         "https://politicasocial.xunta.gal/gl/recursos/plans-e-programas/tarxeta-benvida"
       ]
     ],
-    "categoria": "Familia y nacimiento"
+    "categoria": "Familia y nacimiento",
+    "estadoManual": "Convocatoria 2026 abierta hasta el 31/03/2027, con plazos específicos según gestación, nacimiento, adopción o acogimiento."
   },
   {
     "id": 61,
@@ -2298,7 +2303,8 @@
         "https://juventud.asturias.es/-/ayudas-para-el-fomento-de-la-natalidad-y-la-adopci%C3%B3n-en-el-principado-de-asturias%C2%A0%C2%A0.-2025"
       ]
     ],
-    "categoria": "Familia y nacimiento"
+    "categoria": "Familia y nacimiento",
+    "estadoManual": "Convocatoria 2026 con plazo general hasta el 30/11/2026 y plazos individuales según la fecha del hecho causante."
   },
   {
     "id": 62,
@@ -2342,7 +2348,8 @@
         "https://www.euskadi.eus/web01-a2famil/es/contenidos/informacion/familia_dirulaguntzaberria_4/es_def/index.shtml"
       ]
     ],
-    "categoria": "Familia y nacimiento"
+    "categoria": "Familia y nacimiento",
+    "estadoManual": "Convocatoria 2026; solicitudes hasta el 31/12/2026 en los supuestos de 0–4 y 4–7 años previstos en las bases."
   },
   {
     "id": 63,
@@ -3039,7 +3046,6 @@
     "importe": "Anticipo mensual. El máximo general es el 50 % del IRSC mensual; en pensiones alimenticias de menores o mayores con discapacidad se descuenta lo reconocido por el Fondo estatal. Duración máxima: 18 meses, continuos o discontinuos.",
     "resumen": "Anticipo público para familias con recursos limitados cuando no se cobra una pensión de alimentos o compensatoria reconocida judicialmente y ya se ha reclamado su ejecución. Puede ser especialmente relevante tras una separación o situación de violencia económica, aunque no es una ayuda exclusiva para víctimas de violencia machista.",
     "reqs": {
-      "situacionPersonal": "violencia",
       "ccaa": "Cataluña"
     },
     "requisitos": [
@@ -3069,9 +3075,9 @@
         "https://tramits.gencat.cat/ca/tramits/tramits-temes/Fons-per-cobrir-limpagament-de-pensions-i-prestacions-alimentaries-o-compensatories"
       ]
     ],
-    "categoria": "Violencia machista y protección",
+    "categoria": "Familia y prestaciones",
     "perfil": "personal",
-    "estadoManual": "Verificado en Tràmits Gencat el 17/11/2026. El trámite publica límites económicos calculados con IRSC 2025; recalcular con el indicador vigente."
+    "estadoManual": "Trámite vigente según la ficha oficial consultada; confirmar IRSC, límites económicos y requisitos de residencia en la fecha de solicitud."
   },
   {
     "id": 79,
