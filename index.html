@@ -189,6 +189,7 @@ var QUESTIONS={
   ingresosArt27:"¿Tus ingresos propios mensuales no superan el 75 % del SMI (sin pagas extra)?",
   ingresosCatalunya:"¿Tus ingresos mensuales totales son inferiores al 75 % del IPREM (sin pagas extra)?",
   prestacionesCatalunya:"¿Cobras paro, RGC, RAI por violencia, subsidio para víctimas u otra pensión contributiva?",
+  contratoActual:"¿Tienes actualmente un contrato de trabajo?",
   empleoSituacion:"¿Cuál es tu situación laboral actual?",
   retorno:"¿Has regresado a España después de vivir en el extranjero?",
   nacionalidad:"¿Cuál es tu situación de nacionalidad?",
@@ -255,7 +256,7 @@ var AIDS=[],NOV={items:[]},LIC={items:[]},VIG={};
 // ===== LÓGICA =====
 var A={},tipo="Todas",est="Todas",busquedaAyuda="",ambitoAyuda="",organoAyuda="",compatAyuda="",categoriaAyuda="";
 var LS={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
-var SENSITIVE_KEYS=["situacionPersonal","tipoViolencia","acreditacionViolencia","dificultadEmpleo","ingresosAyuda27","ingresosArt27","ingresosCatalunya","prestacionesCatalunya","residenciaCatalunya","municipioBarcelona","empleoSituacion","demandaEmpleo","familia","alquiler","ingresosPersonales","unidadFamiliar","ccaa","provincia","municipio"];
+var SENSITIVE_KEYS=["situacionPersonal","tipoViolencia","acreditacionViolencia","dificultadEmpleo","ingresosAyuda27","ingresosArt27","ingresosCatalunya","prestacionesCatalunya","contratoActual","residenciaCatalunya","municipioBarcelona","empleoSituacion","demandaEmpleo","familia","alquiler","ingresosPersonales","unidadFamiliar","ccaa","provincia","municipio"];
 try{A=JSON.parse(LS.get("ans_subvenly")||"{}")||{}}catch(e){A={}}
 if(A.situacionPersonal==="violencia"){SENSITIVE_KEYS.forEach(function(k){delete A[k]});}
 function save(){var safe=Object.assign({},A);if(A.situacionPersonal==="violencia"){SENSITIVE_KEYS.forEach(function(k){delete safe[k]});}LS.set("ans_subvenly",JSON.stringify(safe))}
@@ -302,6 +303,7 @@ function opcionesPregunta(k){
     ingresosArt27:[["si","Sí, estoy por debajo del 75 % del SMI"],["no","No, lo supero"],["nose","No lo sé; necesito calcularlo"]],
     ingresosCatalunya:[["si","Sí, estoy por debajo del 75 % del IPREM"],["no","No, lo supero"],["nose","No lo sé; necesito calcularlo"]],
     prestacionesCatalunya:[["si","Sí, cobro alguna de ellas"],["no","No, no cobro ninguna"],["nose","No lo sé / Prefiero comprobarlo"]],
+    contratoActual:[["si","Sí, tengo contrato"],["no","No, estoy desempleada"],["nose","No lo sé / Prefiero no responder"]],
     ingresosAyuda27:[["si","Sí, creo que estoy por debajo"],["no","No, creo que lo supero"],["nose","No lo sé; necesito comprobarlo"]],
     residenciaCatalunya:[["si","Sí"],["no","No"],["nose","No lo sé"]],
     municipioBarcelona:[["si","Sí"],["no","No"],["nose","No lo sé"]],
@@ -653,6 +655,7 @@ function anadirRutaPersonal(l){
  if(A.situacionPersonal==="violencia"){
   l=l.concat(["#Violencia y derechos (respuestas opcionales)","tipoViolencia","acreditacionViolencia"]);
   if(A.tipoViolencia==="violencia_genero")l=l.concat(["#Ayudas económicas: comprueba cada régimen por separado","dificultadEmpleo","ingresosArt27","ingresosCatalunya","prestacionesCatalunya"]);
+  if(A.ccaa==="País Vasco")l.push("contratoActual");
   l=l.concat(["residenciaCatalunya","municipioBarcelona","#Situación laboral y acceso a recursos","empleoSituacion","demandaEmpleo","familia","alquiler","ingresosPersonales","unidadFamiliar","tramitar"]);
  }
  if(A.situacionPersonal==="desempleo"){
