@@ -2783,14 +2783,13 @@
       "situacionPersonal": "violencia",
       "tipoViolencia": "violencia_genero",
       "ccaa": "País Vasco",
-      "ingresosArt27": "si",
       "contratoActual": "no"
     },
     "requisitos": [
       "Haber finalizado definitivamente la relación de pareja con el agresor o presunto agresor.",
       "Estar empadronada en Euskadi en la fecha de solicitud.",
       "Estar desempleada y no tener contrato de trabajo.",
-      "No superar el 75 % del SMI mensual, excluida la parte proporcional de dos pagas extraordinarias; se computan ingresos de la solicitante y personas económicamente a su cargo según las reglas del trámite.",
+      "No superar el 75 % del SMI mensual, excluida la parte proporcional de dos pagas extraordinarias. Si hay personas a cargo, se agregan sus ingresos y se divide entre los miembros de la unidad de cómputo; no se cuentan otros convivientes que no dependan económicamente de la solicitante.",
       "Tener credencial de víctima vigente y cumplir la antigüedad máxima indicada: hasta dos años desde el inicio de vigencia de la credencial o acreditación administrativa con antigüedad no superior a seis meses.",
       "No haber cobrado previamente la ayuda por el mismo victimario, ni la ayuda de violencia sexual, ni el subsidio específico incompatible indicado en el trámite."
     ],
