@@ -1817,12 +1817,12 @@
     },
     {
       "id": "gencat-sie-siedi",
-      "nombre": "Generalitat · Servicios SIE, SIAD y SIEDI",
+      "nombre": "Generalitat · SIEDI · Atención a violencias machistas digitales",
       "ambito": "Cataluña",
-      "categoria": "Atención y protección",
-      "url": "https://igualtat.gencat.cat/ca/ambits-dactuacio/violencies-masclistes/",
+      "categoria": "Atención y protección digital",
+      "url": "https://igualtat.gencat.cat/ca/ambits-dactuacio/violencies-masclistes/serveis-dintervencio-especialitzada-en-labordatge-de-les-violencies-masclistes-digitals-siedi/",
       "monitor": true,
-      "nota": "Portal oficial de recursos y ayudas; SIE atención integral gratuita y SIEDI atención tecnológica, jurídica y psicológica a violencia digital. Línea 900 900 120 gratuita, confidencial y 24/7; SIEDI 670 70 70 90 y atencio.siedigital.igualtat@gencat.cat.",
+      "nota": "Servicio gratuito de atención tecnológica, jurídica y psicológica especializada en violencias machistas digitales. Contacto publicado: 670 70 70 90 (WhatsApp o Telegram) y atencio.siedigital.igualtat@gencat.cat. Confirmar horarios y vías de atención en la página oficial.",
       "oficial": true
     }
   ],
