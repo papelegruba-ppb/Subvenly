@@ -215,7 +215,9 @@ def main():
     error_retroceso = ""
     retroceso_hasta_siguiente = estado.get("retrocesoHasta", "")
     if fixture:
-        raw = json.load(open(sys.argv[sys.argv.index("--fixture") + 1], encoding="utf-8"))
+        fixture_path = sys.argv[sys.argv.index("--fixture") + 1]
+        with open(fixture_path, encoding="utf-8") as f:
+            raw = json.load(f)
         raw = raw.get("content", raw)
     else:
         print(f"Consultando la BDNS desde {desde} hasta {hoy}")
