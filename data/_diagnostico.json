@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-16",
- "recibidas": 1111,
- "relevantes": 836,
+ "fecha": "2026-11-20",
+ "recibidas": 2705,
+ "relevantes": 2105,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-10-08",
- "retroceso_hasta": "2026-10-14",
+ "retroceso_desde": "2026-10-01",
+ "retroceso_hasta": "2026-10-07",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1143731,
+  "id": 1145068,
   "mrr": false,
-  "numeroConvocatoria": "942170",
-  "descripcion": "Propuesta convenio entre CCPP Avda. Andalucía n.41 y el Instituto Municipal de la Vivienda, Excmo. Ayuntamiento de Málaga, para canalizar la subvención directa destinada a la rehabilitación del edificio sito en Avd. Andalucía, 41 de Málaga.",
-  "descripcionLeng": null,
-  "fechaRecepcion": "2026-11-15",
-  "nivel1": "LOCAL",
-  "nivel2": "MÁLAGA",
-  "nivel3": "INSTITUTO MUNICIPAL DE LA VIVIENDA (AYTO. MALAGA)",
-  "codigoInvente": "INV00003722"
+  "numeroConvocatoria": "943507",
+  "descripcion": "Partido España - Inglaterra y centenario FFIB",
+  "descripcionLeng": "Partit Españya- Anglaterra i centenari de la FFIB",
+  "fechaRecepcion": "2026-11-20",
+  "nivel1": "AUTONOMICA",
+  "nivel2": "ILLES BALEARS",
+  "nivel3": "DIRECCIÓN GENERAL DE DEPORTES",
+  "codigoInvente": null
  }
 }
