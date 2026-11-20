@@ -1,8 +1,8 @@
 {
  "fecha": "2026-11-20",
  "ficheros": 2,
- "encontradas": 158,
- "guardadas": 1694,
+ "encontradas": 223,
+ "guardadas": 1903,
  "fuentes_correctas": [],
  "fuentes_parciales": [
   "perfiles",
@@ -11,17 +11,20 @@
  "errores": [],
  "estado": "parcial",
  "ejemplo": {
-  "id": "157/2026",
-  "titulo": "Construcción de Centro de Interpretación de las Minas de Yeso en Hornillos de Cerrato (Palencia).",
-  "organo": "Pleno del Ayuntamiento de Hornillos de Cerrato",
-  "territorio": "Palencia",
-  "nuts": "ES414",
-  "tipo": "Obras",
-  "cpv": "45212300",
-  "presupuesto": 359504,
-  "cierre": "2026-12-15",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=LEU4xEnugMfL1rX3q%2FMAPA%3D%3D",
+  "id": "L 2629 MATGICOM 27",
+  "titulo": "Subministrament de material per a la gestió de les platges i les cales urbanes de la costa manacorina.",
+  "organo": "Consejo de Administrción de la Empresa de Serveis del Municipi de Manacor",
+  "territorio": "Illes Balears",
+  "nuts": "ES53",
+  "tipo": "Suministros",
+  "cpv": "03419100",
+  "presupuesto": 115695,
+  "cierre": "2026-12-04",
+  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=KuDHo4Nm4yc%2FbjW6njtWLw%3D%3D",
   "visto": "2026-11-20",
-  "actualizada": "2026-11-19"
+  "actualizada": "2026-11-19",
+  "feed": "perfiles",
+  "estadoEnCaptura": "PUB",
+  "fuente": "contrataciondelestado.es"
  }
 }
