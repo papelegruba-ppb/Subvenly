@@ -89,16 +89,21 @@ def main():
     global ERRORES_CONSULTA
     ERRORES_CONSULTA = 0
     hoy = dt.date.today()
+    paginas_consultadas = 0
+    terminos_al_limite = []
     if "--fixture" in sys.argv:
         raw = json.load(open(sys.argv[sys.argv.index("--fixture") + 1], encoding="utf-8")).get("results", [])
     else:
         raw, vistos = [], set()
+        paginas_consultadas = 0
+        terminos_al_limite = []
         for t in BUSQUEDAS:
             for p in range(1, PAGINAS + 1):
                 respuesta = consultar(t, p)
                 if not respuesta:
                     break
                 res = respuesta.get("results") or []
+                paginas_consultadas += 1
                 print(f"  '{t}' página {p}: {len(res)} resultados")
                 for r in res:
                     k = str(primero((r.get("metadata") or {}).get("identifier")) or r.get("reference"))
@@ -106,13 +111,30 @@ def main():
                         vistos.add(k); raw.append(r)
                 if len(res) < 50:
                     break
+                if p == PAGINAS:
+                    # Una página llena en el último nivel consultado no demuestra
+                    # que haya más resultados, pero sí que no se ha podido descartarlo.
+                    terminos_al_limite.append(t)
                 time.sleep(0.5)
     print(f"Recibidas {len(raw)} convocatorias de la UE")
     if not raw:
-        escribir("_diagnostico_ue.json", {"fecha": hoy.isoformat(), "recibidas": 0, "consultas_fallidas": ERRORES_CONSULTA, "estado": "fallida", "ejemplo": None})
+        escribir("_diagnostico_ue.json", {
+            "fecha": hoy.isoformat(), "recibidas": 0,
+            "consultas_fallidas": ERRORES_CONSULTA,
+            "paginas_consultadas": paginas_consultadas,
+            "terminos_al_limite": terminos_al_limite,
+            "estado": "fallida", "ejemplo": None,
+        })
         print("El portal no devolvió nada: no se modifica ningún dato.")
         return 1
-    escribir("_diagnostico_ue.json", {"fecha": hoy.isoformat(), "recibidas": len(raw), "consultas_fallidas": ERRORES_CONSULTA, "estado": "parcial" if ERRORES_CONSULTA else "correcta", "ejemplo": raw[0]})
+    estado_diagnostico = "parcial" if ERRORES_CONSULTA or terminos_al_limite else "correcta"
+    escribir("_diagnostico_ue.json", {
+        "fecha": hoy.isoformat(), "recibidas": len(raw),
+        "consultas_fallidas": ERRORES_CONSULTA,
+        "paginas_consultadas": paginas_consultadas,
+        "terminos_al_limite": terminos_al_limite,
+        "estado": estado_diagnostico, "ejemplo": raw[0],
+    })
     previo_doc = leer("novedades.json", {"items": []})
     estado_actualizacion = previo_doc.get("estadoActualizacion", "desconocida")
     previo = {i["id"]: i for i in previo_doc.get("items", [])}
@@ -133,7 +155,7 @@ def main():
     for i in items:
         i["nueva"] = i["visto"] >= nueva_lim
     items.sort(key=lambda i: (i["fecha"], i["id"]), reverse=True)
-    if ERRORES_CONSULTA:
+    if ERRORES_CONSULTA or terminos_al_limite:
         estado_actualizacion = "parcial"
         errores_previos = previo_doc.get("erroresActualizacion", [])
         errores_previos = errores_previos if isinstance(errores_previos, list) else []
