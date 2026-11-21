@@ -128,13 +128,16 @@ jobs:
         run: |
           LIC_DIAG_STATE=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_licitaciones.json"); print(json.loads(p.read_text(encoding="utf-8")).get("estado", "desconocida") if p.exists() else "desconocida")' 2>/dev/null || echo "desconocida")
           LIC_PARTIAL=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_licitaciones.json"); d=json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}; print(", ".join(d.get("fuentes_parciales", [])))' 2>/dev/null || true)
+          UE_DIAG_STATE=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_ue.json"); print(json.loads(p.read_text(encoding="utf-8")).get("estado", "desconocida") if p.exists() else "desconocida")' 2>/dev/null || echo "desconocida")
+          UE_PAGES=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_ue.json"); d=json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}; print(d.get("paginas_consultadas", 0))' 2>/dev/null || echo "0")
+          UE_TERMINOS_LIMITADOS=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_ue.json"); d=json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}; print(", ".join(d.get("terminos_al_limite", [])))' 2>/dev/null || true)
           LIC_ERRORS=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_licitaciones.json"); d=json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}; print(", ".join(e.get("fuente", "desconocida") for e in d.get("errores", [])))' 2>/dev/null || true)
           {
             echo "## Actualización de Subvenly"
             echo ""
             echo "- Publicación web: **${{ steps.deploy.outcome }}**"
             echo "- BDNS: **${{ steps.buscar.outcome }}**"
-            echo "- Unión Europea: **${{ steps.buscar_ue.outcome }}**"
+            echo "- Unión Europea: **${{ steps.buscar_ue.outcome }} · cobertura ${UE_DIAG_STATE}**"
             echo "- CIDO (convocatorias locales de Cataluña): **${{ steps.buscar_cido.outcome }}**"
             echo "- Licitaciones: **${{ steps.buscar_lic.outcome }} · cobertura ${LIC_DIAG_STATE}**"
             echo "- Vigilancia de fuentes: **${{ steps.vigilar_fuentes.outcome }}**"
@@ -143,11 +146,17 @@ jobs:
             if [[ "${{ steps.buscar.outcome }}" != "success" || "${{ steps.buscar_ue.outcome }}" != "success" || "${{ steps.buscar_cido.outcome }}" != "success" || "${{ steps.buscar_lic.outcome }}" != "success" ]]; then
               echo "> **Aviso:** una o más fuentes automáticas no se han actualizado correctamente. La web puede seguir publicada con datos anteriores o parciales. Consulta los diagnósticos data/_diagnostico*.json."
               echo "::warning::Una o más fuentes de Subvenly no se han actualizado correctamente."
-            elif [[ "${LIC_DIAG_STATE}" != "completa" ]]; then
-              echo "> **Aviso de cobertura:** las licitaciones se han actualizado con los registros recibidos, pero su cobertura no es completa o no está confirmada."
-              if [[ -n "${LIC_PARTIAL}" ]]; then echo "> Páginas pendientes: **${LIC_PARTIAL}**."; fi
-              if [[ -n "${LIC_ERRORS}" ]]; then echo "> Fuentes con error: **${LIC_ERRORS}**."; fi
-              echo "::warning::Cobertura de licitaciones parcial o no confirmada."
+            elif [[ "${LIC_DIAG_STATE}" != "completa" || "${UE_DIAG_STATE}" != "correcta" ]]; then
+              echo "> **Aviso de cobertura:** una o más fuentes tienen cobertura parcial o no confirmada."
+              if [[ "${LIC_DIAG_STATE}" != "completa" ]]; then
+                if [[ -n "${LIC_PARTIAL}" ]]; then echo "> Páginas pendientes de licitaciones: **${LIC_PARTIAL}**."; fi
+                if [[ -n "${LIC_ERRORS}" ]]; then echo "> Fuentes de licitaciones con error: **${LIC_ERRORS}**."; fi
+              fi
+              if [[ "${UE_DIAG_STATE}" != "correcta" ]]; then
+                echo "> Unión Europea: diagnóstico **${UE_DIAG_STATE}**; páginas consultadas: **${UE_PAGES}**."
+                if [[ -n "${UE_TERMINOS_LIMITADOS}" ]]; then echo "> Términos UE que alcanzaron el límite de paginación: **${UE_TERMINOS_LIMITADOS}**."; fi
+              fi
+              echo "::warning::Cobertura de una o más fuentes parcial o no confirmada."
             else
               echo "Las búsquedas automáticas principales terminaron correctamente. Esto no significa que el catálogo sea exhaustivo ni que cada convocatoria esté verificada individualmente."
             fi
