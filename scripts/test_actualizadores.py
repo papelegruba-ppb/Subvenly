@@ -63,7 +63,7 @@ class TestCoberturaBDNS(unittest.TestCase):
         self.assertEqual(resultado["content"][0]["descripcion"], "Subvención para autónomos")
 
     def test_decodifica_json_bdns_utf8_con_bom(self):
-        respuesta = '\\ufeff{"content":[{"descripcion":"Ayuda para pymes"}]}'.encode("utf-8")
+        respuesta = bytes.fromhex("efbbbf") + b'{"content":[{"descripcion":"Ayuda para pymes"}]}'
         resultado = actualizar.decodificar_json_respuesta(respuesta)
         self.assertEqual(resultado["content"][0]["descripcion"], "Ayuda para pymes")
 
