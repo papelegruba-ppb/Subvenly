@@ -57,6 +57,16 @@ class TestCoberturaBDNS(unittest.TestCase):
         self.assertEqual(result["plazo_fin"], "2026-10-29")
         self.assertEqual(result["beneficiarios"], "Empresas y profesionales")
 
+    def test_decodifica_json_bdns_cp1252_si_utf8_no_es_valido(self):
+        respuesta = '{"content":[{"descripcion":"Subvención para autónomos"}]}'.encode("cp1252")
+        resultado = actualizar.decodificar_json_respuesta(respuesta, "utf-8")
+        self.assertEqual(resultado["content"][0]["descripcion"], "Subvención para autónomos")
+
+    def test_decodifica_json_bdns_utf8_con_bom(self):
+        respuesta = '\\ufeff{"content":[{"descripcion":"Ayuda para pymes"}]}'.encode("utf-8")
+        resultado = actualizar.decodificar_json_respuesta(respuesta)
+        self.assertEqual(resultado["content"][0]["descripcion"], "Ayuda para pymes")
+
 
 class TestCIDO(unittest.TestCase):
     def fixture_rss(self):
