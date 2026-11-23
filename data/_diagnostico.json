@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-21",
- "recibidas": 2334,
- "relevantes": 1814,
+ "fecha": "2026-11-23",
+ "recibidas": 1636,
+ "relevantes": 1298,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-09-10",
- "retroceso_hasta": "2026-09-16",
+ "retroceso_desde": "2026-09-03",
+ "retroceso_hasta": "2026-09-09",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1145400,
+  "id": 1145416,
   "mrr": false,
-  "numeroConvocatoria": "943839",
-  "descripcion": "CURSOS DE EUSKERA EN CENTROS VASCOS (26/27)",
-  "descripcionLeng": "EUSKAL ETXEETAN EUSKARA IKASTAROAK (26/27)",
-  "fechaRecepcion": "2026-11-20",
-  "nivel1": "AUTONOMICA",
-  "nivel2": "PAÍS VASCO",
-  "nivel3": "INSTITUTO VASCO ETXEPARE EUSKAL INSTITUTUA / BASQUE INSTITUTE",
-  "codigoInvente": "INV00003762"
+  "numeroConvocatoria": "943855",
+  "descripcion": "CONVOCATÒRIA CONCESSIÓN DE AYUDAS PARA ACTIVIDADES EXTRAESCOLARES 2026",
+  "descripcionLeng": "CONVOCATÒRIA CONCESSIONS AJUTS ACTIVITATS EXTRAESCOLARS 2026",
+  "fechaRecepcion": "2026-11-22",
+  "nivel1": "LOCAL",
+  "nivel2": "CANET DE MAR",
+  "nivel3": "AYUNTAMIENTO DE CANET DE MAR",
+  "codigoInvente": null
  }
 }
