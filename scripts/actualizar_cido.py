@@ -263,7 +263,16 @@ def combinar(datos, nuevos, hoy=None):
     combinado.sort(key=lambda x: (str(x.get("fecha") or ""), str(x.get("id") or "")), reverse=True)
     salida = dict(datos)
     salida["items"] = combinado
-    return salida, {"recibidas": len(nuevos), "nuevas": altas, "conservadasCIDO": len(cido), "total": len(combinado)}
+    # "total" se conserva por compatibilidad; los campos explícitos evitan
+    # confundir el catálogo completo con el subconjunto de registros CIDO.
+    return salida, {
+        "recibidas": len(nuevos),
+        "nuevas": altas,
+        "conservadasCIDO": len(cido),
+        "totalCIDO": len(cido),
+        "totalCatalogo": len(combinado),
+        "total": len(combinado),
+    }
 
 
 def main():

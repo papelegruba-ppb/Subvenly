@@ -152,6 +152,9 @@ class TestCIDO(unittest.TestCase):
         self.assertEqual(actualizado["titulo"], "Ajuts per a la digitalització de negocis locals 2026")
         self.assertEqual(actualizado["visto"], "2026-10-20")
         self.assertEqual(resumen["nuevas"], 1)
+        self.assertEqual(resumen["totalCIDO"], resumen["conservadasCIDO"])
+        self.assertEqual(resumen["totalCatalogo"], len(combinado["items"]))
+        self.assertEqual(resumen["total"], resumen["totalCatalogo"])
 
     def test_bdns_no_consulta_el_endpoint_de_detalle_para_cido(self):
         self.assertTrue(actualizar.es_bdns({"id":"123456"}))
