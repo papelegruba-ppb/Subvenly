@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-24",
- "recibidas": 1266,
- "relevantes": 1044,
+ "fecha": "2026-11-25",
+ "recibidas": 2265,
+ "relevantes": 1776,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-08-27",
- "retroceso_hasta": "2026-09-02",
+ "retroceso_desde": "2026-11-16",
+ "retroceso_hasta": "2026-11-22",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1145730,
+  "id": 1146109,
   "mrr": false,
-  "numeroConvocatoria": "944169",
-  "descripcion": "Resolución del consejero de Agricultura, Pesca y Medio Natural por la cual se aprueba la convocatoria pública de subvencions a centros educativos no universitarios de las Illes Balears para actividades de educación ambiental para el curso escolar 2026-27",
-  "descripcionLeng": "Resolució del conseller d'Agricultura, Pesca i Medi Natural per la qual s'aprova la convocatòria pública de subvencions a centres educatius no universitaris de les Illes Balears per a activitats d'educació ambiental per al curs escolar 2026-27",
+  "numeroConvocatoria": "944548",
+  "descripcion": "Subvención directa a la Fundación Helga de Alvear por Real Decreto 614/2026, de 22 de julio, por el que se regula la concesión directa de subvenciones a entidades relacionadas con el patrimonio cultural y las bellas artes en el año 2026.",
+  "descripcionLeng": null,
   "fechaRecepcion": "2026-11-24",
-  "nivel1": "AUTONOMICA",
-  "nivel2": "ILLES BALEARS",
-  "nivel3": "DIRECCIÓN GENERAL DE MEDIO NATURAL Y GESTIÓN FORESTAL",
+  "nivel1": "ESTADO",
+  "nivel2": "MINISTERIO DE CULTURA",
+  "nivel3": "DIRECCIÓN GENERAL DE PATRIMONIO CULTURAL Y BELLAS ARTES",
   "codigoInvente": null
  }
 }
