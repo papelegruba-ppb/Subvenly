@@ -92,13 +92,39 @@ def iso(f):
             pass
     return ""
 
+def decodificar_json_respuesta(contenido, charset=None):
+    """Decodifica JSON de la BDNS tolerando respuestas con charset incorrecto o ausente.
+
+    JSON se intenta primero como UTF-8 (incluido BOM). Si el servidor entrega
+    bytes incompatibles, se prueba el charset declarado y después Windows-1252
+    y Latin-1, habituales en respuestas heredadas en español.
+    """
+    codificaciones = ["utf-8-sig"]
+    if charset:
+        codificaciones.append(charset)
+    codificaciones.extend(["cp1252", "latin-1"])
+    ultimo_error = None
+    for indice, codificacion in enumerate(dict.fromkeys(codificaciones)):
+        try:
+            texto = contenido.decode(codificacion)
+            resultado = json.loads(texto)
+            if indice:
+                print(f"  aviso: respuesta BDNS decodificada con {codificacion}; charset declarado: {charset or 'no indicado'}")
+            return resultado
+        except (UnicodeDecodeError, LookupError, json.JSONDecodeError) as exc:
+            ultimo_error = exc
+    raise ValueError("La respuesta BDNS no contiene JSON decodificable: {}".format(ultimo_error))
+
+
 def get(url, intentos=3):
     req = urllib.request.Request(url, headers={"User-Agent": "Subvenly/1.0 (+actualizacion nocturna)", "Accept": "application/json"})
     for i in range(intentos):
         try:
             with urllib.request.urlopen(req, timeout=60) as r:
-                return json.load(r)
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
+                cabeceras = getattr(r, "headers", None)
+                charset = cabeceras.get_content_charset() if cabeceras and hasattr(cabeceras, "get_content_charset") else None
+                return decodificar_json_respuesta(r.read(), charset)
+        except (urllib.error.URLError, TimeoutError, ValueError) as e:
             print(f"  intento {i+1}/{intentos} fallido: {e}")
             time.sleep(3 * (i + 1))
     raise RuntimeError("No se pudo consultar la BDNS tras varios intentos")
