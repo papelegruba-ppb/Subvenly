@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-25",
- "recibidas": 2265,
- "relevantes": 1776,
+ "fecha": "2026-11-26",
+ "recibidas": 2485,
+ "relevantes": 1968,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-11-16",
- "retroceso_hasta": "2026-11-22",
+ "retroceso_desde": "2026-11-09",
+ "retroceso_hasta": "2026-11-15",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1146109,
+  "id": 1146435,
   "mrr": false,
-  "numeroConvocatoria": "944548",
-  "descripcion": "Subvención directa a la Fundación Helga de Alvear por Real Decreto 614/2026, de 22 de julio, por el que se regula la concesión directa de subvenciones a entidades relacionadas con el patrimonio cultural y las bellas artes en el año 2026.",
-  "descripcionLeng": null,
-  "fechaRecepcion": "2026-11-24",
-  "nivel1": "ESTADO",
-  "nivel2": "MINISTERIO DE CULTURA",
-  "nivel3": "DIRECCIÓN GENERAL DE PATRIMONIO CULTURAL Y BELLAS ARTES",
+  "numeroConvocatoria": "944874",
+  "descripcion": "Cátedra de la Insularidad",
+  "descripcionLeng": "Càtedra de la Insularitat",
+  "fechaRecepcion": "2026-11-26",
+  "nivel1": "AUTONOMICA",
+  "nivel2": "ILLES BALEARS",
+  "nivel3": "DIRECCIÓN GENERAL DE ECONOMÍA Y ESTADÍSTICA",
   "codigoInvente": null
  }
 }
