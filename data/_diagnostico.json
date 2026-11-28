@@ -1,12 +1,12 @@
 {
- "fecha": "2026-11-27",
- "recibidas": 2335,
- "relevantes": 1867,
+ "fecha": "2026-11-28",
+ "recibidas": 2301,
+ "relevantes": 1885,
  "detalles_pedidos": 100,
  "detalle_funciona": true,
  "estado": "correcta",
- "retroceso_desde": "2026-11-02",
- "retroceso_hasta": "2026-11-08",
+ "retroceso_desde": "2026-10-26",
+ "retroceso_hasta": "2026-11-01",
  "error_retroceso": "",
  "claves_primer_elemento": [
   "codigoInvente",
@@ -21,15 +21,15 @@
   "numeroConvocatoria"
  ],
  "ejemplo": {
-  "id": 1146718,
+  "id": 1146965,
   "mrr": false,
-  "numeroConvocatoria": "945157",
-  "descripcion": "Resolución del conseller de Economía, Hacienda e Innovación para conceder una subvención nominativa para el año 2026 para impulsar soluciones de inteligencia para la transición hacia un sistema turístico",
-  "descripcionLeng": "Resolució del conseller d'Economia, Hisenda i Innovació per concedir una subvenció nominativa per l'any 2026, per impulsar solucions d'intel.ligència p",
+  "numeroConvocatoria": "945404",
+  "descripcion": "CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES DE AYUDA A LA MATERNIDAD 2026 EN EL MUNICIPIO DE MOROS (Zaragoza",
+  "descripcionLeng": null,
   "fechaRecepcion": "2026-11-27",
-  "nivel1": "AUTONOMICA",
-  "nivel2": "ILLES BALEARS",
-  "nivel3": "DIRECCIÓN GENERAL DE ECONOMÍA Y ESTADÍSTICA",
+  "nivel1": "LOCAL",
+  "nivel2": "MOROS",
+  "nivel3": "AYUNTAMIENTO DE MOROS",
   "codigoInvente": null
  }
 }

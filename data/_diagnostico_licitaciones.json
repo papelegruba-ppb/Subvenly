@@ -1,30 +1,14 @@
 {
- "fecha": "2026-11-27",
+ "fecha": "2026-11-28",
  "ficheros": 2,
- "encontradas": 153,
- "guardadas": 2470,
- "fuentes_correctas": [],
- "fuentes_parciales": [
+ "encontradas": 0,
+ "guardadas": 2224,
+ "fuentes_correctas": [
   "perfiles",
   "agregadas"
  ],
+ "fuentes_parciales": [],
  "errores": [],
- "estado": "parcial",
- "ejemplo": {
-  "id": "578/2026",
-  "titulo": "Ejecución de las actuaciones de reforma de la Piscina Municipal de la localidad de Càrcer (Valencia).",
-  "organo": "Alcaldía del Ayuntamiento de Cárcer",
-  "territorio": "Valencia/València",
-  "nuts": "ES523",
-  "tipo": "Obras",
-  "cpv": "45212200",
-  "presupuesto": 99777,
-  "cierre": "2026-12-14",
-  "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=szMrLxh16W7VGIpKDxgsAQ%3D%3D",
-  "visto": "2026-11-27",
-  "actualizada": "2026-11-18",
-  "feed": "perfiles",
-  "estadoEnCaptura": "PUB",
-  "fuente": "contrataciondelestado.es"
- }
+ "estado": "completa",
+ "ejemplo": null
 }
