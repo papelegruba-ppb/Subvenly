@@ -126,6 +126,8 @@ jobs:
       - name: Resumen de actualización y cobertura
         if: always()
         run: |
+          CIDO_DIAG_STATE=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_cido.json"); print(json.loads(p.read_text(encoding="utf-8")).get("estado", "desconocida") if p.exists() else "desconocida")' 2>/dev/null || echo "desconocida")
+          CIDO_LIMITS=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_cido.json"); d=json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}; print(", ".join(d.get("limitesAlcanzados", [])))' 2>/dev/null || true)
           LIC_DIAG_STATE=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_licitaciones.json"); print(json.loads(p.read_text(encoding="utf-8")).get("estado", "desconocida") if p.exists() else "desconocida")' 2>/dev/null || echo "desconocida")
           LIC_PARTIAL=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_licitaciones.json"); d=json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}; print(", ".join(d.get("fuentes_parciales", [])))' 2>/dev/null || true)
           LIC_ERRORS=$(python -c 'import json; from pathlib import Path; p=Path("data/_diagnostico_licitaciones.json"); d=json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}; print(", ".join(e.get("fuente", "desconocida") for e in d.get("errores", [])))' 2>/dev/null || true)
@@ -135,7 +137,7 @@ jobs:
             echo "- Publicación web: **${{ steps.deploy.outcome }}**"
             echo "- BDNS: **${{ steps.buscar.outcome }}**"
             echo "- Unión Europea: **${{ steps.buscar_ue.outcome }}**"
-            echo "- CIDO (convocatorias locales de Cataluña): **${{ steps.buscar_cido.outcome }}**"
+            echo "- CIDO (convocatorias locales de Cataluña): **${{ steps.buscar_cido.outcome }} · cobertura ${CIDO_DIAG_STATE}**"
             echo "- Licitaciones: **${{ steps.buscar_lic.outcome }} · cobertura ${LIC_DIAG_STATE}**"
             echo "- Vigilancia de fuentes: **${{ steps.vigilar_fuentes.outcome }}**"
             echo "- Vigilancia de fichas: **${{ steps.vigilar.outcome }}**"
@@ -143,11 +145,16 @@ jobs:
             if [[ "${{ steps.buscar.outcome }}" != "success" || "${{ steps.buscar_ue.outcome }}" != "success" || "${{ steps.buscar_cido.outcome }}" != "success" || "${{ steps.buscar_lic.outcome }}" != "success" ]]; then
               echo "> **Aviso:** una o más fuentes automáticas no se han actualizado correctamente. La web puede seguir publicada con datos anteriores o parciales. Consulta los diagnósticos data/_diagnostico*.json."
               echo "::warning::Una o más fuentes de Subvenly no se han actualizado correctamente."
-            elif [[ "${LIC_DIAG_STATE}" != "completa" ]]; then
-              echo "> **Aviso de cobertura:** las licitaciones se han actualizado con los registros recibidos, pero su cobertura no es completa o no está confirmada."
-              if [[ -n "${LIC_PARTIAL}" ]]; then echo "> Páginas pendientes: **${LIC_PARTIAL}**."; fi
-              if [[ -n "${LIC_ERRORS}" ]]; then echo "> Fuentes con error: **${LIC_ERRORS}**."; fi
-              echo "::warning::Cobertura de licitaciones parcial o no confirmada."
+            elif [[ "${CIDO_DIAG_STATE}" != "correcta" || "${LIC_DIAG_STATE}" != "completa" ]]; then
+              echo "> **Aviso de cobertura:** una o más fuentes se han actualizado, pero su cobertura no es completa o no está confirmada."
+              if [[ "${CIDO_DIAG_STATE}" != "correcta" ]]; then
+                echo "> CIDO: **${CIDO_DIAG_STATE}**. Umbrales observados: **${CIDO_LIMITS:-sin detalle}**. Consulta data/_diagnostico_cido.json."
+              fi
+              if [[ "${LIC_DIAG_STATE}" != "completa" ]]; then
+                echo "> Licitaciones: **${LIC_DIAG_STATE}**. Páginas pendientes: **${LIC_PARTIAL:-sin detalle}**."
+                if [[ -n "${LIC_ERRORS}" ]]; then echo "> Fuentes con error: **${LIC_ERRORS}**."; fi
+              fi
+              echo "::warning::Cobertura CIDO o de licitaciones parcial o no confirmada."
             else
               echo "Las búsquedas automáticas principales terminaron correctamente. Esto no significa que el catálogo sea exhaustivo ni que cada convocatoria esté verificada individualmente."
             fi

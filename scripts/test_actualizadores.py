@@ -152,6 +152,31 @@ class TestCIDO(unittest.TestCase):
         self.assertEqual(actualizado["titulo"], "Ajuts per a la digitalització de negocis locals 2026")
         self.assertEqual(actualizado["visto"], "2026-10-20")
         self.assertEqual(resumen["nuevas"], 1)
+        self.assertEqual(resumen["totalCIDO"], resumen["conservadasCIDO"])
+        self.assertEqual(resumen["totalCatalogo"], len(combinado["items"]))
+        self.assertEqual(resumen["total"], resumen["totalCatalogo"])
+
+    def test_marca_cobertura_parcial_al_alcanzar_umbral_observado_del_rss_local(self):
+        cobertura = actualizar_cido.evaluar_cobertura(
+            {"subvencions-ens-locals": 1000, "beques": 570}, []
+        )
+        self.assertEqual(cobertura["estado"], "parcial")
+        self.assertEqual(cobertura["limitesAlcanzados"], ["subvencions-ens-locals"])
+
+    def test_no_marca_parcial_por_debajo_del_umbral_o_en_otro_feed(self):
+        por_debajo = actualizar_cido.evaluar_cobertura(
+            {"subvencions-ens-locals": 999, "beques": 570}, []
+        )
+        solo_becas = actualizar_cido.evaluar_cobertura({"beques": 1000}, [])
+        self.assertEqual(por_debajo["estado"], "correcta")
+        self.assertEqual(solo_becas["estado"], "correcta")
+        self.assertEqual(por_debajo["limitesAlcanzados"], [])
+
+    def test_los_errores_de_feed_siguen_marcando_cobertura_parcial(self):
+        cobertura = actualizar_cido.evaluar_cobertura(
+            {"subvencions-ens-locals": 10}, ["beques: timeout"]
+        )
+        self.assertEqual(cobertura["estado"], "parcial")
 
     def test_bdns_no_consulta_el_endpoint_de_detalle_para_cido(self):
         self.assertTrue(actualizar.es_bdns({"id":"123456"}))
