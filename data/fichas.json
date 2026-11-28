@@ -748,7 +748,7 @@
     "plazo": "Consultar requisitos y solicitud oficiales",
     "estadoManual": "Requisitos y condiciones: comprobar en la fuente oficial",
     "importe": "Según la base reguladora y la situación laboral",
-    "resumen": "Prestación estatal vinculada al nacimiento, adopción, guarda con fines de adopción o acogimiento, sujeta a los requisitos de Seguridad Social.",
+    "resumen": "Prestación estatal por nacimiento, adopción, guarda con fines de adopción o acogimiento. Como regla general exige estar en alta o situación asimilada al alta y cumplir la cotización mínima según la edad. IMPORTANTE: si se cobra la prestación contributiva por desempleo, se suspende en el SEPE y se solicita esta prestación al INSS. Si se cobra un subsidio asistencial por desempleo, el SEPE indica que se continúa cobrando el subsidio y no se reconoce esta prestación del INSS.",
     "reqs": {
       "familia": "si",
       "familiaEvento": {
@@ -759,17 +759,30 @@
       }
     },
     "requisitos": [
-      "Las condiciones pueden depender de la situación laboral y de cotización",
-      "Comprobar duración, requisitos y procedimiento vigentes en la Seguridad Social"
+      "Estar afiliado/a y en alta o en situación asimilada al alta al inicio del periodo de descanso, y cumplir los demás requisitos legales.",
+      "Acreditar el periodo mínimo de cotización exigible según la edad. Si se cumplen los demás requisitos pero no la cotización mínima, comprobar si procede el subsidio especial no contributivo por nacimiento y cuidado de menor.",
+      "Si se está cobrando la prestación contributiva por desempleo (el paro contributivo): solicitar primero su suspensión en el SEPE y después solicitar la prestación por nacimiento y cuidado de menor al INSS. Al finalizar, se puede pedir la reanudación del paro dentro del plazo indicado por el SEPE.",
+      "AVISO SOBRE SUBSIDIOS: si se está cobrando un subsidio asistencial por desempleo (por ejemplo, un subsidio del SEPE tras agotar el paro), no se cobra además la prestación del INSS por nacimiento y cuidado de menor; según el SEPE, se continúa percibiendo el subsidio en la misma cuantía y duración y se comunica la situación a la oficina de empleo.",
+      "No confundir el subsidio asistencial por desempleo con otras ayudas públicas: cobrar una ayuda distinta no excluye automáticamente el derecho; hay que revisar sus reglas de compatibilidad y los requisitos de alta/asimilada al alta y cotización."
     ],
     "docs": [
-      "Documentación indicada en el trámite oficial"
+      "Documentación indicada en el trámite oficial del INSS.",
+      "Si se cobra prestación contributiva por desempleo: justificante/documento del SEPE acreditando su suspensión para solicitar la prestación al INSS.",
+      "Si se cobra un subsidio asistencial: comunicar la situación al servicio público de empleo y seguir sus instrucciones."
     ],
-    "eval": "La ficha no determina el derecho individual; la Seguridad Social evalúa los requisitos aplicables.",
+    "eval": "La prestación contributiva por desempleo y el subsidio asistencial tienen un tratamiento diferente. El paro contributivo se suspende y puede dar paso a la prestación del INSS si se cumplen los requisitos. Si se percibe un subsidio asistencial por desempleo, el SEPE indica que se mantiene ese subsidio y no se reconoce la prestación del INSS por nacimiento y cuidado de menor. Esto no significa que cualquier ayuda pública sea incompatible. La Seguridad Social debe valorar cada supuesto y, cuando proceda, el subsidio especial no contributivo.",
     "links": [
       [
-        "Prestación oficial por nacimiento y cuidado de menor",
+        "Prestación oficial por nacimiento y cuidado de menor · Seguridad Social",
         "https://prestaciones.seg-social.es/servicio/prestacion-nacimiento-adopcion-cuidado-menor.html"
+      ],
+      [
+        "SEPE · Nacimiento y cuidado de menor mientras se cobra prestación o subsidio por desempleo",
+        "https://www.sepe.es/HomeSepe/prestaciones-desempleo/cobrando-prestacion-subsidio-desempleo/estoy-en-situacion-de-maternidad-paternidad.html"
+      ],
+      [
+        "Seguridad Social · Requisitos y subsidio especial no contributivo",
+        "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/6b96a085-4dc0-47af-b2cb-97e00716791e"
       ]
     ],
     "categoria": "Familia y nacimiento"
