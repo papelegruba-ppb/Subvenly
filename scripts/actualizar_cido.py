@@ -28,6 +28,8 @@ FEEDS = [
 ]
 RETENCION_DIAS = 90
 NUEVA_DIAS = 7
+# Umbral observado: alcanzar 1.000 entradas no demuestra que el RSS esté agotado.
+UMBRAL_RSS_LOCAL = 1000
 USER_AGENT = "Subvenly/1.0 (+https://papelegruba-ppb.github.io/Subvenly/; ayuda pública y reutilización de datos)"
 
 
@@ -263,7 +265,35 @@ def combinar(datos, nuevos, hoy=None):
     combinado.sort(key=lambda x: (str(x.get("fecha") or ""), str(x.get("id") or "")), reverse=True)
     salida = dict(datos)
     salida["items"] = combinado
-    return salida, {"recibidas": len(nuevos), "nuevas": altas, "conservadasCIDO": len(cido), "total": len(combinado)}
+    # "total" se conserva por compatibilidad; los campos explícitos evitan
+    # confundir el catálogo completo con el subconjunto de registros CIDO.
+    return salida, {
+        "recibidas": len(nuevos),
+        "nuevas": altas,
+        "conservadasCIDO": len(cido),
+        "totalCIDO": len(cido),
+        "totalCatalogo": len(combinado),
+        "total": len(combinado),
+    }
+
+
+
+
+def evaluar_cobertura(por_fuente, errores):
+    """Señala cobertura no demostrada al alcanzar 1.000 entradas en el RSS local.
+
+    No afirma que CIDO tenga exactamente ese límite: sin paginación ni un total
+    publicado por el feed, no se puede certificar que el resultado sea exhaustivo.
+    """
+    try:
+        local = int(por_fuente.get("subvencions-ens-locals", 0))
+    except (TypeError, ValueError):
+        local = 0
+    limites = ["subvencions-ens-locals"] if local >= UMBRAL_RSS_LOCAL else []
+    return {
+        "estado": "parcial" if errores or limites else "correcta",
+        "limitesAlcanzados": limites,
+    }
 
 
 def main():
@@ -299,13 +329,23 @@ def main():
     diagnostico.update(resumen)
     diagnostico["porFuente"] = por_fuente
     diagnostico["errores"] = errores
-    diagnostico["estado"] = "parcial" if errores else "correcta"
+    cobertura = evaluar_cobertura(por_fuente, errores)
+    diagnostico["estado"] = cobertura["estado"]
+    diagnostico["limitesAlcanzados"] = cobertura["limitesAlcanzados"]
+    diagnostico["motivosCobertura"] = (
+        ["El RSS local devuelve al menos 1.000 registros y el importador no pagina; no se puede confirmar que no haya más."]
+        if cobertura["limitesAlcanzados"] else []
+    )
     diagnostico["muestra"] = [{"id": x["id"], "titulo": x["titulo"], "link": x["link"], "fuenteUrl": x["fuenteUrl"]} for x in nuevos[:5]]
     escribir_json("_diagnostico_cido.json", diagnostico)
     print("CIDO RSS: {} recibidas, {} nuevas, {} conservadas.".format(resumen["recibidas"], resumen["nuevas"], resumen["conservadasCIDO"]))
     if errores:
         print("Aviso CIDO: algunas fuentes fallaron: " + "; ".join(errores), file=sys.stderr)
         return 2
+    if cobertura["limitesAlcanzados"]:
+        print("Aviso de cobertura CIDO: se alcanzó el umbral observado de 1.000 entradas en "
+              + ", ".join(cobertura["limitesAlcanzados"])
+              + "; no se puede certificar que el RSS esté agotado.", file=sys.stderr)
     return 0
 
 if __name__ == "__main__":
