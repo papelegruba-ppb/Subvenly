@@ -193,6 +193,33 @@ class TestConvocatoriasUE(unittest.TestCase):
             finally:
                 actualizar_ue.ERRORES_CONSULTA = anterior
 
+    def test_diagnostico_parcial_si_termino_alcanza_limite_paginacion(self):
+        hoy = dt.date.today()
+        respuesta = {"results": [{
+            "metadata": {
+                "identifier": [f"HORIZON-TEST-{i}"],
+                "title": [f"Convocatoria europea de prueba {i}"],
+                "startDate": [(hoy + dt.timedelta(days=1)).isoformat() + "T00:00:00.000+0000"],
+                "deadlineDate": [(hoy + dt.timedelta(days=30)).isoformat() + "T00:00:00.000+0000"],
+                "status": ["31094502"],
+            }
+        } for i in range(50)]}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp) / "novedades.json").write_text(
+                json.dumps({"estadoActualizacion": "correcta", "items": []}),
+                encoding="utf-8",
+            )
+            with patch.object(actualizar, "DATA", tmp), patch.object(actualizar_ue, "BUSQUEDAS", ["SME"]), patch.object(actualizar_ue, "PAGINAS", 1), patch.object(actualizar_ue, "consultar", return_value=respuesta), patch.object(actualizar_ue.time, "sleep"):
+                self.assertEqual(actualizar_ue.main(), 0)
+
+            diagnostico = json.loads((Path(tmp) / "_diagnostico_ue.json").read_text(encoding="utf-8"))
+            salida = json.loads((Path(tmp) / "novedades.json").read_text(encoding="utf-8"))
+            self.assertEqual(diagnostico["estado"], "parcial")
+            self.assertEqual(diagnostico["paginas_consultadas"], 1)
+            self.assertEqual(diagnostico["terminos_al_limite"], ["SME"])
+            self.assertEqual(salida["estadoActualizacion"], "parcial")
+
     def test_separa_fecha_detectada_apertura_y_estado(self):
         raw = {
             "metadata": {
@@ -428,6 +455,10 @@ class TestRetencionNovedades(unittest.TestCase):
             self.assertEqual(len(salida["items"]), 4221)
             self.assertTrue(ids_cido.issubset(ids_guardados))
             self.assertIn("UE-HORIZON-TEST-NEW", ids_guardados)
+            diagnostico = json.loads((Path(tmp) / "_diagnostico_ue.json").read_text(encoding="utf-8"))
+            self.assertEqual(diagnostico["estado"], "correcta")
+            self.assertEqual(diagnostico["paginas_consultadas"], 1)
+            self.assertEqual(diagnostico["terminos_al_limite"], [])
 
 
 if __name__ == "__main__":
